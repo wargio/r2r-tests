@@ -1,1 +1,25 @@
-{"type":"cmd","tests":[{"name":"no flags","file":"-","args":"","commands":["f patata","f-*","f~?","",""],"expected":"0\n\n","broken":false},{"name":"no flags","file":"bins/elf/analysis/elf-relro","args":"","commands":["f patata","fs *","f-*","f~?","",""],"expected":"0\n\n","broken":false},{"name":"fr foo bar","file":"-","args":"","commands":["f foo","fr foo bar","f","pd 1","",""],"expected":"0x00000000 1 bar\n            ;-- bar:\n            0x00000000      0000           add byte [rax], al\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "no flags",
+        "file": "-",
+        "args": "",
+        "commands": ["f patata", "f-*", "f~?", "", ""],
+        "expected": "0\n\n",
+        "broken": false
+    }, {
+        "name": "no flags",
+        "file": "bins/elf/analysis/elf-relro",
+        "args": "",
+        "commands": ["f patata", "fs *", "f-*", "f~?", "", ""],
+        "expected": "0\n\n",
+        "broken": false
+    }, {
+        "name": "fr foo bar",
+        "file": "-",
+        "args": "",
+        "commands": ["f foo", "fr foo bar", "f", "pd 1", "", ""],
+        "expected": "0x00000000 1 bar\n            ;-- bar:\n            0x00000000      0000           add byte [rax], al\n\n",
+        "broken": false
+    }]
+}

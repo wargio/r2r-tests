@@ -1,1 +1,11 @@
-{"type":"cmd","tests":[{"name":"env FOO","file":"-","args":"","commands":["env FOO=BAR","env FOO","",""],"expected":"BAR\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "env FOO",
+        "file": "-",
+        "args": "",
+        "commands": ["env FOO=BAR", "env FOO", "", ""],
+        "expected": "BAR\n\n",
+        "broken": false
+    }]
+}

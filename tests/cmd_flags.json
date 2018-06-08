@@ -1,1 +1,277 @@
-{"type":"cmd","tests":[{"name":"f?flag","file":"-","args":"","commands":["f foo=123","f?foo;?? ?e hello","f?bar;?? ?e world","",""],"expected":"hello\n\n","broken":false},{"name":"fs-fd-flags-visibility","file":"-","args":"","commands":["fs jeje","f hidden","fs jojo","f visible","fd","f","",""],"expected":"visible\n0x00000000 1 visible\n\n","broken":false},{"name":"f command with space","file":"-","args":"","commands":["f  foobar=0x1000","f","",""],"expected":"0x00001000 1 foobar\n\n","broken":false},{"name":"no flags","file":"-","args":"","commands":["f","",""],"expected":"\n","broken":false},{"name":"no flags*","file":"-","args":"","commands":["f*","",""],"expected":"\n","broken":false},{"name":"fs *","file":"bins/elf/analysis/main","args":"","commands":["fs *","fs~?^*","",""],"expected":"0\n\n","broken":false},{"name":"fs *","file":"bins/elf/analysis/main","args":"","commands":["fs *","fs~?*","",""],"expected":"5\n\n","broken":false},{"name":"fs *","file":"malloc://1024","args":"","commands":["fs-*","fs flagspace_1","f flag_in_fs1","fs flagspace_2","f flag_in_fs2","fs *","f","",""],"expected":"0x00000000 1 flag_in_fs1\n0x00000000 1 flag_in_fs2\n\n","broken":false},{"name":"fs test_flagspace","file":"bins/elf/analysis/main","args":"","commands":["fs test_flagspace","fs~?test_flagspace","",""],"expected":"1\n\n","broken":false},{"name":"fs-test_flagspace","file":"bins/elf/analysis/main","args":"","commands":["fs test_flagspace","fs-test_flagspace","fs~?test_flagspace","",""],"expected":"0\n\n","broken":false},{"name":"fs-test_flagspace","file":"bins/elf/analysis/main","args":"","commands":["fs-*","fs~?0","",""],"expected":"0\n\n","broken":false},{"name":"fs-.","file":"malloc://1024","args":"","commands":["fs test_flagspace","fs test_bloh","fs test_blah","fs-.","fs~?test_blah","",""],"expected":"0\n\n","broken":false},{"name":"fsm","file":"bins/elf/analysis/main","args":"","commands":["fs-*","fs test","fsm str.Hello_World test","fs","",""],"expected":"0    1 * test\n\n","broken":false},{"name":"fsr","file":"bins/elf/analysis/main","args":"","commands":["fs-*","fs test","fs test","fsr test2","fs","",""],"expected":"0    0 * test2\n\n","broken":false},{"name":"fSn","file":"malloc://1024","args":"","commands":["f c @ 0x00000000","f b @ 0x00000000","f a @ 0x00000000","fSn","f","",""],"expected":"0x00000000 1 a\n0x00000000 1 b\n0x00000000 1 c\n\n","broken":false},{"name":"fSo","file":"malloc://1024","args":"","commands":["f a @ 0x00000002","f b @ 0x00000001","f c @ 0x00000000","fSo","f","",""],"expected":"0x00000000 1 c\n0x00000001 1 b\n0x00000002 1 a\n\n","broken":false},{"name":"fr","file":"malloc://1024","args":"","commands":["f blah","fr blah bloh","f","",""],"expected":"0x00000000 1 bloh\n\n","broken":false},{"name":"fm","file":"malloc://1024","args":"","commands":["f blah","fm 0x10","f","",""],"expected":"0x00000010 1 blah\n\n","broken":false},{"name":"fl","file":"malloc://1024","args":"","commands":["f blah 0x0000000a","fl blah 0x00000003","fl","f-blah","f test 12 @ 33","f","fl test 333","f","",""],"expected":"0x00000003\n0x00000021 12 test\n0x00000021 333 test\n\n","broken":false},{"name":"fj","file":"malloc://1024","args":"","commands":["f blah 0x0000000a @ 0x0000000b","f bloh 0x00000003 @ 0x00000002","fj","",""],"expected":"[{\"name\":\"blah\",\"size\":10,\"offset\":11},{\"name\":\"bloh\",\"size\":3,\"offset\":2}]\n\n","broken":false},{"name":"fe","file":"malloc://1024","args":"","commands":["fe a","fe a","fe a","fe-","fe b","fe b","fe b","f","",""],"expected":"0x00000000 1 a.0\n0x00000000 1 a.1\n0x00000000 1 a.2\n0x00000000 1 b.0\n0x00000000 1 b.1\n0x00000000 1 b.2\n\n","broken":false},{"name":"fd","file":"malloc://1024","args":"","commands":["fe a","fd 0x100","",""],"expected":"a.0 + 256\n\n","broken":false},{"name":"fd. with flags","file":"malloc://1024","args":"","commands":["wx 9090909090909090\r","f flag1 @ 0x5\r","f flag2 @ 0x5\r","f flag3 @ 0x5\r","fd. 0x5\r",""],"expected":"flag1\nflag2\nflag3\n","broken":false},{"name":"fC","file":"malloc://1024","args":"","commands":["f a","fC a blabla","pd~?blabla","",""],"expected":"1\n\n","broken":false},{"name":"fb","file":"malloc://1024","args":"","commands":["fb 0x100","f a","f","",""],"expected":"0x00000100 1 a\n\n","broken":false},{"name":"fb2","file":"malloc://1024","args":"","commands":["fe a","fe a","fe a","fb 0x100 a.*","f","",""],"expected":"0x00000100 1 a.0\n0x00000100 1 a.1\n0x00000100 1 a.2\n\n","broken":false},{"name":"f--","file":"malloc://1024","args":"","commands":["f a","f--","f","",""],"expected":"\n","broken":false},{"name":"f.","file":"bins/elf/analysis/main","args":"","commands":["aaa","f.blah","f.","f.-blah@entry0","f.","",""],"expected":"0x00400410 blah   [entry0 + 0]\n\n","broken":false},{"name":"f. display","file":"bins/elf/analysis/main","args":"","commands":["aaa","e asm.arch=x86","e asm.bits=32","s entry0","e asm.reflines=false","e asm.offset=false","e asm.functions=false","e asm.comments=false","f--","f.blah","pd 1","",""],"expected":"           .blah:\n               31ed           xor ebp, ebp\n\n","broken":false},{"name":"Set/get","file":"-","args":"","commands":["","f cat","f rimmer 12","f lister 32@666","f kryten 32 666","f+skutter 1 @ 12","f","",""],"expected":"0x00000000 1 cat\n0x00000000 12 rimmer\n0x0000029a 32 lister\n0x0000029a 32 kryten\n0x0000000c 1 skutter\n\n","broken":false},{"name":"flags (JSON)","file":"-","args":"","commands":["","# Add flags.","f cat","f rimmer 12","f lister 32@666","f kryten 32 666","f+skutter 1 @ 12","fj","",""],"expected":"[{\"name\":\"cat\",\"size\":1,\"offset\":0},{\"name\":\"rimmer\",\"size\":12,\"offset\":0},{\"name\":\"lister\",\"size\":32,\"offset\":666},{\"name\":\"kryten\",\"size\":32,\"offset\":666},{\"name\":\"skutter\",\"size\":1,\"offset\":12}]\n","broken":false},{"name":"flag alias","file":"-","args":"","commands":["","fa foo=bar+3","f bar=3","?v foo","",""],"expected":"0x6\n\n","broken":false},{"name":"flag alias 2","file":"-","args":"","commands":["","fa foo bar+3","f bar=3","?v foo","",""],"expected":"0x6\n\n","broken":false},{"name":"flag alias infinite check","file":"-","args":"","commands":["","fa foo=foo+3","?v foo","",""],"expected":"0x3\n\n","broken":false},{"name":"flag prefix dump","file":"-","args":"","commands":["","f jiji=1","f jojo=2","f base=100",".f*base","?vi jiji","?vi jojo","",""],"expected":"101\n102\n\n","broken":false},{"name":"rename flags from bin","file":"bins/elf/analysis/main","args":"","commands":["f~sym.__libc_csu_init","fr sym.__libc_csu_init newname","f~sym.__libc_csu_init","f~newname","",""],"expected":"0x00400520 137 sym.__libc_csu_init\n0x00400520 137 newname\n\n","broken":false},{"name":"f+","file":"-","args":"","commands":["f+foo=10","f+bar=20","f+cow=10","f+low=20","f~?","",""],"expected":"2\n\n","broken":false},{"name":"dup flags with filter","file":"bins/elf/ifunc_rel64","args":"","commands":["f~obj._IO_helper_jumps","",""],"expected":"0x0049ad40 168 obj._IO_helper_jumps\n0x0049b680 168 obj._IO_helper_jumps_1\n\n","broken":false},{"name":"flag renaming and reusing the old name for something new","file":"malloc://1024","args":"","commands":["f blah = 0x100","fr blah bloh","f blah = 0x200","f","",""],"expected":"0x00000100 0 bloh\n0x00000200 0 blah\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "f?flag",
+        "file": "-",
+        "args": "",
+        "commands": ["f foo=123", "f?foo;?? ?e hello", "f?bar;?? ?e world", "", ""],
+        "expected": "hello\n\n",
+        "broken": false
+    }, {
+        "name": "fs-fd-flags-visibility",
+        "file": "-",
+        "args": "",
+        "commands": ["fs jeje", "f hidden", "fs jojo", "f visible", "fd", "f", "", ""],
+        "expected": "visible\n0x00000000 1 visible\n\n",
+        "broken": false
+    }, {
+        "name": "f command with space",
+        "file": "-",
+        "args": "",
+        "commands": ["f  foobar=0x1000", "f", "", ""],
+        "expected": "0x00001000 1 foobar\n\n",
+        "broken": false
+    }, {
+        "name": "no flags",
+        "file": "-",
+        "args": "",
+        "commands": ["f", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "no flags*",
+        "file": "-",
+        "args": "",
+        "commands": ["f*", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "fs *",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["fs *", "fs~?^*", "", ""],
+        "expected": "0\n\n",
+        "broken": false
+    }, {
+        "name": "fs *",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["fs *", "fs~?*", "", ""],
+        "expected": "5\n\n",
+        "broken": false
+    }, {
+        "name": "fs *",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["fs-*", "fs flagspace_1", "f flag_in_fs1", "fs flagspace_2", "f flag_in_fs2", "fs *", "f", "", ""],
+        "expected": "0x00000000 1 flag_in_fs1\n0x00000000 1 flag_in_fs2\n\n",
+        "broken": false
+    }, {
+        "name": "fs test_flagspace",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["fs test_flagspace", "fs~?test_flagspace", "", ""],
+        "expected": "1\n\n",
+        "broken": false
+    }, {
+        "name": "fs-test_flagspace",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["fs test_flagspace", "fs-test_flagspace", "fs~?test_flagspace", "", ""],
+        "expected": "0\n\n",
+        "broken": false
+    }, {
+        "name": "fs-test_flagspace",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["fs-*", "fs~?0", "", ""],
+        "expected": "0\n\n",
+        "broken": false
+    }, {
+        "name": "fs-.",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["fs test_flagspace", "fs test_bloh", "fs test_blah", "fs-.", "fs~?test_blah", "", ""],
+        "expected": "0\n\n",
+        "broken": false
+    }, {
+        "name": "fsm",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["fs-*", "fs test", "fsm str.Hello_World test", "fs", "", ""],
+        "expected": "0    1 * test\n\n",
+        "broken": false
+    }, {
+        "name": "fsr",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["fs-*", "fs test", "fs test", "fsr test2", "fs", "", ""],
+        "expected": "0    0 * test2\n\n",
+        "broken": false
+    }, {
+        "name": "fSn",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f c @ 0x00000000", "f b @ 0x00000000", "f a @ 0x00000000", "fSn", "f", "", ""],
+        "expected": "0x00000000 1 a\n0x00000000 1 b\n0x00000000 1 c\n\n",
+        "broken": false
+    }, {
+        "name": "fSo",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f a @ 0x00000002", "f b @ 0x00000001", "f c @ 0x00000000", "fSo", "f", "", ""],
+        "expected": "0x00000000 1 c\n0x00000001 1 b\n0x00000002 1 a\n\n",
+        "broken": false
+    }, {
+        "name": "fr",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f blah", "fr blah bloh", "f", "", ""],
+        "expected": "0x00000000 1 bloh\n\n",
+        "broken": false
+    }, {
+        "name": "fm",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f blah", "fm 0x10", "f", "", ""],
+        "expected": "0x00000010 1 blah\n\n",
+        "broken": false
+    }, {
+        "name": "fl",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f blah 0x0000000a", "fl blah 0x00000003", "fl", "f-blah", "f test 12 @ 33", "f", "fl test 333", "f", "", ""],
+        "expected": "0x00000003\n0x00000021 12 test\n0x00000021 333 test\n\n",
+        "broken": false
+    }, {
+        "name": "fj",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f blah 0x0000000a @ 0x0000000b", "f bloh 0x00000003 @ 0x00000002", "fj", "", ""],
+        "expected": "[{\"name\":\"blah\",\"size\":10,\"offset\":11},{\"name\":\"bloh\",\"size\":3,\"offset\":2}]\n\n",
+        "broken": false
+    }, {
+        "name": "fe",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["fe a", "fe a", "fe a", "fe-", "fe b", "fe b", "fe b", "f", "", ""],
+        "expected": "0x00000000 1 a.0\n0x00000000 1 a.1\n0x00000000 1 a.2\n0x00000000 1 b.0\n0x00000000 1 b.1\n0x00000000 1 b.2\n\n",
+        "broken": false
+    }, {
+        "name": "fd",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["fe a", "fd 0x100", "", ""],
+        "expected": "a.0 + 256\n\n",
+        "broken": false
+    }, {
+        "name": "fd. with flags",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["wx 9090909090909090", "f flag1 @ 0x5", "f flag2 @ 0x5", "f flag3 @ 0x5", "fd. 0x5", ""],
+        "expected": "flag1\nflag2\nflag3\n",
+        "broken": false
+    }, {
+        "name": "fC",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f a", "fC a blabla", "pd~?blabla", "", ""],
+        "expected": "1\n\n",
+        "broken": false
+    }, {
+        "name": "fb",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["fb 0x100", "f a", "f", "", ""],
+        "expected": "0x00000100 1 a\n\n",
+        "broken": false
+    }, {
+        "name": "fb2",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["fe a", "fe a", "fe a", "fb 0x100 a.*", "f", "", ""],
+        "expected": "0x00000100 1 a.0\n0x00000100 1 a.1\n0x00000100 1 a.2\n\n",
+        "broken": false
+    }, {
+        "name": "f--",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f a", "f--", "f", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "f.",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["aaa", "f.blah", "f.", "f.-blah@entry0", "f.", "", ""],
+        "expected": "0x00400410 blah   [entry0 + 0]\n\n",
+        "broken": false
+    }, {
+        "name": "f. display",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["aaa", "e asm.arch=x86", "e asm.bits=32", "s entry0", "e asm.reflines=false", "e asm.offset=false", "e asm.functions=false", "e asm.comments=false", "f--", "f.blah", "pd 1", "", ""],
+        "expected": "           .blah:\n               31ed           xor ebp, ebp\n\n",
+        "broken": false
+    }, {
+        "name": "Set/get",
+        "file": "-",
+        "args": "",
+        "commands": ["", "f cat", "f rimmer 12", "f lister 32@666", "f kryten 32 666", "f+skutter 1 @ 12", "f", "", ""],
+        "expected": "0x00000000 1 cat\n0x00000000 12 rimmer\n0x0000029a 32 lister\n0x0000029a 32 kryten\n0x0000000c 1 skutter\n\n",
+        "broken": false
+    }, {
+        "name": "flags (JSON)",
+        "file": "-",
+        "args": "",
+        "commands": ["", "# Add flags.", "f cat", "f rimmer 12", "f lister 32@666", "f kryten 32 666", "f+skutter 1 @ 12", "fj", "", ""],
+        "expected": "[{\"name\":\"cat\",\"size\":1,\"offset\":0},{\"name\":\"rimmer\",\"size\":12,\"offset\":0},{\"name\":\"lister\",\"size\":32,\"offset\":666},{\"name\":\"kryten\",\"size\":32,\"offset\":666},{\"name\":\"skutter\",\"size\":1,\"offset\":12}]\n",
+        "broken": false
+    }, {
+        "name": "flag alias",
+        "file": "-",
+        "args": "",
+        "commands": ["", "fa foo=bar+3", "f bar=3", "?v foo", "", ""],
+        "expected": "0x6\n\n",
+        "broken": false
+    }, {
+        "name": "flag alias 2",
+        "file": "-",
+        "args": "",
+        "commands": ["", "fa foo bar+3", "f bar=3", "?v foo", "", ""],
+        "expected": "0x6\n\n",
+        "broken": false
+    }, {
+        "name": "flag alias infinite check",
+        "file": "-",
+        "args": "",
+        "commands": ["", "fa foo=foo+3", "?v foo", "", ""],
+        "expected": "0x3\n\n",
+        "broken": false
+    }, {
+        "name": "flag prefix dump",
+        "file": "-",
+        "args": "",
+        "commands": ["", "f jiji=1", "f jojo=2", "f base=100", ".f*base", "?vi jiji", "?vi jojo", "", ""],
+        "expected": "101\n102\n\n",
+        "broken": false
+    }, {
+        "name": "rename flags from bin",
+        "file": "bins/elf/analysis/main",
+        "args": "",
+        "commands": ["f~sym.__libc_csu_init", "fr sym.__libc_csu_init newname", "f~sym.__libc_csu_init", "f~newname", "", ""],
+        "expected": "0x00400520 137 sym.__libc_csu_init\n0x00400520 137 newname\n\n",
+        "broken": false
+    }, {
+        "name": "f+",
+        "file": "-",
+        "args": "",
+        "commands": ["f+foo=10", "f+bar=20", "f+cow=10", "f+low=20", "f~?", "", ""],
+        "expected": "2\n\n",
+        "broken": false
+    }, {
+        "name": "dup flags with filter",
+        "file": "bins/elf/ifunc_rel64",
+        "args": "",
+        "commands": ["f~obj._IO_helper_jumps", "", ""],
+        "expected": "0x0049ad40 168 obj._IO_helper_jumps\n0x0049b680 168 obj._IO_helper_jumps_1\n\n",
+        "broken": false
+    }, {
+        "name": "flag renaming and reusing the old name for something new",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["f blah = 0x100", "fr blah bloh", "f blah = 0x200", "f", "", ""],
+        "expected": "0x00000100 0 bloh\n0x00000200 0 blah\n\n",
+        "broken": false
+    }]
+}

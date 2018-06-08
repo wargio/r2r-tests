@@ -1,1 +1,508 @@
-{"type":"cmd","tests":[{"name":"p= 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["p= 0","",""],"expected":"\n","broken":false},{"name":"p=b 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["p=b 0","",""],"expected":"\n","broken":false},{"name":"p=d 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["p=d 0","",""],"expected":"\n","broken":false},{"name":"p=e 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["p=e 0","",""],"expected":"\n","broken":false},{"name":"p=p 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["p=p 0","",""],"expected":"\n","broken":false},{"name":"p2 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["p2 0","",""],"expected":"\n","broken":false},{"name":"p3 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["p3 0","",""],"expected":"\n\n","broken":false},{"name":"p8 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["p8 0","",""],"expected":"\n","broken":false},{"name":"pb 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pb 0","",""],"expected":"\n","broken":false},{"name":"pB 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pB 0","",""],"expected":"\n","broken":false},{"name":"px 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["px 0","",""],"expected":"\n","broken":false},{"name":"px/ 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["px/ 0","",""],"expected":"\n","broken":false},{"name":"pxa 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxa 0","",""],"expected":"\n","broken":false},{"name":"pxA 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxA 0","",""],"expected":"\n","broken":false},{"name":"pxb 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxb 0","",""],"expected":"\n","broken":false},{"name":"pxd1 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxd1 0","",""],"expected":"\n","broken":false},{"name":"pxd2 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxd2 0","",""],"expected":"\n","broken":false},{"name":"pxd4 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxd4 0","",""],"expected":"\n","broken":false},{"name":"pxe 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxe 0","",""],"expected":"\n","broken":false},{"name":"pxh 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxh 0","",""],"expected":"\n","broken":false},{"name":"pxH 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxH 0","",""],"expected":"\n","broken":false},{"name":"pxl 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxl 0","",""],"expected":"\n","broken":false},{"name":"pxo 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxo 0","",""],"expected":"\n","broken":false},{"name":"pxq 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxq 0","",""],"expected":"\n","broken":false},{"name":"pxQ 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxQ 0","",""],"expected":"\n","broken":false},{"name":"pxr 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxr 0","",""],"expected":"\n","broken":false},{"name":"pxs 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxs 0","",""],"expected":"\n","broken":false},{"name":"pxw 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxw 0","",""],"expected":"\n","broken":false},{"name":"pxW 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pxW 0","",""],"expected":"\n","broken":false},{"name":"pc 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pc 0","",""],"expected":"\n","broken":false},{"name":"pc* 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pc* 0","",""],"expected":"\n","broken":false},{"name":"pcw 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pcw 0","",""],"expected":"\n","broken":false},{"name":"pcd 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pcd 0","",""],"expected":"\n","broken":false},{"name":"pca 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pca 0","",""],"expected":"\n","broken":false},{"name":"pcs 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pcs 0","",""],"expected":"\n","broken":false},{"name":"pcS 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pcS 0","",""],"expected":"\n","broken":false},{"name":"pcJ 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pcJ 0","",""],"expected":"\n","broken":false},{"name":"pcp 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pcp 0","",""],"expected":"\n","broken":false},{"name":"pd 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pd 0","",""],"expected":"\n","broken":false},{"name":"pD 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pD 0","",""],"expected":"\n","broken":false},{"name":"pda 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pda 0","",""],"expected":"\n","broken":false},{"name":"pdc 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["aa","pdc 0","",""],"expected":"\n","broken":false},{"name":"pdc 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["aa","pdc 0","",""],"expected":"\n","broken":false},{"name":"pdj 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pdj 0","",""],"expected":"\n","broken":false},{"name":"pdr 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["aa","pdr 0","",""],"expected":"\n","broken":false},{"name":"pdf 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["aa","pdf 0","",""],"expected":"\n","broken":false},{"name":"pdi 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pdi 0","",""],"expected":"\n","broken":false},{"name":"pdl 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pdl 0","",""],"expected":"\n","broken":false},{"name":"pds 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pds 0","",""],"expected":"\n","broken":false},{"name":"pdt 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pdt 0","",""],"expected":"\n","broken":false},{"name":"pi 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pi 0","",""],"expected":"\n","broken":false},{"name":"pid 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pid 0","",""],"expected":"\n","broken":false},{"name":"pie 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pie 0","",""],"expected":"\n","broken":false},{"name":"pI 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pI 0","",""],"expected":"\n","broken":false},{"name":"pId 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pId 0","",""],"expected":"\n","broken":false},{"name":"pr 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pr 0","",""],"expected":"\n","broken":false},{"name":"prx 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["prx 0","",""],"expected":"\n","broken":false},{"name":"prl 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["prl 0","",""],"expected":"\n","broken":false},{"name":"prg 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["prg 0","",""],"expected":"\n","broken":false},{"name":"pk 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pk 0","",""],"expected":"\n","broken":false},{"name":"pK 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pK 0","",""],"expected":"\n","broken":false},{"name":"ps 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["ps 0","",""],"expected":"\n\n","broken":false},{"name":"psi 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["psi 0","",""],"expected":"\n","broken":false},{"name":"psb 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["psb 0","",""],"expected":"\n","broken":false},{"name":"psx 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["psx 0","",""],"expected":"\n","broken":false},{"name":"psz 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["psz 0","",""],"expected":"\n","broken":false},{"name":"psp 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["psp 0","",""],"expected":"\n","broken":false},{"name":"psu 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["psu 0","",""],"expected":"\n","broken":false},{"name":"psw 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["psw 0","",""],"expected":"\n","broken":false},{"name":"pu 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pu 0","",""],"expected":"\n","broken":false},{"name":"puw 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["puw 0","",""],"expected":"\n","broken":false},{"name":"pz 0","file":"bins/elf/analysis/hello-arm32","args":"","commands":["pz 0","",""],"expected":"\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "p= 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["p= 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "p=b 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["p=b 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "p=d 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["p=d 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "p=e 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["p=e 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "p=p 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["p=p 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "p2 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["p2 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "p3 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["p3 0", "", ""],
+        "expected": "\n\n",
+        "broken": false
+    }, {
+        "name": "p8 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["p8 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pb 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pb 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pB 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pB 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "px 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["px 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "px/ 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["px/ 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxa 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxa 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxA 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxA 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxb 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxb 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxd1 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxd1 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxd2 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxd2 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxd4 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxd4 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxe 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxe 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxh 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxh 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxH 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxH 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxl 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxl 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxo 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxo 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxq 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxq 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxQ 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxQ 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxr 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxr 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxs 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxs 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxw 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxw 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pxW 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pxW 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pc 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pc 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pc* 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pc* 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pcw 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pcw 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pcd 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pcd 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pca 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pca 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pcs 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pcs 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pcS 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pcS 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pcJ 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pcJ 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pcp 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pcp 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pd 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pd 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pD 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pD 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pda 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pda 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pdc 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["aa", "pdc 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pdc 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["aa", "pdc 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pdj 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pdj 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pdr 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["aa", "pdr 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pdf 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["aa", "pdf 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pdi 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pdi 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pdl 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pdl 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pds 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pds 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pdt 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pdt 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pi 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pi 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pid 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pid 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pie 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pie 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pI 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pI 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pId 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pId 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pr 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pr 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "prx 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["prx 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "prl 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["prl 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "prg 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["prg 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pk 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pk 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pK 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pK 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "ps 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["ps 0", "", ""],
+        "expected": "\n\n",
+        "broken": false
+    }, {
+        "name": "psi 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["psi 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "psb 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["psb 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "psx 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["psx 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "psz 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["psz 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "psp 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["psp 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "psu 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["psu 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "psw 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["psw 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pu 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pu 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "puw 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["puw 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "pz 0",
+        "file": "bins/elf/analysis/hello-arm32",
+        "args": "",
+        "commands": ["pz 0", "", ""],
+        "expected": "\n",
+        "broken": false
+    }]
+}

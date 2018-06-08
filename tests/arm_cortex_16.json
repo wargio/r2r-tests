@@ -1,1 +1,11 @@
-{"type":"asm","tests":[{"name":"arm_cortex_16: d \"mrs r0, primask\" eff31080","file":"-","args":"-a arm -e asm.cpu=cortex -b 16","commands":["pad eff31080"],"expected":"mrs r0, primask\n","broken":false}]}
+{
+    "type": "asm",
+    "tests": [{
+        "name": "arm_cortex_16: d \"mrs r0, primask\" eff31080",
+        "file": "-",
+        "args": "-a arm -e asm.cpu=cortex -b 16",
+        "commands": ["pad eff31080"],
+        "expected": "mrs r0, primask\n",
+        "broken": false
+    }]
+}

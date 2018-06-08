@@ -1,1 +1,32 @@
-{"type":"cmd","tests":[{"name":"et","file":"-","args":"","commands":["et asm.slow","et asm.bits","et asm.arch","et search.from","",""],"expected":"bool\nint\nstr\naddr\n\n","broken":false},{"name":"e asm.os","file":"bins/elf/analysis/hello-linux-x86_64","args":"","commands":["e asm.os=?",""],"expected":"ios\ndos\ndarwin\nlinux\nfreebsd\nopenbsd\nnetbsd\nwindows\n\n","broken":false},{"name":"e asm.cpu","file":"bins/elf/analysis/hello-linux-x86_64","args":"","commands":["e asm.arch=mips","e asm.cpu=?","",""],"expected":"mips32/64\nmicro\nr6\nv3\nv2\n\n","broken":false},{"name":"e asm.syntax","file":"-","args":"","commands":["wx eb0e","e asm.arch=x86","e asm.syntax=masm","pi 1","",""],"expected":"jmp 10h\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "et",
+        "file": "-",
+        "args": "",
+        "commands": ["et asm.slow", "et asm.bits", "et asm.arch", "et search.from", "", ""],
+        "expected": "bool\nint\nstr\naddr\n\n",
+        "broken": false
+    }, {
+        "name": "e asm.os",
+        "file": "bins/elf/analysis/hello-linux-x86_64",
+        "args": "",
+        "commands": ["e asm.os=?", ""],
+        "expected": "ios\ndos\ndarwin\nlinux\nfreebsd\nopenbsd\nnetbsd\nwindows\n\n",
+        "broken": false
+    }, {
+        "name": "e asm.cpu",
+        "file": "bins/elf/analysis/hello-linux-x86_64",
+        "args": "",
+        "commands": ["e asm.arch=mips", "e asm.cpu=?", "", ""],
+        "expected": "mips32/64\nmicro\nr6\nv3\nv2\n\n",
+        "broken": false
+    }, {
+        "name": "e asm.syntax",
+        "file": "-",
+        "args": "",
+        "commands": ["wx eb0e", "e asm.arch=x86", "e asm.syntax=masm", "pi 1", "", ""],
+        "expected": "jmp 10h\n\n",
+        "broken": false
+    }]
+}

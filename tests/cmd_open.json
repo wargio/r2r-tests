@@ -1,1 +1,144 @@
-{"type":"cmd","tests":[{"name":"oom","file":"bins/elf/libmagic.so","args":"","commands":["o~?","oom","o~malloc?",""],"expected":"2\n1\n","broken":false},{"name":"oi-","file":"malloc://1024","args":"","commands":["oi-",""],"expected":"\n","broken":false},{"name":"oi-2","file":"--","args":"","commands":["o bins/mach0/fatmach0-3true",""],"expected":"\n","broken":false},{"name":"o-3","file":"malloc://1024","args":"","commands":["o-`o~[0]`;o",""],"expected":"\n","broken":false},{"name":"oj-","file":"malloc://1024","args":"","commands":["o-`oj~{[0].fd}`;o",""],"expected":"\n","broken":false},{"name":"o -","file":"malloc://1024","args":"","commands":["e file.nowarn=true","e file.loadmethod=append","o -;o~?",""],"expected":"2\n\n","broken":false},{"name":"om","file":"malloc://1024","args":"","commands":["om `o~[0]` 0x4000","om~?",""],"expected":"2\n\n","broken":false},{"name":"om2","file":"malloc://1024","args":"","commands":["om `o~[0]` 0x4000","om `o~[0]` 0x4000","om~?",""],"expected":"3\n\n","broken":false},{"name":"omn - crash","file":"-","args":"","commands":["omn",""],"expected":"\n","broken":false},{"name":"oob 10","file":"bins/elf/analysis/hello-linux-x86_64","args":"","commands":["10oob","pi 1","",""],"expected":"xor ebp, ebp\n\n","broken":false},{"name":"oo+ 10","file":"bins/elf/analysis/hello-linux-x86_64","args":"","commands":["10oo+","pi 1","",""],"expected":"xor ebp, ebp\n\n","broken":false},{"name":"oob consider baddr","file":"bins/mach0/mac-ls","args":"","commands":["e bin.baddr = 0xf00000","k old_v = `ieq`","oob","ie~baddr[5]","ie~vaddr[1]","p8 10 @ entry0","p8 10 @ `k old_v`","",""],"expected":"0x00f00000\n0x00f01058\n554889e5415741564155\nffffffffffffffffffff\n\n","broken":false},{"name":"oob consider laddr","file":"bins/mach0/fatmach0-3true","args":"-a x86 -b 32","commands":["e bin.laddr = 0x5000","e bin.baddr = -1","oob","ie~laddr[7]","ie~baddr[5]","",""],"expected":"0x00005000\n0x00001000\n\n","broken":false},{"name":"oob consider laddr","file":"bins/mach0/fatmach0-3true","args":"-a x86 -b 64","commands":["e bin.laddr = 0x5000","e bin.baddr = -1","oob","ie~laddr[7]","ie~baddr[5]","",""],"expected":"0x00005000\n0x00001000\n\n","broken":false},{"name":"oob from malloc","file":"malloc://1024","args":"","commands":["wx 7f454c4601010100b32ae9310000000002000300010000000800200020000000010000000000000000002000010000001b0300001b0300000700000000100000e901000000b0e8a502000049e7551ff1c2a03ff17995d4f3f241adf35954d7a87b543f48e7551ff1c3a03ff179bc17f3795487eb79543fc0b0ddf14b78543ff1b4d41632fc944be0c0563ed179e60b197f563ff190273df179bf3e412aeda9f3595485f579543f1987553ff1914c3df1796722677b743f856aeddaf159548dec91813ef179bd7df379544dc722d1e48491ed09f05954859979543f19c3553ff190733df1795e1fa60b3b519659245e820a2350831d781f8216264d88577a11fb73546c9e0b2646d11b214bd10d3c5ad1092650921c274cd10a315a9c0a744b9e59365ad10d265e921c3011df57747d881c7a11df735412cf59074a921a314c8259751ed13a3b51960b354b8415354b98163a4cdf577a35d1597901d1203b4ad11a3551d10a31519559395ad1003b4a835927509d0c20569e177b5c9e14395a9f0d271f900d744b991c745e9316225ad11435569d59355b950b7a11df7354c511b6cac511c2838b48c9899750f5818854b6c7c55fff99915eb199c552e48b865afb8fc512a4e0c511b6cac511bbc7c81cbbc7c81cbbc7c81cbbc7c81cbbc7c81cbbc7c81cbbc7c81cbbc7c81cbbe0ef65fe839611f9848011fe8b9611f7ca9550e49e8c52e3868443fa93c542fb8b895db6998c4bf3c4cb1f9ca28a41f3ca9016fa86c556f39ec542f9878011f09f8b11e1839159b683911f9ce0bc5ee3ca8650f8ca8f5eff84c55cf3ca8445b693845fff99915ed6849049f38ecb5ee48dc55ee4ca8a5fb6c99654f58e8047d68c9754f3848a55f3c48b54e2e0ef74f89e8043b69e8d54b6ba8442e59d8a43f2cadf11b6cae53196ea3ff17954d6f079543f414894b632c950f271bae4d6f079543fd24894b63287978ff2b4d4fc41f092b606f08d92c0a9ffdd0bbabd3cf179548f393a65ff78baede0f37954fe187bea37f1595492f0bab6c4708a3f3bf92c972d2390b84b00200089c689f7b9a5020000c1e902ad35f179543fabe2f7c3e9010000003231c089c3fec0cd80c3","oba","i~bintype[1]",".ie*","p8 10 @ entry0","",""],"expected":"elf\nb32ae931000000000200\n\n","broken":false},{"name":"ob select files","file":"malloc://1024","args":"","commands":["","e scr.null=true","o malloc://512","e scr.null=false","i~file[1]","obb `ob~:0[2]`","i~file[1]","obo `ob~:3[1]`","i~file[1]","ob `ob~:0[2]` `ob~:1[1]`","i~file[1]","",""],"expected":"malloc://512\nmalloc://512\nmalloc://512\nmalloc://512\n","broken":false},{"name":"ob select files binobj","file":"bins/elf/libmagic.so","args":"","commands":["","iiq~?","e scr.null=true","o malloc://1024","e scr.null=false","iiq~?","",""],"expected":"38\n0\n\n","broken":false},{"name":"ob select files binobj","file":"bins/elf/libmagic.so","args":"","commands":["","isq~?","e scr.null=true","o ../bins/elf/true32","e scr.null=false","isq~?","# raise back","op `o~:0[0]`","isq~?","",""],"expected":"408\n46\n408\n\n","broken":false},{"name":"o-*","file":"-","args":"","commands":["o -","o-*","o~?","",""],"expected":"0\n\n","broken":false},{"name":"o-3","file":"-","args":"","commands":["o -","o-3","o~?","",""],"expected":"1\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "oom",
+        "file": "bins/elf/libmagic.so",
+        "args": "",
+        "commands": ["o~?", "oom", "o~malloc?", ""],
+        "expected": "2\n1\n",
+        "broken": false
+    }, {
+        "name": "oi-",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["oi-", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "oi-2",
+        "file": "--",
+        "args": "",
+        "commands": ["o bins/mach0/fatmach0-3true", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "o-3",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["o-`o~[0]`;o", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "oj-",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["o-`oj~{[0].fd}`;o", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "o -",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["e file.nowarn=true", "e file.loadmethod=append", "o -;o~?", ""],
+        "expected": "2\n\n",
+        "broken": false
+    }, {
+        "name": "om",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["om `o~[0]` 0x4000", "om~?", ""],
+        "expected": "2\n\n",
+        "broken": false
+    }, {
+        "name": "om2",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["om `o~[0]` 0x4000", "om `o~[0]` 0x4000", "om~?", ""],
+        "expected": "3\n\n",
+        "broken": false
+    }, {
+        "name": "omn - crash",
+        "file": "-",
+        "args": "",
+        "commands": ["omn", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "oob 10",
+        "file": "bins/elf/analysis/hello-linux-x86_64",
+        "args": "",
+        "commands": ["10oob", "pi 1", "", ""],
+        "expected": "xor ebp, ebp\n\n",
+        "broken": false
+    }, {
+        "name": "oo+ 10",
+        "file": "bins/elf/analysis/hello-linux-x86_64",
+        "args": "",
+        "commands": ["10oo+", "pi 1", "", ""],
+        "expected": "xor ebp, ebp\n\n",
+        "broken": false
+    }, {
+        "name": "oob consider baddr",
+        "file": "bins/mach0/mac-ls",
+        "args": "",
+        "commands": ["e bin.baddr = 0xf00000", "k old_v = `ieq`", "oob", "ie~baddr[5]", "ie~vaddr[1]", "p8 10 @ entry0", "p8 10 @ `k old_v`", "", ""],
+        "expected": "0x00f00000\n0x00f01058\n554889e5415741564155\nffffffffffffffffffff\n\n",
+        "broken": false
+    }, {
+        "name": "oob consider laddr",
+        "file": "bins/mach0/fatmach0-3true",
+        "args": "-a x86 -b 32",
+        "commands": ["e bin.laddr = 0x5000", "e bin.baddr = -1", "oob", "ie~laddr[7]", "ie~baddr[5]", "", ""],
+        "expected": "0x00005000\n0x00001000\n\n",
+        "broken": false
+    }, {
+        "name": "oob consider laddr",
+        "file": "bins/mach0/fatmach0-3true",
+        "args": "-a x86 -b 64",
+        "commands": ["e bin.laddr = 0x5000", "e bin.baddr = -1", "oob", "ie~laddr[7]", "ie~baddr[5]", "", ""],
+        "expected": "0x00005000\n0x00001000\n\n",
+        "broken": false
+    }, {
+        "name": "oob from malloc",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["wx 7f454c4601010100b32ae9310000000002000300010000000800200020000000010000000000000000002000010000001b0300001b0300000700000000100000e901000000b0e8a502000049e7551ff1c2a03ff17995d4f3f241adf35954d7a87b543f48e7551ff1c3a03ff179bc17f3795487eb79543fc0b0ddf14b78543ff1b4d41632fc944be0c0563ed179e60b197f563ff190273df179bf3e412aeda9f3595485f579543f1987553ff1914c3df1796722677b743f856aeddaf159548dec91813ef179bd7df379544dc722d1e48491ed09f05954859979543f19c3553ff190733df1795e1fa60b3b519659245e820a2350831d781f8216264d88577a11fb73546c9e0b2646d11b214bd10d3c5ad1092650921c274cd10a315a9c0a744b9e59365ad10d265e921c3011df57747d881c7a11df735412cf59074a921a314c8259751ed13a3b51960b354b8415354b98163a4cdf577a35d1597901d1203b4ad11a3551d10a31519559395ad1003b4a835927509d0c20569e177b5c9e14395a9f0d271f900d744b991c745e9316225ad11435569d59355b950b7a11df7354c511b6cac511c2838b48c9899750f5818854b6c7c55fff99915eb199c552e48b865afb8fc512a4e0c511b6cac511bbc7c81cbbc7c81cbbc7c81cbbc7c81cbbc7c81cbbc7c81cbbc7c81cbbc7c81cbbe0ef65fe839611f9848011fe8b9611f7ca9550e49e8c52e3868443fa93c542fb8b895db6998c4bf3c4cb1f9ca28a41f3ca9016fa86c556f39ec542f9878011f09f8b11e1839159b683911f9ce0bc5ee3ca8650f8ca8f5eff84c55cf3ca8445b693845fff99915ed6849049f38ecb5ee48dc55ee4ca8a5fb6c99654f58e8047d68c9754f3848a55f3c48b54e2e0ef74f89e8043b69e8d54b6ba8442e59d8a43f2cadf11b6cae53196ea3ff17954d6f079543f414894b632c950f271bae4d6f079543fd24894b63287978ff2b4d4fc41f092b606f08d92c0a9ffdd0bbabd3cf179548f393a65ff78baede0f37954fe187bea37f1595492f0bab6c4708a3f3bf92c972d2390b84b00200089c689f7b9a5020000c1e902ad35f179543fabe2f7c3e9010000003231c089c3fec0cd80c3", "oba", "i~bintype[1]", ".ie*", "p8 10 @ entry0", "", ""],
+        "expected": "elf\nb32ae931000000000200\n\n",
+        "broken": false
+    }, {
+        "name": "ob select files",
+        "file": "malloc://1024",
+        "args": "",
+        "commands": ["", "e scr.null=true", "o malloc://512", "e scr.null=false", "i~file[1]", "obb `ob~:0[2]`", "i~file[1]", "obo `ob~:3[1]`", "i~file[1]", "ob `ob~:0[2]` `ob~:1[1]`", "i~file[1]", "", ""],
+        "expected": "malloc://512\nmalloc://512\nmalloc://512\nmalloc://512\n",
+        "broken": false
+    }, {
+        "name": "ob select files binobj",
+        "file": "bins/elf/libmagic.so",
+        "args": "",
+        "commands": ["", "iiq~?", "e scr.null=true", "o malloc://1024", "e scr.null=false", "iiq~?", "", ""],
+        "expected": "38\n0\n\n",
+        "broken": false
+    }, {
+        "name": "ob select files binobj",
+        "file": "bins/elf/libmagic.so",
+        "args": "",
+        "commands": ["isq~?", "e scr.null=true", "o bins/elf/true32", "e scr.null=false", "isq~?", "# raise back", "op `o~:0[0]`", "isq~?"],
+        "expected": "408\n46\n408\n\n",
+        "broken": false
+    }, {
+        "name": "o-*",
+        "file": "-",
+        "args": "",
+        "commands": ["o -", "o-*", "o~?", "", ""],
+        "expected": "0\n\n",
+        "broken": false
+    }, {
+        "name": "o-3",
+        "file": "-",
+        "args": "",
+        "commands": ["o -", "o-3", "o~?", "", ""],
+        "expected": "1\n\n",
+        "broken": false
+    }]
+}

@@ -1,1 +1,11 @@
-{"type":"cmd","tests":[{"name":"af import","file":"bins/mach0/ls-osx-x86_64","args":"","commands":["s sym.imp.write","af","?v $FS","",""],"expected":"before:\n\n","broken":true}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "af import",
+        "file": "bins/mach0/ls-osx-x86_64",
+        "args": "",
+        "commands": ["s sym.imp.write", "af", "?v $FS", "", ""],
+        "expected": "before:\n\n",
+        "broken": true
+    }]
+}

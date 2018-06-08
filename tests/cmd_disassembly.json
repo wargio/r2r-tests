@@ -1,1 +1,88 @@
-{"type":"cmd","tests":[{"name":"pD@x:90","file":"-","args":"","commands":["e asm.arch = x86","e asm.bits= 32","pD@x:90",""],"expected":"            0x00000000      90             nop\n\n","broken":false},{"name":"pd@x:90","file":"-","args":"","commands":["e asm.arch = x86","e asm.bits= 32","pd@x:90",""],"expected":"            0x00000000      90             nop\n\n","broken":false},{"name":"pd@x:90909090","file":"-","args":"","commands":["e asm.arch = x86","e asm.bits= 32","pd@x:90909090",""],"expected":"            0x00000000      90             nop\n            0x00000001      90             nop\n            0x00000002      90             nop\n            0x00000003      90             nop\n\n","broken":false},{"name":"pd@x:909090","file":"-","args":"","commands":["e asm.arch = x86","e asm.bits= 32","pd@x:909090",""],"expected":"            0x00000000      90             nop\n            0x00000001      90             nop\n            0x00000002      90             nop\n\n","broken":false},{"name":"pd 4;?=","file":"-","args":"","commands":["","wx 00000000000000000000","e asm.arch=x86","e asm.bits=32","pd 4","?=","",""],"expected":"            0x00000000      0000           add byte [eax], al\n            0x00000002      0000           add byte [eax], al\n            0x00000004      0000           add byte [eax], al\n            0x00000006      0000           add byte [eax], al\n0x8\n\n","broken":false},{"name":"pd 4 \u003e /dev/null; ?=","file":"-","args":"","commands":["","wx 00000000000000000000","e asm.arch=x86","e asm.bits=32","pd 4 \u003e /dev/null","?=","",""],"expected":"0x8\n\n","broken":false},{"name":"wx e9010f;?v $l","file":"-","args":"","commands":["","wx e9010f","e asm.arch=x86","e asm.bits=16","?vi $l","pi 1","ao 1~size[1]","",""],"expected":"3\njmp 0xf04\n3\n\n","broken":false},{"name":"dis-16/32/64","file":"-","args":"","commands":["","wx e99300 e869390000 e828350000","e asm.arch=x86","e asm.segoff=1","e asm.bits=16","pi 1","s+3","e asm.segoff=0","e asm.bits=32","pi 1","s+5","e asm.bits=64","pi 1","",""],"expected":"jmp 0x96\ncall 0x3971\ncall 0x3535\n\n","broken":false},{"name":"unaligned arm code","file":"-","args":"","commands":["","wx 00000000","e asm.bits=16","e asm.arch=arm","pi 1 @ 1","",""],"expected":"unaligned\n\n","broken":false},{"name":"unaligned arm code","file":"-","args":"","commands":["","wx 00000000","e asm.bits=32","e asm.arch=arm","pi 1 @ 2","",""],"expected":"unaligned\n\n","broken":false},{"name":"unaligned x86 issue","file":"-","args":"","commands":["","wx 00000000","e asm.bits=16","e asm.arch=arm","pi 2","e asm.arch=x86","pi 1 @ 1","",""],"expected":"movs r0, r0\nmovs r0, r0\nadd byte [bx + si], al\n\n","broken":false},{"name":"reflines on last line","file":"-","args":"","commands":["","e asm.arch=x86","e asm.bits=32","e scr.utf8=0","e asm.lines.bb=1","e asm.comments=0","wx 803d1ca0040833740ceb1c83c004a318a0088ffd2a118a00408b1085d275eb","pd 12~?=","pd 13~?=","",""],"expected":"3\n3\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "pD@x:90",
+        "file": "-",
+        "args": "",
+        "commands": ["e asm.arch = x86", "e asm.bits= 32", "pD@x:90", ""],
+        "expected": "            0x00000000      90             nop\n\n",
+        "broken": false
+    }, {
+        "name": "pd@x:90",
+        "file": "-",
+        "args": "",
+        "commands": ["e asm.arch = x86", "e asm.bits= 32", "pd@x:90", ""],
+        "expected": "            0x00000000      90             nop\n\n",
+        "broken": false
+    }, {
+        "name": "pd@x:90909090",
+        "file": "-",
+        "args": "",
+        "commands": ["e asm.arch = x86", "e asm.bits= 32", "pd@x:90909090", ""],
+        "expected": "            0x00000000      90             nop\n            0x00000001      90             nop\n            0x00000002      90             nop\n            0x00000003      90             nop\n\n",
+        "broken": false
+    }, {
+        "name": "pd@x:909090",
+        "file": "-",
+        "args": "",
+        "commands": ["e asm.arch = x86", "e asm.bits= 32", "pd@x:909090", ""],
+        "expected": "            0x00000000      90             nop\n            0x00000001      90             nop\n            0x00000002      90             nop\n\n",
+        "broken": false
+    }, {
+        "name": "pd 4;?=",
+        "file": "-",
+        "args": "",
+        "commands": ["", "wx 00000000000000000000", "e asm.arch=x86", "e asm.bits=32", "pd 4", "?=", "", ""],
+        "expected": "            0x00000000      0000           add byte [eax], al\n            0x00000002      0000           add byte [eax], al\n            0x00000004      0000           add byte [eax], al\n            0x00000006      0000           add byte [eax], al\n0x8\n\n",
+        "broken": false
+    }, {
+        "name": "pd 4 \u003e /dev/null; ?=",
+        "file": "-",
+        "args": "",
+        "commands": ["", "wx 00000000000000000000", "e asm.arch=x86", "e asm.bits=32", "pd 4 \u003e /dev/null", "?=", "", ""],
+        "expected": "0x8\n\n",
+        "broken": false
+    }, {
+        "name": "wx e9010f;?v $l",
+        "file": "-",
+        "args": "",
+        "commands": ["", "wx e9010f", "e asm.arch=x86", "e asm.bits=16", "?vi $l", "pi 1", "ao 1~size[1]", "", ""],
+        "expected": "3\njmp 0xf04\n3\n\n",
+        "broken": false
+    }, {
+        "name": "dis-16/32/64",
+        "file": "-",
+        "args": "",
+        "commands": ["", "wx e99300 e869390000 e828350000", "e asm.arch=x86", "e asm.segoff=1", "e asm.bits=16", "pi 1", "s+3", "e asm.segoff=0", "e asm.bits=32", "pi 1", "s+5", "e asm.bits=64", "pi 1", "", ""],
+        "expected": "jmp 0x96\ncall 0x3971\ncall 0x3535\n\n",
+        "broken": false
+    }, {
+        "name": "unaligned arm code",
+        "file": "-",
+        "args": "",
+        "commands": ["", "wx 00000000", "e asm.bits=16", "e asm.arch=arm", "pi 1 @ 1", "", ""],
+        "expected": "unaligned\n\n",
+        "broken": false
+    }, {
+        "name": "unaligned arm code",
+        "file": "-",
+        "args": "",
+        "commands": ["", "wx 00000000", "e asm.bits=32", "e asm.arch=arm", "pi 1 @ 2", "", ""],
+        "expected": "unaligned\n\n",
+        "broken": false
+    }, {
+        "name": "unaligned x86 issue",
+        "file": "-",
+        "args": "",
+        "commands": ["", "wx 00000000", "e asm.bits=16", "e asm.arch=arm", "pi 2", "e asm.arch=x86", "pi 1 @ 1", "", ""],
+        "expected": "movs r0, r0\nmovs r0, r0\nadd byte [bx + si], al\n\n",
+        "broken": false
+    }, {
+        "name": "reflines on last line",
+        "file": "-",
+        "args": "",
+        "commands": ["", "e asm.arch=x86", "e asm.bits=32", "e scr.utf8=0", "e asm.lines.bb=1", "e asm.comments=0", "wx 803d1ca0040833740ceb1c83c004a318a0088ffd2a118a00408b1085d275eb", "pd 12~?=", "pd 13~?=", "", ""],
+        "expected": "3\n3\n\n",
+        "broken": false
+    }]
+}

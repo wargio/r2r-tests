@@ -1,1 +1,1936 @@
-{"type":"asm","tests":[{"name":"arm_32: a \"addeq r1, r1, r0\" 00108100","file":"-","args":"-a arm -b 32","commands":["pa addeq r1, r1, r0"],"expected":"00108100\n","broken":false},{"name":"arm_32: a \"ands R2, r2\" 022012e0","file":"-","args":"-a arm -b 32","commands":["pa ands R2, r2"],"expected":"022012e0\n","broken":false},{"name":"arm_32: aB \"02118100\" addeq r1, r1, r2, lsl #2","file":"-","args":"-a arm -b 32","commands":["s r1","pa 02118100"],"expected":"addeq\n","broken":true},{"name":"arm_32: a \"addne r1, r1, ip\" 0c108110","file":"-","args":"-a arm -b 32","commands":["pa addne r1, r1, ip"],"expected":"0c108110\n","broken":false},{"name":"arm_32: aB \"00118110\" addne r1, r1, r0, lsl #2","file":"-","args":"-a arm -b 32","commands":["s r1","pa 00118110"],"expected":"addne\n","broken":true},{"name":"arm_32: a \"andeq r0, r0, 1\" 01000002","file":"-","args":"-a arm -b 32","commands":["pa andeq r0, r0, 1"],"expected":"01000002\n","broken":false},{"name":"arm_32: aB \"02310502\" andeq r3, r5 -2147483648","file":"-","args":"-a arm -b 32","commands":["s r3","pa 02310502"],"expected":"andeq\n","broken":true},{"name":"arm_32: a \"andne r3, r3, r2\" 02300310","file":"-","args":"-a arm -b 32","commands":["pa andne r3, r3, r2"],"expected":"02300310\n","broken":false},{"name":"arm_32: a \"andne ip, ip, r7\" 07c00c10","file":"-","args":"-a arm -b 32","commands":["pa andne ip, ip, r7"],"expected":"07c00c10\n","broken":false},{"name":"arm_32: aB \"cc0fa001\" asreq r0, ip, 31","file":"-","args":"-a arm -b 32","commands":["s r0","pa cc0fa001"],"expected":"asreq\n","broken":true},{"name":"arm_32: aB \"c40fa011\" asrne r0, r4, 31","file":"-","args":"-a arm -b 32","commands":["s r0","pa c40fa011"],"expected":"asrne\n","broken":true},{"name":"arm_32: a \"beq 8\" 0000000a","file":"-","args":"-a arm -b 32","commands":["pa beq 8"],"expected":"0000000a\n","broken":false},{"name":"arm_32: aB \"0730c303\" biceq r3, r3, 7","file":"-","args":"-a arm -b 32","commands":["s r3","pa 0730c303"],"expected":"biceq\n","broken":true},{"name":"arm_32: a \"blne 0x1900\" 3e06001b","file":"-","args":"-a arm -b 32","commands":["pa blne 0x1900"],"expected":"3e06001b\n","broken":false},{"name":"arm_32: a \"blx 0x1\" fefffffa","file":"-","args":"-a arm -b 32","commands":["pa blx 0x1"],"expected":"fefffffa\n","broken":false},{"name":"arm_32: a \"blx 0x2\" fefffffb","file":"-","args":"-a arm -b 32","commands":["pa blx 0x2"],"expected":"fefffffb\n","broken":false},{"name":"arm_32: a \"blx 0xa\" 000000fb","file":"-","args":"-a arm -b 32","commands":["pa blx 0xa"],"expected":"000000fb\n","broken":false},{"name":"arm_32: a \"blx 0xc\" 010000fa","file":"-","args":"-a arm -b 32","commands":["pa blx 0xc"],"expected":"010000fa\n","broken":false},{"name":"arm_32: aB \"1eff2f01\" bxeq Lr","file":"-","args":"-a arm -b 32","commands":["s Lr","pa 1eff2f01"],"expected":"bxeq\n","broken":true},{"name":"arm_32: aB \"1eff2f11\" bxne Lr","file":"-","args":"-a arm -b 32","commands":["s Lr","pa 1eff2f11"],"expected":"bxne\n","broken":true},{"name":"arm_32: aB \"1a5f6f11\" clzne r5, sl","file":"-","args":"-a arm -b 32","commands":["s r5","pa 1a5f6f11"],"expected":"clzne\n","broken":true},{"name":"arm_32: aB \"40005a01\" cmpeq sl, r4","file":"-","args":"-a arm -b 32","commands":["s sl","pa 40005a01"],"expected":"cmpeq\n","broken":true},{"name":"arm_32: a \"cmpne r7, r6\" 06005711","file":"-","args":"-a arm -b 32","commands":["pa cmpne r7, r6"],"expected":"06005711\n","broken":false},{"name":"arm_32: a \"eoreq r2, r2, 1\" 01202202","file":"-","args":"-a arm -b 32","commands":["pa eoreq r2, r2, 1"],"expected":"01202202\n","broken":false},{"name":"arm_32: a \"eorne r0, r0, r3\" 03002010","file":"-","args":"-a arm -b 32","commands":["pa eorne r0, r0, r3"],"expected":"03002010\n","broken":false},{"name":"arm_32: aB \"230c2010\" eorne r0, r0, r3, lsr #24","file":"-","args":"-a arm -b 32","commands":["s r0","pa 230c2010"],"expected":"eorne\n","broken":true},{"name":"arm_32: a \"eors R2, r2\" 022032e0","file":"-","args":"-a arm -b 32","commands":["pa eors R2, r2"],"expected":"022032e0\n","broken":false},{"name":"arm_32: aB \"03001209\" ldmdbeQ r2, {r0, r1}","file":"-","args":"-a arm -b 32","commands":["s r2","pa 03001209"],"expected":"ldmdbeQ\n","broken":true},{"name":"arm_32: aB \"0f009308\" ldmeq r3, {r0, r1, r2, r3}","file":"-","args":"-a arm -b 32","commands":["s r3","pa 0f009308"],"expected":"ldmeq\n","broken":true},{"name":"arm_32: aB \"07009508\" ldmeq r5, {r0, r1, r2}","file":"-","args":"-a arm -b 32","commands":["s r5","pa 07009508"],"expected":"ldmeq\n","broken":true},{"name":"arm_32: aB \"03009608\" ldmeq r6, {r0, r1}","file":"-","args":"-a arm -b 32","commands":["s r6","pa 03009608"],"expected":"ldmeq\n","broken":true},{"name":"arm_32: aB \"01505705\" ldrbeq r5, [r7, -1]","file":"-","args":"-a arm -b 32","commands":["s r5","pa 01505705"],"expected":"ldrbeq\n","broken":true},{"name":"arm_32: aB \"dc208311\" LDRDNE r2, [r3, ip]","file":"-","args":"-a arm -b 32","commands":["s r2","pa dc208311"],"expected":"LDRDNE\n","broken":true},{"name":"arm_32: aB \"b4001b05\" ldreq r0, [fp, -180]","file":"-","args":"-a arm -b 32","commands":["s r0","pa b4001b05"],"expected":"ldreq\n","broken":true},{"name":"arm_32: aB \"b0009301\" ldrheq r0, [r3, r0]","file":"-","args":"-a arm -b 32","commands":["s r0","pa b0009301"],"expected":"ldrheq\n","broken":true},{"name":"arm_32: aB \"9f0f93e1\" ldrex r0, [r3]","file":"-","args":"-a arm -b 32","commands":["s r0","pa 9f0f93e1"],"expected":"ldrex\n","broken":true},{"name":"arm_32: aB \"0111a011\" lslne r1, r1, 2","file":"-","args":"-a arm -b 32","commands":["s r1","pa 0111a011"],"expected":"lslne\n","broken":true},{"name":"arm_32: aB \"2008a001\" lsreq r0, r0, 16","file":"-","args":"-a arm -b 32","commands":["s r0","pa 2008a001"],"expected":"lsreq\n","broken":true},{"name":"arm_32: aB \"a004a011\" lsrne r0, r0, 9","file":"-","args":"-a arm -b 32","commands":["s r0","pa a004a011"],"expected":"lsrne\n","broken":true},{"name":"arm_32: aB \"95072700\" mlaeq r7, r5, r7, r0","file":"-","args":"-a arm -b 32","commands":["s r7","pa 95072700"],"expected":"mlaeq\n","broken":true},{"name":"arm_32: aB \"91232310\" mlane r3, r1, r3, r2","file":"-","args":"-a arm -b 32","commands":["s r3","pa 91232310"],"expected":"mlane\n","broken":true},{"name":"arm_32: a \"moveq r0, sl\" 0a00a001","file":"-","args":"-a arm -b 32","commands":["pa moveq r0, sl"],"expected":"0a00a001\n","broken":false},{"name":"arm_32: a \"movne r0, r9\" 0900a011","file":"-","args":"-a arm -b 32","commands":["pa movne r0, r9"],"expected":"0900a011\n","broken":false},{"name":"arm_32: aB \"93000310\" mulne r3, r3, r0","file":"-","args":"-a arm -b 32","commands":["s r3","pa 93000310"],"expected":"mulne\n","broken":true},{"name":"arm_32: a \"mul r2, r3, r4\" 930402e0","file":"-","args":"-a arm -b 32","commands":["pa mul r2, r3, r4"],"expected":"930402e0\n","broken":false},{"name":"arm_32: a \"mul r6, r2\" 960206e0","file":"-","args":"-a arm -b 32","commands":["pa mul r6, r2"],"expected":"960206e0\n","broken":false},{"name":"arm_32: a \"smull r4, r1, r2, r3\" 9243c1e0","file":"-","args":"-a arm -b 32","commands":["pa smull r4, r1, r2, r3"],"expected":"9243c1e0\n","broken":false},{"name":"arm_32: a \"smlal r4, r1, r2, r3\" 9243e1e0","file":"-","args":"-a arm -b 32","commands":["pa smlal r4, r1, r2, r3"],"expected":"9243e1e0\n","broken":false},{"name":"arm_32: a \"smlabb r4, r7, r3, r1\" 871304e1","file":"-","args":"-a arm -b 32","commands":["pa smlabb r4, r7, r3, r1"],"expected":"871304e1\n","broken":false},{"name":"arm_32: a \"smlabt r4, r7, r3, r1\" c71304e1","file":"-","args":"-a arm -b 32","commands":["pa smlabt r4, r7, r3, r1"],"expected":"c71304e1\n","broken":false},{"name":"arm_32: a \"smlatb r4, r7, r3, r1\" a71304e1","file":"-","args":"-a arm -b 32","commands":["pa smlatb r4, r7, r3, r1"],"expected":"a71304e1\n","broken":false},{"name":"arm_32: a \"smlatt r4, r7, r3, r1\" e71304e1","file":"-","args":"-a arm -b 32","commands":["pa smlatt r4, r7, r3, r1"],"expected":"e71304e1\n","broken":false},{"name":"arm_32: a \"mvneq r0, 21\" 1500e003","file":"-","args":"-a arm -b 32","commands":["pa mvneq r0, 21"],"expected":"1500e003\n","broken":false},{"name":"arm_32: a \"mvneq r0, -2147483648\" 0201e003","file":"-","args":"-a arm -b 32","commands":["pa mvneq r0, -2147483648"],"expected":"0201e003\n","broken":false},{"name":"arm_32: a \"orreq r5, r5, r3\" 03508501","file":"-","args":"-a arm -b 32","commands":["pa orreq r5, r5, r3"],"expected":"03508501\n","broken":false},{"name":"arm_32: aB \"a2608601\" orreq r6, r6, r2, lsr #1","file":"-","args":"-a arm -b 32","commands":["s r6","pa a2608601"],"expected":"orreq\n","broken":true},{"name":"arm_32: aB \"02318303\" orreq r3, r3, -2147483648","file":"-","args":"-a arm -b 32","commands":["s r3","pa 02318303"],"expected":"orreq\n","broken":true},{"name":"arm_32: aB \"110c8011\" orrne r0, r0, r1, lsl ip","file":"-","args":"-a arm -b 32","commands":["s r0","pa 110c8011"],"expected":"orrne\n","broken":true},{"name":"arm_32: a \"orrne r1, r1, r3\" 03108111","file":"-","args":"-a arm -b 32","commands":["pa orrne r1, r1, r3"],"expected":"03108111\n","broken":false},{"name":"arm_32: a \"orrs R2, r2\" 022092e1","file":"-","args":"-a arm -b 32","commands":["pa orrs R2, r2"],"expected":"022092e1\n","broken":false},{"name":"arm_32: aB \"04f09d04\" popeq {pc} ; (LDREQQ pc, [sp], 4)","file":"-","args":"-a arm -b 32","commands":["s pc","pa 04f09d04"],"expected":"popeq\n","broken":true},{"name":"arm_32: a \"popeq {r4, pc}\" 1080bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r4, pc}"],"expected":"1080bd08\n","broken":false},{"name":"arm_32: a \"popeq {r4, r5, pc}\" 3080bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r4, r5, pc}"],"expected":"3080bd08\n","broken":false},{"name":"arm_32: a \"popeq {r3, r4, r5, pc}\" 3880bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r3, r4, r5, pc}"],"expected":"3880bd08\n","broken":false},{"name":"arm_32: a \"popeq {r4, r5, r6, r7, pc}\" f080bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r4, r5, r6, r7, pc}"],"expected":"f080bd08\n","broken":false},{"name":"arm_32: a \"popeq {r3, r4, r5, r6, r7, pc}\" f880bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r3, r4, r5, r6, r7, pc}"],"expected":"f880bd08\n","broken":false},{"name":"arm_32: a \"popeq {r3, r4, r5, r6, r7, r8, sl, pc}\" f885bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r3, r4, r5, r6, r7, r8, sl, pc}"],"expected":"f885bd08\n","broken":false},{"name":"arm_32: a \"popeq {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}\" f88fbd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}"],"expected":"f88fbd08\n","broken":false},{"name":"arm_32: aB \"333fbf06\" reveq r3, r3","file":"-","args":"-a arm -b 32","commands":["s r3","pa 333fbf06"],"expected":"reveq\n","broken":true},{"name":"arm_32: a \"rsbeq ip, r1, r7\" 07c06100","file":"-","args":"-a arm -b 32","commands":["pa rsbeq ip, r1, r7"],"expected":"07c06100\n","broken":false},{"name":"arm_32: a \"rsbne r6, r0, r6\" 06606010","file":"-","args":"-a arm -b 32","commands":["pa rsbne r6, r0, r6"],"expected":"06606010\n","broken":false},{"name":"arm_32: aB \"0c008008\" stmeq r0, {r2, r3}","file":"-","args":"-a arm -b 32","commands":["s r0","pa 0c008008"],"expected":"stmeq\n","broken":true},{"name":"arm_32: aB \"07008c08\" stmeq ip, {r0, r1, r2}","file":"-","args":"-a arm -b 32","commands":["s ip","pa 07008c08"],"expected":"stmeq\n","broken":true},{"name":"arm_32: aB \"0f008c08\" stmeq ip, {r0, r1, r2, r3}","file":"-","args":"-a arm -b 32","commands":["s ip","pa 0f008c08"],"expected":"stmeq\n","broken":true},{"name":"arm_32: aB \"01c04205\" strbeq ip, [r2, -1]","file":"-","args":"-a arm -b 32","commands":["s ip","pa 01c04205"],"expected":"strbeq\n","broken":true},{"name":"arm_32: aB \"0030c505\" strbeq r3, [r5]","file":"-","args":"-a arm -b 32","commands":["s r3","pa 0030c505"],"expected":"strbeq\n","broken":true},{"name":"arm_32: aB \"f020c401\" strdeq r2, [r4]","file":"-","args":"-a arm -b 32","commands":["s r2","pa f020c401"],"expected":"strdeq\n","broken":true},{"name":"arm_32: aB \"f045c801\" strdeq r4, [r8, 80]","file":"-","args":"-a arm -b 32","commands":["s r4","pa f045c801"],"expected":"strdeq\n","broken":true},{"name":"arm_32: aB \"04300505\" streq r3, [r5, -4]","file":"-","args":"-a arm -b 32","commands":["s r3","pa 04300505"],"expected":"streq\n","broken":true},{"name":"arm_32: aB \"30110b05\" streq r1, [fp, -304]","file":"-","args":"-a arm -b 32","commands":["s r1","pa 30110b05"],"expected":"streq\n","broken":true},{"name":"arm_32: aB \"b2334b11\" strhne r3, [fp, -50]","file":"-","args":"-a arm -b 32","commands":["s r3","pa b2334b11"],"expected":"strhne\n","broken":true},{"name":"arm_32: aB \"b8334b01\" strheq r3, [fp, -56]","file":"-","args":"-a arm -b 32","commands":["s r3","pa b8334b01"],"expected":"strheq\n","broken":true},{"name":"arm_32: aB \"b010c001\" strheq r1, [r0]","file":"-","args":"-a arm -b 32","commands":["s r1","pa b010c001"],"expected":"strheq\n","broken":true},{"name":"arm_32: aB \"b3108211\" strhne r1, [r2,r3]","file":"-","args":"-a arm -b 32","commands":["s r1","pa b3108211"],"expected":"strhne\n","broken":true},{"name":"arm_32: a \"strex r1, r2, [r5]\" 921f85e1","file":"-","args":"-a arm -b 32","commands":["pa strex r1, r2, [r5]"],"expected":"921f85e1\n","broken":false},{"name":"arm_32: a \"subeq ip, r0, 32\" 20c04002","file":"-","args":"-a arm -b 32","commands":["pa subeq ip, r0, 32"],"expected":"20c04002\n","broken":false},{"name":"arm_32: aB \"c6604310\" subne r6, r3, r6, asr 1","file":"-","args":"-a arm -b 32","commands":["s r6","pa c6604310"],"expected":"subne\n","broken":true},{"name":"arm_32: a \"subne r5, r5, r3\" 03504510","file":"-","args":"-a arm -b 32","commands":["pa subne r5, r5, r3"],"expected":"03504510\n","broken":false},{"name":"arm_32: a \"svceq 0x00000000\" 0000000f","file":"-","args":"-a arm -b 32","commands":["pa svceq 0x00000000"],"expected":"0000000f\n","broken":false},{"name":"arm_32: aB \"9347a510\" umlalnE r4, r5, r3, r7","file":"-","args":"-a arm -b 32","commands":["s r4","pa 9347a510"],"expected":"umlalnE\n","broken":true},{"name":"arm_32: aB \"7010ef06\" uxtbeq r1, r0","file":"-","args":"-a arm -b 32","commands":["s r1","pa 7010ef06"],"expected":"uxtbeq\n","broken":true},{"name":"arm_32: aB \"7000ff06a\" uxtheq r0, r0","file":"-","args":"-a arm -b 32","commands":["s r0","pa 7000ff06a"],"expected":"uxtheq\n","broken":true},{"name":"arm_32: aB \"000b800d\" vstreq d0, [r0]","file":"-","args":"-a arm -b 32","commands":["s d0","pa 000b800d"],"expected":"vstreq\n","broken":true},{"name":"arm_32: a \"ldr r1, [r2, r3]\" 031092e7","file":"-","args":"-a arm -b 32","commands":["pa ldr r1, [r2, r3]"],"expected":"031092e7\n","broken":false},{"name":"arm_32: aB \"ldr r1, [r2, r3, lsl 2]\" 031192e7","file":"-","args":"-a arm -b 32","commands":["pa ldr r1, [r2, r3, lsl 2]"],"expected":"031192e7\n","broken":true},{"name":"arm_32: aB \"ldr r1, [r2, r3, lsr 5]\" a31292e7","file":"-","args":"-a arm -b 32","commands":["pa ldr r1, [r2, r3, lsr 5]"],"expected":"a31292e7\n","broken":true},{"name":"arm_32: aB \"ldr r1, [r2, r3, asr 6]\" 431392e7","file":"-","args":"-a arm -b 32","commands":["pa ldr r1, [r2, r3, asr 6]"],"expected":"431392e7\n","broken":true},{"name":"arm_32: aB \"ldr r1, [r2, r3, ror 9]\" e31492e7","file":"-","args":"-a arm -b 32","commands":["pa ldr r1, [r2, r3, ror 9]"],"expected":"e31492e7\n","broken":true},{"name":"arm_32: a \"mrc p5, 1, r4, c2, c4, 6\" d44532ee","file":"-","args":"-a arm -b 32","commands":["pa mrc p5, 1, r4, c2, c4, 6"],"expected":"d44532ee\n","broken":false},{"name":"arm_32: a \"mrc p4, 4, r5, c2, c2\" 125492ee","file":"-","args":"-a arm -b 32","commands":["pa mrc p4, 4, r5, c2, c2"],"expected":"125492ee\n","broken":false},{"name":"arm_32: a \"mrc p3, 0, r5, c3, c5, 6\" d55313ee","file":"-","args":"-a arm -b 32","commands":["pa mrc p3, 0, r5, c3, c5, 6"],"expected":"d55313ee\n","broken":false},{"name":"arm_32: a \"bic r1, r2, r3\" 0310c2e1","file":"-","args":"-a arm -b 32","commands":["pa bic r1, r2, r3"],"expected":"0310c2e1\n","broken":false},{"name":"arm_32: a \"bic r3, r2\" 0230c3e1","file":"-","args":"-a arm -b 32","commands":["pa bic r3, r2"],"expected":"0230c3e1\n","broken":false},{"name":"arm_32: a \"strb r2, [r3, r4]\" 0420c3e7","file":"-","args":"-a arm -b 32","commands":["pa strb r2, [r3, r4]"],"expected":"0420c3e7\n","broken":false},{"name":"arm_32: a \"strb r2, [r3, 6]\" 0620c3e5","file":"-","args":"-a arm -b 32","commands":["pa strb r2, [r3, 6]"],"expected":"0620c3e5\n","broken":false},{"name":"arm_32: a \"strbt r3, [r7]\" 0030e7e4","file":"-","args":"-a arm -b 32","commands":["pa strbt r3, [r7]"],"expected":"0030e7e4\n","broken":false},{"name":"arm_32: a \"strbt r1, [r2]\" 0010e2e4","file":"-","args":"-a arm -b 32","commands":["pa strbt r1, [r2]"],"expected":"0010e2e4\n","broken":false},{"name":"arm_32: a \"strd r6, r7, [r7, 86]\" f665c7e1","file":"-","args":"-a arm -b 32","commands":["pa strd r6, r7, [r7, 86]"],"expected":"f665c7e1\n","broken":false},{"name":"arm_32: a \"strd r2, r3, [r3]\" f020c3e1","file":"-","args":"-a arm -b 32","commands":["pa strd r2, r3, [r3]"],"expected":"f020c3e1\n","broken":false},{"name":"arm_32: a \"strexb r2, r5, [r6]\" 952fc6e1","file":"-","args":"-a arm -b 32","commands":["pa strexb r2, r5, [r6]"],"expected":"952fc6e1\n","broken":false},{"name":"arm_32: a \"strexb r5, r2, [r4]\" 925fc4e1","file":"-","args":"-a arm -b 32","commands":["pa strexb r5, r2, [r4]"],"expected":"925fc4e1\n","broken":false},{"name":"arm_32: a \"strexh r2, r5, [r6]\" 952fe6e1","file":"-","args":"-a arm -b 32","commands":["pa strexh r2, r5, [r6]"],"expected":"952fe6e1\n","broken":false},{"name":"arm_32: a \"strexh r5, r2, [r4]\" 925fe4e1","file":"-","args":"-a arm -b 32","commands":["pa strexh r5, r2, [r4]"],"expected":"925fe4e1\n","broken":false},{"name":"arm_32: a \"strh r5, [r2, r4]\" b45082e1","file":"-","args":"-a arm -b 32","commands":["pa strh r5, [r2, r4]"],"expected":"b45082e1\n","broken":false},{"name":"arm_32: aB \"b450c2e1\" strxh r5, [r2, 4]","file":"-","args":"-a arm -b 32","commands":["s r5","pa b450c2e1"],"expected":"strxh\n","broken":true},{"name":"arm_32: d \"addeq r1, r1, r0\" 00108100","file":"-","args":"-a arm -b 32","commands":["pad 00108100"],"expected":"addeq r1, r1, r0\n","broken":false},{"name":"arm_32: d \"addeq r1, r1, r2, lsl 2\" 02118100","file":"-","args":"-a arm -b 32","commands":["pad 02118100"],"expected":"addeq r1, r1, r2, lsl 2\n","broken":false},{"name":"arm_32: d \"addne r1, r1, ip\" 0c108110","file":"-","args":"-a arm -b 32","commands":["pad 0c108110"],"expected":"addne r1, r1, ip\n","broken":false},{"name":"arm_32: d \"addne r1, r1, r0, lsl 2\" 00118110","file":"-","args":"-a arm -b 32","commands":["pad 00118110"],"expected":"addne r1, r1, r0, lsl 2\n","broken":false},{"name":"arm_32: d \"andeq r0, r0, 1\" 01000002","file":"-","args":"-a arm -b 32","commands":["pad 01000002"],"expected":"andeq r0, r0, 1\n","broken":false},{"name":"arm_32: d \"andeq r3, r5, 0x80000000\" 02310502","file":"-","args":"-a arm -b 32","commands":["pad 02310502"],"expected":"andeq r3, r5, 0x80000000\n","broken":false},{"name":"arm_32: d \"andne r3, r3, r2\" 02300310","file":"-","args":"-a arm -b 32","commands":["pad 02300310"],"expected":"andne r3, r3, r2\n","broken":false},{"name":"arm_32: d \"andne ip, ip, r7\" 07c00c10","file":"-","args":"-a arm -b 32","commands":["pad 07c00c10"],"expected":"andne ip, ip, r7\n","broken":false},{"name":"arm_32: d \"asreq r0, ip, 0x1f\" cc0fa001","file":"-","args":"-a arm -b 32","commands":["pad cc0fa001"],"expected":"asreq r0, ip, 0x1f\n","broken":false},{"name":"arm_32: d \"asrne r0, r4, 0x1f\" c40fa011","file":"-","args":"-a arm -b 32","commands":["pad c40fa011"],"expected":"asrne r0, r4, 0x1f\n","broken":false},{"name":"arm_32: d \"beq 8\" 0000000a","file":"-","args":"-a arm -b 32","commands":["pad 0000000a"],"expected":"beq 8\n","broken":false},{"name":"arm_32: d \"biceq r3, r3, 7\" 0730c303","file":"-","args":"-a arm -b 32","commands":["pad 0730c303"],"expected":"biceq r3, r3, 7\n","broken":false},{"name":"arm_32: d \"blne 0x1900\" 3E06001B","file":"-","args":"-a arm -b 32","commands":["pad 3E06001B"],"expected":"blne 0x1900\n","broken":false},{"name":"arm_32: d \"bl 0x1900\" 3e0600eb","file":"-","args":"-a arm -b 32","commands":["pad 3e0600eb"],"expected":"bl 0x1900\n","broken":false},{"name":"arm_32: d \"b 0x1900\" 3e0600ea","file":"-","args":"-a arm -b 32","commands":["pad 3e0600ea"],"expected":"b 0x1900\n","broken":false},{"name":"arm_32: d \"bxeq lr\" 1eff2f01","file":"-","args":"-a arm -b 32","commands":["pad 1eff2f01"],"expected":"bxeq lr\n","broken":false},{"name":"arm_32: d \"bxne lr\" 1eff2f11","file":"-","args":"-a arm -b 32","commands":["pad 1eff2f11"],"expected":"bxne lr\n","broken":false},{"name":"arm_32: d \"clzne r5, sl\" 1a5f6f11","file":"-","args":"-a arm -b 32","commands":["pad 1a5f6f11"],"expected":"clzne r5, sl\n","broken":false},{"name":"arm_32: d \"cmpeq sl, r0, asr 32\" 40005a01","file":"-","args":"-a arm -b 32","commands":["pad 40005a01"],"expected":"cmpeq sl, r0, asr 32\n","broken":false},{"name":"arm_32: d \"cmpne r7, r6\" 06005711","file":"-","args":"-a arm -b 32","commands":["pad 06005711"],"expected":"cmpne r7, r6\n","broken":false},{"name":"arm_32: d \"eoreq r2, r2, 1\" 01202202","file":"-","args":"-a arm -b 32","commands":["pad 01202202"],"expected":"eoreq r2, r2, 1\n","broken":false},{"name":"arm_32: d \"eorne r0, r0, r3\" 03002010","file":"-","args":"-a arm -b 32","commands":["pad 03002010"],"expected":"eorne r0, r0, r3\n","broken":false},{"name":"arm_32: d \"eorne r0, r0, r3, lsr 24\" 230c2010","file":"-","args":"-a arm -b 32","commands":["pad 230c2010"],"expected":"eorne r0, r0, r3, lsr 24\n","broken":false},{"name":"arm_32: d \"ldmdbeq r2, {r0, r1}\" 03001209","file":"-","args":"-a arm -b 32","commands":["pad 03001209"],"expected":"ldmdbeq r2, {r0, r1}\n","broken":false},{"name":"arm_32: d \"ldmeq r3, {r0, r1, r2, r3}\" 0f009308","file":"-","args":"-a arm -b 32","commands":["pad 0f009308"],"expected":"ldmeq r3, {r0, r1, r2, r3}\n","broken":false},{"name":"arm_32: d \"ldmeq r5, {r0, r1, r2}\" 07009508","file":"-","args":"-a arm -b 32","commands":["pad 07009508"],"expected":"ldmeq r5, {r0, r1, r2}\n","broken":false},{"name":"arm_32: d \"ldmeq r6, {r0, r1}\" 03009608","file":"-","args":"-a arm -b 32","commands":["pad 03009608"],"expected":"ldmeq r6, {r0, r1}\n","broken":false},{"name":"arm_32: d \"ldrbeq r5, [r7, -1]\" 01505705","file":"-","args":"-a arm -b 32","commands":["pad 01505705"],"expected":"ldrbeq r5, [r7, -1]\n","broken":false},{"name":"arm_32: d \"ldrdne r2, r3, [r3, ip]\" dc208311","file":"-","args":"-a arm -b 32","commands":["pad dc208311"],"expected":"ldrdne r2, r3, [r3, ip]\n","broken":false},{"name":"arm_32: d \"ldreq r0, [fp, -0xb4]\" b4001b05","file":"-","args":"-a arm -b 32","commands":["pad b4001b05"],"expected":"ldreq r0, [fp, -0xb4]\n","broken":false},{"name":"arm_32: d \"ldrheq r0, [r3, r0]\" b0009301","file":"-","args":"-a arm -b 32","commands":["pad b0009301"],"expected":"ldrheq r0, [r3, r0]\n","broken":false},{"name":"arm_32: d \"lslne r1, r1, 2\" 0111a011","file":"-","args":"-a arm -b 32","commands":["pad 0111a011"],"expected":"lslne r1, r1, 2\n","broken":false},{"name":"arm_32: d \"lsreq r0, r0, 0x10\" 2008a001","file":"-","args":"-a arm -b 32","commands":["pad 2008a001"],"expected":"lsreq r0, r0, 0x10\n","broken":false},{"name":"arm_32: d \"lsrne r0, r0, 9\" a004a011","file":"-","args":"-a arm -b 32","commands":["pad a004a011"],"expected":"lsrne r0, r0, 9\n","broken":false},{"name":"arm_32: d \"mlaeq r7, r5, r7, r0\" 95072700","file":"-","args":"-a arm -b 32","commands":["pad 95072700"],"expected":"mlaeq r7, r5, r7, r0\n","broken":false},{"name":"arm_32: d \"mlane r3, r1, r3, r2\" 91232310","file":"-","args":"-a arm -b 32","commands":["pad 91232310"],"expected":"mlane r3, r1, r3, r2\n","broken":false},{"name":"arm_32: d \"moveq r0, sl\" 0a00a001","file":"-","args":"-a arm -b 32","commands":["pad 0a00a001"],"expected":"moveq r0, sl\n","broken":false},{"name":"arm_32: d \"movne r0, sb\" 0900a011","file":"-","args":"-a arm -b 32","commands":["pad 0900a011"],"expected":"movne r0, sb\n","broken":false},{"name":"arm_32: d \"mulne r3, r3, r0\" 93000310","file":"-","args":"-a arm -b 32","commands":["pad 93000310"],"expected":"mulne r3, r3, r0\n","broken":false},{"name":"arm_32: d \"mvneq r0, 0x15\" 1500e003","file":"-","args":"-a arm -b 32","commands":["pad 1500e003"],"expected":"mvneq r0, 0x15\n","broken":false},{"name":"arm_32: d \"mvneq r0, 0x80000000\" 0201e003","file":"-","args":"-a arm -b 32","commands":["pad 0201e003"],"expected":"mvneq r0, 0x80000000\n","broken":false},{"name":"arm_32: d \"orreq r5, r5, r3\" 03508501","file":"-","args":"-a arm -b 32","commands":["pad 03508501"],"expected":"orreq r5, r5, r3\n","broken":false},{"name":"arm_32: d \"orreq r6, r6, r2, lsr 1\" a2608601","file":"-","args":"-a arm -b 32","commands":["pad a2608601"],"expected":"orreq r6, r6, r2, lsr 1\n","broken":false},{"name":"arm_32: d \"orreq r3, r3, 0x80000000\" 02318303","file":"-","args":"-a arm -b 32","commands":["pad 02318303"],"expected":"orreq r3, r3, 0x80000000\n","broken":false},{"name":"arm_32: d \"orrne r0, r0, r1, lsl ip\" 110c8011","file":"-","args":"-a arm -b 32","commands":["pad 110c8011"],"expected":"orrne r0, r0, r1, lsl ip\n","broken":false},{"name":"arm_32: d \"orrne r1, r1, r3\" 03108111","file":"-","args":"-a arm -b 32","commands":["pad 03108111"],"expected":"orrne r1, r1, r3\n","broken":false},{"name":"arm_32: d \"popeq {pc}\" 04f09d04","file":"-","args":"-a arm -b 32","commands":["pad 04f09d04"],"expected":"popeq {pc}\n","broken":false},{"name":"arm_32: d \"popeq {r4, pc}\" 1080bd08","file":"-","args":"-a arm -b 32","commands":["pad 1080bd08"],"expected":"popeq {r4, pc}\n","broken":false},{"name":"arm_32: d \"popeq {r4, r5, pc}\" 3080bd08","file":"-","args":"-a arm -b 32","commands":["pad 3080bd08"],"expected":"popeq {r4, r5, pc}\n","broken":false},{"name":"arm_32: d \"popeq {r3, r4, r5, pc}\" 3880bd08","file":"-","args":"-a arm -b 32","commands":["pad 3880bd08"],"expected":"popeq {r3, r4, r5, pc}\n","broken":false},{"name":"arm_32: d \"popeq {r4, r5, r6, r7, pc}\" f080bd08","file":"-","args":"-a arm -b 32","commands":["pad f080bd08"],"expected":"popeq {r4, r5, r6, r7, pc}\n","broken":false},{"name":"arm_32: d \"popeq {r3, r4, r5, r6, r7, pc}\" f880bd08","file":"-","args":"-a arm -b 32","commands":["pad f880bd08"],"expected":"popeq {r3, r4, r5, r6, r7, pc}\n","broken":false},{"name":"arm_32: d \"popeq {r3, r4, r5, r6, r7, r8, sl, pc}\" f885bd08","file":"-","args":"-a arm -b 32","commands":["pad f885bd08"],"expected":"popeq {r3, r4, r5, r6, r7, r8, sl, pc}\n","broken":false},{"name":"arm_32: d \"popeq {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}\" f88fbd08","file":"-","args":"-a arm -b 32","commands":["pad f88fbd08"],"expected":"popeq {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}\n","broken":false},{"name":"arm_32: d \"reveq r3, r3\" 333fbf06","file":"-","args":"-a arm -b 32","commands":["pad 333fbf06"],"expected":"reveq r3, r3\n","broken":false},{"name":"arm_32: d \"rsbeq ip, r1, r7\" 07c06100","file":"-","args":"-a arm -b 32","commands":["pad 07c06100"],"expected":"rsbeq ip, r1, r7\n","broken":false},{"name":"arm_32: d \"rsbne r6, r0, r6\" 06606010","file":"-","args":"-a arm -b 32","commands":["pad 06606010"],"expected":"rsbne r6, r0, r6\n","broken":false},{"name":"arm_32: d \"stmeq r0, {r2, r3}\" 0c008008","file":"-","args":"-a arm -b 32","commands":["pad 0c008008"],"expected":"stmeq r0, {r2, r3}\n","broken":false},{"name":"arm_32: d \"stmeq ip, {r0, r1, r2}\" 07008c08","file":"-","args":"-a arm -b 32","commands":["pad 07008c08"],"expected":"stmeq ip, {r0, r1, r2}\n","broken":false},{"name":"arm_32: d \"stmeq ip, {r0, r1, r2, r3}\" 0f008c08","file":"-","args":"-a arm -b 32","commands":["pad 0f008c08"],"expected":"stmeq ip, {r0, r1, r2, r3}\n","broken":false},{"name":"arm_32: d \"strbeq ip, [r2, -1]\" 01c04205","file":"-","args":"-a arm -b 32","commands":["pad 01c04205"],"expected":"strbeq ip, [r2, -1]\n","broken":false},{"name":"arm_32: d \"strbeq r3, [r5]\" 0030c505","file":"-","args":"-a arm -b 32","commands":["pad 0030c505"],"expected":"strbeq r3, [r5]\n","broken":false},{"name":"arm_32: d \"strdeq r2, r3, [r4]\" f020c401","file":"-","args":"-a arm -b 32","commands":["pad f020c401"],"expected":"strdeq r2, r3, [r4]\n","broken":false},{"name":"arm_32: d \"strdeq r4, r5, [r8, 0x50]\" f045c801","file":"-","args":"-a arm -b 32","commands":["pad f045c801"],"expected":"strdeq r4, r5, [r8, 0x50]\n","broken":false},{"name":"arm_32: d \"streq r3, [r5, -4]\" 04300505","file":"-","args":"-a arm -b 32","commands":["pad 04300505"],"expected":"streq r3, [r5, -4]\n","broken":false},{"name":"arm_32: d \"streq r1, [fp, -0x130]\" 30110b05","file":"-","args":"-a arm -b 32","commands":["pad 30110b05"],"expected":"streq r1, [fp, -0x130]\n","broken":false},{"name":"arm_32: d \"strhne r3, [fp, -0x32]\" b2334b11","file":"-","args":"-a arm -b 32","commands":["pad b2334b11"],"expected":"strhne r3, [fp, -0x32]\n","broken":false},{"name":"arm_32: d \"strheq r3, [fp, -0x38]\" b8334b01","file":"-","args":"-a arm -b 32","commands":["pad b8334b01"],"expected":"strheq r3, [fp, -0x38]\n","broken":false},{"name":"arm_32: d \"strheq r1, [r0]\" b010c001","file":"-","args":"-a arm -b 32","commands":["pad b010c001"],"expected":"strheq r1, [r0]\n","broken":false},{"name":"arm_32: d \"strhne r1, [r2, r3]\" b3108211","file":"-","args":"-a arm -b 32","commands":["pad b3108211"],"expected":"strhne r1, [r2, r3]\n","broken":false},{"name":"arm_32: d \"subeq ip, r0, 0x20\" 20c04002","file":"-","args":"-a arm -b 32","commands":["pad 20c04002"],"expected":"subeq ip, r0, 0x20\n","broken":false},{"name":"arm_32: d \"subne r6, r3, r6, asr 1\" c6604310","file":"-","args":"-a arm -b 32","commands":["pad c6604310"],"expected":"subne r6, r3, r6, asr 1\n","broken":false},{"name":"arm_32: d \"subne r5, r5, r3\" 03504510","file":"-","args":"-a arm -b 32","commands":["pad 03504510"],"expected":"subne r5, r5, r3\n","broken":false},{"name":"arm_32: d \"svceq 0\" 0000000f","file":"-","args":"-a arm -b 32","commands":["pad 0000000f"],"expected":"svceq 0\n","broken":false},{"name":"arm_32: d \"umlalne r4, r5, r3, r7\" 9347a510","file":"-","args":"-a arm -b 32","commands":["pad 9347a510"],"expected":"umlalne r4, r5, r3, r7\n","broken":false},{"name":"arm_32: d \"uxtbeq r1, r0\" 7010ef06","file":"-","args":"-a arm -b 32","commands":["pad 7010ef06"],"expected":"uxtbeq r1, r0\n","broken":false},{"name":"arm_32: d \"uxtheq r0, r0\" 7000ff06","file":"-","args":"-a arm -b 32","commands":["pad 7000ff06"],"expected":"uxtheq r0, r0\n","broken":false},{"name":"arm_32: d \"vstreq d0, [r0]\" 000b800d","file":"-","args":"-a arm -b 32","commands":["pad 000b800d"],"expected":"vstreq d0, [r0]\n","broken":false},{"name":"arm_32: d \"blne 0x1900\" 8374211b 0xff7a46ec","file":"-","args":"-a arm -b 32","commands":["s 0xff7a46ec","pad 8374211b"],"expected":"blne 0x1900\n","broken":false},{"name":"arm_32: a \"addeq r1, r1, r0\" 00108100","file":"-","args":"-a arm -b 32","commands":["pa addeq r1, r1, r0"],"expected":"00108100\n","broken":false},{"name":"arm_32: aB \"addeq r1, r1, r2, lsl 2\\ 02118100","file":"-","args":"-a arm -b 32","commands":["s r1","pa dde"],"expected":"r1\n","broken":true},{"name":"arm_32: a \"addne r1, r1, ip\" 0c108110","file":"-","args":"-a arm -b 32","commands":["pa addne r1, r1, ip"],"expected":"0c108110\n","broken":false},{"name":"arm_32: aB \"addne r1, r1, r0, lsl 2\\ 00118110","file":"-","args":"-a arm -b 32","commands":["s r1","pa ddn"],"expected":"r1\n","broken":true},{"name":"arm_32: a \"andeq r0, r0, 1\" 01000002","file":"-","args":"-a arm -b 32","commands":["pa andeq r0, r0, 1"],"expected":"01000002\n","broken":false},{"name":"arm_32: aB \"andeq r3, r5, 0x80000000\\ 02310502","file":"-","args":"-a arm -b 32","commands":["s r5","pa nde"],"expected":"r3\n","broken":true},{"name":"arm_32: a \"andne r3, r3, r2\" 02300310","file":"-","args":"-a arm -b 32","commands":["pa andne r3, r3, r2"],"expected":"02300310\n","broken":false},{"name":"arm_32: a \"andne ip, ip, r7\" 07c00c10","file":"-","args":"-a arm -b 32","commands":["pa andne ip, ip, r7"],"expected":"07c00c10\n","broken":false},{"name":"arm_32: aB \"asreq r0, ip, 0x1f\\ cc0fa001","file":"-","args":"-a arm -b 32","commands":["s ip","pa sre"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"asrne r0, r4, 0x1f\\ c40fa011","file":"-","args":"-a arm -b 32","commands":["s r4","pa srn"],"expected":"r0\n","broken":true},{"name":"arm_32: a \"beq 8\" 0000000a","file":"-","args":"-a arm -b 32","commands":["pa beq 8"],"expected":"0000000a\n","broken":false},{"name":"arm_32: aB \"biceq r3, r3, 7\\ 0730c303","file":"-","args":"-a arm -b 32","commands":["s r3","pa ice"],"expected":"r3\n","broken":true},{"name":"arm_32: aB \"blne 0x1900\" 3E06001B","file":"-","args":"-a arm -b 32","commands":["pa blne 0x1900"],"expected":"3E06001B\n","broken":true},{"name":"arm_32: a \"bl 0x1900\" 3e0600eb","file":"-","args":"-a arm -b 32","commands":["pa bl 0x1900"],"expected":"3e0600eb\n","broken":false},{"name":"arm_32: a \"b 0x1900\" 3e0600ea","file":"-","args":"-a arm -b 32","commands":["pa b 0x1900"],"expected":"3e0600ea\n","broken":false},{"name":"arm_32: aB \"bxeq lr\\ 1eff2f01","file":"-","args":"-a arm -b 32","commands":["s 1eff2f01","pa xe"],"expected":"lr\n","broken":true},{"name":"arm_32: aB \"bxne lr\\ 1eff2f11","file":"-","args":"-a arm -b 32","commands":["s 1eff2f11","pa xn"],"expected":"lr\n","broken":true},{"name":"arm_32: aB \"clzne r5, sl\\ 1a5f6f11","file":"-","args":"-a arm -b 32","commands":["s sl","pa lzn"],"expected":"r5\n","broken":true},{"name":"arm_32: aB \"cmpeq sl, r0, asr 32\\ 40005a01","file":"-","args":"-a arm -b 32","commands":["s r0","pa mpe"],"expected":"sl\n","broken":true},{"name":"arm_32: a \"cmpne r7, r6\" 06005711","file":"-","args":"-a arm -b 32","commands":["pa cmpne r7, r6"],"expected":"06005711\n","broken":false},{"name":"arm_32: a \"eoreq r2, r2, 1\" 01202202","file":"-","args":"-a arm -b 32","commands":["pa eoreq r2, r2, 1"],"expected":"01202202\n","broken":false},{"name":"arm_32: a \"eorne r0, r0, r3\" 03002010","file":"-","args":"-a arm -b 32","commands":["pa eorne r0, r0, r3"],"expected":"03002010\n","broken":false},{"name":"arm_32: aB \"eorne r0, r0, r3, lsr 24\\ 230c2010","file":"-","args":"-a arm -b 32","commands":["s r0","pa orn"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"ldmdbeq r2, {r0, r1}\\ 03001209","file":"-","args":"-a arm -b 32","commands":["s r0","pa dmdbe"],"expected":"r2\n","broken":true},{"name":"arm_32: aB \"ldmeq r3, {r0, r1, r2, r3}\\ 0f009308","file":"-","args":"-a arm -b 32","commands":["s r0","pa dme"],"expected":"r3\n","broken":true},{"name":"arm_32: aB \"ldmeq r5, {r0, r1, r2}\\ 07009508","file":"-","args":"-a arm -b 32","commands":["s r0","pa dme"],"expected":"r5\n","broken":true},{"name":"arm_32: aB \"ldmeq r6, {r0, r1}\\ 03009608","file":"-","args":"-a arm -b 32","commands":["s r0","pa dme"],"expected":"r6\n","broken":true},{"name":"arm_32: aB \"ldrbeq r5, [r7, -1]\\ 01505705","file":"-","args":"-a arm -b 32","commands":["s r7","pa drbe"],"expected":"r5\n","broken":true},{"name":"arm_32: aB \"ldrdne r2, r3, [r3, ip]\\ dc208311","file":"-","args":"-a arm -b 32","commands":["s r3","pa drdn"],"expected":"r2\n","broken":true},{"name":"arm_32: aB \"ldreq r0, [fp, -0xb4]\\ b4001b05","file":"-","args":"-a arm -b 32","commands":["s fp","pa dre"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"ldrheq r0, [r3, r0]\\ b0009301","file":"-","args":"-a arm -b 32","commands":["s r3","pa drhe"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"lslne r1, r1, 2\\ 0111a011","file":"-","args":"-a arm -b 32","commands":["s r1","pa sln"],"expected":"r1\n","broken":true},{"name":"arm_32: aB \"lsreq r0, r0, 0x10\\ 2008a001","file":"-","args":"-a arm -b 32","commands":["s r0","pa sre"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"lsrne r0, r0, 9\\ a004a011","file":"-","args":"-a arm -b 32","commands":["s r0","pa srn"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"mlaeq r7, r5, r7, r0\\ 95072700","file":"-","args":"-a arm -b 32","commands":["s r5","pa lae"],"expected":"r7\n","broken":true},{"name":"arm_32: aB \"mlane r3, r1, r3, r2\\ 91232310","file":"-","args":"-a arm -b 32","commands":["s r1","pa lan"],"expected":"r3\n","broken":true},{"name":"arm_32: a \"moveq r0, sl\" 0a00a001","file":"-","args":"-a arm -b 32","commands":["pa moveq r0, sl"],"expected":"0a00a001\n","broken":false},{"name":"arm_32: aB \"movne r0, sb\\ 0900a011","file":"-","args":"-a arm -b 32","commands":["s sb","pa ovn"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"mulne r3, r3, r0\\ 93000310","file":"-","args":"-a arm -b 32","commands":["s r3","pa uln"],"expected":"r3\n","broken":true},{"name":"arm_32: a \"mvneq r0, 0x15\" 1500e003","file":"-","args":"-a arm -b 32","commands":["pa mvneq r0, 0x15"],"expected":"1500e003\n","broken":false},{"name":"arm_32: aB \"mvneq r0, 0x80000000\\ 0201e003","file":"-","args":"-a arm -b 32","commands":["s 0x80000000","pa vne"],"expected":"r0\n","broken":true},{"name":"arm_32: a \"orreq r5, r5, r3\" 03508501","file":"-","args":"-a arm -b 32","commands":["pa orreq r5, r5, r3"],"expected":"03508501\n","broken":false},{"name":"arm_32: aB \"orreq r6, r6, r2, lsr 1\\ a2608601","file":"-","args":"-a arm -b 32","commands":["s r6","pa rre"],"expected":"r6\n","broken":true},{"name":"arm_32: aB \"orreq r3, r3, 0x80000000\\ 02318303","file":"-","args":"-a arm -b 32","commands":["s r3","pa rre"],"expected":"r3\n","broken":true},{"name":"arm_32: aB \"orrne r0, r0, r1, lsl ip\\ 110c8011","file":"-","args":"-a arm -b 32","commands":["s r0","pa rrn"],"expected":"r0\n","broken":true},{"name":"arm_32: a \"orrne r1, r1, r3\" 03108111","file":"-","args":"-a arm -b 32","commands":["pa orrne r1, r1, r3"],"expected":"03108111\n","broken":false},{"name":"arm_32: aB \"popeq {pc}\\ 04f09d04","file":"-","args":"-a arm -b 32","commands":["s 04f09d04","pa ope"],"expected":"pc\n","broken":true},{"name":"arm_32: a \"popeq {r4, pc}\" 1080bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r4, pc}"],"expected":"1080bd08\n","broken":false},{"name":"arm_32: a \"popeq {r4, r5, pc}\" 3080bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r4, r5, pc}"],"expected":"3080bd08\n","broken":false},{"name":"arm_32: a \"popeq {r3, r4, r5, pc}\" 3880bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r3, r4, r5, pc}"],"expected":"3880bd08\n","broken":false},{"name":"arm_32: a \"popeq {r4, r5, r6, r7, pc}\" f080bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r4, r5, r6, r7, pc}"],"expected":"f080bd08\n","broken":false},{"name":"arm_32: a \"popeq {r3, r4, r5, r6, r7, pc}\" f880bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r3, r4, r5, r6, r7, pc}"],"expected":"f880bd08\n","broken":false},{"name":"arm_32: a \"popeq {r3, r4, r5, r6, r7, r8, sl, pc}\" f885bd08","file":"-","args":"-a arm -b 32","commands":["pa popeq {r3, r4, r5, r6, r7, r8, sl, pc}"],"expected":"f885bd08\n","broken":false},{"name":"arm_32: aB \"popeq {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}\\ f88fbd08","file":"-","args":"-a arm -b 32","commands":["s r4","pa ope"],"expected":"r3\n","broken":true},{"name":"arm_32: aB \"reveq r3, r3\\ 333fbf06","file":"-","args":"-a arm -b 32","commands":["s r3","pa eve"],"expected":"r3\n","broken":true},{"name":"arm_32: a \"rsbeq ip, r1, r7\" 07c06100","file":"-","args":"-a arm -b 32","commands":["pa rsbeq ip, r1, r7"],"expected":"07c06100\n","broken":false},{"name":"arm_32: a \"rsbne r6, r0, r6\" 06606010","file":"-","args":"-a arm -b 32","commands":["pa rsbne r6, r0, r6"],"expected":"06606010\n","broken":false},{"name":"arm_32: aB \"stmeq r0, {r2, r3}\\ 0c008008","file":"-","args":"-a arm -b 32","commands":["s r2","pa tme"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"stmeq ip, {r0, r1, r2}\\ 07008c08","file":"-","args":"-a arm -b 32","commands":["s r0","pa tme"],"expected":"ip\n","broken":true},{"name":"arm_32: aB \"stmeq ip, {r0, r1, r2, r3}\\ 0f008c08","file":"-","args":"-a arm -b 32","commands":["s r0","pa tme"],"expected":"ip\n","broken":true},{"name":"arm_32: aB \"strbeq ip, [r2, -1]\\ 01c04205","file":"-","args":"-a arm -b 32","commands":["s r2","pa trbe"],"expected":"ip\n","broken":true},{"name":"arm_32: aB \"strbeq r3, [r5]\\ 0030c505","file":"-","args":"-a arm -b 32","commands":["s r5","pa trbe"],"expected":"r3\n","broken":true},{"name":"arm_32: aB \"strdeq r2, r3, [r4]\\ f020c401","file":"-","args":"-a arm -b 32","commands":["s r3","pa trde"],"expected":"r2\n","broken":true},{"name":"arm_32: aB \"strdeq r4, r5, [r8, 0x50]\\ f045c801","file":"-","args":"-a arm -b 32","commands":["s r5","pa trde"],"expected":"r4\n","broken":true},{"name":"arm_32: aB \"streq r3, [r5, -4]\\ 04300505","file":"-","args":"-a arm -b 32","commands":["s r5","pa tre"],"expected":"r3\n","broken":true},{"name":"arm_32: aB \"streq r1, [fp, -0x130]\\ 30110b05","file":"-","args":"-a arm -b 32","commands":["s fp","pa tre"],"expected":"r1\n","broken":true},{"name":"arm_32: aB \"strhne r3, [fp, -0x32]\\ b2334b11","file":"-","args":"-a arm -b 32","commands":["s fp","pa trhn"],"expected":"r3\n","broken":true},{"name":"arm_32: aB \"strheq r3, [fp, -0x38]\\ b8334b01","file":"-","args":"-a arm -b 32","commands":["s fp","pa trhe"],"expected":"r3\n","broken":true},{"name":"arm_32: aB \"strheq r1, [r0]\\ b010c001","file":"-","args":"-a arm -b 32","commands":["s r0","pa trhe"],"expected":"r1\n","broken":true},{"name":"arm_32: aB \"strhne r1, [r2, r3]\\ b3108211","file":"-","args":"-a arm -b 32","commands":["s r2","pa trhn"],"expected":"r1\n","broken":true},{"name":"arm_32: a \"subeq ip, r0, 0x20\" 20c04002","file":"-","args":"-a arm -b 32","commands":["pa subeq ip, r0, 0x20"],"expected":"20c04002\n","broken":false},{"name":"arm_32: aB \"subne r6, r3, r6, asr 1\\ c6604310","file":"-","args":"-a arm -b 32","commands":["s r3","pa ubn"],"expected":"r6\n","broken":true},{"name":"arm_32: a \"subne r5, r5, r3\" 03504510","file":"-","args":"-a arm -b 32","commands":["pa subne r5, r5, r3"],"expected":"03504510\n","broken":false},{"name":"arm_32: a \"svceq 0\" 0000000f","file":"-","args":"-a arm -b 32","commands":["pa svceq 0"],"expected":"0000000f\n","broken":false},{"name":"arm_32: aB \"umlalne r4, r5, r3, r7\\ 9347a510","file":"-","args":"-a arm -b 32","commands":["s r5","pa mlaln"],"expected":"r4\n","broken":true},{"name":"arm_32: aB \"uxtbeq r1, r0\\ 7010ef06","file":"-","args":"-a arm -b 32","commands":["s r0","pa xtbe"],"expected":"r1\n","broken":true},{"name":"arm_32: aB \"uxtheq r0, r0\\ 7000ff06","file":"-","args":"-a arm -b 32","commands":["s r0","pa xthe"],"expected":"r0\n","broken":true},{"name":"arm_32: aB \"vstreq d0, [r0]\\ 000b800d","file":"-","args":"-a arm -b 32","commands":["s r0","pa stre"],"expected":"d0\n","broken":true},{"name":"arm_32: a \"lsr r0, r1, r3\" 3103a0e1","file":"-","args":"-a arm -b 32","commands":["pa lsr r0, r1, r3"],"expected":"3103a0e1\n","broken":false},{"name":"arm_32: a \"lsl r2, r8, r5\" 1825a0e1","file":"-","args":"-a arm -b 32","commands":["pa lsl r2, r8, r5"],"expected":"1825a0e1\n","broken":false},{"name":"arm_32: a \"asr r4, r5, r0\" 5540a0e1","file":"-","args":"-a arm -b 32","commands":["pa asr r4, r5, r0"],"expected":"5540a0e1\n","broken":false},{"name":"arm_32: a \"ror r7, r6, r1\" 7671a0e1","file":"-","args":"-a arm -b 32","commands":["pa ror r7, r6, r1"],"expected":"7671a0e1\n","broken":false}]}
+{
+    "type": "asm",
+    "tests": [{
+        "name": "arm_32: a \"addeq r1, r1, r0\" 00108100",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa addeq r1, r1, r0"],
+        "expected": "00108100\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"ands R2, r2\" 022012e0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa ands R2, r2"],
+        "expected": "022012e0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"02118100\" addeq r1, r1, r2, lsl #2",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa 02118100"],
+        "expected": "addeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"addne r1, r1, ip\" 0c108110",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa addne r1, r1, ip"],
+        "expected": "0c108110\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"00118110\" addne r1, r1, r0, lsl #2",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa 00118110"],
+        "expected": "addne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"andeq r0, r0, 1\" 01000002",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa andeq r0, r0, 1"],
+        "expected": "01000002\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"02310502\" andeq r3, r5 -2147483648",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 02310502"],
+        "expected": "andeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"andne r3, r3, r2\" 02300310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa andne r3, r3, r2"],
+        "expected": "02300310\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"andne ip, ip, r7\" 07c00c10",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa andne ip, ip, r7"],
+        "expected": "07c00c10\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"cc0fa001\" asreq r0, ip, 31",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa cc0fa001"],
+        "expected": "asreq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"c40fa011\" asrne r0, r4, 31",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa c40fa011"],
+        "expected": "asrne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"beq 8\" 0000000a",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa beq 8"],
+        "expected": "0000000a\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"0730c303\" biceq r3, r3, 7",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 0730c303"],
+        "expected": "biceq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"blne 0x1900\" 3e06001b",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa blne 0x1900"],
+        "expected": "3e06001b\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"blx 0x1\" fefffffa",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa blx 0x1"],
+        "expected": "fefffffa\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"blx 0x2\" fefffffb",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa blx 0x2"],
+        "expected": "fefffffb\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"blx 0xa\" 000000fb",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa blx 0xa"],
+        "expected": "000000fb\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"blx 0xc\" 010000fa",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa blx 0xc"],
+        "expected": "010000fa\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"1eff2f01\" bxeq Lr",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s Lr", "pa 1eff2f01"],
+        "expected": "bxeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"1eff2f11\" bxne Lr",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s Lr", "pa 1eff2f11"],
+        "expected": "bxne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"1a5f6f11\" clzne r5, sl",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa 1a5f6f11"],
+        "expected": "clzne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"40005a01\" cmpeq sl, r4",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s sl", "pa 40005a01"],
+        "expected": "cmpeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"cmpne r7, r6\" 06005711",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa cmpne r7, r6"],
+        "expected": "06005711\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"eoreq r2, r2, 1\" 01202202",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa eoreq r2, r2, 1"],
+        "expected": "01202202\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"eorne r0, r0, r3\" 03002010",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa eorne r0, r0, r3"],
+        "expected": "03002010\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"230c2010\" eorne r0, r0, r3, lsr #24",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa 230c2010"],
+        "expected": "eorne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"eors R2, r2\" 022032e0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa eors R2, r2"],
+        "expected": "022032e0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"03001209\" ldmdbeQ r2, {r0, r1}",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r2", "pa 03001209"],
+        "expected": "ldmdbeQ\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"0f009308\" ldmeq r3, {r0, r1, r2, r3}",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 0f009308"],
+        "expected": "ldmeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"07009508\" ldmeq r5, {r0, r1, r2}",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa 07009508"],
+        "expected": "ldmeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"03009608\" ldmeq r6, {r0, r1}",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r6", "pa 03009608"],
+        "expected": "ldmeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"01505705\" ldrbeq r5, [r7, -1]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa 01505705"],
+        "expected": "ldrbeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"dc208311\" LDRDNE r2, [r3, ip]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r2", "pa dc208311"],
+        "expected": "LDRDNE\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"b4001b05\" ldreq r0, [fp, -180]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa b4001b05"],
+        "expected": "ldreq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"b0009301\" ldrheq r0, [r3, r0]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa b0009301"],
+        "expected": "ldrheq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"9f0f93e1\" ldrex r0, [r3]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa 9f0f93e1"],
+        "expected": "ldrex\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"0111a011\" lslne r1, r1, 2",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa 0111a011"],
+        "expected": "lslne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"2008a001\" lsreq r0, r0, 16",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa 2008a001"],
+        "expected": "lsreq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"a004a011\" lsrne r0, r0, 9",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa a004a011"],
+        "expected": "lsrne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"95072700\" mlaeq r7, r5, r7, r0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r7", "pa 95072700"],
+        "expected": "mlaeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"91232310\" mlane r3, r1, r3, r2",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 91232310"],
+        "expected": "mlane\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"moveq r0, sl\" 0a00a001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa moveq r0, sl"],
+        "expected": "0a00a001\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"movne r0, r9\" 0900a011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa movne r0, r9"],
+        "expected": "0900a011\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"93000310\" mulne r3, r3, r0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 93000310"],
+        "expected": "mulne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"mul r2, r3, r4\" 930402e0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa mul r2, r3, r4"],
+        "expected": "930402e0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"mul r6, r2\" 960206e0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa mul r6, r2"],
+        "expected": "960206e0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"smull r4, r1, r2, r3\" 9243c1e0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa smull r4, r1, r2, r3"],
+        "expected": "9243c1e0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"smlal r4, r1, r2, r3\" 9243e1e0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa smlal r4, r1, r2, r3"],
+        "expected": "9243e1e0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"smlabb r4, r7, r3, r1\" 871304e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa smlabb r4, r7, r3, r1"],
+        "expected": "871304e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"smlabt r4, r7, r3, r1\" c71304e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa smlabt r4, r7, r3, r1"],
+        "expected": "c71304e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"smlatb r4, r7, r3, r1\" a71304e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa smlatb r4, r7, r3, r1"],
+        "expected": "a71304e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"smlatt r4, r7, r3, r1\" e71304e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa smlatt r4, r7, r3, r1"],
+        "expected": "e71304e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"mvneq r0, 21\" 1500e003",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa mvneq r0, 21"],
+        "expected": "1500e003\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"mvneq r0, -2147483648\" 0201e003",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa mvneq r0, -2147483648"],
+        "expected": "0201e003\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"orreq r5, r5, r3\" 03508501",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa orreq r5, r5, r3"],
+        "expected": "03508501\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"a2608601\" orreq r6, r6, r2, lsr #1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r6", "pa a2608601"],
+        "expected": "orreq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"02318303\" orreq r3, r3, -2147483648",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 02318303"],
+        "expected": "orreq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"110c8011\" orrne r0, r0, r1, lsl ip",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa 110c8011"],
+        "expected": "orrne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"orrne r1, r1, r3\" 03108111",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa orrne r1, r1, r3"],
+        "expected": "03108111\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"orrs R2, r2\" 022092e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa orrs R2, r2"],
+        "expected": "022092e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"04f09d04\" popeq {pc} ; (LDREQQ pc, [sp], 4)",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s pc", "pa 04f09d04"],
+        "expected": "popeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"popeq {r4, pc}\" 1080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r4, pc}"],
+        "expected": "1080bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r4, r5, pc}\" 3080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r4, r5, pc}"],
+        "expected": "3080bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r3, r4, r5, pc}\" 3880bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r3, r4, r5, pc}"],
+        "expected": "3880bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r4, r5, r6, r7, pc}\" f080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r4, r5, r6, r7, pc}"],
+        "expected": "f080bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r3, r4, r5, r6, r7, pc}\" f880bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r3, r4, r5, r6, r7, pc}"],
+        "expected": "f880bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r3, r4, r5, r6, r7, r8, sl, pc}\" f885bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r3, r4, r5, r6, r7, r8, sl, pc}"],
+        "expected": "f885bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}\" f88fbd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}"],
+        "expected": "f88fbd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"333fbf06\" reveq r3, r3",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 333fbf06"],
+        "expected": "reveq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"rsbeq ip, r1, r7\" 07c06100",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa rsbeq ip, r1, r7"],
+        "expected": "07c06100\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"rsbne r6, r0, r6\" 06606010",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa rsbne r6, r0, r6"],
+        "expected": "06606010\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"0c008008\" stmeq r0, {r2, r3}",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa 0c008008"],
+        "expected": "stmeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"07008c08\" stmeq ip, {r0, r1, r2}",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s ip", "pa 07008c08"],
+        "expected": "stmeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"0f008c08\" stmeq ip, {r0, r1, r2, r3}",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s ip", "pa 0f008c08"],
+        "expected": "stmeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"01c04205\" strbeq ip, [r2, -1]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s ip", "pa 01c04205"],
+        "expected": "strbeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"0030c505\" strbeq r3, [r5]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 0030c505"],
+        "expected": "strbeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"f020c401\" strdeq r2, [r4]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r2", "pa f020c401"],
+        "expected": "strdeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"f045c801\" strdeq r4, [r8, 80]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r4", "pa f045c801"],
+        "expected": "strdeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"04300505\" streq r3, [r5, -4]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa 04300505"],
+        "expected": "streq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"30110b05\" streq r1, [fp, -304]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa 30110b05"],
+        "expected": "streq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"b2334b11\" strhne r3, [fp, -50]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa b2334b11"],
+        "expected": "strhne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"b8334b01\" strheq r3, [fp, -56]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa b8334b01"],
+        "expected": "strheq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"b010c001\" strheq r1, [r0]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa b010c001"],
+        "expected": "strheq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"b3108211\" strhne r1, [r2,r3]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa b3108211"],
+        "expected": "strhne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"strex r1, r2, [r5]\" 921f85e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strex r1, r2, [r5]"],
+        "expected": "921f85e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"subeq ip, r0, 32\" 20c04002",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa subeq ip, r0, 32"],
+        "expected": "20c04002\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"c6604310\" subne r6, r3, r6, asr 1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r6", "pa c6604310"],
+        "expected": "subne\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"subne r5, r5, r3\" 03504510",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa subne r5, r5, r3"],
+        "expected": "03504510\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"svceq 0x00000000\" 0000000f",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa svceq 0x00000000"],
+        "expected": "0000000f\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"9347a510\" umlalnE r4, r5, r3, r7",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r4", "pa 9347a510"],
+        "expected": "umlalnE\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"7010ef06\" uxtbeq r1, r0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa 7010ef06"],
+        "expected": "uxtbeq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"7000ff06a\" uxtheq r0, r0",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa 7000ff06a"],
+        "expected": "uxtheq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"000b800d\" vstreq d0, [r0]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s d0", "pa 000b800d"],
+        "expected": "vstreq\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"ldr r1, [r2, r3]\" 031092e7",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa ldr r1, [r2, r3]"],
+        "expected": "031092e7\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"ldr r1, [r2, r3, lsl 2]\" 031192e7",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa ldr r1, [r2, r3, lsl 2]"],
+        "expected": "031192e7\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldr r1, [r2, r3, lsr 5]\" a31292e7",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa ldr r1, [r2, r3, lsr 5]"],
+        "expected": "a31292e7\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldr r1, [r2, r3, asr 6]\" 431392e7",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa ldr r1, [r2, r3, asr 6]"],
+        "expected": "431392e7\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldr r1, [r2, r3, ror 9]\" e31492e7",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa ldr r1, [r2, r3, ror 9]"],
+        "expected": "e31492e7\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"mrc p5, 1, r4, c2, c4, 6\" d44532ee",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa mrc p5, 1, r4, c2, c4, 6"],
+        "expected": "d44532ee\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"mrc p4, 4, r5, c2, c2\" 125492ee",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa mrc p4, 4, r5, c2, c2"],
+        "expected": "125492ee\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"mrc p3, 0, r5, c3, c5, 6\" d55313ee",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa mrc p3, 0, r5, c3, c5, 6"],
+        "expected": "d55313ee\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"bic r1, r2, r3\" 0310c2e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa bic r1, r2, r3"],
+        "expected": "0310c2e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"bic r3, r2\" 0230c3e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa bic r3, r2"],
+        "expected": "0230c3e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strb r2, [r3, r4]\" 0420c3e7",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strb r2, [r3, r4]"],
+        "expected": "0420c3e7\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strb r2, [r3, 6]\" 0620c3e5",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strb r2, [r3, 6]"],
+        "expected": "0620c3e5\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strbt r3, [r7]\" 0030e7e4",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strbt r3, [r7]"],
+        "expected": "0030e7e4\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strbt r1, [r2]\" 0010e2e4",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strbt r1, [r2]"],
+        "expected": "0010e2e4\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strd r6, r7, [r7, 86]\" f665c7e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strd r6, r7, [r7, 86]"],
+        "expected": "f665c7e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strd r2, r3, [r3]\" f020c3e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strd r2, r3, [r3]"],
+        "expected": "f020c3e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strexb r2, r5, [r6]\" 952fc6e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strexb r2, r5, [r6]"],
+        "expected": "952fc6e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strexb r5, r2, [r4]\" 925fc4e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strexb r5, r2, [r4]"],
+        "expected": "925fc4e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strexh r2, r5, [r6]\" 952fe6e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strexh r2, r5, [r6]"],
+        "expected": "952fe6e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strexh r5, r2, [r4]\" 925fe4e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strexh r5, r2, [r4]"],
+        "expected": "925fe4e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"strh r5, [r2, r4]\" b45082e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa strh r5, [r2, r4]"],
+        "expected": "b45082e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"b450c2e1\" strxh r5, [r2, 4]",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa b450c2e1"],
+        "expected": "strxh\n",
+        "broken": true
+    }, {
+        "name": "arm_32: d \"addeq r1, r1, r0\" 00108100",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 00108100"],
+        "expected": "addeq r1, r1, r0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"addeq r1, r1, r2, lsl 2\" 02118100",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 02118100"],
+        "expected": "addeq r1, r1, r2, lsl 2\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"addne r1, r1, ip\" 0c108110",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0c108110"],
+        "expected": "addne r1, r1, ip\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"addne r1, r1, r0, lsl 2\" 00118110",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 00118110"],
+        "expected": "addne r1, r1, r0, lsl 2\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"andeq r0, r0, 1\" 01000002",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 01000002"],
+        "expected": "andeq r0, r0, 1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"andeq r3, r5, 0x80000000\" 02310502",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 02310502"],
+        "expected": "andeq r3, r5, 0x80000000\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"andne r3, r3, r2\" 02300310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 02300310"],
+        "expected": "andne r3, r3, r2\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"andne ip, ip, r7\" 07c00c10",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 07c00c10"],
+        "expected": "andne ip, ip, r7\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"asreq r0, ip, 0x1f\" cc0fa001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad cc0fa001"],
+        "expected": "asreq r0, ip, 0x1f\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"asrne r0, r4, 0x1f\" c40fa011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad c40fa011"],
+        "expected": "asrne r0, r4, 0x1f\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"beq 8\" 0000000a",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0000000a"],
+        "expected": "beq 8\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"biceq r3, r3, 7\" 0730c303",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0730c303"],
+        "expected": "biceq r3, r3, 7\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"blne 0x1900\" 3E06001B",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 3E06001B"],
+        "expected": "blne 0x1900\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"bl 0x1900\" 3e0600eb",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 3e0600eb"],
+        "expected": "bl 0x1900\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"b 0x1900\" 3e0600ea",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 3e0600ea"],
+        "expected": "b 0x1900\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"bxeq lr\" 1eff2f01",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 1eff2f01"],
+        "expected": "bxeq lr\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"bxne lr\" 1eff2f11",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 1eff2f11"],
+        "expected": "bxne lr\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"clzne r5, sl\" 1a5f6f11",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 1a5f6f11"],
+        "expected": "clzne r5, sl\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"cmpeq sl, r0, asr 32\" 40005a01",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 40005a01"],
+        "expected": "cmpeq sl, r0, asr 32\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"cmpne r7, r6\" 06005711",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 06005711"],
+        "expected": "cmpne r7, r6\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"eoreq r2, r2, 1\" 01202202",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 01202202"],
+        "expected": "eoreq r2, r2, 1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"eorne r0, r0, r3\" 03002010",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 03002010"],
+        "expected": "eorne r0, r0, r3\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"eorne r0, r0, r3, lsr 24\" 230c2010",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 230c2010"],
+        "expected": "eorne r0, r0, r3, lsr 24\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"ldmdbeq r2, {r0, r1}\" 03001209",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 03001209"],
+        "expected": "ldmdbeq r2, {r0, r1}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"ldmeq r3, {r0, r1, r2, r3}\" 0f009308",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0f009308"],
+        "expected": "ldmeq r3, {r0, r1, r2, r3}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"ldmeq r5, {r0, r1, r2}\" 07009508",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 07009508"],
+        "expected": "ldmeq r5, {r0, r1, r2}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"ldmeq r6, {r0, r1}\" 03009608",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 03009608"],
+        "expected": "ldmeq r6, {r0, r1}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"ldrbeq r5, [r7, -1]\" 01505705",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 01505705"],
+        "expected": "ldrbeq r5, [r7, -1]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"ldrdne r2, r3, [r3, ip]\" dc208311",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad dc208311"],
+        "expected": "ldrdne r2, r3, [r3, ip]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"ldreq r0, [fp, -0xb4]\" b4001b05",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad b4001b05"],
+        "expected": "ldreq r0, [fp, -0xb4]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"ldrheq r0, [r3, r0]\" b0009301",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad b0009301"],
+        "expected": "ldrheq r0, [r3, r0]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"lslne r1, r1, 2\" 0111a011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0111a011"],
+        "expected": "lslne r1, r1, 2\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"lsreq r0, r0, 0x10\" 2008a001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 2008a001"],
+        "expected": "lsreq r0, r0, 0x10\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"lsrne r0, r0, 9\" a004a011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad a004a011"],
+        "expected": "lsrne r0, r0, 9\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"mlaeq r7, r5, r7, r0\" 95072700",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 95072700"],
+        "expected": "mlaeq r7, r5, r7, r0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"mlane r3, r1, r3, r2\" 91232310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 91232310"],
+        "expected": "mlane r3, r1, r3, r2\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"moveq r0, sl\" 0a00a001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0a00a001"],
+        "expected": "moveq r0, sl\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"movne r0, sb\" 0900a011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0900a011"],
+        "expected": "movne r0, sb\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"mulne r3, r3, r0\" 93000310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 93000310"],
+        "expected": "mulne r3, r3, r0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"mvneq r0, 0x15\" 1500e003",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 1500e003"],
+        "expected": "mvneq r0, 0x15\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"mvneq r0, 0x80000000\" 0201e003",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0201e003"],
+        "expected": "mvneq r0, 0x80000000\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"orreq r5, r5, r3\" 03508501",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 03508501"],
+        "expected": "orreq r5, r5, r3\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"orreq r6, r6, r2, lsr 1\" a2608601",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad a2608601"],
+        "expected": "orreq r6, r6, r2, lsr 1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"orreq r3, r3, 0x80000000\" 02318303",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 02318303"],
+        "expected": "orreq r3, r3, 0x80000000\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"orrne r0, r0, r1, lsl ip\" 110c8011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 110c8011"],
+        "expected": "orrne r0, r0, r1, lsl ip\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"orrne r1, r1, r3\" 03108111",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 03108111"],
+        "expected": "orrne r1, r1, r3\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"popeq {pc}\" 04f09d04",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 04f09d04"],
+        "expected": "popeq {pc}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"popeq {r4, pc}\" 1080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 1080bd08"],
+        "expected": "popeq {r4, pc}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"popeq {r4, r5, pc}\" 3080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 3080bd08"],
+        "expected": "popeq {r4, r5, pc}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"popeq {r3, r4, r5, pc}\" 3880bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 3880bd08"],
+        "expected": "popeq {r3, r4, r5, pc}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"popeq {r4, r5, r6, r7, pc}\" f080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad f080bd08"],
+        "expected": "popeq {r4, r5, r6, r7, pc}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"popeq {r3, r4, r5, r6, r7, pc}\" f880bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad f880bd08"],
+        "expected": "popeq {r3, r4, r5, r6, r7, pc}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"popeq {r3, r4, r5, r6, r7, r8, sl, pc}\" f885bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad f885bd08"],
+        "expected": "popeq {r3, r4, r5, r6, r7, r8, sl, pc}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"popeq {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}\" f88fbd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad f88fbd08"],
+        "expected": "popeq {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"reveq r3, r3\" 333fbf06",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 333fbf06"],
+        "expected": "reveq r3, r3\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"rsbeq ip, r1, r7\" 07c06100",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 07c06100"],
+        "expected": "rsbeq ip, r1, r7\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"rsbne r6, r0, r6\" 06606010",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 06606010"],
+        "expected": "rsbne r6, r0, r6\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"stmeq r0, {r2, r3}\" 0c008008",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0c008008"],
+        "expected": "stmeq r0, {r2, r3}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"stmeq ip, {r0, r1, r2}\" 07008c08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 07008c08"],
+        "expected": "stmeq ip, {r0, r1, r2}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"stmeq ip, {r0, r1, r2, r3}\" 0f008c08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0f008c08"],
+        "expected": "stmeq ip, {r0, r1, r2, r3}\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"strbeq ip, [r2, -1]\" 01c04205",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 01c04205"],
+        "expected": "strbeq ip, [r2, -1]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"strbeq r3, [r5]\" 0030c505",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0030c505"],
+        "expected": "strbeq r3, [r5]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"strdeq r2, r3, [r4]\" f020c401",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad f020c401"],
+        "expected": "strdeq r2, r3, [r4]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"strdeq r4, r5, [r8, 0x50]\" f045c801",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad f045c801"],
+        "expected": "strdeq r4, r5, [r8, 0x50]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"streq r3, [r5, -4]\" 04300505",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 04300505"],
+        "expected": "streq r3, [r5, -4]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"streq r1, [fp, -0x130]\" 30110b05",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 30110b05"],
+        "expected": "streq r1, [fp, -0x130]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"strhne r3, [fp, -0x32]\" b2334b11",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad b2334b11"],
+        "expected": "strhne r3, [fp, -0x32]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"strheq r3, [fp, -0x38]\" b8334b01",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad b8334b01"],
+        "expected": "strheq r3, [fp, -0x38]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"strheq r1, [r0]\" b010c001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad b010c001"],
+        "expected": "strheq r1, [r0]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"strhne r1, [r2, r3]\" b3108211",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad b3108211"],
+        "expected": "strhne r1, [r2, r3]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"subeq ip, r0, 0x20\" 20c04002",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 20c04002"],
+        "expected": "subeq ip, r0, 0x20\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"subne r6, r3, r6, asr 1\" c6604310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad c6604310"],
+        "expected": "subne r6, r3, r6, asr 1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"subne r5, r5, r3\" 03504510",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 03504510"],
+        "expected": "subne r5, r5, r3\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"svceq 0\" 0000000f",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 0000000f"],
+        "expected": "svceq 0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"umlalne r4, r5, r3, r7\" 9347a510",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 9347a510"],
+        "expected": "umlalne r4, r5, r3, r7\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"uxtbeq r1, r0\" 7010ef06",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 7010ef06"],
+        "expected": "uxtbeq r1, r0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"uxtheq r0, r0\" 7000ff06",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 7000ff06"],
+        "expected": "uxtheq r0, r0\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"vstreq d0, [r0]\" 000b800d",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pad 000b800d"],
+        "expected": "vstreq d0, [r0]\n",
+        "broken": false
+    }, {
+        "name": "arm_32: d \"blne 0x1900\" 8374211b 0xff7a46ec",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s 0xff7a46ec", "pad 8374211b"],
+        "expected": "blne 0x1900\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"addeq r1, r1, r0\" 00108100",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa addeq r1, r1, r0"],
+        "expected": "00108100\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"addeq r1, r1, r2, lsl 2\\ 02118100",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa dde"],
+        "expected": "r1\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"addne r1, r1, ip\" 0c108110",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa addne r1, r1, ip"],
+        "expected": "0c108110\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"addne r1, r1, r0, lsl 2\\ 00118110",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa ddn"],
+        "expected": "r1\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"andeq r0, r0, 1\" 01000002",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa andeq r0, r0, 1"],
+        "expected": "01000002\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"andeq r3, r5, 0x80000000\\ 02310502",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa nde"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"andne r3, r3, r2\" 02300310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa andne r3, r3, r2"],
+        "expected": "02300310\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"andne ip, ip, r7\" 07c00c10",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa andne ip, ip, r7"],
+        "expected": "07c00c10\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"asreq r0, ip, 0x1f\\ cc0fa001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s ip", "pa sre"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"asrne r0, r4, 0x1f\\ c40fa011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r4", "pa srn"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"beq 8\" 0000000a",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa beq 8"],
+        "expected": "0000000a\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"biceq r3, r3, 7\\ 0730c303",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa ice"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"blne 0x1900\" 3E06001B",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa blne 0x1900"],
+        "expected": "3E06001B\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"bl 0x1900\" 3e0600eb",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa bl 0x1900"],
+        "expected": "3e0600eb\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"b 0x1900\" 3e0600ea",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa b 0x1900"],
+        "expected": "3e0600ea\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"bxeq lr\\ 1eff2f01",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s 1eff2f01", "pa xe"],
+        "expected": "lr\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"bxne lr\\ 1eff2f11",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s 1eff2f11", "pa xn"],
+        "expected": "lr\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"clzne r5, sl\\ 1a5f6f11",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s sl", "pa lzn"],
+        "expected": "r5\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"cmpeq sl, r0, asr 32\\ 40005a01",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa mpe"],
+        "expected": "sl\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"cmpne r7, r6\" 06005711",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa cmpne r7, r6"],
+        "expected": "06005711\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"eoreq r2, r2, 1\" 01202202",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa eoreq r2, r2, 1"],
+        "expected": "01202202\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"eorne r0, r0, r3\" 03002010",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa eorne r0, r0, r3"],
+        "expected": "03002010\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"eorne r0, r0, r3, lsr 24\\ 230c2010",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa orn"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldmdbeq r2, {r0, r1}\\ 03001209",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa dmdbe"],
+        "expected": "r2\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldmeq r3, {r0, r1, r2, r3}\\ 0f009308",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa dme"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldmeq r5, {r0, r1, r2}\\ 07009508",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa dme"],
+        "expected": "r5\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldmeq r6, {r0, r1}\\ 03009608",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa dme"],
+        "expected": "r6\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldrbeq r5, [r7, -1]\\ 01505705",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r7", "pa drbe"],
+        "expected": "r5\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldrdne r2, r3, [r3, ip]\\ dc208311",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa drdn"],
+        "expected": "r2\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldreq r0, [fp, -0xb4]\\ b4001b05",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s fp", "pa dre"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"ldrheq r0, [r3, r0]\\ b0009301",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa drhe"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"lslne r1, r1, 2\\ 0111a011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa sln"],
+        "expected": "r1\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"lsreq r0, r0, 0x10\\ 2008a001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa sre"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"lsrne r0, r0, 9\\ a004a011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa srn"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"mlaeq r7, r5, r7, r0\\ 95072700",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa lae"],
+        "expected": "r7\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"mlane r3, r1, r3, r2\\ 91232310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r1", "pa lan"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"moveq r0, sl\" 0a00a001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa moveq r0, sl"],
+        "expected": "0a00a001\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"movne r0, sb\\ 0900a011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s sb", "pa ovn"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"mulne r3, r3, r0\\ 93000310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa uln"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"mvneq r0, 0x15\" 1500e003",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa mvneq r0, 0x15"],
+        "expected": "1500e003\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"mvneq r0, 0x80000000\\ 0201e003",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s 0x80000000", "pa vne"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"orreq r5, r5, r3\" 03508501",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa orreq r5, r5, r3"],
+        "expected": "03508501\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"orreq r6, r6, r2, lsr 1\\ a2608601",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r6", "pa rre"],
+        "expected": "r6\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"orreq r3, r3, 0x80000000\\ 02318303",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa rre"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"orrne r0, r0, r1, lsl ip\\ 110c8011",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa rrn"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"orrne r1, r1, r3\" 03108111",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa orrne r1, r1, r3"],
+        "expected": "03108111\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"popeq {pc}\\ 04f09d04",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s 04f09d04", "pa ope"],
+        "expected": "pc\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"popeq {r4, pc}\" 1080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r4, pc}"],
+        "expected": "1080bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r4, r5, pc}\" 3080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r4, r5, pc}"],
+        "expected": "3080bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r3, r4, r5, pc}\" 3880bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r3, r4, r5, pc}"],
+        "expected": "3880bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r4, r5, r6, r7, pc}\" f080bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r4, r5, r6, r7, pc}"],
+        "expected": "f080bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r3, r4, r5, r6, r7, pc}\" f880bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r3, r4, r5, r6, r7, pc}"],
+        "expected": "f880bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"popeq {r3, r4, r5, r6, r7, r8, sl, pc}\" f885bd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa popeq {r3, r4, r5, r6, r7, r8, sl, pc}"],
+        "expected": "f885bd08\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"popeq {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}\\ f88fbd08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r4", "pa ope"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"reveq r3, r3\\ 333fbf06",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa eve"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"rsbeq ip, r1, r7\" 07c06100",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa rsbeq ip, r1, r7"],
+        "expected": "07c06100\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"rsbne r6, r0, r6\" 06606010",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa rsbne r6, r0, r6"],
+        "expected": "06606010\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"stmeq r0, {r2, r3}\\ 0c008008",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r2", "pa tme"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"stmeq ip, {r0, r1, r2}\\ 07008c08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa tme"],
+        "expected": "ip\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"stmeq ip, {r0, r1, r2, r3}\\ 0f008c08",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa tme"],
+        "expected": "ip\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"strbeq ip, [r2, -1]\\ 01c04205",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r2", "pa trbe"],
+        "expected": "ip\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"strbeq r3, [r5]\\ 0030c505",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa trbe"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"strdeq r2, r3, [r4]\\ f020c401",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa trde"],
+        "expected": "r2\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"strdeq r4, r5, [r8, 0x50]\\ f045c801",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa trde"],
+        "expected": "r4\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"streq r3, [r5, -4]\\ 04300505",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa tre"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"streq r1, [fp, -0x130]\\ 30110b05",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s fp", "pa tre"],
+        "expected": "r1\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"strhne r3, [fp, -0x32]\\ b2334b11",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s fp", "pa trhn"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"strheq r3, [fp, -0x38]\\ b8334b01",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s fp", "pa trhe"],
+        "expected": "r3\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"strheq r1, [r0]\\ b010c001",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa trhe"],
+        "expected": "r1\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"strhne r1, [r2, r3]\\ b3108211",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r2", "pa trhn"],
+        "expected": "r1\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"subeq ip, r0, 0x20\" 20c04002",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa subeq ip, r0, 0x20"],
+        "expected": "20c04002\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"subne r6, r3, r6, asr 1\\ c6604310",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r3", "pa ubn"],
+        "expected": "r6\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"subne r5, r5, r3\" 03504510",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa subne r5, r5, r3"],
+        "expected": "03504510\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"svceq 0\" 0000000f",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa svceq 0"],
+        "expected": "0000000f\n",
+        "broken": false
+    }, {
+        "name": "arm_32: aB \"umlalne r4, r5, r3, r7\\ 9347a510",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r5", "pa mlaln"],
+        "expected": "r4\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"uxtbeq r1, r0\\ 7010ef06",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa xtbe"],
+        "expected": "r1\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"uxtheq r0, r0\\ 7000ff06",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa xthe"],
+        "expected": "r0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: aB \"vstreq d0, [r0]\\ 000b800d",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["s r0", "pa stre"],
+        "expected": "d0\n",
+        "broken": true
+    }, {
+        "name": "arm_32: a \"lsr r0, r1, r3\" 3103a0e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa lsr r0, r1, r3"],
+        "expected": "3103a0e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"lsl r2, r8, r5\" 1825a0e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa lsl r2, r8, r5"],
+        "expected": "1825a0e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"asr r4, r5, r0\" 5540a0e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa asr r4, r5, r0"],
+        "expected": "5540a0e1\n",
+        "broken": false
+    }, {
+        "name": "arm_32: a \"ror r7, r6, r1\" 7671a0e1",
+        "file": "-",
+        "args": "-a arm -b 32",
+        "commands": ["pa ror r7, r6, r1"],
+        "expected": "7671a0e1\n",
+        "broken": false
+    }]
+}

@@ -1,1 +1,46 @@
-{"type":"cmd","tests":[{"name":"T hello","file":"-","args":"","commands":["","T hello","T","",""],"expected":"1 hello\n\n","broken":false},{"name":"T-*","file":"-","args":"","commands":["","T hello","T-*","T","",""],"expected":"\n","broken":false},{"name":"T hello world","file":"-","args":"","commands":["","T hello","T world","T","",""],"expected":"1 hello\n2 world\n\n","broken":false},{"name":"T-1","file":"-","args":"","commands":["","T hello","T world","T-1","T","",""],"expected":"2 world\n\n","broken":false},{"name":"T-2","file":"-","args":"","commands":["","T hello","T world","T-2","T","",""],"expected":"\n","broken":false},{"name":"T-3","file":"-","args":"","commands":["","T hello","T world","T-3","T","",""],"expected":"\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "T hello",
+        "file": "-",
+        "args": "",
+        "commands": ["", "T hello", "T", "", ""],
+        "expected": "1 hello\n\n",
+        "broken": false
+    }, {
+        "name": "T-*",
+        "file": "-",
+        "args": "",
+        "commands": ["", "T hello", "T-*", "T", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "T hello world",
+        "file": "-",
+        "args": "",
+        "commands": ["", "T hello", "T world", "T", "", ""],
+        "expected": "1 hello\n2 world\n\n",
+        "broken": false
+    }, {
+        "name": "T-1",
+        "file": "-",
+        "args": "",
+        "commands": ["", "T hello", "T world", "T-1", "T", "", ""],
+        "expected": "2 world\n\n",
+        "broken": false
+    }, {
+        "name": "T-2",
+        "file": "-",
+        "args": "",
+        "commands": ["", "T hello", "T world", "T-2", "T", "", ""],
+        "expected": "\n",
+        "broken": false
+    }, {
+        "name": "T-3",
+        "file": "-",
+        "args": "",
+        "commands": ["", "T hello", "T world", "T-3", "T", "", ""],
+        "expected": "\n",
+        "broken": false
+    }]
+}

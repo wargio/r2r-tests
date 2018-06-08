@@ -8,5 +8,5 @@ if [ -z "$R2RBIN" ]; then
 fi
 
 find "$CURDIR/tests" -type f | while read FNAME; do
-	"$R2RBIN" "$FNAME"
+	"$R2RBIN" --jobs 1 --seq --errors-only "$FNAME"
 done

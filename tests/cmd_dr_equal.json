@@ -1,1 +1,11 @@
-{"type":"cmd","tests":[{"name":"dr= double 0x bug","file":"-","args":"-a x86 -b 32","commands":["dr=~?0x0x","",""],"expected":"0\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "dr= double 0x bug",
+        "file": "-",
+        "args": "-a x86 -b 32",
+        "commands": ["dr=~?0x0x", "", ""],
+        "expected": "0\n\n",
+        "broken": false
+    }]
+}

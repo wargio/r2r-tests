@@ -1,1 +1,18 @@
-{"type":"cmd","tests":[{"name":"pif invalid instruction","file":"bins/elf/mentalminer","args":"-A -B 0x555555554000","commands":["","e asm.functions = false","e asm.flags = false","e asm.comments = false","e asm.calls = false","aaa","s sym.parse__IO_FILE__","pif~?","",""],"expected":"1367\n\n","broken":true},{"name":"pif invalid instruction","file":"bins/elf/mentalminer","args":"-A -B 0x555555554000","commands":["","e asm.functions = false","e asm.flags = false","e asm.comments = false","e asm.calls = false","aaa","pif~?","",""],"expected":"11\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "pif invalid instruction",
+        "file": "bins/elf/mentalminer",
+        "args": "-B 0x555555554000",
+        "commands": ["e asm.functions = false", "e asm.flags = false", "e asm.comments = false", "e asm.calls = false", "aaa", "s sym.parse__IO_FILE__", "pif~?"],
+        "expected": "1367\n\n",
+        "broken": true
+    }, {
+        "name": "pif invalid instruction",
+        "file": "bins/elf/mentalminer",
+        "args": "-B 0x555555554000",
+        "commands": ["e asm.functions = false", "e asm.flags = false", "e asm.comments = false", "e asm.calls = false", "aaa", "pif~?"],
+        "expected": "11\n\n",
+        "broken": false
+    }]
+}

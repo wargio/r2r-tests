@@ -1,1 +1,480 @@
-{"type":"asm","tests":[{"name":"avr: ad \"add r20, r24\" 480f","file":"-","args":"-a avr","commands":["pa add r20, r24","pad 480f"],"expected":"480f\nadd r20, r24\n","broken":false},{"name":"avr: ad \"adc r21, r25\" 591f","file":"-","args":"-a avr","commands":["pa adc r21, r25","pad 591f"],"expected":"591f\nadc r21, r25\n","broken":false},{"name":"avr: ad \"adiw r24, 0x01\" 0196","file":"-","args":"-a avr","commands":["pa adiw r24, 0x01","pad 0196"],"expected":"0196\nadiw r24, 0x01\n","broken":false},{"name":"avr: ad \"andi r24, 0xef\" 8f7e","file":"-","args":"-a avr","commands":["pa andi r24, 0xef","pad 8f7e"],"expected":"8f7e\nandi r24, 0xef\n","broken":false},{"name":"avr: ad \"bld r14, 1\" e1f8","file":"-","args":"-a avr","commands":["pa bld r14, 1","pad e1f8"],"expected":"e1f8\nbld r14, 1\n","broken":false},{"name":"avr: ad \"brcc 0x4\" 08f4","file":"-","args":"-a avr","commands":["pa brcc 0x4","pad 08f4"],"expected":"08f4\nbrcc 0x4\n","broken":false},{"name":"avr: ad \"cli\" f894","file":"-","args":"-a avr","commands":["pa cli","pad f894"],"expected":"f894\ncli\n","broken":false},{"name":"avr: ad \"clr r15\" ff24","file":"-","args":"-a avr","commands":["pa clr r15","pad ff24"],"expected":"ff24\nclr r15\n","broken":false},{"name":"avr: ad \"call 0x2016\" 0e940b10","file":"-","args":"-a avr","commands":["pa call 0x2016","pad 0e940b10"],"expected":"0e940b10\ncall 0x2016\n","broken":false},{"name":"avr: ad \"com r24\" 8095","file":"-","args":"-a avr","commands":["pa com r24","pad 8095"],"expected":"8095\ncom r24\n","broken":false},{"name":"avr: ad \"cp r18, r24\" 2817","file":"-","args":"-a avr","commands":["pa cp r18, r24","pad 2817"],"expected":"2817\ncp r18, r24\n","broken":false},{"name":"avr: ad \"cpi r24, 0xf5\" 853f","file":"-","args":"-a avr","commands":["pa cpi r24, 0xf5","pad 853f"],"expected":"853f\ncpi r24, 0xf5\n","broken":false},{"name":"avr: ad \"cpc r25, r18\" 9207","file":"-","args":"-a avr","commands":["pa cpc r25, r18","pad 9207"],"expected":"9207\ncpc r25, r18\n","broken":false},{"name":"avr: ad \"dec r0\" 0a94","file":"-","args":"-a avr","commands":["pa dec r0","pad 0a94"],"expected":"0a94\ndec r0\n","broken":false},{"name":"avr: ad \"eor r24, r25\" 8927","file":"-","args":"-a avr","commands":["pa eor r24, r25","pad 8927"],"expected":"8927\neor r24, r25\n","broken":false},{"name":"avr: ad \"elpm r0, z+\" 0790","file":"-","args":"-a avr","commands":["pa elpm r0, z+","pad 0790"],"expected":"0790\nelpm r0, z+\n","broken":false},{"name":"avr: ad \"in r28, 0x3d\" cdb7","file":"-","args":"-a avr","commands":["pa in r28, 0x3d","pad cdb7"],"expected":"cdb7\nin r28, 0x3d\n","broken":false},{"name":"avr: ad \"inc r14\" e394","file":"-","args":"-a avr","commands":["pa inc r14","pad e394"],"expected":"e394\ninc r14\n","broken":false},{"name":"avr: ad \"jmp 0x246\" 0c942301","file":"-","args":"-a avr","commands":["pa jmp 0x246","pad 0c942301"],"expected":"0c942301\njmp 0x246\n","broken":false},{"name":"avr: ad \"jmp 0x20246\" 0d942301","file":"-","args":"-a avr","commands":["pa jmp 0x20246","pad 0d942301"],"expected":"0d942301\njmp 0x20246\n","broken":false},{"name":"avr: ad \"jmp 0x2c0246\" bc942301","file":"-","args":"-a avr","commands":["pa jmp 0x2c0246","pad bc942301"],"expected":"bc942301\njmp 0x2c0246\n","broken":false},{"name":"avr: ad \"jmp 0x400246\" 0c952301","file":"-","args":"-a avr","commands":["pa jmp 0x400246","pad 0c952301"],"expected":"0c952301\njmp 0x400246\n","broken":false},{"name":"avr: ad \"ld r24, z\" 8081","file":"-","args":"-a avr","commands":["pa ld r24, z","pad 8081"],"expected":"8081\nld r24, z\n","broken":false},{"name":"avr: ad \"ldi r25, 0x07\" 97e0","file":"-","args":"-a avr","commands":["pa ldi r25, 0x07","pad 97e0"],"expected":"97e0\nldi r25, 0x07\n","broken":false},{"name":"avr: ad \"ldd r9, z+1\" 9180","file":"-","args":"-a avr","commands":["pa ldd r9, z+1","pad 9180"],"expected":"9180\nldd r9, z+1\n","broken":false},{"name":"avr: ad \"lds r24, 0x102\" 80910201","file":"-","args":"-a avr","commands":["pa lds r24, 0x102","pad 80910201"],"expected":"80910201\nlds r24, 0x102\n","broken":false},{"name":"avr: ad \"lsl r24\" 880f","file":"-","args":"-a avr","commands":["pa lsl r24","pad 880f"],"expected":"880f\nlsl r24\n","broken":false},{"name":"avr: ad \"mov r0, r31\" 0f2e","file":"-","args":"-a avr","commands":["pa mov r0, r31","pad 0f2e"],"expected":"0f2e\nmov r0, r31\n","broken":false},{"name":"avr: ad \"movw r22, r18\" b901","file":"-","args":"-a avr","commands":["pa movw r22, r18","pad b901"],"expected":"b901\nmovw r22, r18\n","broken":false},{"name":"avr: ad \"ori r24, 0x01\" 8160","file":"-","args":"-a avr","commands":["pa ori r24, 0x01","pad 8160"],"expected":"8160\nori r24, 0x01\n","broken":false},{"name":"avr: ad \"out 0x3e, r25\" 9ebf","file":"-","args":"-a avr","commands":["pa out 0x3e, r25","pad 9ebf"],"expected":"9ebf\nout 0x3e, r25\n","broken":false},{"name":"avr: ad \"push r29\" df93","file":"-","args":"-a avr","commands":["pa push r29","pad df93"],"expected":"df93\npush r29\n","broken":false},{"name":"avr: ad \"rcall 0x4\" 01d0","file":"-","args":"-a avr","commands":["pa rcall 0x4","pad 01d0"],"expected":"01d0\nrcall 0x4\n","broken":false},{"name":"avr: ad \"rjmp 0x4\" 01c0","file":"-","args":"-a avr","commands":["pa rjmp 0x4","pad 01c0"],"expected":"01c0\nrjmp 0x4\n","broken":false},{"name":"avr: ad \"pop r28\" cf91","file":"-","args":"-a avr","commands":["pa pop r28","pad cf91"],"expected":"cf91\npop r28\n","broken":false},{"name":"avr: ad \"ret\" 0895","file":"-","args":"-a avr","commands":["pa ret","pad 0895"],"expected":"0895\nret\n","broken":false},{"name":"avr: ad \"reti\" 1895","file":"-","args":"-a avr","commands":["pa reti","pad 1895"],"expected":"1895\nreti\n","broken":false},{"name":"avr: ad \"rol r25\" 991f","file":"-","args":"-a avr","commands":["pa rol r25","pad 991f"],"expected":"991f\nrol r25\n","broken":false},{"name":"avr: ad \"sbc r19, r25\" 390b","file":"-","args":"-a avr","commands":["pa sbc r19, r25","pad 390b"],"expected":"390b\nsbc r19, r25\n","broken":false},{"name":"avr: ad \"sbci r19, 0xff\" 3f4f","file":"-","args":"-a avr","commands":["pa sbci r19, 0xff","pad 3f4f"],"expected":"3f4f\nsbci r19, 0xff\n","broken":false},{"name":"avr: ad \"sbiw r24, 0x01\" 0197","file":"-","args":"-a avr","commands":["pa sbiw r24, 0x01","pad 0197"],"expected":"0197\nsbiw r24, 0x01\n","broken":false},{"name":"avr: ad \"sei\" 7894","file":"-","args":"-a avr","commands":["pa sei","pad 7894"],"expected":"7894\nsei\n","broken":false},{"name":"avr: ad \"ser r24\" 8fef","file":"-","args":"-a avr","commands":["pa ser r24","pad 8fef"],"expected":"8fef\nser r24\n","broken":false},{"name":"avr: ad \"std z+0, r1\" 1082","file":"-","args":"-a avr","commands":["pa std z+0, r1","pad 1082"],"expected":"1082\nstd z+0, r1\n","broken":false},{"name":"avr: ad \"std z+1, r1\" 1182","file":"-","args":"-a avr","commands":["pa std z+1, r1","pad 1182"],"expected":"1182\nstd z+1, r1\n","broken":false},{"name":"avr: ad \"sts 0x7c0, r25\" 9093c007","file":"-","args":"-a avr","commands":["pa sts 0x7c0, r25","pad 9093c007"],"expected":"9093c007\nsts 0x7c0, r25\n","broken":false},{"name":"avr: ad \"sub r18, r24\" 281b","file":"-","args":"-a avr","commands":["pa sub r18, r24","pad 281b"],"expected":"281b\nsub r18, r24\n","broken":false},{"name":"avr: ad \"subi r18, 0xff\" 2f5f","file":"-","args":"-a avr","commands":["pa subi r18, 0xff","pad 2f5f"],"expected":"2f5f\nsubi r18, 0xff\n","broken":false},{"name":"avr: ad \"tst r24\" 8823","file":"-","args":"-a avr","commands":["pa tst r24","pad 8823"],"expected":"8823\ntst r24\n","broken":false},{"name":"avr: d \"invalid\" 0e","file":"-","args":"-a avr","commands":["pad 0e"],"expected":"invalid\n","broken":false},{"name":"avr: d \"call 0x16\" 0e940b00 0x2d0","file":"-","args":"-a avr","commands":["s 0x2d0","pad 0e940b00"],"expected":"call 0x16\n","broken":false},{"name":"avr: ad \"brcc 0x4\" 08f4 0","file":"-","args":"-a avr","commands":["s 0","pa brcc 0x4","pad 08f4"],"expected":"08f4\nbrcc 0x4\n","broken":false},{"name":"avr: ad \"brne 0x6\" 09f4 2","file":"-","args":"-a avr","commands":["s 2","pa brne 0x6","pad 09f4"],"expected":"09f4\nbrne 0x6\n","broken":false},{"name":"avr: ad \"brpl 0x8\" 0af4 4","file":"-","args":"-a avr","commands":["s 4","pa brpl 0x8","pad 0af4"],"expected":"0af4\nbrpl 0x8\n","broken":false},{"name":"avr: ad \"brvc 0xa\" 0bf4 6","file":"-","args":"-a avr","commands":["s 6","pa brvc 0xa","pad 0bf4"],"expected":"0bf4\nbrvc 0xa\n","broken":false},{"name":"avr: ad \"brge 0xc\" 0cf4 8","file":"-","args":"-a avr","commands":["s 8","pa brge 0xc","pad 0cf4"],"expected":"0cf4\nbrge 0xc\n","broken":false},{"name":"avr: ad \"brhc 0xe\" 0df4 0xa","file":"-","args":"-a avr","commands":["s 0xa","pa brhc 0xe","pad 0df4"],"expected":"0df4\nbrhc 0xe\n","broken":false},{"name":"avr: ad \"brtc 0x10\" 0ef4 0xc","file":"-","args":"-a avr","commands":["s 0xc","pa brtc 0x10","pad 0ef4"],"expected":"0ef4\nbrtc 0x10\n","broken":false},{"name":"avr: ad \"brid 0x12\" 0ff4 0xe","file":"-","args":"-a avr","commands":["s 0xe","pa brid 0x12","pad 0ff4"],"expected":"0ff4\nbrid 0x12\n","broken":false},{"name":"avr: ad \"brcc 0x4\" 08f4 0","file":"-","args":"-a avr","commands":["s 0","pa brcc 0x4","pad 08f4"],"expected":"08f4\nbrcc 0x4\n","broken":false},{"name":"avr: ad \"brcs 0x4\" 08f0 0","file":"-","args":"-a avr","commands":["s 0","pa brcs 0x4","pad 08f0"],"expected":"08f0\nbrcs 0x4\n","broken":false},{"name":"avr: ad \"breq 0x6\" 09f0 2","file":"-","args":"-a avr","commands":["s 2","pa breq 0x6","pad 09f0"],"expected":"09f0\nbreq 0x6\n","broken":false},{"name":"avr: ad \"brmi 0x8\" 0af0 4","file":"-","args":"-a avr","commands":["s 4","pa brmi 0x8","pad 0af0"],"expected":"0af0\nbrmi 0x8\n","broken":false},{"name":"avr: ad \"brvs 0xa\" 0bf0 6","file":"-","args":"-a avr","commands":["s 6","pa brvs 0xa","pad 0bf0"],"expected":"0bf0\nbrvs 0xa\n","broken":false},{"name":"avr: ad \"brlt 0xc\" 0cf0 8","file":"-","args":"-a avr","commands":["s 8","pa brlt 0xc","pad 0cf0"],"expected":"0cf0\nbrlt 0xc\n","broken":false},{"name":"avr: ad \"brhs 0xe\" 0df0 0xa","file":"-","args":"-a avr","commands":["s 0xa","pa brhs 0xe","pad 0df0"],"expected":"0df0\nbrhs 0xe\n","broken":false},{"name":"avr: ad \"brts 0x10\" 0ef0 0xc","file":"-","args":"-a avr","commands":["s 0xc","pa brts 0x10","pad 0ef0"],"expected":"0ef0\nbrts 0x10\n","broken":false},{"name":"avr: ad \"brie 0x12\" 0ff0 0xe","file":"-","args":"-a avr","commands":["s 0xe","pa brie 0x12","pad 0ff0"],"expected":"0ff0\nbrie 0x12\n","broken":false}]}
+{
+    "type": "asm",
+    "tests": [{
+        "name": "avr: ad \"add r20, r24\" 480f",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa add r20, r24", "pad 480f"],
+        "expected": "480f\nadd r20, r24\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"adc r21, r25\" 591f",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa adc r21, r25", "pad 591f"],
+        "expected": "591f\nadc r21, r25\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"adiw r24, 0x01\" 0196",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa adiw r24, 0x01", "pad 0196"],
+        "expected": "0196\nadiw r24, 0x01\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"andi r24, 0xef\" 8f7e",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa andi r24, 0xef", "pad 8f7e"],
+        "expected": "8f7e\nandi r24, 0xef\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"bld r14, 1\" e1f8",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa bld r14, 1", "pad e1f8"],
+        "expected": "e1f8\nbld r14, 1\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brcc 0x4\" 08f4",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa brcc 0x4", "pad 08f4"],
+        "expected": "08f4\nbrcc 0x4\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"cli\" f894",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa cli", "pad f894"],
+        "expected": "f894\ncli\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"clr r15\" ff24",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa clr r15", "pad ff24"],
+        "expected": "ff24\nclr r15\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"call 0x2016\" 0e940b10",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa call 0x2016", "pad 0e940b10"],
+        "expected": "0e940b10\ncall 0x2016\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"com r24\" 8095",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa com r24", "pad 8095"],
+        "expected": "8095\ncom r24\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"cp r18, r24\" 2817",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa cp r18, r24", "pad 2817"],
+        "expected": "2817\ncp r18, r24\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"cpi r24, 0xf5\" 853f",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa cpi r24, 0xf5", "pad 853f"],
+        "expected": "853f\ncpi r24, 0xf5\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"cpc r25, r18\" 9207",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa cpc r25, r18", "pad 9207"],
+        "expected": "9207\ncpc r25, r18\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"dec r0\" 0a94",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa dec r0", "pad 0a94"],
+        "expected": "0a94\ndec r0\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"eor r24, r25\" 8927",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa eor r24, r25", "pad 8927"],
+        "expected": "8927\neor r24, r25\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"elpm r0, z+\" 0790",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa elpm r0, z+", "pad 0790"],
+        "expected": "0790\nelpm r0, z+\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"in r28, 0x3d\" cdb7",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa in r28, 0x3d", "pad cdb7"],
+        "expected": "cdb7\nin r28, 0x3d\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"inc r14\" e394",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa inc r14", "pad e394"],
+        "expected": "e394\ninc r14\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"jmp 0x246\" 0c942301",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa jmp 0x246", "pad 0c942301"],
+        "expected": "0c942301\njmp 0x246\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"jmp 0x20246\" 0d942301",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa jmp 0x20246", "pad 0d942301"],
+        "expected": "0d942301\njmp 0x20246\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"jmp 0x2c0246\" bc942301",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa jmp 0x2c0246", "pad bc942301"],
+        "expected": "bc942301\njmp 0x2c0246\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"jmp 0x400246\" 0c952301",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa jmp 0x400246", "pad 0c952301"],
+        "expected": "0c952301\njmp 0x400246\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"ld r24, z\" 8081",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa ld r24, z", "pad 8081"],
+        "expected": "8081\nld r24, z\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"ldi r25, 0x07\" 97e0",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa ldi r25, 0x07", "pad 97e0"],
+        "expected": "97e0\nldi r25, 0x07\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"ldd r9, z+1\" 9180",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa ldd r9, z+1", "pad 9180"],
+        "expected": "9180\nldd r9, z+1\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"lds r24, 0x102\" 80910201",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa lds r24, 0x102", "pad 80910201"],
+        "expected": "80910201\nlds r24, 0x102\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"lsl r24\" 880f",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa lsl r24", "pad 880f"],
+        "expected": "880f\nlsl r24\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"mov r0, r31\" 0f2e",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa mov r0, r31", "pad 0f2e"],
+        "expected": "0f2e\nmov r0, r31\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"movw r22, r18\" b901",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa movw r22, r18", "pad b901"],
+        "expected": "b901\nmovw r22, r18\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"ori r24, 0x01\" 8160",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa ori r24, 0x01", "pad 8160"],
+        "expected": "8160\nori r24, 0x01\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"out 0x3e, r25\" 9ebf",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa out 0x3e, r25", "pad 9ebf"],
+        "expected": "9ebf\nout 0x3e, r25\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"push r29\" df93",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa push r29", "pad df93"],
+        "expected": "df93\npush r29\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"rcall 0x4\" 01d0",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa rcall 0x4", "pad 01d0"],
+        "expected": "01d0\nrcall 0x4\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"rjmp 0x4\" 01c0",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa rjmp 0x4", "pad 01c0"],
+        "expected": "01c0\nrjmp 0x4\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"pop r28\" cf91",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa pop r28", "pad cf91"],
+        "expected": "cf91\npop r28\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"ret\" 0895",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa ret", "pad 0895"],
+        "expected": "0895\nret\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"reti\" 1895",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa reti", "pad 1895"],
+        "expected": "1895\nreti\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"rol r25\" 991f",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa rol r25", "pad 991f"],
+        "expected": "991f\nrol r25\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"sbc r19, r25\" 390b",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa sbc r19, r25", "pad 390b"],
+        "expected": "390b\nsbc r19, r25\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"sbci r19, 0xff\" 3f4f",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa sbci r19, 0xff", "pad 3f4f"],
+        "expected": "3f4f\nsbci r19, 0xff\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"sbiw r24, 0x01\" 0197",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa sbiw r24, 0x01", "pad 0197"],
+        "expected": "0197\nsbiw r24, 0x01\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"sei\" 7894",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa sei", "pad 7894"],
+        "expected": "7894\nsei\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"ser r24\" 8fef",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa ser r24", "pad 8fef"],
+        "expected": "8fef\nser r24\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"std z+0, r1\" 1082",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa std z+0, r1", "pad 1082"],
+        "expected": "1082\nstd z+0, r1\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"std z+1, r1\" 1182",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa std z+1, r1", "pad 1182"],
+        "expected": "1182\nstd z+1, r1\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"sts 0x7c0, r25\" 9093c007",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa sts 0x7c0, r25", "pad 9093c007"],
+        "expected": "9093c007\nsts 0x7c0, r25\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"sub r18, r24\" 281b",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa sub r18, r24", "pad 281b"],
+        "expected": "281b\nsub r18, r24\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"subi r18, 0xff\" 2f5f",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa subi r18, 0xff", "pad 2f5f"],
+        "expected": "2f5f\nsubi r18, 0xff\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"tst r24\" 8823",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pa tst r24", "pad 8823"],
+        "expected": "8823\ntst r24\n",
+        "broken": false
+    }, {
+        "name": "avr: d \"invalid\" 0e",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["pad 0e"],
+        "expected": "invalid\n",
+        "broken": false
+    }, {
+        "name": "avr: d \"call 0x16\" 0e940b00 0x2d0",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0x2d0", "pad 0e940b00"],
+        "expected": "call 0x16\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brcc 0x4\" 08f4 0",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0", "pa brcc 0x4", "pad 08f4"],
+        "expected": "08f4\nbrcc 0x4\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brne 0x6\" 09f4 2",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 2", "pa brne 0x6", "pad 09f4"],
+        "expected": "09f4\nbrne 0x6\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brpl 0x8\" 0af4 4",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 4", "pa brpl 0x8", "pad 0af4"],
+        "expected": "0af4\nbrpl 0x8\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brvc 0xa\" 0bf4 6",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 6", "pa brvc 0xa", "pad 0bf4"],
+        "expected": "0bf4\nbrvc 0xa\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brge 0xc\" 0cf4 8",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 8", "pa brge 0xc", "pad 0cf4"],
+        "expected": "0cf4\nbrge 0xc\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brhc 0xe\" 0df4 0xa",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0xa", "pa brhc 0xe", "pad 0df4"],
+        "expected": "0df4\nbrhc 0xe\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brtc 0x10\" 0ef4 0xc",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0xc", "pa brtc 0x10", "pad 0ef4"],
+        "expected": "0ef4\nbrtc 0x10\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brid 0x12\" 0ff4 0xe",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0xe", "pa brid 0x12", "pad 0ff4"],
+        "expected": "0ff4\nbrid 0x12\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brcc 0x4\" 08f4 0",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0", "pa brcc 0x4", "pad 08f4"],
+        "expected": "08f4\nbrcc 0x4\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brcs 0x4\" 08f0 0",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0", "pa brcs 0x4", "pad 08f0"],
+        "expected": "08f0\nbrcs 0x4\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"breq 0x6\" 09f0 2",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 2", "pa breq 0x6", "pad 09f0"],
+        "expected": "09f0\nbreq 0x6\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brmi 0x8\" 0af0 4",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 4", "pa brmi 0x8", "pad 0af0"],
+        "expected": "0af0\nbrmi 0x8\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brvs 0xa\" 0bf0 6",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 6", "pa brvs 0xa", "pad 0bf0"],
+        "expected": "0bf0\nbrvs 0xa\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brlt 0xc\" 0cf0 8",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 8", "pa brlt 0xc", "pad 0cf0"],
+        "expected": "0cf0\nbrlt 0xc\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brhs 0xe\" 0df0 0xa",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0xa", "pa brhs 0xe", "pad 0df0"],
+        "expected": "0df0\nbrhs 0xe\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brts 0x10\" 0ef0 0xc",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0xc", "pa brts 0x10", "pad 0ef0"],
+        "expected": "0ef0\nbrts 0x10\n",
+        "broken": false
+    }, {
+        "name": "avr: ad \"brie 0x12\" 0ff0 0xe",
+        "file": "-",
+        "args": "-a avr",
+        "commands": ["s 0xe", "pa brie 0x12", "pad 0ff0"],
+        "expected": "0ff0\nbrie 0x12\n",
+        "broken": false
+    }]
+}

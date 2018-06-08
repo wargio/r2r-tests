@@ -1,1 +1,11 @@
-{"type":"cmd","tests":[{"name":"p-h out of bounds","file":"bins/mach0/mach0-x86-64","args":"","commands":["","aaa","p-h @0x100001010 @e:search.in=io.section","",""],"expected":".-------------.----------------------------.\n|   offset    | flags funcs cmts syms str  |\n|-------------)----------------------------|\n| 0x100001010 |    2    0    1    0    0   |\n|-------------)----------------------------|\n|    total    |    2    0    1    0    0   |\n`-------------'----------------------------'\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [{
+        "name": "p-h out of bounds",
+        "file": "bins/mach0/mach0-x86-64",
+        "args": "",
+        "commands": ["", "aaa", "p-h @0x100001010 @e:search.in=io.section", "", ""],
+        "expected": ".-------------.----------------------------.\n|   offset    | flags funcs cmts syms str  |\n|-------------)----------------------------|\n| 0x100001010 |    2    0    1    0    0   |\n|-------------)----------------------------|\n|    total    |    2    0    1    0    0   |\n`-------------'----------------------------'\n\n",
+        "broken": false
+    }]
+}
