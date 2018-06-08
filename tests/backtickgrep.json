@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"t/backtickgrep","file":"-","args":"","commands":["?v `i~size[1]`-$s;?! ?e works",""],"expected":"0x0\nworks\n\n","broken":false}]}

@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"r ","file":"malloc://512","args":"","commands":["","r","",""],"expected":"512\n\n","broken":false},{"name":"wx 90 r pd 1","file":"malloc://512","args":"","commands":["","wx 90","r","pd 1","",""],"expected":"512\n            0x00000000      90             nop\n\n","broken":false}]}

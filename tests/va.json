@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"t/va","file":"bins/elf/analysis/x86-simple","args":"","commands":["","e search.in=io.section","/x 5b","pi 1 @ hit0_0","",""],"expected":"0x08048065 hit0_0 5b\npop ebx\n\n","broken":false}]}

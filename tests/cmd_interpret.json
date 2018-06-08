@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":".- (edit, source tmp file)","file":"-","args":"","commands":["","e cfg.editor=/bin/true",".-","",""],"expected":"\n","broken":false}]}

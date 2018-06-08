@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"stdin eof","file":"-","args":"","commands":["",""],"expected":"\n","broken":false},{"name":"stdin quit","file":"-","args":"","commands":["",""],"expected":"\n","broken":false},{"name":"stdin quit","file":"-","args":"","commands":["",""],"expected":"\n","broken":false}]}

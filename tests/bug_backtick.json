@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"t/bug_backtick","file":"-","args":"","commands":["p8 3`~`","",""],"expected":"000000\n\n","broken":false}]}

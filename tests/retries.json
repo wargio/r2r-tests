@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"t/retries","file":"-","args":"","commands":["","b 10","pd~?","pd 3~?","pd 20~?","",""],"expected":"2\n3\n20\n\n","broken":false}]}

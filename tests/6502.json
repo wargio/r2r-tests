@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"6502 af bug introduced in 36e42b3","file":"malloc://1024","args":"","commands":["e asm.arch=6502","wx c904c90460","af","afl~[2]","",""],"expected":"5\n\n","broken":false}]}

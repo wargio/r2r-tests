@@ -1,0 +1,1 @@
+{"type":"asm","tests":[{"name":"mips_v2_64: d \"lwc3 0, (zero)\" 000000cc","file":"-","args":"-a mips -e asm.cpu=v2 -b 64","commands":["pad 000000cc"],"expected":"lwc3 0, (zero)\n","broken":false},{"name":"mips_v2_64: d \"swc3 0, (zero)\" 000000ec","file":"-","args":"-a mips -e asm.cpu=v2 -b 64","commands":["pad 000000ec"],"expected":"swc3 0, (zero)\n","broken":false}]}

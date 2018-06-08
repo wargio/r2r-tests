@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"Ch offset","file":"malloc://1024","args":"","commands":["","Ch 1024","pD 1024","",""],"expected":"            0x00000000 (1024 bytes hidden)\n\n","broken":false}]}

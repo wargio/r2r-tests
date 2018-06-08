@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"t/echo","file":"-","args":"","commands":["?e hello world",""],"expected":"hello world\n\n","broken":false}]}

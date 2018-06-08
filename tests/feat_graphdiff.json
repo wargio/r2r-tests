@@ -1,0 +1,1 @@
+{"type":"cmd","tests":[{"name":"graphdiff segfault","file":"-","args":"","commands":["cg / 2\u003e/dev/null","",""],"expected":"\n","broken":false}]}
