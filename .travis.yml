@@ -1,0 +1,12 @@
+language: generic
+
+os:
+  - linux
+  - osx
+
+script:
+  - chmod +x build-run.sh
+  - ./build-run.sh
+
+git:
+  depth: 3
