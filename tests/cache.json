@@ -1,0 +1,152 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "io.cache: minimal usage",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e io.cache=1",
+                "wx 010203",
+                "p8 3",
+                "wcr",
+                "# Test write works after disabling the cache.",
+                "e io.cache=0",
+                "wx 040506",
+                "p8 3",
+                "",
+                ""
+            ],
+            "expected": "010203\n040506\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.cache: Writing after end of file",
+            "file": "bins/other/0x3",
+            "args": "",
+            "commands": [
+                "",
+                "e io.cache=1",
+                "w hello",
+                "x 5",
+                "",
+                ""
+            ],
+            "expected": "- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0x00000000  6865 6c6c 6f                             hello\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.cache: Writing after end of file",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "?e",
+                "b 0xf",
+                "p8",
+                "w no-cache",
+                "p8",
+                "",
+                "e io.cache=1",
+                "w cache-mode",
+                "p8",
+                "",
+                "# Reseting cache restores original data.",
+                "wcr",
+                "p8",
+                "w overwrite",
+                "p8",
+                "wci",
+                "",
+                "# Commit cache overwrites original data.",
+                "p8",
+                "",
+                "# Reset cache with no pending cache entries.",
+                "wcr",
+                "wci",
+                "p8",
+                "",
+                ""
+            ],
+            "expected": "\n000000000000000000000000000000\n6e6f2d636163686500000000000000\n63616368652d6d6f64650000000000\n6e6f2d636163686500000000000000\n6f7665727772697465000000000000\n6f7665727772697465000000000000\n6f7665727772697465000000000000\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.cache: empty file",
+            "file": ".empty.tmp",
+            "args": "",
+            "commands": [
+                "",
+                "?e",
+                "b 15",
+                "p8",
+                "w no-cache",
+                "p8",
+                "e io.cache=1",
+                "w cache-mode",
+                "p8",
+                "# Reseting cache restores original data.",
+                "wcr",
+                "p8",
+                "w overwrite",
+                "p8",
+                "wci",
+                "# Commit cache overwrites original data.",
+                "p8",
+                "# Reset cache with no pending cache entries.",
+                "wcr",
+                "wci",
+                "p8",
+                "# File was correctly writen.",
+                "cat .empty.tmp",
+                "?e",
+                "",
+                ""
+            ],
+            "expected": "\nffffffffffffffffffffffffffffff\n6e6f2d6361636865ffffffffffffff\n63616368652d6d6f6465ffffffffff\n6e6f2d6361636865ffffffffffffff\n6f7665727772697465ffffffffffff\n6f7665727772697465ffffffffffff\n6f7665727772697465ffffffffffff\noverwrite\n\n",
+            "broken": true
+        },
+        {
+            "name": "io.cache: Reading behind cache written area",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "",
+                "e io.cache = true",
+                "px 32",
+                "s +1",
+                "px 31",
+                "s -1",
+                "wx 90",
+                "px 32",
+                "s +1",
+                "px 31",
+                "",
+                ""
+            ],
+            "expected": "- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0x00000000  0000 0000 0000 0000 0000 0000 0000 0000  ................\n0x00000010  0000 0000 0000 0000 0000 0000 0000 0000  ................\n- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0x00000001  0000 0000 0000 0000 0000 0000 0000 0000  ................\n0x00000011  0000 0000 0000 0000 0000 0000 0000 00    ...............\n- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0x00000000  9000 0000 0000 0000 0000 0000 0000 0000  ................\n0x00000010  0000 0000 0000 0000 0000 0000 0000 0000  ................\n- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0x00000001  0000 0000 0000 0000 0000 0000 0000 0000  ................\n0x00000011  0000 0000 0000 0000 0000 0000 0000 00    ...............\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.cache: cache write, cache undo",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e io.cache=1",
+                "w aa     ",
+                "w b",
+                "p8 2",
+                "wc-",
+                "p8 2",
+                "wc- ",
+                "p8 2",
+                "",
+                ""
+            ],
+            "expected": "6261\n6161\n0000\n\n",
+            "broken": false
+        }
+    ]
+}

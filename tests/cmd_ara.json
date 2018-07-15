@@ -1,32 +1,81 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "ara swap",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=64", "ara+", "ar rax=33", "ar rax", "aras", "ar rax", "", ""],
-        "expected": "0x00000021\n0x00000000\n\n",
-        "broken": false
-    }, {
-        "name": "ara swap 2",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=64", "ara+", "ar rax=33", "ar rax", "aras", "ar rax", "aras", "ar rax", "", ""],
-        "expected": "0x00000021\n0x00000000\n0x00000021\n\n",
-        "broken": false
-    }, {
-        "name": "ara push",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=64", "ara~?", "ara+", "ara~?", "", ""],
-        "expected": "14\n21\n\n",
-        "broken": false
-    }, {
-        "name": "ara pop",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=64", "ara~?", "ara+", "ara~?", "ara-", "ara~?", "ara-", "ara~?", "ara-", "ara~?", "", ""],
-        "expected": "14\n21\n14\n7\n7\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "ara swap",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "ara+",
+                "ar rax=33",
+                "ar rax",
+                "aras",
+                "ar rax",
+                "",
+                ""
+            ],
+            "expected": "0x00000021\n0x00000000\n\n",
+            "broken": false
+        },
+        {
+            "name": "ara swap 2",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "ara+",
+                "ar rax=33",
+                "ar rax",
+                "aras",
+                "ar rax",
+                "aras",
+                "ar rax",
+                "",
+                ""
+            ],
+            "expected": "0x00000021\n0x00000000\n0x00000021\n\n",
+            "broken": false
+        },
+        {
+            "name": "ara push",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "ara~?",
+                "ara+",
+                "ara~?",
+                "",
+                ""
+            ],
+            "expected": "14\n21\n\n",
+            "broken": false
+        },
+        {
+            "name": "ara pop",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "ara~?",
+                "ara+",
+                "ara~?",
+                "ara-",
+                "ara~?",
+                "ara-",
+                "ara~?",
+                "ara-",
+                "ara~?",
+                "",
+                ""
+            ],
+            "expected": "14\n21\n14\n7\n7\n\n",
+            "broken": false
+        }
+    ]
 }

@@ -1,340 +1,681 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "p2 hello-linux-x86_64",
-        "file": "bins/elf/analysis/hello-linux-x86_64",
-        "args": "",
-        "commands": ["", "p2 16", "", ""],
-        "expected": "----..==----##..\n--==####..####..\n==..##..------==\n--==####..####--\n==..==##--##==##\n..----####--====\n==..==..########\n##..##==--==##--\n\n",
-        "broken": false
-    }, {
-        "name": "p= 0xff 0x00",
-        "file": "-",
-        "args": "",
-        "commands": ["", "b 2", "wx 0xff", "p= 2@0", "", ""],
-        "expected": "         ___________________________________________________\n00 00ff | __________________________________________________|\n01 0000 ||\n\n",
-        "broken": true
-    }, {
-        "name": "p=b 0xff 0x00",
-        "file": "-",
-        "args": "",
-        "commands": ["b 2", "wx 0xff", "e zoom.in=raw", "p=b 2 2@0", ""],
-        "expected": "0x00000000 00 00ff |'__________________________________________________|\n0x00000001 01 0000 ||\n\n",
-        "broken": false
-    }, {
-        "name": "p= - crash",
-        "file": "-",
-        "args": "",
-        "commands": ["e zoom.in = block", "p=p\" 1 \" 1 EN", ""],
-        "expected": "0x00000000 00 0000 ||\n",
-        "broken": false
-    }, {
-        "name": "p=d",
-        "file": "bins/elf/arm1.bin",
-        "args": "-n",
-        "commands": ["p=d 10 @ 0", ""],
-        "expected": "min:              0  0x0\nmax:              127  0x7f\nunique (count):   6  0x6\nrange (max-min):  127  0x7f\nsize (of block):  10  0xa\n",
-        "broken": false
-    }, {
-        "name": "p=e 5",
-        "file": "bins/elf/arm1.bin",
-        "args": "",
-        "commands": ["p=e 5@0", ""],
-        "expected": "0x00000000 00 009f |'''''''''''''''''''''''''''''''|_______\n0x0001bec1 01 00c3 |                                      |\n0x00037d82 02 00c3 |                                      |\n0x00053c43 03 00c3 |                 ______________________|\n0x0006fb04 04 0051 | _______________|\n",
-        "broken": false
-    }, {
-        "name": "p=e 5 0x100",
-        "file": "bins/elf/arm1.bin",
-        "args": "-n",
-        "commands": ["e zoom.in = block\r", "p=e 5 0x100\r", ""],
-        "expected": "0x00000000 00 007f |''''''''''''''''''''''___|\n0x00000033 01 006b |                     |__\n0x00000066 02 007a |                      ___|\n0x00000099 03 006a |                   __|\n0x000000cc 04 005f | __________________|\n",
-        "broken": false
-    }, {
-        "name": "p=e 5 0x100 1",
-        "file": "bins/elf/arm1.bin",
-        "args": "-n",
-        "commands": ["e zoom.in = block\r", "p=e 5 0x100 1\r", ""],
-        "expected": "0x00000000 00 006b |'''''''''''''''''''''|__\n0x00000033 01 007a |                      ___|\n0x00000066 02 006a |                   __|\n0x00000099 03 005f |                  _|\n0x000000cc 04 0059 | _________________|\n",
-        "broken": false
-    }, {
-        "name": "p=p 5",
-        "file": "bins/elf/arm1.bin",
-        "args": "-n",
-        "commands": ["p=p 5@0", ""],
-        "expected": "0x00000000 00 0032 |''''''''''|\n0x0001bec1 01 0031 |         |\n0x00037d82 02 0035 |          |__\n0x00053c43 03 0040 |            |__________\n0x0006fb04 04 0076 | _______________________|\n\n",
-        "broken": false
-    }, {
-        "name": "p=p 5 0x100",
-        "file": "bins/elf/arm1.bin",
-        "args": "-n",
-        "commands": ["e zoom.in = block\r", "p=p 5 0x100\r", ""],
-        "expected": "0x00000000 00 0032 |'''''____|\n0x00000033 01 0019 |    |\n0x00000066 02 001e |     |\n0x00000099 03 001e |     |_\n0x000000cc 04 0028 | _______|\n\n",
-        "broken": false
-    }, {
-        "name": "p=p 5 0x100 1",
-        "file": "bins/elf/arm1.bin",
-        "args": "-n",
-        "commands": ["e zoom.in = block\r", "p=p 5 0x100 1\r", ""],
-        "expected": "0x00000000 00 0019 |''''|\n0x00000033 01 001e |     |\n0x00000066 02 001e |     |_\n0x00000099 03 0028 |      _|\n0x000000cc 04 001e | _____|\n\n",
-        "broken": false
-    }, {
-        "name": "p8 10",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "wx 90909090909090909090 ; p8 10", "", ""],
-        "expected": "90909090909090909090\n\n",
-        "broken": false
-    }, {
-        "name": "p8 -10",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "wx 90909090909090909090 ; s 10 ; p8 -10", "", ""],
-        "expected": "90909090909090909090\n\n",
-        "broken": false
-    }, {
-        "name": "pi 3",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b8010000004839ca7f", "pi 3", "", ""],
-        "expected": "mov eax, 1\ncmp rdx, rcx\njg 0xa\n\n",
-        "broken": false
-    }, {
-        "name": "pij 3",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b8010000004839ca7f", "pij 3", "", ""],
-        "expected": "[{\"offset\":0,\"esil\":\"1,eax,=,0xffffffff,rax,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov eax, 1\",\"disasm\":\"mov eax, 1\",\"bytes\":\"b801000000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":5,\"esil\":\"rcx,rdx,==,$z,zf,=,$b64,cf,=,$p,pf,=,$s,sf,=,$o,of,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"cmp rdx, rcx\",\"disasm\":\"cmp rdx, rcx\",\"bytes\":\"4839ca\",\"family\":\"cpu\",\"type\":\"cmp\",\"type_num\":15,\"type2_num\":0},{\"offset\":8,\"esil\":\"sf,of,!,^,zf,!,\u0026,?{,10,rip,=,}\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":2,\"opcode\":\"jg 0xa\",\"disasm\":\"jg 0xa\",\"bytes\":\"7f00\",\"family\":\"cpu\",\"type\":\"cjmp\",\"type_num\":2147483649,\"type2_num\":0,\"jump\":10,\"fail\":10}]\n",
-        "broken": false
-    }, {
-        "name": "pi 6",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b8010000004839ca7f00b8010000004839ca7f00", "pi 6", "", ""],
-        "expected": "mov eax, 1\ncmp rdx, rcx\njg 0xa\nmov eax, 1\ncmp rdx, rcx\njg 0x14\n\n",
-        "broken": false
-    }, {
-        "name": "pi -5 @ 0x0040050f",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "pi -5 @ 0x0040050f", "", ""],
-        "expected": "pop rbp\njmp sym.register_tm_clones\npush rbp\nmov rbp, rsp\nmov edi, str.Hello_World\n\n",
-        "broken": false
-    }, {
-        "name": "pi -5 @ 0x0040050f (anal)",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "aaa", "pi -5 @ 0x0040050f", "", ""],
-        "expected": "pop rbp\njmp sym.register_tm_clones\npush rbp\nmov rbp, rsp\nmov edi, str.Hello_World\n\n",
-        "broken": false
-    }, {
-        "name": "pij -5 @ 0x0040050f",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "pij -3 @ 0x0040050f", "", ""],
-        "expected": "[{\"offset\":4195590,\"esil\":\"rbp,8,rsp,-=,rsp,=[8]\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":1,\"opcode\":\"push rbp\",\"disasm\":\"push rbp\",\"bytes\":\"55\",\"family\":\"cpu\",\"type\":\"upush\",\"type_num\":12,\"type2_num\":0,\"flags\":[\"main\",\"sym.main\"]},{\"offset\":4195591,\"esil\":\"rsp,rbp,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"mov rbp, rsp\",\"disasm\":\"mov rbp, rsp\",\"bytes\":\"4889e5\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":4195594,\"ptr\":4195780,\"esil\":\"4195780,edi,=,0xffffffff,rdi,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov edi, 0x4005c4\",\"disasm\":\"mov edi, str.Hello_World\",\"bytes\":\"bfc4054000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0}]\n",
-        "broken": false
-    }, {
-        "name": "pi -5",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "s 0x0040050f", "pi -5", "", ""],
-        "expected": "pop rbp\njmp sym.register_tm_clones\npush rbp\nmov rbp, rsp\nmov edi, str.Hello_World\n\n",
-        "broken": false
-    }, {
-        "name": "pif bsz",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 5b415c415d415e415f5dc3", "af", "b 2", "pif", "", ""],
-        "expected": "pop rbx\npop r12\npop r13\npop r14\npop r15\npop rbp\nret\n\n",
-        "broken": false
-    }, {
-        "name": "pi~?",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "pi 200~?", "pi 200~?", "pd 200~?", "", ""],
-        "expected": "200\n200\n200\n\n",
-        "broken": false
-    }, {
-        "name": "tmpbits",
-        "file": "-",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "p8 1 @b:32", "e asm.bits", "", ""],
-        "expected": "00\n64\n\n",
-        "broken": false
-    }, {
-        "name": "tmpbits",
-        "file": "-",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=32", "p8 1 @b:64", "e asm.bits", "", ""],
-        "expected": "00\n32\n\n",
-        "broken": false
-    }, {
-        "name": "pi 3",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b8010000004839ca7f", "pi 3", "", ""],
-        "expected": "mov eax, 1\ncmp rdx, rcx\njg 0xa\n\n",
-        "broken": false
-    }, {
-        "name": "pij 3 (2)",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b8010000004839ca7f", "pij 3", "", ""],
-        "expected": "[{\"offset\":0,\"esil\":\"1,eax,=,0xffffffff,rax,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov eax, 1\",\"disasm\":\"mov eax, 1\",\"bytes\":\"b801000000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":5,\"esil\":\"rcx,rdx,==,$z,zf,=,$b64,cf,=,$p,pf,=,$s,sf,=,$o,of,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"cmp rdx, rcx\",\"disasm\":\"cmp rdx, rcx\",\"bytes\":\"4839ca\",\"family\":\"cpu\",\"type\":\"cmp\",\"type_num\":15,\"type2_num\":0},{\"offset\":8,\"esil\":\"sf,of,!,^,zf,!,\u0026,?{,10,rip,=,}\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":2,\"opcode\":\"jg 0xa\",\"disasm\":\"jg 0xa\",\"bytes\":\"7f00\",\"family\":\"cpu\",\"type\":\"cjmp\",\"type_num\":2147483649,\"type2_num\":0,\"jump\":10,\"fail\":10}]\n",
-        "broken": false
-    }, {
-        "name": "pi 6",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b8010000004839ca7f00b8010000004839ca7f00", "pi 6", "", ""],
-        "expected": "mov eax, 1\ncmp rdx, rcx\njg 0xa\nmov eax, 1\ncmp rdx, rcx\njg 0x14\n\n",
-        "broken": false
-    }, {
-        "name": "pi -3 @ 3",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b8010000004839ca7f00", "pi -3 @ 10", "", ""],
-        "expected": "add byte [rax], al\ncmp rdx, rcx\njg 0xa\n\n",
-        "broken": false
-    }, {
-        "name": "pij -3 @ 3",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b8010000004839ca7f00", "pij -3 @ 10~{}", "", ""],
-        "expected": "[\n  {\n    \"offset\": 3,\n    \"val\": 2,\n    \"esil\": \"al,rax,+=[1],$o,of,=,$s,sf,=,$z,zf,=,$c7,cf,=,$p,pf,=\",\n    \"refptr\": false,\n    \"fcn_addr\": 0,\n    \"fcn_last\": 0,\n    \"size\": 2,\n    \"opcode\": \"add byte [rax], al\",\n    \"disasm\": \"add byte [rax], al\",\n    \"bytes\": \"0000\",\n    \"family\": \"cpu\",\n    \"type\": \"add\",\n    \"type_num\": 17,\n    \"type2_num\": 0\n  },\n  {\n    \"offset\": 5,\n    \"esil\": \"rcx,rdx,==,$z,zf,=,$b64,cf,=,$p,pf,=,$s,sf,=,$o,of,=\",\n    \"refptr\": false,\n    \"fcn_addr\": 0,\n    \"fcn_last\": 0,\n    \"size\": 3,\n    \"opcode\": \"cmp rdx, rcx\",\n    \"disasm\": \"cmp rdx, rcx\",\n    \"bytes\": \"4839ca\",\n    \"family\": \"cpu\",\n    \"type\": \"cmp\",\n    \"type_num\": 15,\n    \"type2_num\": 0\n  },\n  {\n    \"offset\": 8,\n    \"esil\": \"sf,of,!,^,zf,!,\u0026,?{,10,rip,=,}\",\n    \"refptr\": false,\n    \"fcn_addr\": 0,\n    \"fcn_last\": 0,\n    \"size\": 2,\n    \"opcode\": \"jg 0xa\",\n    \"disasm\": \"jg 0xa\",\n    \"bytes\": \"7f00\",\n    \"family\": \"cpu\",\n    \"type\": \"cjmp\",\n    \"type_num\": 2147483649,\n    \"type2_num\": 0,\n    \"jump\": 10,\n    \"fail\": 10\n  }\n]\n",
-        "broken": false
-    }, {
-        "name": "pi -10",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "wx 90909090909090909090 ; s 10 ; pi -10", "", ""],
-        "expected": "nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\n\n",
-        "broken": false
-    }, {
-        "name": "pif bsz",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 5b415c415d415e415f5dc3", "af", "b 2", "pif", "", ""],
-        "expected": "pop rbx\npop r12\npop r13\npop r14\npop r15\npop rbp\nret\n\n",
-        "broken": false
-    }, {
-        "name": "pi~?",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "pi 200~?", "pi 200~?", "pd 200~?", "", ""],
-        "expected": "200\n200\n200\n\n",
-        "broken": false
-    }, {
-        "name": "tmpbits",
-        "file": "-",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "p8 1 @b:32", "e asm.bits", "", ""],
-        "expected": "00\n64\n\n",
-        "broken": false
-    }, {
-        "name": "tmpbits",
-        "file": "-",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=32", "p8 1 @b:64", "e asm.bits", "", ""],
-        "expected": "00\n32\n\n",
-        "broken": false
-    }, {
-        "name": "pm hello.c",
-        "file": "bins/src/hello.c",
-        "args": "",
-        "commands": ["", "pm", "", ""],
-        "expected": "0x00000000 1 C source code\n\n",
-        "broken": false
-    }, {
-        "name": "pm elf/main",
-        "file": "bins/elf/analysis/main",
-        "args": "-n",
-        "commands": ["", "pm", "", ""],
-        "expected": "0x00000000 1 ELF 64-bit LSB executable, x86-64, version 1\n\n",
-        "broken": false
-    }, {
-        "name": "pm mach0/fatmach0-3true",
-        "file": "bins/mach0/fatmach0-3true",
-        "args": "-n",
-        "commands": ["", "pm", "", ""],
-        "expected": "0x00000000 1 Fat-Mach-O\n\n",
-        "broken": false
-    }, {
-        "name": "pm java/Hello.class",
-        "file": "bins/java/Hello.class",
-        "args": "-n",
-        "commands": ["", "pm", "", ""],
-        "expected": "0x00000000 1 Java CLASS\n\n",
-        "broken": false
-    }, {
-        "name": "pm pe/a.exe",
-        "file": "bins/pe/a.exe",
-        "args": "-n",
-        "commands": ["", "pm", "", ""],
-        "expected": "0x00000000 1 PE  for MS Windows (console) Intel 80386 32-bit\n\n",
-        "broken": false
-    }, {
-        "name": "print raw lines",
-        "file": "bins/other/projects/resetc64",
-        "args": "",
-        "commands": ["", "sl 5", "prl 1~[0]", "e lines.abs=true", "prl 1~[0]", "", ""],
-        "expected": "+1\n5\n\n",
-        "broken": false
-    }, {
-        "name": "pib from begining of bb",
-        "file": "bins/elf/analysis/x64-loop",
-        "args": "",
-        "commands": ["", "s main", "af", "pib", "", ""],
-        "expected": "push rbp\nmov rbp, rsp\nsub rsp, 0x20\nmov dword [rbp - 0x14], edi\nmov qword [rbp - 0x20], rsi\nmov dword [rbp - 4], 0\njmp 0x400523\n\n",
-        "broken": false
-    }, {
-        "name": "pib inside bb",
-        "file": "bins/elf/analysis/x64-loop",
-        "args": "",
-        "commands": ["", "s main", "af", "so 2", "pib", "", ""],
-        "expected": "sub rsp, 0x20\nmov dword [rbp - 0x14], edi\nmov qword [rbp - 0x20], rsi\nmov dword [rbp - 4], 0\njmp 0x400523\n\n",
-        "broken": false
-    }, {
-        "name": "pI size \u003e bocksize",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "wx 90909090909090909090", "b 1", "pI 10", "", ""],
-        "expected": "nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\n\n",
-        "broken": false
-    }, {
-        "name": "p- with \"r2 --\"",
-        "file": "--",
-        "args": "",
-        "commands": ["p-", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "p- with malloc://512",
-        "file": "malloc://512",
-        "args": "",
-        "commands": ["p-", ""],
-        "expected": "0x0 [^_____________________________________________] 0x200\n",
-        "broken": false
-    }, {
-        "name": "psW 32 widestring",
-        "file": "bins/elf/crackme0x00b",
-        "args": "",
-        "commands": ["psW @ obj.pass.1964", ""],
-        "expected": "w0wgreat\n\n",
-        "broken": false
-    }, {
-        "name": "psW 32 widestring leading zeros",
-        "file": "bins/elf/crackme0x00b",
-        "args": "",
-        "commands": ["psW @ 0x0804a03e", ""],
-        "expected": "w0wgreat\n\n",
-        "broken": false
-    }, {
-        "name": "ps leading zeros",
-        "file": "bins/elf/crackme0x00b",
-        "args": "",
-        "commands": ["ps @ 0x0804a03e", ""],
-        "expected": "w\n\n",
-        "broken": true
-    }]
+    "tests": [
+        {
+            "name": "p2 hello-linux-x86_64",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "",
+                "p2 16",
+                "",
+                ""
+            ],
+            "expected": "----..==----##..\n--==####..####..\n==..##..------==\n--==####..####--\n==..==##--##==##\n..----####--====\n==..==..########\n##..##==--==##--\n\n",
+            "broken": false
+        },
+        {
+            "name": "p= 0xff 0x00",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "b 2",
+                "wx 0xff",
+                "p= 2@0",
+                "",
+                ""
+            ],
+            "expected": "         ___________________________________________________\n00 00ff | __________________________________________________|\n01 0000 ||\n\n",
+            "broken": true
+        },
+        {
+            "name": "p=b 0xff 0x00",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "b 2",
+                "wx 0xff",
+                "e zoom.in=raw",
+                "p=b 2 2@0",
+                ""
+            ],
+            "expected": "0x00000000 00 00ff |'__________________________________________________|\n0x00000001 01 0000 ||\n\n",
+            "broken": false
+        },
+        {
+            "name": "p= - crash",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e zoom.in = block",
+                "p=p\" 1 \" 1 EN",
+                ""
+            ],
+            "expected": "0x00000000 00 0000 ||\n",
+            "broken": false
+        },
+        {
+            "name": "p=d",
+            "file": "bins/elf/arm1.bin",
+            "args": "-n",
+            "commands": [
+                "p=d 10 @ 0",
+                ""
+            ],
+            "expected": "min:              0  0x0\nmax:              127  0x7f\nunique (count):   6  0x6\nrange (max-min):  127  0x7f\nsize (of block):  10  0xa\n",
+            "broken": false
+        },
+        {
+            "name": "p=e 5",
+            "file": "bins/elf/arm1.bin",
+            "args": "",
+            "commands": [
+                "p=e 5@0",
+                ""
+            ],
+            "expected": "0x00000000 00 009f |'''''''''''''''''''''''''''''''|_______\n0x0001bec1 01 00c3 |                                      |\n0x00037d82 02 00c3 |                                      |\n0x00053c43 03 00c3 |                 ______________________|\n0x0006fb04 04 0051 | _______________|\n",
+            "broken": false
+        },
+        {
+            "name": "p=e 5 0x100",
+            "file": "bins/elf/arm1.bin",
+            "args": "-n",
+            "commands": [
+                "e zoom.in = block\r",
+                "p=e 5 0x100\r",
+                ""
+            ],
+            "expected": "0x00000000 00 007f |''''''''''''''''''''''___|\n0x00000033 01 006b |                     |__\n0x00000066 02 007a |                      ___|\n0x00000099 03 006a |                   __|\n0x000000cc 04 005f | __________________|\n",
+            "broken": false
+        },
+        {
+            "name": "p=e 5 0x100 1",
+            "file": "bins/elf/arm1.bin",
+            "args": "-n",
+            "commands": [
+                "e zoom.in = block\r",
+                "p=e 5 0x100 1\r",
+                ""
+            ],
+            "expected": "0x00000000 00 006b |'''''''''''''''''''''|__\n0x00000033 01 007a |                      ___|\n0x00000066 02 006a |                   __|\n0x00000099 03 005f |                  _|\n0x000000cc 04 0059 | _________________|\n",
+            "broken": false
+        },
+        {
+            "name": "p=p 5",
+            "file": "bins/elf/arm1.bin",
+            "args": "-n",
+            "commands": [
+                "p=p 5@0",
+                ""
+            ],
+            "expected": "0x00000000 00 0032 |''''''''''|\n0x0001bec1 01 0031 |         |\n0x00037d82 02 0035 |          |__\n0x00053c43 03 0040 |            |__________\n0x0006fb04 04 0076 | _______________________|\n\n",
+            "broken": false
+        },
+        {
+            "name": "p=p 5 0x100",
+            "file": "bins/elf/arm1.bin",
+            "args": "-n",
+            "commands": [
+                "e zoom.in = block\r",
+                "p=p 5 0x100\r",
+                ""
+            ],
+            "expected": "0x00000000 00 0032 |'''''____|\n0x00000033 01 0019 |    |\n0x00000066 02 001e |     |\n0x00000099 03 001e |     |_\n0x000000cc 04 0028 | _______|\n\n",
+            "broken": false
+        },
+        {
+            "name": "p=p 5 0x100 1",
+            "file": "bins/elf/arm1.bin",
+            "args": "-n",
+            "commands": [
+                "e zoom.in = block\r",
+                "p=p 5 0x100 1\r",
+                ""
+            ],
+            "expected": "0x00000000 00 0019 |''''|\n0x00000033 01 001e |     |\n0x00000066 02 001e |     |_\n0x00000099 03 0028 |      _|\n0x000000cc 04 001e | _____|\n\n",
+            "broken": false
+        },
+        {
+            "name": "p8 10",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "wx 90909090909090909090 ; p8 10",
+                "",
+                ""
+            ],
+            "expected": "90909090909090909090\n\n",
+            "broken": false
+        },
+        {
+            "name": "p8 -10",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "wx 90909090909090909090 ; s 10 ; p8 -10",
+                "",
+                ""
+            ],
+            "expected": "90909090909090909090\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi 3",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f",
+                "pi 3",
+                "",
+                ""
+            ],
+            "expected": "mov eax, 1\ncmp rdx, rcx\njg 0xa\n\n",
+            "broken": false
+        },
+        {
+            "name": "pij 3",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f",
+                "pij 3",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":0,\"val\":1,\"esil\":\"1,eax,=,0xffffffff,rax,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov eax, 1\",\"disasm\":\"mov eax, 1\",\"bytes\":\"b801000000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":5,\"esil\":\"rcx,rdx,==,$z,zf,=,$b64,cf,=,$p,pf,=,$s,sf,=,$o,of,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"cmp rdx, rcx\",\"disasm\":\"cmp rdx, rcx\",\"bytes\":\"4839ca\",\"family\":\"cpu\",\"type\":\"cmp\",\"type_num\":15,\"type2_num\":0},{\"offset\":8,\"esil\":\"sf,of,!,^,zf,!,\u0026,?{,10,rip,=,}\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":2,\"opcode\":\"jg 0xa\",\"disasm\":\"jg 0xa\",\"bytes\":\"7f00\",\"family\":\"cpu\",\"type\":\"cjmp\",\"type_num\":2147483649,\"type2_num\":0,\"jump\":10,\"fail\":10}]\n",
+            "broken": false
+        },
+        {
+            "name": "pi 6",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f00b8010000004839ca7f00",
+                "pi 6",
+                "",
+                ""
+            ],
+            "expected": "mov eax, 1\ncmp rdx, rcx\njg 0xa\nmov eax, 1\ncmp rdx, rcx\njg 0x14\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi -5 @ 0x0040050f",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "pi -5 @ 0x0040050f",
+                "",
+                ""
+            ],
+            "expected": "pop rbp\njmp sym.register_tm_clones\npush rbp\nmov rbp, rsp\nmov edi, str.Hello_World\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi -5 @ 0x0040050f (anal)",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "aaa",
+                "pi -5 @ 0x0040050f",
+                "",
+                ""
+            ],
+            "expected": "pop rbp\njmp sym.register_tm_clones\npush rbp\nmov rbp, rsp\nmov edi, str.Hello_World\n\n",
+            "broken": false
+        },
+        {
+            "name": "pij -5 @ 0x0040050f",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "pij -3 @ 0x0040050f",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":4195590,\"esil\":\"rbp,8,rsp,-=,rsp,=[8]\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":1,\"opcode\":\"push rbp\",\"disasm\":\"push rbp\",\"bytes\":\"55\",\"family\":\"cpu\",\"type\":\"upush\",\"type_num\":12,\"type2_num\":0,\"flags\":[\"main\",\"sym.main\"]},{\"offset\":4195591,\"esil\":\"rsp,rbp,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"mov rbp, rsp\",\"disasm\":\"mov rbp, rsp\",\"bytes\":\"4889e5\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":4195594,\"ptr\":4195780,\"val\":4195780,\"esil\":\"4195780,edi,=,0xffffffff,rdi,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov edi, 0x4005c4\",\"disasm\":\"mov edi, str.Hello_World\",\"bytes\":\"bfc4054000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0}]\n",
+            "broken": false
+        },
+        {
+            "name": "pi -5",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "s 0x0040050f",
+                "pi -5",
+                "",
+                ""
+            ],
+            "expected": "pop rbp\njmp sym.register_tm_clones\npush rbp\nmov rbp, rsp\nmov edi, str.Hello_World\n\n",
+            "broken": false
+        },
+        {
+            "name": "pif bsz",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 5b415c415d415e415f5dc3",
+                "af",
+                "b 2",
+                "pif",
+                "",
+                ""
+            ],
+            "expected": "pop rbx\npop r12\npop r13\npop r14\npop r15\npop rbp\nret\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi~?",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "pi 200~?",
+                "pi 200~?",
+                "pd 200~?",
+                "",
+                ""
+            ],
+            "expected": "200\n200\n200\n\n",
+            "broken": false
+        },
+        {
+            "name": "tmpbits",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "p8 1 @b:32",
+                "e asm.bits",
+                "",
+                ""
+            ],
+            "expected": "00\n64\n\n",
+            "broken": false
+        },
+        {
+            "name": "tmpbits",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "p8 1 @b:64",
+                "e asm.bits",
+                "",
+                ""
+            ],
+            "expected": "00\n32\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi 3",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f",
+                "pi 3",
+                "",
+                ""
+            ],
+            "expected": "mov eax, 1\ncmp rdx, rcx\njg 0xa\n\n",
+            "broken": false
+        },
+        {
+            "name": "pij 3 (2)",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f",
+                "pij 3",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":0,\"val\":1,\"esil\":\"1,eax,=,0xffffffff,rax,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov eax, 1\",\"disasm\":\"mov eax, 1\",\"bytes\":\"b801000000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":5,\"esil\":\"rcx,rdx,==,$z,zf,=,$b64,cf,=,$p,pf,=,$s,sf,=,$o,of,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"cmp rdx, rcx\",\"disasm\":\"cmp rdx, rcx\",\"bytes\":\"4839ca\",\"family\":\"cpu\",\"type\":\"cmp\",\"type_num\":15,\"type2_num\":0},{\"offset\":8,\"esil\":\"sf,of,!,^,zf,!,\u0026,?{,10,rip,=,}\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":2,\"opcode\":\"jg 0xa\",\"disasm\":\"jg 0xa\",\"bytes\":\"7f00\",\"family\":\"cpu\",\"type\":\"cjmp\",\"type_num\":2147483649,\"type2_num\":0,\"jump\":10,\"fail\":10}]\n",
+            "broken": false
+        },
+        {
+            "name": "pi 6",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f00b8010000004839ca7f00",
+                "pi 6",
+                "",
+                ""
+            ],
+            "expected": "mov eax, 1\ncmp rdx, rcx\njg 0xa\nmov eax, 1\ncmp rdx, rcx\njg 0x14\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi -3 @ 3",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f00",
+                "pi -3 @ 10",
+                "",
+                ""
+            ],
+            "expected": "add byte [rax], al\ncmp rdx, rcx\njg 0xa\n\n",
+            "broken": false
+        },
+        {
+            "name": "pij -3 @ 3",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f00",
+                "pij -3 @ 10~{}",
+                "",
+                ""
+            ],
+            "expected": "[\n  {\n    \"offset\": 3,\n    \"val\": 2,\n    \"esil\": \"al,rax,+=[1],$o,of,=,$s,sf,=,$z,zf,=,$c7,cf,=,$p,pf,=\",\n    \"refptr\": false,\n    \"fcn_addr\": 0,\n    \"fcn_last\": 0,\n    \"size\": 2,\n    \"opcode\": \"add byte [rax], al\",\n    \"disasm\": \"add byte [rax], al\",\n    \"bytes\": \"0000\",\n    \"family\": \"cpu\",\n    \"type\": \"add\",\n    \"type_num\": 17,\n    \"type2_num\": 0\n  },\n  {\n    \"offset\": 5,\n    \"esil\": \"rcx,rdx,==,$z,zf,=,$b64,cf,=,$p,pf,=,$s,sf,=,$o,of,=\",\n    \"refptr\": false,\n    \"fcn_addr\": 0,\n    \"fcn_last\": 0,\n    \"size\": 3,\n    \"opcode\": \"cmp rdx, rcx\",\n    \"disasm\": \"cmp rdx, rcx\",\n    \"bytes\": \"4839ca\",\n    \"family\": \"cpu\",\n    \"type\": \"cmp\",\n    \"type_num\": 15,\n    \"type2_num\": 0\n  },\n  {\n    \"offset\": 8,\n    \"esil\": \"sf,of,!,^,zf,!,\u0026,?{,10,rip,=,}\",\n    \"refptr\": false,\n    \"fcn_addr\": 0,\n    \"fcn_last\": 0,\n    \"size\": 2,\n    \"opcode\": \"jg 0xa\",\n    \"disasm\": \"jg 0xa\",\n    \"bytes\": \"7f00\",\n    \"family\": \"cpu\",\n    \"type\": \"cjmp\",\n    \"type_num\": 2147483649,\n    \"type2_num\": 0,\n    \"jump\": 10,\n    \"fail\": 10\n  }\n]\n",
+            "broken": false
+        },
+        {
+            "name": "pi -10",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "wx 90909090909090909090 ; s 10 ; pi -10",
+                "",
+                ""
+            ],
+            "expected": "nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pif bsz",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 5b415c415d415e415f5dc3",
+                "af",
+                "b 2",
+                "pif",
+                "",
+                ""
+            ],
+            "expected": "pop rbx\npop r12\npop r13\npop r14\npop r15\npop rbp\nret\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi~?",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "pi 200~?",
+                "pi 200~?",
+                "pd 200~?",
+                "",
+                ""
+            ],
+            "expected": "200\n200\n200\n\n",
+            "broken": false
+        },
+        {
+            "name": "tmpbits",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "p8 1 @b:32",
+                "e asm.bits",
+                "",
+                ""
+            ],
+            "expected": "00\n64\n\n",
+            "broken": false
+        },
+        {
+            "name": "tmpbits",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "p8 1 @b:64",
+                "e asm.bits",
+                "",
+                ""
+            ],
+            "expected": "00\n32\n\n",
+            "broken": false
+        },
+        {
+            "name": "pm hello.c",
+            "file": "bins/src/hello.c",
+            "args": "",
+            "commands": [
+                "",
+                "pm",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 1 C source code\n\n",
+            "broken": false
+        },
+        {
+            "name": "pm elf/main",
+            "file": "bins/elf/analysis/main",
+            "args": "-n",
+            "commands": [
+                "",
+                "pm",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 1 ELF 64-bit LSB executable, x86-64, version 1\n\n",
+            "broken": false
+        },
+        {
+            "name": "pm mach0/fatmach0-3true",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "-n",
+            "commands": [
+                "",
+                "pm",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 1 Fat-Mach-O\n\n",
+            "broken": false
+        },
+        {
+            "name": "pm java/Hello.class",
+            "file": "bins/java/Hello.class",
+            "args": "-n",
+            "commands": [
+                "",
+                "pm",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 1 Java CLASS\n\n",
+            "broken": false
+        },
+        {
+            "name": "pm pe/a.exe",
+            "file": "bins/pe/a.exe",
+            "args": "-n",
+            "commands": [
+                "",
+                "pm",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 1 PE  for MS Windows (console) Intel 80386 32-bit\n\n",
+            "broken": false
+        },
+        {
+            "name": "print raw lines",
+            "file": "bins/other/projects/resetc64",
+            "args": "",
+            "commands": [
+                "",
+                "sl 5",
+                "prl 1~[0]",
+                "e lines.abs=true",
+                "prl 1~[0]",
+                "",
+                ""
+            ],
+            "expected": "+1\n5\n\n",
+            "broken": false
+        },
+        {
+            "name": "pib from begining of bb",
+            "file": "bins/elf/analysis/x64-loop",
+            "args": "",
+            "commands": [
+                "",
+                "s main",
+                "af",
+                "pib",
+                "",
+                ""
+            ],
+            "expected": "push rbp\nmov rbp, rsp\nsub rsp, 0x20\nmov dword [rbp - 0x14], edi\nmov qword [rbp - 0x20], rsi\nmov dword [rbp - 4], 0\njmp 0x400523\n\n",
+            "broken": false
+        },
+        {
+            "name": "pib inside bb",
+            "file": "bins/elf/analysis/x64-loop",
+            "args": "",
+            "commands": [
+                "",
+                "s main",
+                "af",
+                "so 2",
+                "pib",
+                "",
+                ""
+            ],
+            "expected": "sub rsp, 0x20\nmov dword [rbp - 0x14], edi\nmov qword [rbp - 0x20], rsi\nmov dword [rbp - 4], 0\njmp 0x400523\n\n",
+            "broken": false
+        },
+        {
+            "name": "pI size \u003e bocksize",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "wx 90909090909090909090",
+                "b 1",
+                "pI 10",
+                "",
+                ""
+            ],
+            "expected": "nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\n\n",
+            "broken": false
+        },
+        {
+            "name": "p- with \"r2 --\"",
+            "file": "--",
+            "args": "",
+            "commands": [
+                "p-",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "p- with malloc://512",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "p-",
+                ""
+            ],
+            "expected": "0x0 [^_____________________________________________] 0x200\n",
+            "broken": false
+        },
+        {
+            "name": "psW 32 widestring",
+            "file": "bins/elf/crackme0x00b",
+            "args": "",
+            "commands": [
+                "psW @ obj.pass.1964",
+                ""
+            ],
+            "expected": "w0wgreat\n\n",
+            "broken": false
+        },
+        {
+            "name": "psW 32 widestring leading zeros",
+            "file": "bins/elf/crackme0x00b",
+            "args": "",
+            "commands": [
+                "psW @ 0x0804a03e",
+                ""
+            ],
+            "expected": "w0wgreat\n\n",
+            "broken": false
+        },
+        {
+            "name": "ps leading zeros",
+            "file": "bins/elf/crackme0x00b",
+            "args": "",
+            "commands": [
+                "ps @ 0x0804a03e",
+                ""
+            ],
+            "expected": "w\n\n",
+            "broken": true
+        }
+    ]
 }

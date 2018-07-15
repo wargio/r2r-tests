@@ -1,1 +1,3515 @@
-{"type":"asm","tests":[{"name":"tms320_c55x_32: d \"nop\" 20","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 20"],"expected":"nop\n","broken":false},{"name":"tms320_c55x_32: d \"|| nop\" 21","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 21"],"expected":"|| nop\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x0F, ac0 == 0\" 00000f","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 00000f"],"expected":"rptcc 0x0F, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x1E, ac1 != 0\" 00111e","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 00111e"],"expected":"rptcc 0x1E, ac1 != 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x2D, ac2 \u003c 0\" 00222d","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 00222d"],"expected":"rptcc 0x2D, ac2 \u003c 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x3C, ac3 \u003c= 0\" 00333c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 00333c"],"expected":"rptcc 0x3C, ac3 \u003c= 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x4B, t0 \u003e 0\" 00444b","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 00444b"],"expected":"rptcc 0x4B, t0 \u003e 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x5A, t1 \u003e= 0\" 00555a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 00555a"],"expected":"rptcc 0x5A, t1 \u003e= 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x69, t2 == 0\" 000669","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 000669"],"expected":"rptcc 0x69, t2 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x78, t3 != 0\" 001778","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 001778"],"expected":"rptcc 0x78, t3 != 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x87, ar0 \u003c 0\" 002887","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 002887"],"expected":"rptcc 0x87, ar0 \u003c 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x96, ar1 \u003c= 0\" 003996","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 003996"],"expected":"rptcc 0x96, ar1 \u003c= 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0xA5, ar2 \u003e 0\" 004aa5","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 004aa5"],"expected":"rptcc 0xA5, ar2 \u003e 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0xB4, ar3 \u003e= 0\" 005bb4","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 005bb4"],"expected":"rptcc 0xB4, ar3 \u003e= 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0xC3, ar4 == 0\" 000cc3","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 000cc3"],"expected":"rptcc 0xC3, ar4 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0xD2, ar5 != 0\" 001dd2","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 001dd2"],"expected":"rptcc 0xD2, ar5 != 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0xE1, ar6 \u003c 0\" 002ee1","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 002ee1"],"expected":"rptcc 0xE1, ar6 \u003c 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0xF0, ar7 \u003c= 0\" 003ff0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 003ff0"],"expected":"rptcc 0xF0, ar7 \u003c= 0\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x11, overflow(ac0)\" 006011","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006011"],"expected":"rptcc 0x11, overflow(ac0)\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x22, !overflow(ac1)\" 007122","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007122"],"expected":"rptcc 0x22, !overflow(ac1)\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x33, !overflow(ac2)\" 007233","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007233"],"expected":"rptcc 0x33, !overflow(ac2)\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x44, overflow(ac3)\" 006344","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006344"],"expected":"rptcc 0x44, overflow(ac3)\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, tc1\" 006400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006400"],"expected":"rptcc 0x00, tc1\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, tc2\" 006500","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006500"],"expected":"rptcc 0x00, tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, carry\" 006600","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006600"],"expected":"rptcc 0x00, carry\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, tc1 \u0026 tc2\" 006800","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006800"],"expected":"rptcc 0x00, tc1 \u0026 tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, tc1 \u0026 !tc2\" 006900","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006900"],"expected":"rptcc 0x00, tc1 \u0026 !tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !tc1 \u0026 tc2\" 006a00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006a00"],"expected":"rptcc 0x00, !tc1 \u0026 tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !tc1 \u0026 !tc2\" 006b00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 006b00"],"expected":"rptcc 0x00, !tc1 \u0026 !tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !tc1\" 007400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007400"],"expected":"rptcc 0x00, !tc1\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !tc2\" 007500","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007500"],"expected":"rptcc 0x00, !tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !carry\" 007600","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007600"],"expected":"rptcc 0x00, !carry\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, tc1 | tc2\" 007800","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007800"],"expected":"rptcc 0x00, tc1 | tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, tc1 | !tc2\" 007900","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007900"],"expected":"rptcc 0x00, tc1 | !tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !tc1 | tc2\" 007a00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007a00"],"expected":"rptcc 0x00, !tc1 | tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !tc1 | !tc2\" 007b00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007b00"],"expected":"rptcc 0x00, !tc1 | !tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, tc1 ^ tc2\" 007c00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007c00"],"expected":"rptcc 0x00, tc1 ^ tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, tc1 ^ !tc2\" 007d00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007d00"],"expected":"rptcc 0x00, tc1 ^ !tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !tc1 ^ tc2\" 007e00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007e00"],"expected":"rptcc 0x00, !tc1 ^ tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rptcc 0x00, !tc1 ^ !tc2\" 007f00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 007f00"],"expected":"rptcc 0x00, !tc1 ^ !tc2\n","broken":false},{"name":"tms320_c55x_32: d \"retcc ac0 == 0\" 020000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 020000"],"expected":"retcc ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"bcc 0x30, ac0 == 0\" 040030","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 040030"],"expected":"bcc 0x30, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"bcc 0x21, ac0 == 0\" 040021","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 040021"],"expected":"bcc 0x21, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"bcc 0x12, ac0 == 0\" 040012","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 040012"],"expected":"bcc 0x12, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"bcc 0x03, ac0 == 0\" 040003","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 040003"],"expected":"bcc 0x03, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"b 0x3012\" 063012","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 063012"],"expected":"b 0x3012\n","broken":false},{"name":"tms320_c55x_32: d \"b 0x2301\" 062301","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 062301"],"expected":"b 0x2301\n","broken":false},{"name":"tms320_c55x_32: d \"b 0x1230\" 061230","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 061230"],"expected":"b 0x1230\n","broken":false},{"name":"tms320_c55x_32: d \"b 0x0123\" 060123","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 060123"],"expected":"b 0x0123\n","broken":false},{"name":"tms320_c55x_32: d \"call 0xDEAD\" 08dead","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 08dead"],"expected":"call 0xDEAD\n","broken":false},{"name":"tms320_c55x_32: d \"rpt 0xDEAD\" 0cdead","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 0cdead"],"expected":"rpt 0xDEAD\n","broken":false},{"name":"tms320_c55x_32: d \"rptb 0xDEAD\" 0edead","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 0edead"],"expected":"rptb 0xDEAD\n","broken":false},{"name":"tms320_c55x_32: d \"and ac0 \u003c\u003c 0x00\" 100000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 100000"],"expected":"and ac0 \u003c\u003c 0x00\n","broken":false},{"name":"tms320_c55x_32: d \"or ac1 \u003c\u003c 0x11, ac0\" 101111","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 101111"],"expected":"or ac1 \u003c\u003c 0x11, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"xor ac2 \u003c\u003c 0x22, ac0\" 102222","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 102222"],"expected":"xor ac2 \u003c\u003c 0x22, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"add ac3 \u003c\u003c 0x33, ac0\" 103333","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 103333"],"expected":"add ac3 \u003c\u003c 0x33, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"sub ac0 \u003c\u003c 0x04, ac1\" 104444","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 104444"],"expected":"sub ac0 \u003c\u003c 0x04, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"sfts ac1, 0x15\" 105555","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 105555"],"expected":"sfts ac1, 0x15\n","broken":false},{"name":"tms320_c55x_32: d \"sftsc ac2, 0x26, ac1\" 106666","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 106666"],"expected":"sftsc ac2, 0x26, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"sftl ac3, 0x37, ac1\" 107777","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 107777"],"expected":"sftl ac3, 0x37, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"and ac0 \u003c\u003c 0x08, ac2\" 108088","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 108088"],"expected":"and ac0 \u003c\u003c 0x08, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"or ac1 \u003c\u003c 0x19, ac2\" 109199","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 109199"],"expected":"or ac1 \u003c\u003c 0x19, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"xor ac2 \u003c\u003c 0x2A\" 10a2aa","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 10a2aa"],"expected":"xor ac2 \u003c\u003c 0x2A\n","broken":false},{"name":"tms320_c55x_32: d \"add ac3 \u003c\u003c 0x3B, ac2\" 10b3bb","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 10b3bb"],"expected":"add ac3 \u003c\u003c 0x3B, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"sub ac0 \u003c\u003c 0x0C, ac3\" 10c4cc","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 10c4cc"],"expected":"sub ac0 \u003c\u003c 0x0C, ac3\n","broken":false},{"name":"tms320_c55x_32: d \"sfts ac1, 0x1D, ac3\" 10d5dd","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 10d5dd"],"expected":"sfts ac1, 0x1D, ac3\n","broken":false},{"name":"tms320_c55x_32: d \"sftsc ac2, 0x2E, ac3\" 10e6ee","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 10e6ee"],"expected":"sftsc ac2, 0x2E, ac3\n","broken":false},{"name":"tms320_c55x_32: d \"sftl ac3, 0x3F\" 10f7ff","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 10f7ff"],"expected":"sftl ac3, 0x3F\n","broken":false},{"name":"tms320_c55x_32: d \"exp ac3, t0\" 103800","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 103800"],"expected":"exp ac3, t0\n","broken":false},{"name":"tms320_c55x_32: d \"exp ac2, t1\" 102810","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 102810"],"expected":"exp ac2, t1\n","broken":false},{"name":"tms320_c55x_32: d \"exp ac1, t2\" 101820","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 101820"],"expected":"exp ac1, t2\n","broken":false},{"name":"tms320_c55x_32: d \"exp ac0, t3\" 100830","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 100830"],"expected":"exp ac0, t3\n","broken":false},{"name":"tms320_c55x_32: d \"mant ac1, ac2 :: nexp ac1, t3\" 109930","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 109930"],"expected":"mant ac1, ac2 :: nexp ac1, t3\n","broken":false},{"name":"tms320_c55x_32: d \"bcnt ac0, ac3, tc1, t0\" 100ac0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 100ac0"],"expected":"bcnt ac0, ac3, tc1, t0\n","broken":false},{"name":"tms320_c55x_32: d \"bcnt ac1, ac2, tc1, t0\" 101a80","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 101a80"],"expected":"bcnt ac1, ac2, tc1, t0\n","broken":false},{"name":"tms320_c55x_32: d \"bcnt ac2, ac1, tc1, t1\" 102a50","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 102a50"],"expected":"bcnt ac2, ac1, tc1, t1\n","broken":false},{"name":"tms320_c55x_32: d \"bcnt ac3, ac0, tc1, t1\" 103a10","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 103a10"],"expected":"bcnt ac3, ac0, tc1, t1\n","broken":false},{"name":"tms320_c55x_32: d \"bcnt ac0, ac3, tc2, t2\" 100ae1","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 100ae1"],"expected":"bcnt ac0, ac3, tc2, t2\n","broken":false},{"name":"tms320_c55x_32: d \"bcnt ac1, ac2, tc2, t2\" 101aa1","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 101aa1"],"expected":"bcnt ac1, ac2, tc2, t2\n","broken":false},{"name":"tms320_c55x_32: d \"bcnt ac2, ac1, tc2, t3\" 102a71","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 102a71"],"expected":"bcnt ac2, ac1, tc2, t3\n","broken":false},{"name":"tms320_c55x_32: d \"bcnt ac3, ac0, tc2, t3\" 103a31","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 103a31"],"expected":"bcnt ac3, ac0, tc2, t3\n","broken":false},{"name":"tms320_c55x_32: d \"maxdiff ac0, ac1, ac2, ac3\" 108c70","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 108c70"],"expected":"maxdiff ac0, ac1, ac2, ac3\n","broken":false},{"name":"tms320_c55x_32: d \"dmaxdiff ac0, ac1, ac2, ac3, trn0\" 108d70","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 108d70"],"expected":"dmaxdiff ac0, ac1, ac2, ac3, trn0\n","broken":false},{"name":"tms320_c55x_32: d \"dmaxdiff ac0, ac1, ac2, ac3, trn1\" 108d71","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 108d71"],"expected":"dmaxdiff ac0, ac1, ac2, ac3, trn1\n","broken":false},{"name":"tms320_c55x_32: d \"mindiff ac3, ac2, ac1, ac0\" 107e80","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 107e80"],"expected":"mindiff ac3, ac2, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"dmindiff ac3, ac2, ac1, ac0, trn0\" 107f80","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 107f80"],"expected":"dmindiff ac3, ac2, ac1, ac0, trn0\n","broken":false},{"name":"tms320_c55x_32: d \"dmindiff ac3, ac2, ac1, ac0, trn1\" 107f81","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 107f81"],"expected":"dmindiff ac3, ac2, ac1, ac0, trn1\n","broken":false},{"name":"tms320_c55x_32: d \"cmp ac0 == ar2, tc1\" 1200a0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1200a0"],"expected":"cmp ac0 == ar2, tc1\n","broken":false},{"name":"tms320_c55x_32: d \"cmpand ac1 == ar3, tc1, tc2\" 1211b1","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1211b1"],"expected":"cmpand ac1 == ar3, tc1, tc2\n","broken":false},{"name":"tms320_c55x_32: d \"cmpand ac2 == ar4, !tc1, tc2\" 1221c9","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1221c9"],"expected":"cmpand ac2 == ar4, !tc1, tc2\n","broken":false},{"name":"tms320_c55x_32: d \"cmpor ac3 == ar5, tc2, tc1\" 1232d2","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1232d2"],"expected":"cmpor ac3 == ar5, tc2, tc1\n","broken":false},{"name":"tms320_c55x_32: d \"cmpor t0 == ar6, !tc2, tc1\" 1242ea","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1242ea"],"expected":"cmpor t0 == ar6, !tc2, tc1\n","broken":false},{"name":"tms320_c55x_32: d \"cmpu t1 == ar7, tc2\" 1250f5","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1250f5"],"expected":"cmpu t1 == ar7, tc2\n","broken":false},{"name":"tms320_c55x_32: d \"cmpandu t2 == ac0, tc2, tc1\" 126106","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 126106"],"expected":"cmpandu t2 == ac0, tc2, tc1\n","broken":false},{"name":"tms320_c55x_32: d \"cmpandu t3 == ac1, !tc2, tc1\" 12711e","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 12711e"],"expected":"cmpandu t3 == ac1, !tc2, tc1\n","broken":false},{"name":"tms320_c55x_32: d \"cmporu ar0 == ac2, tc1, tc2\" 128225","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 128225"],"expected":"cmporu ar0 == ac2, tc1, tc2\n","broken":false},{"name":"tms320_c55x_32: d \"cmporu ar1 == ac3, !tc1, tc2\" 12923d","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 12923d"],"expected":"cmporu ar1 == ac3, !tc1, tc2\n","broken":false},{"name":"tms320_c55x_32: d \"rol carry, ac0, carry, ac3\" 120330","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 120330"],"expected":"rol carry, ac0, carry, ac3\n","broken":false},{"name":"tms320_c55x_32: d \"rol tc2, ac1, carry, ac2\" 121321","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 121321"],"expected":"rol tc2, ac1, carry, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"ror tc2, ac2, carry, ac1\" 12231a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 12231a"],"expected":"ror tc2, ac2, carry, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"ror tc2, ac3, tc2, ac0\" 12330b","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 12330b"],"expected":"ror tc2, ac3, tc2, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"aadd ac0, ac0\" 140000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 140000"],"expected":"aadd ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amov ac0, ac0\" 140001","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 140001"],"expected":"amov ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"asub ac0, ac0\" 140002","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 140002"],"expected":"asub ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"aadd 0x11, ac0\" 141104","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 141104"],"expected":"aadd 0x11, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amov 0x22, ac0\" 142205","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 142205"],"expected":"amov 0x22, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"asub 0x33, ac0\" 143306","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 143306"],"expected":"asub 0x33, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"aadd ac0, ac0\" 140008","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 140008"],"expected":"aadd ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amov ac0, ac0\" 140009","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 140009"],"expected":"amov ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"asub ac0, ac0\" 14000a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 14000a"],"expected":"asub ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"aadd 0x11, ac0\" 14110c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 14110c"],"expected":"aadd 0x11, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amov 0x22, ac0\" 14220d","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 14220d"],"expected":"amov 0x22, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"asub 0x33, ac0\" 14330e","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 14330e"],"expected":"asub 0x33, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"aadd xar0, xar5\" 1481d0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1481d0"],"expected":"aadd xar0, xar5\n","broken":false},{"name":"tms320_c55x_32: d \"amov xar1, xar4\" 1491c1","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1491c1"],"expected":"amov xar1, xar4\n","broken":false},{"name":"tms320_c55x_32: d \"asub xar2, xar3\" 14a1b2","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 14a1b2"],"expected":"asub xar2, xar3\n","broken":false},{"name":"tms320_c55x_32: d \"aadd xar3, xar2\" 14b1a8","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 14b1a8"],"expected":"aadd xar3, xar2\n","broken":false},{"name":"tms320_c55x_32: d \"amov xar4, xar1\" 14c199","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 14c199"],"expected":"amov xar4, xar1\n","broken":false},{"name":"tms320_c55x_32: d \"asub xar5, xar0\" 14d18a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 14d18a"],"expected":"asub xar5, xar0\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1A, dph\" 1601a0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1601a0"],"expected":"mov 0x1A, dph\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x25, dph\" 160250","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 160250"],"expected":"mov 0x25, dph\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x4A, dph\" 1604a0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1604a0"],"expected":"mov 0x4A, dph\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x0AF, pdp\" 160af3","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 160af3"],"expected":"mov 0x0AF, pdp\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x15F, pdp\" 1615f3","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1615f3"],"expected":"mov 0x15F, pdp\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x06C, bk03\" 1606c4","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1606c4"],"expected":"mov 0x06C, bk03\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x17D, bk47\" 1617d5","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1617d5"],"expected":"mov 0x17D, bk47\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x28E, bkc\" 1628e6","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1628e6"],"expected":"mov 0x28E, bkc\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x39F, csr\" 1639f8","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1639f8"],"expected":"mov 0x39F, csr\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x4A0, brc0\" 164a09","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 164a09"],"expected":"mov 0x4A0, brc0\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x5B1, brc1\" 165b1a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 165b1a"],"expected":"mov 0x5B1, brc1\n","broken":false},{"name":"tms320_c55x_32: d \"and 0x11, ac0, ac1\" 181110","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 181110"],"expected":"and 0x11, ac0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"or 0x22, ac2, ac3\" 1a2232","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1a2232"],"expected":"or 0x22, ac2, ac3\n","broken":false},{"name":"tms320_c55x_32: d \"xor 0x33, t0, t1\" 1c3354","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1c3354"],"expected":"xor 0x33, t0, t1\n","broken":false},{"name":"tms320_c55x_32: d \"mpyk 0x11, ac0, ac1\" 1e1110","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1e1110"],"expected":"mpyk 0x11, ac0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"mpykr 0x22, ac1, ac2\" 1e2261","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1e2261"],"expected":"mpykr 0x22, ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"mack t1, 0x33, ac0, ac1\" 1e3316","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1e3316"],"expected":"mack t1, 0x33, ac0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"mackr t2, 0x44, ac1, ac2\" 1e446b","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 1e446b"],"expected":"mackr t2, 0x44, ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, t0\" 2204","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2204"],"expected":"mov ac0, t0\n","broken":false},{"name":"tms320_c55x_32: d \"and ac1, t1\" 2815","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2815"],"expected":"and ac1, t1\n","broken":false},{"name":"tms320_c55x_32: d \"or ac2, t2\" 2a26","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2a26"],"expected":"or ac2, t2\n","broken":false},{"name":"tms320_c55x_32: d \"xor ac3, t3\" 2c37","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2c37"],"expected":"xor ac3, t3\n","broken":false},{"name":"tms320_c55x_32: d \"add ac0\" 2400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2400"],"expected":"add ac0\n","broken":false},{"name":"tms320_c55x_32: d \"sub ac0\" 2600","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2600"],"expected":"sub ac0\n","broken":false},{"name":"tms320_c55x_32: d \"max ac0\" 2e00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2e00"],"expected":"max ac0\n","broken":false},{"name":"tms320_c55x_32: d \"min ac0\" 3000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 3000"],"expected":"min ac0\n","broken":false},{"name":"tms320_c55x_32: d \"abs ac0\" 3200","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 3200"],"expected":"abs ac0\n","broken":false},{"name":"tms320_c55x_32: d \"neg ac0\" 3400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 3400"],"expected":"neg ac0\n","broken":false},{"name":"tms320_c55x_32: d \"not ac0\" 3600","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 3600"],"expected":"not ac0\n","broken":false},{"name":"tms320_c55x_32: d \"add ac0, t3\" 2407","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2407"],"expected":"add ac0, t3\n","broken":false},{"name":"tms320_c55x_32: d \"sub ac1, ar0\" 2618","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2618"],"expected":"sub ac1, ar0\n","broken":false},{"name":"tms320_c55x_32: d \"max ac2, ar1\" 2e29","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 2e29"],"expected":"max ac2, ar1\n","broken":false},{"name":"tms320_c55x_32: d \"min ac3, ar2\" 303a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 303a"],"expected":"min ac3, ar2\n","broken":false},{"name":"tms320_c55x_32: d \"abs t0, ar3\" 324b","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 324b"],"expected":"abs t0, ar3\n","broken":false},{"name":"tms320_c55x_32: d \"neg t1, ar4\" 345c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 345c"],"expected":"neg t1, ar4\n","broken":false},{"name":"tms320_c55x_32: d \"not t2, ar5\" 366d","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 366d"],"expected":"not t2, ar5\n","broken":false},{"name":"tms320_c55x_32: d \"psh ac1, ac2\" 3812","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 3812"],"expected":"psh ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"pop ac3, t0\" 3a34","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 3a34"],"expected":"pop ac3, t0\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0xF, t0\" 3cf4","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 3cf4"],"expected":"mov 0xF, t0\n","broken":false},{"name":"tms320_c55x_32: d \"mov -0xF, t1\" 3ef5","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 3ef5"],"expected":"mov -0xF, t1\n","broken":false},{"name":"tms320_c55x_32: d \"add 0xF, t2\" 40f6","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 40f6"],"expected":"add 0xF, t2\n","broken":false},{"name":"tms320_c55x_32: d \"sub 0xF, t3\" 42f7","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 42f7"],"expected":"sub 0xF, t3\n","broken":false},{"name":"tms320_c55x_32: d \"mov hi(ac0), ar0\" 4408","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4408"],"expected":"mov hi(ac0), ar0\n","broken":false},{"name":"tms320_c55x_32: d \"sfts ac0, #-1\" 4440","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4440"],"expected":"sfts ac0, #-1\n","broken":false},{"name":"tms320_c55x_32: d \"sfts ac0, #1\" 4450","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4450"],"expected":"sfts ac0, #1\n","broken":false},{"name":"tms320_c55x_32: d \"mov sp, ar0\" 4488","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4488"],"expected":"mov sp, ar0\n","broken":false},{"name":"tms320_c55x_32: d \"mov ssp, ar1\" 4499","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4499"],"expected":"mov ssp, ar1\n","broken":false},{"name":"tms320_c55x_32: d \"mov cdp, ar2\" 44aa","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 44aa"],"expected":"mov cdp, ar2\n","broken":false},{"name":"tms320_c55x_32: d \"mov brc0, ar3\" 44cb","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 44cb"],"expected":"mov brc0, ar3\n","broken":false},{"name":"tms320_c55x_32: d \"mov brc1, ar4\" 44dc","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 44dc"],"expected":"mov brc1, ar4\n","broken":false},{"name":"tms320_c55x_32: d \"mov rptc, ar5\" 44ed","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 44ed"],"expected":"mov rptc, ar5\n","broken":false},{"name":"tms320_c55x_32: d \"bclr 0x1, st0_55\" 4610","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4610"],"expected":"bclr 0x1, st0_55\n","broken":false},{"name":"tms320_c55x_32: d \"bset 0x2, st0_55\" 4621","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4621"],"expected":"bset 0x2, st0_55\n","broken":false},{"name":"tms320_c55x_32: d \"bclr 0x3, st1_55\" 4632","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4632"],"expected":"bclr 0x3, st1_55\n","broken":false},{"name":"tms320_c55x_32: d \"bset 0x4, st1_55\" 4643","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4643"],"expected":"bset 0x4, st1_55\n","broken":false},{"name":"tms320_c55x_32: d \"bclr 0x5, st2_55\" 4654","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4654"],"expected":"bclr 0x5, st2_55\n","broken":false},{"name":"tms320_c55x_32: d \"bset 0x6, st2_55\" 4665","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4665"],"expected":"bset 0x6, st2_55\n","broken":false},{"name":"tms320_c55x_32: d \"bclr 0x7, st3_55\" 4676","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4676"],"expected":"bclr 0x7, st3_55\n","broken":false},{"name":"tms320_c55x_32: d \"bset 0x8, st3_55\" 4687","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4687"],"expected":"bset 0x8, st3_55\n","broken":false},{"name":"tms320_c55x_32: d \"rpt csr\" 4800","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4800"],"expected":"rpt csr\n","broken":false},{"name":"tms320_c55x_32: d \"rptadd csr, ac0\" 4801","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4801"],"expected":"rptadd csr, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"rptadd csr, 0x0\" 4802","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4802"],"expected":"rptadd csr, 0x0\n","broken":false},{"name":"tms320_c55x_32: d \"rptsub csr, 0x0\" 4803","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4803"],"expected":"rptsub csr, 0x0\n","broken":false},{"name":"tms320_c55x_32: d \"ret\" 4804","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4804"],"expected":"ret\n","broken":false},{"name":"tms320_c55x_32: d \"|| ret\" 4904","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4904"],"expected":"|| ret\n","broken":false},{"name":"tms320_c55x_32: d \"reti\" 4805","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4805"],"expected":"reti\n","broken":false},{"name":"tms320_c55x_32: d \"b 0x7F\" 4a7f","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4a7f"],"expected":"b 0x7F\n","broken":false},{"name":"tms320_c55x_32: d \"rptblocal 0x7F\" 4aff","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4aff"],"expected":"rptblocal 0x7F\n","broken":false},{"name":"tms320_c55x_32: d \"rpt 0xFF\" 4cff","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4cff"],"expected":"rpt 0xFF\n","broken":false},{"name":"tms320_c55x_32: d \"aadd 0xFF, sp\" 4eff","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 4eff"],"expected":"aadd 0xFF, sp\n","broken":false},{"name":"tms320_c55x_32: d \"sftl ac0, #1\" 5000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5000"],"expected":"sftl ac0, #1\n","broken":false},{"name":"tms320_c55x_32: d \"sftl ac0, #-1\" 5001","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5001"],"expected":"sftl ac0, #-1\n","broken":false},{"name":"tms320_c55x_32: d \"pop ac0\" 5002","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5002"],"expected":"pop ac0\n","broken":false},{"name":"tms320_c55x_32: d \"pop dbl(ac0)\" 5003","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5003"],"expected":"pop dbl(ac0)\n","broken":false},{"name":"tms320_c55x_32: d \"psh ac0\" 5006","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5006"],"expected":"psh ac0\n","broken":false},{"name":"tms320_c55x_32: d \"psh dbl(ac0)\" 5007","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5007"],"expected":"psh dbl(ac0)\n","broken":false},{"name":"tms320_c55x_32: d \"popboth ac0\" 5004","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5004"],"expected":"popboth ac0\n","broken":false},{"name":"tms320_c55x_32: d \"pshboth ac0\" 5005","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5005"],"expected":"pshboth ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, hi(ac0)\" 5200","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5200"],"expected":"mov ac0, hi(ac0)\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, sp\" 5208","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5208"],"expected":"mov ac0, sp\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, ssp\" 5209","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5209"],"expected":"mov ac0, ssp\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, cdp\" 520a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 520a"],"expected":"mov ac0, cdp\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, csr\" 520c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 520c"],"expected":"mov ac0, csr\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, brc1\" 520d","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 520d"],"expected":"mov ac0, brc1\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, brc0\" 520e","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 520e"],"expected":"mov ac0, brc0\n","broken":false},{"name":"tms320_c55x_32: d \"addrv ac1, ac2\" 5491","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5491"],"expected":"addrv ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"sqar ac1, ac2\" 5493","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5493"],"expected":"sqar ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"sqsr ac1, ac2\" 5495","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5495"],"expected":"sqsr ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"mpyr ac1, ac2\" 5497","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5497"],"expected":"mpyr ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"sqrr ac1, ac2\" 5499","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5499"],"expected":"sqrr ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"round ac1, ac2\" 549b","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 549b"],"expected":"round ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"satr ac1, ac2\" 549d","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 549d"],"expected":"satr ac1, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"macr ac0, t0, ac0\" 5601","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5601"],"expected":"macr ac0, t0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"macr ac0, t0, ac1, ac1\" 5641","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5641"],"expected":"macr ac0, t0, ac1, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"macr ac1, t0, ac0, ac1\" 5843","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5843"],"expected":"macr ac1, t0, ac0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"masr t0, ac0, ac1\" 5643","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5643"],"expected":"masr t0, ac0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"mpyr t0, ac0, ac1\" 5841","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5841"],"expected":"mpyr t0, ac0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"add ac0 \u003c\u003c t0, ac0\" 5a00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5a00"],"expected":"add ac0 \u003c\u003c t0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"sub ac0 \u003c\u003c t0, ac0\" 5a01","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5a01"],"expected":"sub ac0 \u003c\u003c t0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"sftcc ac0, tc1\" 5a02","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5a02"],"expected":"sftcc ac0, tc1\n","broken":false},{"name":"tms320_c55x_32: d \"sftcc ac0, tc2\" 5a03","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5a03"],"expected":"sftcc ac0, tc2\n","broken":false},{"name":"tms320_c55x_32: d \"sftl ac0, t0, ac1\" 5c40","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5c40"],"expected":"sftl ac0, t0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"sfts ac0, t0, ac1\" 5c41","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5c41"],"expected":"sfts ac0, t0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"sftsc ac0, t0, ac1\" 5c42","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5c42"],"expected":"sftsc ac0, t0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"swap ac0, ac2\" 5e00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e00"],"expected":"swap ac0, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"swap ac1, ac3\" 5e01","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e01"],"expected":"swap ac1, ac3\n","broken":false},{"name":"tms320_c55x_32: d \"swap t0, t2\" 5e04","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e04"],"expected":"swap t0, t2\n","broken":false},{"name":"tms320_c55x_32: d \"swap t1, t3\" 5e05","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e05"],"expected":"swap t1, t3\n","broken":false},{"name":"tms320_c55x_32: d \"swap ar0, ar2\" 5e08","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e08"],"expected":"swap ar0, ar2\n","broken":false},{"name":"tms320_c55x_32: d \"swap ar1, ar3\" 5e09","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e09"],"expected":"swap ar1, ar3\n","broken":false},{"name":"tms320_c55x_32: d \"swap ar4, t0\" 5e0c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e0c"],"expected":"swap ar4, t0\n","broken":false},{"name":"tms320_c55x_32: d \"swap ar5, t1\" 5e0d","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e0d"],"expected":"swap ar5, t1\n","broken":false},{"name":"tms320_c55x_32: d \"swap ar6, t2\" 5e0e","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e0e"],"expected":"swap ar6, t2\n","broken":false},{"name":"tms320_c55x_32: d \"swap ar7, t3\" 5e0f","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e0f"],"expected":"swap ar7, t3\n","broken":false},{"name":"tms320_c55x_32: d \"swapp ac0, ac2\" 5e10","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e10"],"expected":"swapp ac0, ac2\n","broken":false},{"name":"tms320_c55x_32: d \"swapp t0, t2\" 5e14","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e14"],"expected":"swapp t0, t2\n","broken":false},{"name":"tms320_c55x_32: d \"swapp ar0, ar2\" 5e18","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e18"],"expected":"swapp ar0, ar2\n","broken":false},{"name":"tms320_c55x_32: d \"swapp ar4, t0\" 5e1c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e1c"],"expected":"swapp ar4, t0\n","broken":false},{"name":"tms320_c55x_32: d \"swapp ar6, t2\" 5e1e","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e1e"],"expected":"swapp ar6, t2\n","broken":false},{"name":"tms320_c55x_32: d \"swap4 ar4, t0\" 5e2c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e2c"],"expected":"swap4 ar4, t0\n","broken":false},{"name":"tms320_c55x_32: d \"swap ar0, ar1\" 5e38","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 5e38"],"expected":"swap ar0, ar1\n","broken":false},{"name":"tms320_c55x_32: d \"b 0x123456\" 6a123456","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 6a123456"],"expected":"b 0x123456\n","broken":false},{"name":"tms320_c55x_32: d \"call 0x123456\" 6c123456","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 6c123456"],"expected":"call 0x123456\n","broken":false},{"name":"tms320_c55x_32: d \"bcc 0xF, ac0 == 0\" 6780","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 6780"],"expected":"bcc 0xF, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"bcc 0x1234, ac0 == 0\" 6d001234","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 6d001234"],"expected":"bcc 0x1234, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"bcc 0x123456, ac0 == 0\" 6800123456","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 6800123456"],"expected":"bcc 0x123456, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"bcc 0x22, ac0 == 0x11\" 6f001122","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 6f001122"],"expected":"bcc 0x22, ac0 == 0x11\n","broken":false},{"name":"tms320_c55x_32: d \"callcc 0x123456, ac0 == 0\" 6900123456","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 6900123456"],"expected":"callcc 0x123456, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"callcc 0x1234, ac0 == 0\" 6e001234","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 6e001234"],"expected":"callcc 0x1234, ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"add 0x1122 \u003c\u003c 0x0, ac1, ac0\" 70112240","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 70112240"],"expected":"add 0x1122 \u003c\u003c 0x0, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"sub 0x1122 \u003c\u003c 0x1, ac1, ac0\" 71112241","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 71112241"],"expected":"sub 0x1122 \u003c\u003c 0x1, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"and 0x1122 \u003c\u003c 0x2, ac1, ac0\" 72112242","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 72112242"],"expected":"and 0x1122 \u003c\u003c 0x2, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"or 0x1122 \u003c\u003c 0x3, ac1, ac0\" 73112243","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 73112243"],"expected":"or 0x1122 \u003c\u003c 0x3, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"xor 0x1122 \u003c\u003c 0x4, ac1, ac0\" 74112244","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 74112244"],"expected":"xor 0x1122 \u003c\u003c 0x4, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122 \u003c\u003c 0x5, ac0\" 75112245","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 75112245"],"expected":"mov 0x1122 \u003c\u003c 0x5, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"bfxtr 0x1122, ac0, ac0\" 76112200","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 76112200"],"expected":"bfxtr 0x1122, ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"bfxpa 0x1122, ac0, ac0\" 76112204","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 76112204"],"expected":"bfxpa 0x1122, ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, ac0\" 76112208","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 76112208"],"expected":"mov 0x1122, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amov 0x1122, ac0\" 77112200","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 77112200"],"expected":"amov 0x1122, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, dp\" 78112200","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 78112200"],"expected":"mov 0x1122, dp\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, ssp\" 78112202","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 78112202"],"expected":"mov 0x1122, ssp\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, cdp\" 78112204","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 78112204"],"expected":"mov 0x1122, cdp\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, bsa01\" 78112206","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 78112206"],"expected":"mov 0x1122, bsa01\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, bsa23\" 78112208","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 78112208"],"expected":"mov 0x1122, bsa23\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, bsa45\" 7811220a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7811220a"],"expected":"mov 0x1122, bsa45\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, bsa67\" 7811220c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7811220c"],"expected":"mov 0x1122, bsa67\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, bsac\" 7811220e","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7811220e"],"expected":"mov 0x1122, bsac\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122, sp\" 78112210","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 78112210"],"expected":"mov 0x1122, sp\n","broken":false},{"name":"tms320_c55x_32: d \"mpyk 0x1122, ac1, ac0\" 79112240","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 79112240"],"expected":"mpyk 0x1122, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mack t0, 0x1122, ac1, ac0\" 79112242","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 79112242"],"expected":"mack t0, 0x1122, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"add 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112240","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7a112240"],"expected":"add 0x1122 \u003c\u003c #16, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"sub 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112242","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7a112242"],"expected":"sub 0x1122 \u003c\u003c #16, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"and 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112244","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7a112244"],"expected":"and 0x1122 \u003c\u003c #16, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"or 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112246","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7a112246"],"expected":"or 0x1122 \u003c\u003c #16, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"xor 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112248","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7a112248"],"expected":"xor 0x1122 \u003c\u003c #16, ac1, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mov 0x1122 \u003c\u003c #16, ac0\" 7a11224a","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7a11224a"],"expected":"mov 0x1122 \u003c\u003c #16, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"add 0x1122, ac0, t0\" 7b112240","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7b112240"],"expected":"add 0x1122, ac0, t0\n","broken":false},{"name":"tms320_c55x_32: d \"sub 0x1122, ac0, t0\" 7c112240","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7c112240"],"expected":"sub 0x1122, ac0, t0\n","broken":false},{"name":"tms320_c55x_32: d \"and 0x1122, ac0, t0\" 7d112240","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7d112240"],"expected":"and 0x1122, ac0, t0\n","broken":false},{"name":"tms320_c55x_32: d \"or 0x1122, ac0, t0\" 7e112240","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7e112240"],"expected":"or 0x1122, ac0, t0\n","broken":false},{"name":"tms320_c55x_32: d \"xor 0x1122, ac0, t0\" 7f112240","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7f112240"],"expected":"xor 0x1122, ac0, t0\n","broken":false},{"name":"tms320_c55x_32: d \"idle\" 7a00000c","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 7a00000c"],"expected":"idle\n","broken":false},{"name":"tms320_c55x_32: d \"mov dbl(*ar0), dbl(*ar7(t0))\" 8003f0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 8003f0"],"expected":"mov dbl(*ar0), dbl(*ar7(t0))\n","broken":false},{"name":"tms320_c55x_32: d \"mov dbl(*ar1+), dbl(*(ar6 - t1))\" 802760","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 802760"],"expected":"mov dbl(*ar1+), dbl(*(ar6 - t1))\n","broken":false},{"name":"tms320_c55x_32: d \"mov dbl(*ar2-), dbl(*(ar5 - t0))\" 804ad0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 804ad0"],"expected":"mov dbl(*ar2-), dbl(*(ar5 - t0))\n","broken":false},{"name":"tms320_c55x_32: d \"mov dbl(*(ar3 + t0)), dbl(*(ar4 + t1))\" 806e40","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 806e40"],"expected":"mov dbl(*(ar3 + t0)), dbl(*(ar4 + t1))\n","broken":false},{"name":"tms320_c55x_32: d \"mov dbl(*(ar4 + t1)), dbl(*(ar3 + t0))\" 8091b0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 8091b0"],"expected":"mov dbl(*(ar4 + t1)), dbl(*(ar3 + t0))\n","broken":false},{"name":"tms320_c55x_32: d \"mov dbl(*(ar5 - t0)), dbl(*ar2-)\" 80b520","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 80b520"],"expected":"mov dbl(*(ar5 - t0)), dbl(*ar2-)\n","broken":false},{"name":"tms320_c55x_32: d \"mov dbl(*(ar6 - t1)), dbl(*ar1+)\" 80d890","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 80d890"],"expected":"mov dbl(*(ar6 - t1)), dbl(*ar1+)\n","broken":false},{"name":"tms320_c55x_32: d \"mov dbl(*ar7(t0)), dbl(*ar0)\" 80fc00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 80fc00"],"expected":"mov dbl(*ar7(t0)), dbl(*ar0)\n","broken":false},{"name":"tms320_c55x_32: d \"mov *ar0, *ar0\" 800004","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 800004"],"expected":"mov *ar0, *ar0\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, *ar0, *ar0\" 800008","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 800008"],"expected":"mov ac0, *ar0, *ar0\n","broken":false},{"name":"tms320_c55x_32: d \"add *ar0, *ar0, ac0\" 810000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 810000"],"expected":"add *ar0, *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"sub *ar0, *ar0, ac0\" 810004","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 810004"],"expected":"sub *ar0, *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mov *ar0, *ar0, ac0\" 810008","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 810008"],"expected":"mov *ar0, *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpy *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\" 82000000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 82000000"],"expected":"mpy *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpyr40 *ar0, *cdp+, ac0 :: mpyr40 *ar0, *cdp+, ac0\" 82000103","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 82000103"],"expected":"mpyr40 *ar0, *cdp+, ac0 :: mpyr40 *ar0, *cdp+, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpyr40 uns(*ar0), uns(*cdp-), ac0 :: mpyr40 *ar0, *cdp-, ac0\" 82000283","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 82000283"],"expected":"mpyr40 uns(*ar0), uns(*cdp-), ac0 :: mpyr40 *ar0, *cdp-, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpyr40 *ar0, *(cdp+t0), ac0 :: mpyr40 uns(*ar0), uns(*(cdp+t0)), ac0\" 82000343","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 82000343"],"expected":"mpyr40 *ar0, *(cdp+t0), ac0 :: mpyr40 uns(*ar0), uns(*(cdp+t0)), ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpyr40 uns(*ar0), uns(*cdp), ac0 :: mpyr40 uns(*ar0), uns(*cdp), ac0\" 820000c3","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 820000c3"],"expected":"mpyr40 uns(*ar0), uns(*cdp), ac0 :: mpyr40 uns(*ar0), uns(*cdp), ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mac *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\" 82000400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 82000400"],"expected":"mac *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mas *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\" 82000800","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 82000800"],"expected":"mas *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mac *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0\" 83000000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 83000000"],"expected":"mac *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mas *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0\" 83000400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 83000400"],"expected":"mas *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mac *ar0, *cdp, ac0 \u003e\u003e #16 :: mac *ar0, *cdp, ac0\" 83000800","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 83000800"],"expected":"mac *ar0, *cdp, ac0 \u003e\u003e #16 :: mac *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mas *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\" 84000000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 84000000"],"expected":"mas *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\n","broken":false},{"name":"tms320_c55x_32: d \"mpy *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\" 84000800","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 84000800"],"expected":"mpy *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\n","broken":false},{"name":"tms320_c55x_32: d \"mac *ar0, *cdp, ac0 \u003e\u003e #16 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\" 84000c00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 84000c00"],"expected":"mac *ar0, *cdp, ac0 \u003e\u003e #16 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\n","broken":false},{"name":"tms320_c55x_32: d \"mas *ar0, *cdp, ac0 :: mas *ar0, *cdp, ac0\" 85000400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 85000400"],"expected":"mas *ar0, *cdp, ac0 :: mas *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amar *ar0 :: mpy *ar0, *cdp, ac0\" 82000c00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 82000c00"],"expected":"amar *ar0 :: mpy *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amar *ar0 :: mac *ar0, *cdp, ac0\" 83000c00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 83000c00"],"expected":"amar *ar0 :: mac *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amar *ar0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\" 84000400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 84000400"],"expected":"amar *ar0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\n","broken":false},{"name":"tms320_c55x_32: d \"amar *ar0 :: mas *ar0, *cdp, ac0\" 85000000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 85000000"],"expected":"amar *ar0 :: mas *ar0, *cdp, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"amar *ar0, *ar0, *cdp\" 85000800","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 85000800"],"expected":"amar *ar0, *ar0, *cdp\n","broken":false},{"name":"tms320_c55x_32: d \"firsadd *ar0, *ar0, *cdp, ac0, ac0\" 85000c00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 85000c00"],"expected":"firsadd *ar0, *ar0, *cdp, ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"firssub *ar0, *ar0, *cdp, ac0, ac0\" 85000c10","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 85000c10"],"expected":"firssub *ar0, *ar0, *cdp, ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpym *ar0, *ar0, ac0\" 86000000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000000"],"expected":"mpym *ar0, *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpymr *ar0, *ar0, ac0\" 86000001","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000001"],"expected":"mpymr *ar0, *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpymr40 *ar0, *ar0, ac0\" 86000011","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000011"],"expected":"mpymr40 *ar0, *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpymr40 t3=*ar0, *ar0, ac0\" 86000013","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000013"],"expected":"mpymr40 t3=*ar0, *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpymr40 t3=uns(*ar0), *ar0, ac0\" 8600001b","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 8600001b"],"expected":"mpymr40 t3=uns(*ar0), *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpymr40 t3=*ar0, uns(*ar0), ac0\" 86000017","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000017"],"expected":"mpymr40 t3=*ar0, uns(*ar0), ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpymr40 t3=uns(*ar0), uns(*ar0), ac0\" 8600001f","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 8600001f"],"expected":"mpymr40 t3=uns(*ar0), uns(*ar0), ac0\n","broken":false},{"name":"tms320_c55x_32: d \"macmr40 *ar0, *ar0, ac0\" 86000031","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000031"],"expected":"macmr40 *ar0, *ar0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"macmr40 *ar0, *ar0, ac0, ac1\" 86000131","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000131"],"expected":"macmr40 *ar0, *ar0, ac0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"macmr40 *ar0, *ar0, ac0 \u003e\u003e #16\" 86000051","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000051"],"expected":"macmr40 *ar0, *ar0, ac0 \u003e\u003e #16\n","broken":false},{"name":"tms320_c55x_32: d \"macmr40 *ar0, *ar0, ac0 \u003e\u003e #16, ac1\" 86000151","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000151"],"expected":"macmr40 *ar0, *ar0, ac0 \u003e\u003e #16, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"masmr40 t3=uns(*ar0), uns(*ar0), ac0, ac1\" 8600017f","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 8600017f"],"expected":"masmr40 t3=uns(*ar0), uns(*ar0), ac0, ac1\n","broken":false},{"name":"tms320_c55x_32: d \"masm *ar0, t0, ac0 :: mov *ar0 \u003c\u003c #16, ac0\" 86000080","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 86000080"],"expected":"masm *ar0, t0, ac0 :: mov *ar0 \u003c\u003c #16, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"macm *ar0, t0, ac0 :: mov *ar0 \u003c\u003c #16, ac0\" 860000a0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 860000a0"],"expected":"macm *ar0, t0, ac0 :: mov *ar0 \u003c\u003c #16, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"mpym *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 87000000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 87000000"],"expected":"mpym *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n","broken":false},{"name":"tms320_c55x_32: d \"macm *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 87000020","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 87000020"],"expected":"macm *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n","broken":false},{"name":"tms320_c55x_32: d \"masm *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 87000040","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 87000040"],"expected":"masm *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n","broken":false},{"name":"tms320_c55x_32: d \"lms *ar0, *ar0, ac0, ac0\" 860000c0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 860000c0"],"expected":"lms *ar0, *ar0, ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"sqdst *ar0, *ar0, ac0, ac0\" 860000e0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 860000e0"],"expected":"sqdst *ar0, *ar0, ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"abdst *ar0, *ar0, ac0, ac0\" 860000f0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 860000f0"],"expected":"abdst *ar0, *ar0, ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"lmsf *ar0, *ar0, ac0, ac0\" 87000061","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 87000061"],"expected":"lmsf *ar0, *ar0, ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"add *ar0 \u003c\u003c #16, ac0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 87000080","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 87000080"],"expected":"add *ar0 \u003c\u003c #16, ac0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n","broken":false},{"name":"tms320_c55x_32: d \"sub *ar0 \u003c\u003c #16, ac0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 870000a0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 870000a0"],"expected":"sub *ar0 \u003c\u003c #16, ac0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n","broken":false},{"name":"tms320_c55x_32: d \"mov *ar0 \u003c\u003c #16, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 870000c0","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 870000c0"],"expected":"mov *ar0 \u003c\u003c #16, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n","broken":false},{"name":"tms320_c55x_32: d \"mov ac0, ac0\" 9000","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9000"],"expected":"mov ac0, ac0\n","broken":false},{"name":"tms320_c55x_32: d \"b ac0\" 9100","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9100"],"expected":"b ac0\n","broken":false},{"name":"tms320_c55x_32: d \"call ac0\" 9200","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9200"],"expected":"call ac0\n","broken":false},{"name":"tms320_c55x_32: d \"reset\" 9400","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9400"],"expected":"reset\n","broken":false},{"name":"tms320_c55x_32: d \"intr 0x1F\" 957f","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 957f"],"expected":"intr 0x1F\n","broken":false},{"name":"tms320_c55x_32: d \"trap 0x1F\" 95ff","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 95ff"],"expected":"trap 0x1F\n","broken":false},{"name":"tms320_c55x_32: d \"xcc ac0 == 0\" 9600","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9600"],"expected":"xcc ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"xccpart ac0 == 0\" 9680","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9680"],"expected":"xccpart ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"xcc ac0 == 0\" 9e00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9e00"],"expected":"xcc ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"xccpart ac0 == 0\" 9e80","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9e80"],"expected":"xccpart ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"xcc ac0 == 0\" 9f00","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9f00"],"expected":"xcc ac0 == 0\n","broken":false},{"name":"tms320_c55x_32: d \"xccpart ac0 == 0\" 9f80","file":"-","args":"-a tms320 -e asm.cpu=c55x -b 32","commands":["pad 9f80"],"expected":"xccpart ac0 == 0\n","broken":false}]}
+{
+    "type": "asm",
+    "tests": [
+        {
+            "name": "tms320_c55x_32: d \"nop\" 20",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 20"
+            ],
+            "expected": "nop\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"|| nop\" 21",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 21"
+            ],
+            "expected": "|| nop\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x0F, ac0 == 0\" 00000f",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 00000f"
+            ],
+            "expected": "rptcc 0x0F, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x1E, ac1 != 0\" 00111e",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 00111e"
+            ],
+            "expected": "rptcc 0x1E, ac1 != 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x2D, ac2 \u003c 0\" 00222d",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 00222d"
+            ],
+            "expected": "rptcc 0x2D, ac2 \u003c 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x3C, ac3 \u003c= 0\" 00333c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 00333c"
+            ],
+            "expected": "rptcc 0x3C, ac3 \u003c= 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x4B, t0 \u003e 0\" 00444b",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 00444b"
+            ],
+            "expected": "rptcc 0x4B, t0 \u003e 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x5A, t1 \u003e= 0\" 00555a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 00555a"
+            ],
+            "expected": "rptcc 0x5A, t1 \u003e= 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x69, t2 == 0\" 000669",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 000669"
+            ],
+            "expected": "rptcc 0x69, t2 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x78, t3 != 0\" 001778",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 001778"
+            ],
+            "expected": "rptcc 0x78, t3 != 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x87, ar0 \u003c 0\" 002887",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 002887"
+            ],
+            "expected": "rptcc 0x87, ar0 \u003c 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x96, ar1 \u003c= 0\" 003996",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 003996"
+            ],
+            "expected": "rptcc 0x96, ar1 \u003c= 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0xA5, ar2 \u003e 0\" 004aa5",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 004aa5"
+            ],
+            "expected": "rptcc 0xA5, ar2 \u003e 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0xB4, ar3 \u003e= 0\" 005bb4",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 005bb4"
+            ],
+            "expected": "rptcc 0xB4, ar3 \u003e= 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0xC3, ar4 == 0\" 000cc3",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 000cc3"
+            ],
+            "expected": "rptcc 0xC3, ar4 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0xD2, ar5 != 0\" 001dd2",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 001dd2"
+            ],
+            "expected": "rptcc 0xD2, ar5 != 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0xE1, ar6 \u003c 0\" 002ee1",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 002ee1"
+            ],
+            "expected": "rptcc 0xE1, ar6 \u003c 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0xF0, ar7 \u003c= 0\" 003ff0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 003ff0"
+            ],
+            "expected": "rptcc 0xF0, ar7 \u003c= 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x11, overflow(ac0)\" 006011",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006011"
+            ],
+            "expected": "rptcc 0x11, overflow(ac0)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x22, !overflow(ac1)\" 007122",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007122"
+            ],
+            "expected": "rptcc 0x22, !overflow(ac1)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x33, !overflow(ac2)\" 007233",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007233"
+            ],
+            "expected": "rptcc 0x33, !overflow(ac2)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x44, overflow(ac3)\" 006344",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006344"
+            ],
+            "expected": "rptcc 0x44, overflow(ac3)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, tc1\" 006400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006400"
+            ],
+            "expected": "rptcc 0x00, tc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, tc2\" 006500",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006500"
+            ],
+            "expected": "rptcc 0x00, tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, carry\" 006600",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006600"
+            ],
+            "expected": "rptcc 0x00, carry\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, tc1 \u0026 tc2\" 006800",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006800"
+            ],
+            "expected": "rptcc 0x00, tc1 \u0026 tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, tc1 \u0026 !tc2\" 006900",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006900"
+            ],
+            "expected": "rptcc 0x00, tc1 \u0026 !tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !tc1 \u0026 tc2\" 006a00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006a00"
+            ],
+            "expected": "rptcc 0x00, !tc1 \u0026 tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !tc1 \u0026 !tc2\" 006b00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 006b00"
+            ],
+            "expected": "rptcc 0x00, !tc1 \u0026 !tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !tc1\" 007400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007400"
+            ],
+            "expected": "rptcc 0x00, !tc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !tc2\" 007500",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007500"
+            ],
+            "expected": "rptcc 0x00, !tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !carry\" 007600",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007600"
+            ],
+            "expected": "rptcc 0x00, !carry\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, tc1 | tc2\" 007800",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007800"
+            ],
+            "expected": "rptcc 0x00, tc1 | tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, tc1 | !tc2\" 007900",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007900"
+            ],
+            "expected": "rptcc 0x00, tc1 | !tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !tc1 | tc2\" 007a00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007a00"
+            ],
+            "expected": "rptcc 0x00, !tc1 | tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !tc1 | !tc2\" 007b00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007b00"
+            ],
+            "expected": "rptcc 0x00, !tc1 | !tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, tc1 ^ tc2\" 007c00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007c00"
+            ],
+            "expected": "rptcc 0x00, tc1 ^ tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, tc1 ^ !tc2\" 007d00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007d00"
+            ],
+            "expected": "rptcc 0x00, tc1 ^ !tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !tc1 ^ tc2\" 007e00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007e00"
+            ],
+            "expected": "rptcc 0x00, !tc1 ^ tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptcc 0x00, !tc1 ^ !tc2\" 007f00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 007f00"
+            ],
+            "expected": "rptcc 0x00, !tc1 ^ !tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"retcc ac0 == 0\" 020000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 020000"
+            ],
+            "expected": "retcc ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcc 0x30, ac0 == 0\" 040030",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 040030"
+            ],
+            "expected": "bcc 0x30, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcc 0x21, ac0 == 0\" 040021",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 040021"
+            ],
+            "expected": "bcc 0x21, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcc 0x12, ac0 == 0\" 040012",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 040012"
+            ],
+            "expected": "bcc 0x12, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcc 0x03, ac0 == 0\" 040003",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 040003"
+            ],
+            "expected": "bcc 0x03, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"b 0x3012\" 063012",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 063012"
+            ],
+            "expected": "b 0x3012\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"b 0x2301\" 062301",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 062301"
+            ],
+            "expected": "b 0x2301\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"b 0x1230\" 061230",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 061230"
+            ],
+            "expected": "b 0x1230\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"b 0x0123\" 060123",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 060123"
+            ],
+            "expected": "b 0x0123\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"call 0xDEAD\" 08dead",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 08dead"
+            ],
+            "expected": "call 0xDEAD\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rpt 0xDEAD\" 0cdead",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 0cdead"
+            ],
+            "expected": "rpt 0xDEAD\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptb 0xDEAD\" 0edead",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 0edead"
+            ],
+            "expected": "rptb 0xDEAD\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"and ac0 \u003c\u003c 0x00\" 100000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 100000"
+            ],
+            "expected": "and ac0 \u003c\u003c 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"or ac1 \u003c\u003c 0x11, ac0\" 101111",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 101111"
+            ],
+            "expected": "or ac1 \u003c\u003c 0x11, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xor ac2 \u003c\u003c 0x22, ac0\" 102222",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 102222"
+            ],
+            "expected": "xor ac2 \u003c\u003c 0x22, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add ac3 \u003c\u003c 0x33, ac0\" 103333",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 103333"
+            ],
+            "expected": "add ac3 \u003c\u003c 0x33, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub ac0 \u003c\u003c 0x04, ac1\" 104444",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 104444"
+            ],
+            "expected": "sub ac0 \u003c\u003c 0x04, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sfts ac1, 0x15\" 105555",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 105555"
+            ],
+            "expected": "sfts ac1, 0x15\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftsc ac2, 0x26, ac1\" 106666",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 106666"
+            ],
+            "expected": "sftsc ac2, 0x26, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftl ac3, 0x37, ac1\" 107777",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 107777"
+            ],
+            "expected": "sftl ac3, 0x37, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"and ac0 \u003c\u003c 0x08, ac2\" 108088",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 108088"
+            ],
+            "expected": "and ac0 \u003c\u003c 0x08, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"or ac1 \u003c\u003c 0x19, ac2\" 109199",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 109199"
+            ],
+            "expected": "or ac1 \u003c\u003c 0x19, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xor ac2 \u003c\u003c 0x2A\" 10a2aa",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 10a2aa"
+            ],
+            "expected": "xor ac2 \u003c\u003c 0x2A\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add ac3 \u003c\u003c 0x3B, ac2\" 10b3bb",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 10b3bb"
+            ],
+            "expected": "add ac3 \u003c\u003c 0x3B, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub ac0 \u003c\u003c 0x0C, ac3\" 10c4cc",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 10c4cc"
+            ],
+            "expected": "sub ac0 \u003c\u003c 0x0C, ac3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sfts ac1, 0x1D, ac3\" 10d5dd",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 10d5dd"
+            ],
+            "expected": "sfts ac1, 0x1D, ac3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftsc ac2, 0x2E, ac3\" 10e6ee",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 10e6ee"
+            ],
+            "expected": "sftsc ac2, 0x2E, ac3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftl ac3, 0x3F\" 10f7ff",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 10f7ff"
+            ],
+            "expected": "sftl ac3, 0x3F\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"exp ac3, t0\" 103800",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 103800"
+            ],
+            "expected": "exp ac3, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"exp ac2, t1\" 102810",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 102810"
+            ],
+            "expected": "exp ac2, t1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"exp ac1, t2\" 101820",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 101820"
+            ],
+            "expected": "exp ac1, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"exp ac0, t3\" 100830",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 100830"
+            ],
+            "expected": "exp ac0, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mant ac1, ac2 :: nexp ac1, t3\" 109930",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 109930"
+            ],
+            "expected": "mant ac1, ac2 :: nexp ac1, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcnt ac0, ac3, tc1, t0\" 100ac0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 100ac0"
+            ],
+            "expected": "bcnt ac0, ac3, tc1, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcnt ac1, ac2, tc1, t0\" 101a80",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 101a80"
+            ],
+            "expected": "bcnt ac1, ac2, tc1, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcnt ac2, ac1, tc1, t1\" 102a50",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 102a50"
+            ],
+            "expected": "bcnt ac2, ac1, tc1, t1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcnt ac3, ac0, tc1, t1\" 103a10",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 103a10"
+            ],
+            "expected": "bcnt ac3, ac0, tc1, t1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcnt ac0, ac3, tc2, t2\" 100ae1",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 100ae1"
+            ],
+            "expected": "bcnt ac0, ac3, tc2, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcnt ac1, ac2, tc2, t2\" 101aa1",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 101aa1"
+            ],
+            "expected": "bcnt ac1, ac2, tc2, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcnt ac2, ac1, tc2, t3\" 102a71",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 102a71"
+            ],
+            "expected": "bcnt ac2, ac1, tc2, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcnt ac3, ac0, tc2, t3\" 103a31",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 103a31"
+            ],
+            "expected": "bcnt ac3, ac0, tc2, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"maxdiff ac0, ac1, ac2, ac3\" 108c70",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 108c70"
+            ],
+            "expected": "maxdiff ac0, ac1, ac2, ac3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"dmaxdiff ac0, ac1, ac2, ac3, trn0\" 108d70",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 108d70"
+            ],
+            "expected": "dmaxdiff ac0, ac1, ac2, ac3, trn0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"dmaxdiff ac0, ac1, ac2, ac3, trn1\" 108d71",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 108d71"
+            ],
+            "expected": "dmaxdiff ac0, ac1, ac2, ac3, trn1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mindiff ac3, ac2, ac1, ac0\" 107e80",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 107e80"
+            ],
+            "expected": "mindiff ac3, ac2, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"dmindiff ac3, ac2, ac1, ac0, trn0\" 107f80",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 107f80"
+            ],
+            "expected": "dmindiff ac3, ac2, ac1, ac0, trn0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"dmindiff ac3, ac2, ac1, ac0, trn1\" 107f81",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 107f81"
+            ],
+            "expected": "dmindiff ac3, ac2, ac1, ac0, trn1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmp ac0 == ar2, tc1\" 1200a0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1200a0"
+            ],
+            "expected": "cmp ac0 == ar2, tc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmpand ac1 == ar3, tc1, tc2\" 1211b1",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1211b1"
+            ],
+            "expected": "cmpand ac1 == ar3, tc1, tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmpand ac2 == ar4, !tc1, tc2\" 1221c9",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1221c9"
+            ],
+            "expected": "cmpand ac2 == ar4, !tc1, tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmpor ac3 == ar5, tc2, tc1\" 1232d2",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1232d2"
+            ],
+            "expected": "cmpor ac3 == ar5, tc2, tc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmpor t0 == ar6, !tc2, tc1\" 1242ea",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1242ea"
+            ],
+            "expected": "cmpor t0 == ar6, !tc2, tc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmpu t1 == ar7, tc2\" 1250f5",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1250f5"
+            ],
+            "expected": "cmpu t1 == ar7, tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmpandu t2 == ac0, tc2, tc1\" 126106",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 126106"
+            ],
+            "expected": "cmpandu t2 == ac0, tc2, tc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmpandu t3 == ac1, !tc2, tc1\" 12711e",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 12711e"
+            ],
+            "expected": "cmpandu t3 == ac1, !tc2, tc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmporu ar0 == ac2, tc1, tc2\" 128225",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 128225"
+            ],
+            "expected": "cmporu ar0 == ac2, tc1, tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"cmporu ar1 == ac3, !tc1, tc2\" 12923d",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 12923d"
+            ],
+            "expected": "cmporu ar1 == ac3, !tc1, tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rol carry, ac0, carry, ac3\" 120330",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 120330"
+            ],
+            "expected": "rol carry, ac0, carry, ac3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rol tc2, ac1, carry, ac2\" 121321",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 121321"
+            ],
+            "expected": "rol tc2, ac1, carry, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"ror tc2, ac2, carry, ac1\" 12231a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 12231a"
+            ],
+            "expected": "ror tc2, ac2, carry, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"ror tc2, ac3, tc2, ac0\" 12330b",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 12330b"
+            ],
+            "expected": "ror tc2, ac3, tc2, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"aadd ac0, ac0\" 140000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 140000"
+            ],
+            "expected": "aadd ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amov ac0, ac0\" 140001",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 140001"
+            ],
+            "expected": "amov ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"asub ac0, ac0\" 140002",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 140002"
+            ],
+            "expected": "asub ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"aadd 0x11, ac0\" 141104",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 141104"
+            ],
+            "expected": "aadd 0x11, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amov 0x22, ac0\" 142205",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 142205"
+            ],
+            "expected": "amov 0x22, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"asub 0x33, ac0\" 143306",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 143306"
+            ],
+            "expected": "asub 0x33, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"aadd ac0, ac0\" 140008",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 140008"
+            ],
+            "expected": "aadd ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amov ac0, ac0\" 140009",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 140009"
+            ],
+            "expected": "amov ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"asub ac0, ac0\" 14000a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 14000a"
+            ],
+            "expected": "asub ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"aadd 0x11, ac0\" 14110c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 14110c"
+            ],
+            "expected": "aadd 0x11, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amov 0x22, ac0\" 14220d",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 14220d"
+            ],
+            "expected": "amov 0x22, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"asub 0x33, ac0\" 14330e",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 14330e"
+            ],
+            "expected": "asub 0x33, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"aadd xar0, xar5\" 1481d0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1481d0"
+            ],
+            "expected": "aadd xar0, xar5\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amov xar1, xar4\" 1491c1",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1491c1"
+            ],
+            "expected": "amov xar1, xar4\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"asub xar2, xar3\" 14a1b2",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 14a1b2"
+            ],
+            "expected": "asub xar2, xar3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"aadd xar3, xar2\" 14b1a8",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 14b1a8"
+            ],
+            "expected": "aadd xar3, xar2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amov xar4, xar1\" 14c199",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 14c199"
+            ],
+            "expected": "amov xar4, xar1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"asub xar5, xar0\" 14d18a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 14d18a"
+            ],
+            "expected": "asub xar5, xar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1A, dph\" 1601a0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1601a0"
+            ],
+            "expected": "mov 0x1A, dph\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x25, dph\" 160250",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 160250"
+            ],
+            "expected": "mov 0x25, dph\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x4A, dph\" 1604a0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1604a0"
+            ],
+            "expected": "mov 0x4A, dph\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x0AF, pdp\" 160af3",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 160af3"
+            ],
+            "expected": "mov 0x0AF, pdp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x15F, pdp\" 1615f3",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1615f3"
+            ],
+            "expected": "mov 0x15F, pdp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x06C, bk03\" 1606c4",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1606c4"
+            ],
+            "expected": "mov 0x06C, bk03\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x17D, bk47\" 1617d5",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1617d5"
+            ],
+            "expected": "mov 0x17D, bk47\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x28E, bkc\" 1628e6",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1628e6"
+            ],
+            "expected": "mov 0x28E, bkc\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x39F, csr\" 1639f8",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1639f8"
+            ],
+            "expected": "mov 0x39F, csr\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x4A0, brc0\" 164a09",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 164a09"
+            ],
+            "expected": "mov 0x4A0, brc0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x5B1, brc1\" 165b1a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 165b1a"
+            ],
+            "expected": "mov 0x5B1, brc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"and 0x11, ac0, ac1\" 181110",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 181110"
+            ],
+            "expected": "and 0x11, ac0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"or 0x22, ac2, ac3\" 1a2232",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1a2232"
+            ],
+            "expected": "or 0x22, ac2, ac3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xor 0x33, t0, t1\" 1c3354",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1c3354"
+            ],
+            "expected": "xor 0x33, t0, t1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpyk 0x11, ac0, ac1\" 1e1110",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1e1110"
+            ],
+            "expected": "mpyk 0x11, ac0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpykr 0x22, ac1, ac2\" 1e2261",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1e2261"
+            ],
+            "expected": "mpykr 0x22, ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mack t1, 0x33, ac0, ac1\" 1e3316",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1e3316"
+            ],
+            "expected": "mack t1, 0x33, ac0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mackr t2, 0x44, ac1, ac2\" 1e446b",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 1e446b"
+            ],
+            "expected": "mackr t2, 0x44, ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, t0\" 2204",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2204"
+            ],
+            "expected": "mov ac0, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"and ac1, t1\" 2815",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2815"
+            ],
+            "expected": "and ac1, t1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"or ac2, t2\" 2a26",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2a26"
+            ],
+            "expected": "or ac2, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xor ac3, t3\" 2c37",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2c37"
+            ],
+            "expected": "xor ac3, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add ac0\" 2400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2400"
+            ],
+            "expected": "add ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub ac0\" 2600",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2600"
+            ],
+            "expected": "sub ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"max ac0\" 2e00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2e00"
+            ],
+            "expected": "max ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"min ac0\" 3000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 3000"
+            ],
+            "expected": "min ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"abs ac0\" 3200",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 3200"
+            ],
+            "expected": "abs ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"neg ac0\" 3400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 3400"
+            ],
+            "expected": "neg ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"not ac0\" 3600",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 3600"
+            ],
+            "expected": "not ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add ac0, t3\" 2407",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2407"
+            ],
+            "expected": "add ac0, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub ac1, ar0\" 2618",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2618"
+            ],
+            "expected": "sub ac1, ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"max ac2, ar1\" 2e29",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 2e29"
+            ],
+            "expected": "max ac2, ar1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"min ac3, ar2\" 303a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 303a"
+            ],
+            "expected": "min ac3, ar2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"abs t0, ar3\" 324b",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 324b"
+            ],
+            "expected": "abs t0, ar3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"neg t1, ar4\" 345c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 345c"
+            ],
+            "expected": "neg t1, ar4\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"not t2, ar5\" 366d",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 366d"
+            ],
+            "expected": "not t2, ar5\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"psh ac1, ac2\" 3812",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 3812"
+            ],
+            "expected": "psh ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"pop ac3, t0\" 3a34",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 3a34"
+            ],
+            "expected": "pop ac3, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0xF, t0\" 3cf4",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 3cf4"
+            ],
+            "expected": "mov 0xF, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov -0xF, t1\" 3ef5",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 3ef5"
+            ],
+            "expected": "mov -0xF, t1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add 0xF, t2\" 40f6",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 40f6"
+            ],
+            "expected": "add 0xF, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub 0xF, t3\" 42f7",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 42f7"
+            ],
+            "expected": "sub 0xF, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov hi(ac0), ar0\" 4408",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4408"
+            ],
+            "expected": "mov hi(ac0), ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sfts ac0, #-1\" 4440",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4440"
+            ],
+            "expected": "sfts ac0, #-1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sfts ac0, #1\" 4450",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4450"
+            ],
+            "expected": "sfts ac0, #1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov sp, ar0\" 4488",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4488"
+            ],
+            "expected": "mov sp, ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ssp, ar1\" 4499",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4499"
+            ],
+            "expected": "mov ssp, ar1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov cdp, ar2\" 44aa",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 44aa"
+            ],
+            "expected": "mov cdp, ar2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov brc0, ar3\" 44cb",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 44cb"
+            ],
+            "expected": "mov brc0, ar3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov brc1, ar4\" 44dc",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 44dc"
+            ],
+            "expected": "mov brc1, ar4\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov rptc, ar5\" 44ed",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 44ed"
+            ],
+            "expected": "mov rptc, ar5\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bclr 0x1, st0_55\" 4610",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4610"
+            ],
+            "expected": "bclr 0x1, st0_55\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bset 0x2, st0_55\" 4621",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4621"
+            ],
+            "expected": "bset 0x2, st0_55\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bclr 0x3, st1_55\" 4632",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4632"
+            ],
+            "expected": "bclr 0x3, st1_55\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bset 0x4, st1_55\" 4643",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4643"
+            ],
+            "expected": "bset 0x4, st1_55\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bclr 0x5, st2_55\" 4654",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4654"
+            ],
+            "expected": "bclr 0x5, st2_55\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bset 0x6, st2_55\" 4665",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4665"
+            ],
+            "expected": "bset 0x6, st2_55\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bclr 0x7, st3_55\" 4676",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4676"
+            ],
+            "expected": "bclr 0x7, st3_55\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bset 0x8, st3_55\" 4687",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4687"
+            ],
+            "expected": "bset 0x8, st3_55\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rpt csr\" 4800",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4800"
+            ],
+            "expected": "rpt csr\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptadd csr, ac0\" 4801",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4801"
+            ],
+            "expected": "rptadd csr, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptadd csr, 0x0\" 4802",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4802"
+            ],
+            "expected": "rptadd csr, 0x0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptsub csr, 0x0\" 4803",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4803"
+            ],
+            "expected": "rptsub csr, 0x0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"ret\" 4804",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4804"
+            ],
+            "expected": "ret\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"|| ret\" 4904",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4904"
+            ],
+            "expected": "|| ret\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"reti\" 4805",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4805"
+            ],
+            "expected": "reti\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"b 0x7F\" 4a7f",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4a7f"
+            ],
+            "expected": "b 0x7F\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rptblocal 0x7F\" 4aff",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4aff"
+            ],
+            "expected": "rptblocal 0x7F\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"rpt 0xFF\" 4cff",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4cff"
+            ],
+            "expected": "rpt 0xFF\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"aadd 0xFF, sp\" 4eff",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 4eff"
+            ],
+            "expected": "aadd 0xFF, sp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftl ac0, #1\" 5000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5000"
+            ],
+            "expected": "sftl ac0, #1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftl ac0, #-1\" 5001",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5001"
+            ],
+            "expected": "sftl ac0, #-1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"pop ac0\" 5002",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5002"
+            ],
+            "expected": "pop ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"pop dbl(ac0)\" 5003",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5003"
+            ],
+            "expected": "pop dbl(ac0)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"psh ac0\" 5006",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5006"
+            ],
+            "expected": "psh ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"psh dbl(ac0)\" 5007",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5007"
+            ],
+            "expected": "psh dbl(ac0)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"popboth ac0\" 5004",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5004"
+            ],
+            "expected": "popboth ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"pshboth ac0\" 5005",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5005"
+            ],
+            "expected": "pshboth ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, hi(ac0)\" 5200",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5200"
+            ],
+            "expected": "mov ac0, hi(ac0)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, sp\" 5208",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5208"
+            ],
+            "expected": "mov ac0, sp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, ssp\" 5209",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5209"
+            ],
+            "expected": "mov ac0, ssp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, cdp\" 520a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 520a"
+            ],
+            "expected": "mov ac0, cdp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, csr\" 520c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 520c"
+            ],
+            "expected": "mov ac0, csr\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, brc1\" 520d",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 520d"
+            ],
+            "expected": "mov ac0, brc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, brc0\" 520e",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 520e"
+            ],
+            "expected": "mov ac0, brc0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"addrv ac1, ac2\" 5491",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5491"
+            ],
+            "expected": "addrv ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sqar ac1, ac2\" 5493",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5493"
+            ],
+            "expected": "sqar ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sqsr ac1, ac2\" 5495",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5495"
+            ],
+            "expected": "sqsr ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpyr ac1, ac2\" 5497",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5497"
+            ],
+            "expected": "mpyr ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sqrr ac1, ac2\" 5499",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5499"
+            ],
+            "expected": "sqrr ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"round ac1, ac2\" 549b",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 549b"
+            ],
+            "expected": "round ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"satr ac1, ac2\" 549d",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 549d"
+            ],
+            "expected": "satr ac1, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macr ac0, t0, ac0\" 5601",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5601"
+            ],
+            "expected": "macr ac0, t0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macr ac0, t0, ac1, ac1\" 5641",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5641"
+            ],
+            "expected": "macr ac0, t0, ac1, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macr ac1, t0, ac0, ac1\" 5843",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5843"
+            ],
+            "expected": "macr ac1, t0, ac0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"masr t0, ac0, ac1\" 5643",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5643"
+            ],
+            "expected": "masr t0, ac0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpyr t0, ac0, ac1\" 5841",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5841"
+            ],
+            "expected": "mpyr t0, ac0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add ac0 \u003c\u003c t0, ac0\" 5a00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5a00"
+            ],
+            "expected": "add ac0 \u003c\u003c t0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub ac0 \u003c\u003c t0, ac0\" 5a01",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5a01"
+            ],
+            "expected": "sub ac0 \u003c\u003c t0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftcc ac0, tc1\" 5a02",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5a02"
+            ],
+            "expected": "sftcc ac0, tc1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftcc ac0, tc2\" 5a03",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5a03"
+            ],
+            "expected": "sftcc ac0, tc2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftl ac0, t0, ac1\" 5c40",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5c40"
+            ],
+            "expected": "sftl ac0, t0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sfts ac0, t0, ac1\" 5c41",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5c41"
+            ],
+            "expected": "sfts ac0, t0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sftsc ac0, t0, ac1\" 5c42",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5c42"
+            ],
+            "expected": "sftsc ac0, t0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ac0, ac2\" 5e00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e00"
+            ],
+            "expected": "swap ac0, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ac1, ac3\" 5e01",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e01"
+            ],
+            "expected": "swap ac1, ac3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap t0, t2\" 5e04",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e04"
+            ],
+            "expected": "swap t0, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap t1, t3\" 5e05",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e05"
+            ],
+            "expected": "swap t1, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ar0, ar2\" 5e08",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e08"
+            ],
+            "expected": "swap ar0, ar2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ar1, ar3\" 5e09",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e09"
+            ],
+            "expected": "swap ar1, ar3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ar4, t0\" 5e0c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e0c"
+            ],
+            "expected": "swap ar4, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ar5, t1\" 5e0d",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e0d"
+            ],
+            "expected": "swap ar5, t1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ar6, t2\" 5e0e",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e0e"
+            ],
+            "expected": "swap ar6, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ar7, t3\" 5e0f",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e0f"
+            ],
+            "expected": "swap ar7, t3\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swapp ac0, ac2\" 5e10",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e10"
+            ],
+            "expected": "swapp ac0, ac2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swapp t0, t2\" 5e14",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e14"
+            ],
+            "expected": "swapp t0, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swapp ar0, ar2\" 5e18",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e18"
+            ],
+            "expected": "swapp ar0, ar2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swapp ar4, t0\" 5e1c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e1c"
+            ],
+            "expected": "swapp ar4, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swapp ar6, t2\" 5e1e",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e1e"
+            ],
+            "expected": "swapp ar6, t2\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap4 ar4, t0\" 5e2c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e2c"
+            ],
+            "expected": "swap4 ar4, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"swap ar0, ar1\" 5e38",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 5e38"
+            ],
+            "expected": "swap ar0, ar1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"b 0x123456\" 6a123456",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 6a123456"
+            ],
+            "expected": "b 0x123456\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"call 0x123456\" 6c123456",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 6c123456"
+            ],
+            "expected": "call 0x123456\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcc 0xF, ac0 == 0\" 6780",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 6780"
+            ],
+            "expected": "bcc 0xF, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcc 0x1234, ac0 == 0\" 6d001234",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 6d001234"
+            ],
+            "expected": "bcc 0x1234, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcc 0x123456, ac0 == 0\" 6800123456",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 6800123456"
+            ],
+            "expected": "bcc 0x123456, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bcc 0x22, ac0 == 0x11\" 6f001122",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 6f001122"
+            ],
+            "expected": "bcc 0x22, ac0 == 0x11\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"callcc 0x123456, ac0 == 0\" 6900123456",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 6900123456"
+            ],
+            "expected": "callcc 0x123456, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"callcc 0x1234, ac0 == 0\" 6e001234",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 6e001234"
+            ],
+            "expected": "callcc 0x1234, ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add 0x1122 \u003c\u003c 0x0, ac1, ac0\" 70112240",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 70112240"
+            ],
+            "expected": "add 0x1122 \u003c\u003c 0x0, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub 0x1122 \u003c\u003c 0x1, ac1, ac0\" 71112241",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 71112241"
+            ],
+            "expected": "sub 0x1122 \u003c\u003c 0x1, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"and 0x1122 \u003c\u003c 0x2, ac1, ac0\" 72112242",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 72112242"
+            ],
+            "expected": "and 0x1122 \u003c\u003c 0x2, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"or 0x1122 \u003c\u003c 0x3, ac1, ac0\" 73112243",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 73112243"
+            ],
+            "expected": "or 0x1122 \u003c\u003c 0x3, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xor 0x1122 \u003c\u003c 0x4, ac1, ac0\" 74112244",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 74112244"
+            ],
+            "expected": "xor 0x1122 \u003c\u003c 0x4, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122 \u003c\u003c 0x5, ac0\" 75112245",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 75112245"
+            ],
+            "expected": "mov 0x1122 \u003c\u003c 0x5, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bfxtr 0x1122, ac0, ac0\" 76112200",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 76112200"
+            ],
+            "expected": "bfxtr 0x1122, ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"bfxpa 0x1122, ac0, ac0\" 76112204",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 76112204"
+            ],
+            "expected": "bfxpa 0x1122, ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, ac0\" 76112208",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 76112208"
+            ],
+            "expected": "mov 0x1122, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amov 0x1122, ac0\" 77112200",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 77112200"
+            ],
+            "expected": "amov 0x1122, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, dp\" 78112200",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 78112200"
+            ],
+            "expected": "mov 0x1122, dp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, ssp\" 78112202",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 78112202"
+            ],
+            "expected": "mov 0x1122, ssp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, cdp\" 78112204",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 78112204"
+            ],
+            "expected": "mov 0x1122, cdp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, bsa01\" 78112206",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 78112206"
+            ],
+            "expected": "mov 0x1122, bsa01\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, bsa23\" 78112208",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 78112208"
+            ],
+            "expected": "mov 0x1122, bsa23\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, bsa45\" 7811220a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7811220a"
+            ],
+            "expected": "mov 0x1122, bsa45\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, bsa67\" 7811220c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7811220c"
+            ],
+            "expected": "mov 0x1122, bsa67\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, bsac\" 7811220e",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7811220e"
+            ],
+            "expected": "mov 0x1122, bsac\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122, sp\" 78112210",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 78112210"
+            ],
+            "expected": "mov 0x1122, sp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpyk 0x1122, ac1, ac0\" 79112240",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 79112240"
+            ],
+            "expected": "mpyk 0x1122, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mack t0, 0x1122, ac1, ac0\" 79112242",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 79112242"
+            ],
+            "expected": "mack t0, 0x1122, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112240",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7a112240"
+            ],
+            "expected": "add 0x1122 \u003c\u003c #16, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112242",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7a112242"
+            ],
+            "expected": "sub 0x1122 \u003c\u003c #16, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"and 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112244",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7a112244"
+            ],
+            "expected": "and 0x1122 \u003c\u003c #16, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"or 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112246",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7a112246"
+            ],
+            "expected": "or 0x1122 \u003c\u003c #16, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xor 0x1122 \u003c\u003c #16, ac1, ac0\" 7a112248",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7a112248"
+            ],
+            "expected": "xor 0x1122 \u003c\u003c #16, ac1, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov 0x1122 \u003c\u003c #16, ac0\" 7a11224a",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7a11224a"
+            ],
+            "expected": "mov 0x1122 \u003c\u003c #16, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add 0x1122, ac0, t0\" 7b112240",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7b112240"
+            ],
+            "expected": "add 0x1122, ac0, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub 0x1122, ac0, t0\" 7c112240",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7c112240"
+            ],
+            "expected": "sub 0x1122, ac0, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"and 0x1122, ac0, t0\" 7d112240",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7d112240"
+            ],
+            "expected": "and 0x1122, ac0, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"or 0x1122, ac0, t0\" 7e112240",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7e112240"
+            ],
+            "expected": "or 0x1122, ac0, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xor 0x1122, ac0, t0\" 7f112240",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7f112240"
+            ],
+            "expected": "xor 0x1122, ac0, t0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"idle\" 7a00000c",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 7a00000c"
+            ],
+            "expected": "idle\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov dbl(*ar0), dbl(*ar7(t0))\" 8003f0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 8003f0"
+            ],
+            "expected": "mov dbl(*ar0), dbl(*ar7(t0))\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov dbl(*ar1+), dbl(*(ar6 - t1))\" 802760",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 802760"
+            ],
+            "expected": "mov dbl(*ar1+), dbl(*(ar6 - t1))\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov dbl(*ar2-), dbl(*(ar5 - t0))\" 804ad0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 804ad0"
+            ],
+            "expected": "mov dbl(*ar2-), dbl(*(ar5 - t0))\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov dbl(*(ar3 + t0)), dbl(*(ar4 + t1))\" 806e40",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 806e40"
+            ],
+            "expected": "mov dbl(*(ar3 + t0)), dbl(*(ar4 + t1))\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov dbl(*(ar4 + t1)), dbl(*(ar3 + t0))\" 8091b0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 8091b0"
+            ],
+            "expected": "mov dbl(*(ar4 + t1)), dbl(*(ar3 + t0))\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov dbl(*(ar5 - t0)), dbl(*ar2-)\" 80b520",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 80b520"
+            ],
+            "expected": "mov dbl(*(ar5 - t0)), dbl(*ar2-)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov dbl(*(ar6 - t1)), dbl(*ar1+)\" 80d890",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 80d890"
+            ],
+            "expected": "mov dbl(*(ar6 - t1)), dbl(*ar1+)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov dbl(*ar7(t0)), dbl(*ar0)\" 80fc00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 80fc00"
+            ],
+            "expected": "mov dbl(*ar7(t0)), dbl(*ar0)\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov *ar0, *ar0\" 800004",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 800004"
+            ],
+            "expected": "mov *ar0, *ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, *ar0, *ar0\" 800008",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 800008"
+            ],
+            "expected": "mov ac0, *ar0, *ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add *ar0, *ar0, ac0\" 810000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 810000"
+            ],
+            "expected": "add *ar0, *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub *ar0, *ar0, ac0\" 810004",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 810004"
+            ],
+            "expected": "sub *ar0, *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov *ar0, *ar0, ac0\" 810008",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 810008"
+            ],
+            "expected": "mov *ar0, *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpy *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\" 82000000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 82000000"
+            ],
+            "expected": "mpy *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpyr40 *ar0, *cdp+, ac0 :: mpyr40 *ar0, *cdp+, ac0\" 82000103",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 82000103"
+            ],
+            "expected": "mpyr40 *ar0, *cdp+, ac0 :: mpyr40 *ar0, *cdp+, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpyr40 uns(*ar0), uns(*cdp-), ac0 :: mpyr40 *ar0, *cdp-, ac0\" 82000283",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 82000283"
+            ],
+            "expected": "mpyr40 uns(*ar0), uns(*cdp-), ac0 :: mpyr40 *ar0, *cdp-, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpyr40 *ar0, *(cdp+t0), ac0 :: mpyr40 uns(*ar0), uns(*(cdp+t0)), ac0\" 82000343",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 82000343"
+            ],
+            "expected": "mpyr40 *ar0, *(cdp+t0), ac0 :: mpyr40 uns(*ar0), uns(*(cdp+t0)), ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpyr40 uns(*ar0), uns(*cdp), ac0 :: mpyr40 uns(*ar0), uns(*cdp), ac0\" 820000c3",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 820000c3"
+            ],
+            "expected": "mpyr40 uns(*ar0), uns(*cdp), ac0 :: mpyr40 uns(*ar0), uns(*cdp), ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mac *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\" 82000400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 82000400"
+            ],
+            "expected": "mac *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mas *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\" 82000800",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 82000800"
+            ],
+            "expected": "mas *ar0, *cdp, ac0 :: mpy *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mac *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0\" 83000000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 83000000"
+            ],
+            "expected": "mac *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mas *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0\" 83000400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 83000400"
+            ],
+            "expected": "mas *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mac *ar0, *cdp, ac0 \u003e\u003e #16 :: mac *ar0, *cdp, ac0\" 83000800",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 83000800"
+            ],
+            "expected": "mac *ar0, *cdp, ac0 \u003e\u003e #16 :: mac *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mas *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\" 84000000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 84000000"
+            ],
+            "expected": "mas *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpy *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\" 84000800",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 84000800"
+            ],
+            "expected": "mpy *ar0, *cdp, ac0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mac *ar0, *cdp, ac0 \u003e\u003e #16 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\" 84000c00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 84000c00"
+            ],
+            "expected": "mac *ar0, *cdp, ac0 \u003e\u003e #16 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mas *ar0, *cdp, ac0 :: mas *ar0, *cdp, ac0\" 85000400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 85000400"
+            ],
+            "expected": "mas *ar0, *cdp, ac0 :: mas *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amar *ar0 :: mpy *ar0, *cdp, ac0\" 82000c00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 82000c00"
+            ],
+            "expected": "amar *ar0 :: mpy *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amar *ar0 :: mac *ar0, *cdp, ac0\" 83000c00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 83000c00"
+            ],
+            "expected": "amar *ar0 :: mac *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amar *ar0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\" 84000400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 84000400"
+            ],
+            "expected": "amar *ar0 :: mac *ar0, *cdp, ac0 \u003e\u003e #16\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amar *ar0 :: mas *ar0, *cdp, ac0\" 85000000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 85000000"
+            ],
+            "expected": "amar *ar0 :: mas *ar0, *cdp, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"amar *ar0, *ar0, *cdp\" 85000800",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 85000800"
+            ],
+            "expected": "amar *ar0, *ar0, *cdp\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"firsadd *ar0, *ar0, *cdp, ac0, ac0\" 85000c00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 85000c00"
+            ],
+            "expected": "firsadd *ar0, *ar0, *cdp, ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"firssub *ar0, *ar0, *cdp, ac0, ac0\" 85000c10",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 85000c10"
+            ],
+            "expected": "firssub *ar0, *ar0, *cdp, ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpym *ar0, *ar0, ac0\" 86000000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000000"
+            ],
+            "expected": "mpym *ar0, *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpymr *ar0, *ar0, ac0\" 86000001",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000001"
+            ],
+            "expected": "mpymr *ar0, *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpymr40 *ar0, *ar0, ac0\" 86000011",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000011"
+            ],
+            "expected": "mpymr40 *ar0, *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpymr40 t3=*ar0, *ar0, ac0\" 86000013",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000013"
+            ],
+            "expected": "mpymr40 t3=*ar0, *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpymr40 t3=uns(*ar0), *ar0, ac0\" 8600001b",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 8600001b"
+            ],
+            "expected": "mpymr40 t3=uns(*ar0), *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpymr40 t3=*ar0, uns(*ar0), ac0\" 86000017",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000017"
+            ],
+            "expected": "mpymr40 t3=*ar0, uns(*ar0), ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpymr40 t3=uns(*ar0), uns(*ar0), ac0\" 8600001f",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 8600001f"
+            ],
+            "expected": "mpymr40 t3=uns(*ar0), uns(*ar0), ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macmr40 *ar0, *ar0, ac0\" 86000031",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000031"
+            ],
+            "expected": "macmr40 *ar0, *ar0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macmr40 *ar0, *ar0, ac0, ac1\" 86000131",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000131"
+            ],
+            "expected": "macmr40 *ar0, *ar0, ac0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macmr40 *ar0, *ar0, ac0 \u003e\u003e #16\" 86000051",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000051"
+            ],
+            "expected": "macmr40 *ar0, *ar0, ac0 \u003e\u003e #16\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macmr40 *ar0, *ar0, ac0 \u003e\u003e #16, ac1\" 86000151",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000151"
+            ],
+            "expected": "macmr40 *ar0, *ar0, ac0 \u003e\u003e #16, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"masmr40 t3=uns(*ar0), uns(*ar0), ac0, ac1\" 8600017f",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 8600017f"
+            ],
+            "expected": "masmr40 t3=uns(*ar0), uns(*ar0), ac0, ac1\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"masm *ar0, t0, ac0 :: mov *ar0 \u003c\u003c #16, ac0\" 86000080",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 86000080"
+            ],
+            "expected": "masm *ar0, t0, ac0 :: mov *ar0 \u003c\u003c #16, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macm *ar0, t0, ac0 :: mov *ar0 \u003c\u003c #16, ac0\" 860000a0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 860000a0"
+            ],
+            "expected": "macm *ar0, t0, ac0 :: mov *ar0 \u003c\u003c #16, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mpym *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 87000000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 87000000"
+            ],
+            "expected": "mpym *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"macm *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 87000020",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 87000020"
+            ],
+            "expected": "macm *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"masm *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 87000040",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 87000040"
+            ],
+            "expected": "masm *ar0, t0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"lms *ar0, *ar0, ac0, ac0\" 860000c0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 860000c0"
+            ],
+            "expected": "lms *ar0, *ar0, ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sqdst *ar0, *ar0, ac0, ac0\" 860000e0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 860000e0"
+            ],
+            "expected": "sqdst *ar0, *ar0, ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"abdst *ar0, *ar0, ac0, ac0\" 860000f0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 860000f0"
+            ],
+            "expected": "abdst *ar0, *ar0, ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"lmsf *ar0, *ar0, ac0, ac0\" 87000061",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 87000061"
+            ],
+            "expected": "lmsf *ar0, *ar0, ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"add *ar0 \u003c\u003c #16, ac0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 87000080",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 87000080"
+            ],
+            "expected": "add *ar0 \u003c\u003c #16, ac0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"sub *ar0 \u003c\u003c #16, ac0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 870000a0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 870000a0"
+            ],
+            "expected": "sub *ar0 \u003c\u003c #16, ac0, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov *ar0 \u003c\u003c #16, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\" 870000c0",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 870000c0"
+            ],
+            "expected": "mov *ar0 \u003c\u003c #16, ac0 :: mov hi(ac0 \u003c\u003c t2), *ar0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"mov ac0, ac0\" 9000",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9000"
+            ],
+            "expected": "mov ac0, ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"b ac0\" 9100",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9100"
+            ],
+            "expected": "b ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"call ac0\" 9200",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9200"
+            ],
+            "expected": "call ac0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"reset\" 9400",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9400"
+            ],
+            "expected": "reset\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"intr 0x1F\" 957f",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 957f"
+            ],
+            "expected": "intr 0x1F\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"trap 0x1F\" 95ff",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 95ff"
+            ],
+            "expected": "trap 0x1F\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xcc ac0 == 0\" 9600",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9600"
+            ],
+            "expected": "xcc ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xccpart ac0 == 0\" 9680",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9680"
+            ],
+            "expected": "xccpart ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xcc ac0 == 0\" 9e00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9e00"
+            ],
+            "expected": "xcc ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xccpart ac0 == 0\" 9e80",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9e80"
+            ],
+            "expected": "xccpart ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xcc ac0 == 0\" 9f00",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9f00"
+            ],
+            "expected": "xcc ac0 == 0\n",
+            "broken": false
+        },
+        {
+            "name": "tms320_c55x_32: d \"xccpart ac0 == 0\" 9f80",
+            "file": "-",
+            "args": "-a tms320 -e asm.cpu=c55x -b 32",
+            "commands": [
+                "pad 9f80"
+            ],
+            "expected": "xccpart ac0 == 0\n",
+            "broken": false
+        }
+    ]
+}

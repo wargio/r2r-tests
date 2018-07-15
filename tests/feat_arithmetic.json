@@ -1,60 +1,161 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "use after free - requires asan",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "0", "~[[0", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "sum flags",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "f foo=2", "f bar=4", "?v bar/foo", "", ""],
-        "expected": "0x2\n\n",
-        "broken": false
-    }, {
-        "name": "div $$",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "?v 10/2", "?v $$/2@10", "", ""],
-        "expected": "0x5\n0x5\n\n",
-        "broken": false
-    }, {
-        "name": "div [0]",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "wv 10", "?v [0]/2", "?v $$/2@[0]", "", ""],
-        "expected": "0x5\n0x5\n\n",
-        "broken": false
-    }, {
-        "name": "basic",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "?v 0x10+0x30", "?v 1+3*2", "?v (1+3)*2", "", ""],
-        "expected": "0x40\n0x7\n0x8\n\n",
-        "broken": false
-    }, {
-        "name": "sum",
-        "file": "-",
-        "args": "",
-        "commands": ["", "f a@3", "?v a+3", "?v a +3", "?v a+ 3", "?v 3 + 3", "", ""],
-        "expected": "0x6\n0x6\n0x6\n0x6\n\n",
-        "broken": false
-    }, {
-        "name": "binary",
-        "file": "-",
-        "args": "",
-        "commands": ["", "?e", "!rax2 Bxff3f0000fcff", "!rax2 Bxff3ffcff", "", ""],
-        "expected": "\n111111110011111100000000000000001111110011111111b\n11111111001111111111110011111111b\n\n",
-        "broken": false
-    }, {
-        "name": "invalid nums",
-        "file": "-",
-        "args": "",
-        "commands": ["e scr.interactive=true", "s beach", "s", "s batch", "s", "s th", "s", "s h", "s", "?e", "s 33o", "s", "s 383o", "s", "s 9o", "s", "s o", "s", "s 0177", "s", "s 0187", "s", "s 08", "s", "s 0", "s", "?e", "s 101b", "s", "s 121b", "s", "s 3b", "s", "s b", "s", "?e", "s 121t", "s", "s 131t", "s", "s 4t", "s", "s t", "s", "?e", "s 1k", "s", "s 1.5K", "s", "s 2a1k", "s", "s bk", "s", "s k", "s", "?e", "s 1m", "s", "s 1.5M", "s", "s 2a1m", "s", "s bm", "s", "s m", "s", "?e", "s 1g", "s", "s 1.5G", "s", "s 2a1g", "s", "s bg", "s", "s g", "s"],
-        "expected": "0xbeac\n0xbeac\n0xbeac\n0xbeac\n\n0x1b\n0x1b\n0x1b\n0x1b\n0x7f\n0x7f\n0x7f\n0x0\n\n0x5\n0x5\n0x5\n0x5\n\n0x10\n0x10\n0x10\n0x10\n\n0x400\n0x600\n0x600\n0x600\n0x600\n\n0x100000\n0x180000\n0x180000\n0x180000\n0x180000\n\n0x40000000\n0x60000000\n0x60000000\n0x60000000\n0x60000000\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "use after free - requires asan",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "0",
+                "~[[0",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "sum flags",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "f foo=2",
+                "f bar=4",
+                "?v bar/foo",
+                "",
+                ""
+            ],
+            "expected": "0x2\n\n",
+            "broken": false
+        },
+        {
+            "name": "div $$",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "?v 10/2",
+                "?v $$/2@10",
+                "",
+                ""
+            ],
+            "expected": "0x5\n0x5\n\n",
+            "broken": false
+        },
+        {
+            "name": "div [0]",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "wv 10",
+                "?v [0]/2",
+                "?v $$/2@[0]",
+                "",
+                ""
+            ],
+            "expected": "0x5\n0x5\n\n",
+            "broken": false
+        },
+        {
+            "name": "basic",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "?v 0x10+0x30",
+                "?v 1+3*2",
+                "?v (1+3)*2",
+                "",
+                ""
+            ],
+            "expected": "0x40\n0x7\n0x8\n\n",
+            "broken": false
+        },
+        {
+            "name": "sum",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "f a@3",
+                "?v a+3",
+                "?v a +3",
+                "?v a+ 3",
+                "?v 3 + 3",
+                "",
+                ""
+            ],
+            "expected": "0x6\n0x6\n0x6\n0x6\n\n",
+            "broken": false
+        },
+        {
+            "name": "binary",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "?e",
+                "!rax2 Bxff3f0000fcff",
+                "!rax2 Bxff3ffcff",
+                "",
+                ""
+            ],
+            "expected": "\n111111110011111100000000000000001111110011111111b\n11111111001111111111110011111111b\n\n",
+            "broken": false
+        },
+        {
+            "name": "invalid nums",
+            "file": "-",
+            "args": "",
+            "commands": [
+                " scr.interactive=true",
+                "s beach; s",
+                "s batch; s",
+                "s th; s",
+                "s h; s",
+                "?e",
+                "s 33o; s",
+                "s 383o; s",
+                "s 9o; s",
+                "s o; s",
+                "s 0177; s",
+                "s 0187; s",
+                "s 08; s",
+                "s 0; s",
+                "?e",
+                "s 101b; s",
+                "s 121b; s",
+                "s 3b; s",
+                "s b; s",
+                "?e",
+                "s 121t; s",
+                "s 131t; s",
+                "s 4t; s",
+                "s t; s",
+                "?e",
+                "s 1k; s",
+                "s 1.5K; s",
+                "s 2a1k; s",
+                "s bk; s",
+                "s k; s",
+                "?e",
+                "s 1m; s",
+                "s 1.5M; s",
+                "s 2a1m; s",
+                "s bm; s",
+                "s m; s",
+                "?e",
+                "s 1g; s",
+                "s 1.5G; s",
+                "s 2a1g; s",
+                "s bg; s",
+                "s g; s"
+            ],
+            "expected": "0xbeac\n0xbeac\n0xbeac\n0xbeac\n\n0x1b\n0x1b\n0x1b\n0x1b\n0x7f\n0x7f\n0x7f\n0x0\n\n0x5\n0x5\n0x5\n0x5\n\n0x10\n0x10\n0x10\n0x10\n\n0x400\n0x600\n0x600\n0x600\n0x600\n\n0x100000\n0x180000\n0x180000\n0x180000\n0x180000\n\n0x40000000\n0x60000000\n0x60000000\n0x60000000\n0x60000000",
+            "broken": false
+        }
+    ]
 }

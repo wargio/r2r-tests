@@ -1,0 +1,27 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "MSIL: hello.exe - detect",
+            "file": "bins/cil/hello.exe",
+            "args": "",
+            "commands": [
+                "i~^lang[1]",
+                ""
+            ],
+            "expected": "cil\n\n",
+            "broken": false
+        },
+        {
+            "name": "MSIL: AStyleWhore.exe - detect",
+            "file": "bins/cil/AStyleWhore.exe",
+            "args": "",
+            "commands": [
+                "i~^lang[1]",
+                ""
+            ],
+            "expected": "cil\n\n",
+            "broken": false
+        }
+    ]
+}

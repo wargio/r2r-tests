@@ -1,11 +1,16 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "pvj JSON indent - crash",
-        "file": "-",
-        "args": "",
-        "commands": ["pvj ~{", ""],
-        "expected": "{\"value\":0,\"string\":\"\"}\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "pvj JSON indent - crash",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "pvj ~{",
+                ""
+            ],
+            "expected": "{\"value\":0,\"string\":\"\"}\n\n",
+            "broken": false
+        }
+    ]
 }

@@ -1,0 +1,187 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "Backward param type propgation",
+            "file": "bins/anal/back1",
+            "args": "",
+            "commands": [
+                "a",
+                "s main",
+                "afta",
+                "afv"
+            ],
+            "expected": "var size_t size @ rbp-0x14\nvar char * dest @ rbp-0x10\nvar char * src @ rbp-0x8",
+            "broken": false
+        },
+        {
+            "name": "Forward param type propgation",
+            "file": "bins/anal/forward1",
+            "args": "",
+            "commands": [
+                "a",
+                "s main",
+                "afta",
+                "afv"
+            ],
+            "expected": "var size_t size @ rbp-0x14\nvar char * ptr @ rbp-0x10\nvar char * src @ rbp-0x8",
+            "broken": false
+        },
+        {
+            "name": "Propgation via value",
+            "file": "bins/anal/follow_ptr",
+            "args": "",
+            "commands": [
+                "a",
+                "s main",
+                "afta",
+                "afv"
+            ],
+            "expected": "var size_t local_1ch @ rbp-0x1c\nvar char * local_18h @ rbp-0x18\nvar char * s @ rbp-0x10\nvar char * local_8h @ rbp-0x8",
+            "broken": false
+        },
+        {
+            "name": "General type propgation",
+            "file": "bins/anal/hello_world",
+            "args": "",
+            "commands": [
+                "a",
+                "s main",
+                "afta",
+                "afv"
+            ],
+            "expected": "var size_t local_20h @ rbp-0x20\nvar size_t size @ rbp-0x1c\nvar char * src @ rbp-0x18\nvar char * s2 @ rbp-0x10\nvar char * dest @ rbp-0x8",
+            "broken": false
+        },
+        {
+            "name": "32-bit bin type propgation",
+            "file": "bins/anal/hello_world32",
+            "args": "",
+            "commands": [
+                "a",
+                "s main",
+                "afta",
+                "afv"
+            ],
+            "expected": "arg int arg_4h @ esp+0x4\nvar char * src @ ebp-0x1c\nvar char * s2 @ ebp-0x18\nvar size_t local_14h @ ebp-0x14\nvar size_t size @ ebp-0x10\nvar char * dest @ ebp-0xc\nvar int local_8h @ ebp-0x8",
+            "broken": false
+        },
+        {
+            "name": "Register based var",
+            "file": "bins/anal/arg",
+            "args": "",
+            "commands": [
+                "a",
+                "s sym.funcarg",
+                "afvr"
+            ],
+            "expected": "arg int arg1 @ rdi\narg int arg2 @ rsi\narg int arg3 @ rdx\narg int arg4 @ rcx",
+            "broken": false
+        },
+        {
+            "name": "Type propgation for reg based arg",
+            "file": "bins/anal/arg",
+            "args": "",
+            "commands": [
+                "a",
+                "afta",
+                "s sym.funcarg",
+                "afvr"
+            ],
+            "expected": "arg char * arg1 @ rdi\narg char * arg2 @ rsi\narg int arg3 @ rdx\narg size_t arg4 @ rcx",
+            "broken": false
+        },
+        {
+            "name": "Caller to callee propgation (64 bits)",
+            "file": "bins/anal/arg_down_prop",
+            "args": "",
+            "commands": [
+                " asm.lines = false",
+                "e asm.xrefs = false",
+                "aa",
+                "afta",
+                "s sym.funcarg",
+                "pd 1"
+            ],
+            "expected": "(fcn) sym.funcarg 154\n  sym.funcarg (char *arg1, unsigned int arg2);\n; var unsigned int local_ch @ rbp-0xc\n; var char *local_8h @ rbp-0x8\n0x0000068a      55             push rbp",
+            "broken": false
+        },
+        {
+            "name": "Caller to caller propgation (32 bits)",
+            "file": "bins/anal/arg_down_32",
+            "args": "",
+            "commands": [
+                " asm.lines = false",
+                "e asm.xrefs = false",
+                "aa",
+                "afta",
+                "s sym.funcarg",
+                "pd 1"
+            ],
+            "expected": "(fcn) sym.funcarg 147\n  sym.funcarg (char *arg_8h, unsigned int arg_ch);\n; var int local_4h @ ebp-0x4\n; arg char *arg_8h @ ebp+0x8\n; arg unsigned int arg_ch @ ebp+0xc\n0x0000054d      55             push ebp",
+            "broken": false
+        },
+        {
+            "name": "Type Propagation",
+            "file": "bins/pe/debugme.exe",
+            "args": "",
+            "commands": [
+                "aaa",
+                "pd 1 @ 0x00401792~?[n",
+                "pd 1 @ 0x00401796~?[c",
+                "pd 1 @ 0x0040179e~?[s",
+                "pd 1 @ 0x004017b1~?[n",
+                "pd 1 @ 0x004017b5~?[c",
+                "pd 1 @ 0x004017bd~?[s",
+                "pd 1 @ 0x0040186a~?[s2",
+                "pd 1 @ 0x0040186e~?[s1",
+                "pd 1 @ 0x0040152f~?[dwInitParam",
+                "pd 1 @ 0x00401537~?[lpDialogFunc",
+                "pd 1 @ 0x0040153f~?[hWndParent",
+                "pd 1 @ 0x00401547~?[lpTemplateName",
+                "pd 1 @ 0x00401554~?[hInstance"
+            ],
+            "expected": "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1",
+            "broken": true
+        },
+        {
+            "name": "Double pointer test",
+            "file": "bins/anal/double_ptr",
+            "args": "",
+            "commands": [
+                "a",
+                "afta",
+                "s main",
+                "afv~ptr"
+            ],
+            "expected": "var char ** ptr @ rbp-0x18",
+            "broken": false
+        },
+        {
+            "name": "Signed and unsigned test",
+            "file": "bins/anal/signed_test",
+            "args": "",
+            "commands": [
+                "a",
+                "afta",
+                "s main",
+                "afv~sign"
+            ],
+            "expected": "var signed int local_34h @ rbp-0x34\nvar signed int local_30h @ rbp-0x30\nvar unsigned int local_28h @ rbp-0x28",
+            "broken": false
+        },
+        {
+            "name": "flagspace analysis",
+            "file": "bins/anal/flagspace",
+            "args": "",
+            "commands": [
+                "a",
+                "afta",
+                "s main",
+                "afv"
+            ],
+            "expected": "var int local_34h @ rbp-0x34\nvar signed int local_30h @ rbp-0x30\nvar unsigned int local_2ch @ rbp-0x2c\nvar FILE * stream @ rbp-0x28\nvar char * s @ rbp-0x20\nvar char * local_18h @ rbp-0x18\nvar char * local_10h @ rbp-0x10\nvar int local_8h @ rbp-0x8",
+            "broken": false
+        }
+    ]
+}

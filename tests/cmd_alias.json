@@ -1,39 +1,73 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "test $alias",
-        "file": "-",
-        "args": "",
-        "commands": ["$foo=?e hello", "$foo", "", ""],
-        "expected": "hello\n\n",
-        "broken": false
-    }, {
-        "name": "test $alias quotes",
-        "file": "-",
-        "args": "",
-        "commands": ["\"$foo=?e hello;?e world\"", "$foo", "", ""],
-        "expected": "hello\nworld\n\n",
-        "broken": false
-    }, {
-        "name": "test $alias args",
-        "file": "-",
-        "args": "",
-        "commands": ["$foo=!echo hello", "$foo world", "", ""],
-        "expected": "hello world\n\n",
-        "broken": false
-    }, {
-        "name": "list $alias",
-        "file": "-",
-        "args": "",
-        "commands": ["$foo=a", "$bar=b", "$", "", ""],
-        "expected": "$foo\n$bar\n\n",
-        "broken": false
-    }, {
-        "name": "delete $alias",
-        "file": "-",
-        "args": "",
-        "commands": ["$foo=a", "$bar=b", "$bar=", "$", "", ""],
-        "expected": "$foo\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "test $alias",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "$foo=?e hello",
+                "$foo",
+                "",
+                ""
+            ],
+            "expected": "hello\n\n",
+            "broken": false
+        },
+        {
+            "name": "test $alias quotes",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "\"$foo=?e hello;?e world\"",
+                "$foo",
+                "",
+                ""
+            ],
+            "expected": "hello\nworld\n\n",
+            "broken": false
+        },
+        {
+            "name": "test $alias args",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "$foo=!echo hello",
+                "$foo world",
+                "",
+                ""
+            ],
+            "expected": "hello world\n\n",
+            "broken": false
+        },
+        {
+            "name": "list $alias",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "$foo=a",
+                "$bar=b",
+                "$",
+                "",
+                ""
+            ],
+            "expected": "$foo\n$bar\n\n",
+            "broken": false
+        },
+        {
+            "name": "delete $alias",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "$foo=a",
+                "$bar=b",
+                "$bar=",
+                "$",
+                "",
+                ""
+            ],
+            "expected": "$foo\n\n",
+            "broken": false
+        }
+    ]
 }

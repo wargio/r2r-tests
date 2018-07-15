@@ -1,0 +1,49 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "sega megadrive rom info",
+            "file": "bins/smd/LiquidSpaceDodgerV3.bin",
+            "args": "",
+            "commands": [
+                "i~!fd",
+                ""
+            ],
+            "expected": "blksz    0x0\nblock    0x100\nfile     ../bins/smd/LiquidSpaceDodgerV3.bin\nformat   smd\niorw     false\nmode     r-x\nsize     0x272f8\nhumansz  156.7K\ntype     ROM\narch     m68k\nbinsz    160504\nbits     16\ncanary   false\nclass    SEGA MEGASIS    (C)2015 James L.\ncrypto   false\nendian   little\nhavecode true\nlinenum  false\nlsyms    false\nmachine  Sega Megadrive\nnx       false\nos       smd\npic      false\nrelocs   false\nstatic   true\nstripped false\nva       true\n\n",
+            "broken": false
+        },
+        {
+            "name": "sega megadrive rom symbols",
+            "file": "bins/smd/LiquidSpaceDodgerV3.bin",
+            "args": "",
+            "commands": [
+                "isq",
+                ""
+            ],
+            "expected": "0x00000000 0 rom_start\n0x000272f8 0 rom_end\n0x00ff0000 0 ram_start\n0x00ffffff 0 ram_end\n0x00fffff0 0 SSP\n0x00000200 0 Reset\n0x00001300 0 BusErr\n0x0000130c 0 AdrErr\n0x000012a0 0 InvOpCode\n0x000012ac 0 DivBy0\n0x000012b8 0 Check\n0x000012c4 0 TrapV\n0x000012d0 0 GPF\n0x000012dc 0 Trace\n0x000012e8 0 Reserv0\n0x000012f4 0 Reserv1\n0x00001294 0 Reserv2\n0x444f4e27 0 Reserv3\n0x54204c4f 0 Reserv4\n0x4f4b2041 0 BadInt\n0x54205448 0 Reserv10\n0x49532100 0 Reserv11\n0x00001294 0 Reserv12\n0x00001294 0 Reserv13\n0x00001294 0 Reserv14\n0x00001294 0 Reserv15\n0x00001294 0 Reserv16\n0x00001294 0 Reserv17\n0x00001294 0 BadIRQ\n0x00001294 0 IRQ1\n0x00001294 0 EXT\n0x00001294 0 IRQ3\n0x00000bb2 0 HBLANK\n0x00001294 0 IRQ5\n0x00000bb8 0 VBLANK\n0x00001294 0 IRQ7\n0x00001294 0 Trap0\n0x00001294 0 Trap1\n0x00001294 0 Trap2\n0x00001294 0 Trap3\n0x00001294 0 Trap4\n0x00001294 0 Trap5\n0x00001294 0 Trap6\n0x00001294 0 Trap7\n0x00001294 0 Trap8\n0x00001294 0 Trap9\n0x00001294 0 Trap10\n0x00001294 0 Trap11\n0x00001294 0 Trap12\n0x00001294 0 Trap13\n0x00001294 0 Trap14\n0x00001294 0 Trap15\n0x00001294 0 Reserv30\n0x00001294 0 Reserv31\n0x00001294 0 Reserv32\n0x00001294 0 Reserv33\n0x00001294 0 Reserv34\n0x00001294 0 Reserv35\n0x00001294 0 Reserv36\n0x00001294 0 Reserv37\n0x00001294 0 Reserv38\n0x00001294 0 Reserv39\n0x00001294 0 Reserv3A\n0x00001294 0 Reserv3B\n0x00001294 0 Reserv3C\n0x00001294 0 Reserv3D\n0x00001294 0 Reserv3E\n0x00001294 0 Reserv3F\n\n",
+            "broken": false
+        },
+        {
+            "name": "sega megadrive rom entrypoint",
+            "file": "bins/smd/LiquidSpaceDodgerV3.bin",
+            "args": "",
+            "commands": [
+                "ie~vadd",
+                ""
+            ],
+            "expected": "vaddr=0x00000200 paddr=0x00000200 baddr=0xffffffffffffffff laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "sega megadrive rom maps and printing",
+            "file": "bins/smd/LiquidSpaceDodgerV3.bin",
+            "args": "",
+            "commands": [
+                "pxw 4 @ 0x10100",
+                ""
+            ],
+            "expected": "0x00010100  0x13745300                                   .St.\n\n",
+            "broken": false
+        }
+    ]
+}

@@ -1,11 +1,30 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "af import",
-        "file": "bins/mach0/ls-osx-x86_64",
-        "args": "",
-        "commands": ["s sym.imp.write", "af", "?v $FS", "", ""],
-        "expected": "before:\n\n",
-        "broken": true
-    }]
+    "tests": [
+        {
+            "name": "af import",
+            "file": "bins/mach0/ls-osx-x86_64",
+            "args": "",
+            "commands": [
+                "s sym.imp.write",
+                "af",
+                "?v $FS",
+                "",
+                ""
+            ],
+            "expected": "before:\n\n",
+            "broken": true
+        },
+        {
+            "name": "afll",
+            "file": "bins/mach0/ls-osx-x86_64",
+            "args": "",
+            "commands": [
+                "aa ; afll~?entry0",
+                ""
+            ],
+            "expected": "1\n",
+            "broken": false
+        }
+    ]
 }

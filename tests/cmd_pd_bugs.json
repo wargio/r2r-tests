@@ -1,116 +1,265 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "pd call sym bug",
-        "file": "bins/mach0/hello-objc-arm",
-        "args": "",
-        "commands": ["", "e asm.lines.bb=0", "e asm.bytes=0", "e asm.comments=0", "s sym.__Test_callMeNot", "pd 20~?NSLog", "af", "pd 20~?NSLog", "", ""],
-        "expected": "1\n1\n\n",
-        "broken": false
-    }, {
-        "name": "pd arm cortex 0",
-        "file": "-",
-        "args": "-a arm -b 16",
-        "commands": ["wx 80f30988; pi 1", ""],
-        "expected": "invalid\n\n",
-        "broken": false
-    }, {
-        "name": "pd arm cortex 1",
-        "file": "-",
-        "args": "-a arm -b 16 -e asm.cpu=cortex",
-        "commands": ["wx 80f30988;pi 1", ""],
-        "expected": "msr psp, r0\n\n",
-        "broken": false
-    }, {
-        "name": "pd arm cortex 2",
-        "file": "-",
-        "args": "-a arm -b 16",
-        "commands": ["e asm.cpu=cortex;wx 80f30988;pi 1", ""],
-        "expected": "msr psp, r0\n\n",
-        "broken": false
-    }, {
-        "name": "pd call sym bug",
-        "file": "bins/mach0/hello-objc-arm",
-        "args": "",
-        "commands": ["", "e asm.lines.bb=0", "e asm.bytes=0", "e asm.comments=0", "s sym.__Test_callMeNot", "# s+2", "pi 2", "", ""],
-        "expected": "push {r7, lr}\nmov r7, sp\n\n",
-        "broken": false
-    }, {
-        "name": "call fcn eip 32bit",
-        "file": "bins/elf/analysis/ls-alxchk",
-        "args": "",
-        "commands": ["", "s 0x5e50", "e asm.bits=32", "af; afn eip", "pd 1 @ 0x5f16~:0", "e asm.lines.bb=0", "e asm.bytes=0", "e asm.comments=0", "", ""],
-        "expected": "            0x00005f16      e835ffffff     call fcn.eip\n\n",
-        "broken": false
-    }, {
-        "name": "call fcn eip 64bit",
-        "file": "bins/elf/analysis/ls-alxchk",
-        "args": "",
-        "commands": ["", "s 0x5e50", "e asm.bits=64", "af; afn eip", "pd 1 @ 0x5f16~:0", "e asm.lines.bb=0", "e asm.bytes=0", "e asm.comments=0", "", ""],
-        "expected": "|           0x00005f16      e835ffffff     call fcn.eip\n\n",
-        "broken": true
-    }, {
-        "name": "call fcn rip 64bit",
-        "file": "bins/elf/analysis/ls-alxchk",
-        "args": "",
-        "commands": ["", "s 0x5e50", "e asm.bits=64", "af; afn rip", "pd 1 @ 0x5f16~:0", "e asm.lines.bb=0", "e asm.bytes=0", "e asm.comments=0", "", ""],
-        "expected": "            0x00005f16      e835ffffff     call fcn.rip\n\n",
-        "broken": false
-    }, {
-        "name": "lea edx bug segfault for x86 32bit #5710@radare2",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=32", "e asm.lines.bb=false", "e asm.comments=false", "pD@x:8d15d0830408", "", ""],
-        "expected": "  0x00000000      8d15d0830408   lea edx, [0x80483d0]\n\n",
-        "broken": false
-    }, {
-        "name": "p8@x",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["", "e asm.comments=false", "p8@x:8d15d0830408", "", ""],
-        "expected": "8d15d0830408\n\n",
-        "broken": false
-    }, {
-        "name": "px@x",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["", "e asm.comments=false", "e hex.header=false", "px@x:8d15d0830408", "", ""],
-        "expected": "0x00000000  8d15 d083 0408                           ......\n\n",
-        "broken": false
-    }, {
-        "name": "size of function in elf x64 stub",
-        "file": "bins/other/radiff2/hellocxx-osx-fat-intel_1",
-        "args": "",
-        "commands": ["", "s 0x100000dae", "af", "afi~^size[1]", "", ""],
-        "expected": "6\n\n",
-        "broken": false
-    }, {
-        "name": "crackme test",
-        "file": "bins/elf/crackme",
-        "args": "",
-        "commands": ["pd 2", "pi 2", "", ""],
-        "expected": "            ;-- entry0:\n            ;-- section..text:\n            ;-- _start:\n            ;-- rip:\n            0x004005c0      31ed           xor ebp, ebp                ; [14] -r-x section size 584 named .text\n            0x004005c2      4989d1         mov r9, rdx\nxor ebp, ebp\nmov r9, rdx\n",
-        "broken": false
-    }, {
-        "name": "indent asm.lines.fcn=0, asm.lines.bb=1 for issue 9316",
-        "file": "-",
-        "args": "",
-        "commands": ["", "af+ 0 test", "e asm.lines.fcn=0", "e asm.lines.bb=1", "pd 2", ""],
-        "expected": "(fcn) test 0\n  test ();\n          0x00000000      0000           add byte [rax], al\n          0x00000002      0000           add byte [rax], al\n",
-        "broken": false
-    }, {
-        "name": "indent asm.lines.fcn=1, asm.lines.bb=0 for issue 9316",
-        "file": "-",
-        "args": "",
-        "commands": ["", "af+ 0 test", "e asm.lines.fcn=1", "e asm.lines.bb=0", "pd 2", ""],
-        "expected": "/ (fcn) test 0\n|   test ();\n| 0x00000000      0000           add byte [rax], al\n  0x00000002      0000           add byte [rax], al\n",
-        "broken": false
-    }, {
-        "name": "asm.flgoff indent",
-        "file": "bins/elf/crackme0x05",
-        "args": "",
-        "commands": ["e asm.flags.offset=1","s sym.check", "pd 1"],
-        "expected": "            0x080484c8  check:\n            0x080484c8      55             push ebp\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "pd call sym bug",
+            "file": "bins/mach0/hello-objc-arm",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.lines.bb=0",
+                "e asm.bytes=0",
+                "e asm.comments=0",
+                "s sym.__Test_callMeNot",
+                "pd 20~?NSLog",
+                "af",
+                "pd 20~?NSLog",
+                "",
+                ""
+            ],
+            "expected": "1\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd arm cortex 0",
+            "file": "-",
+            "args": "-a arm -b 16",
+            "commands": [
+                "wx 80f30988; pi 1",
+                ""
+            ],
+            "expected": "invalid\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd arm cortex 1",
+            "file": "-",
+            "args": "-a arm -b 16 -e asm.cpu=cortex",
+            "commands": [
+                "wx 80f30988;pi 1",
+                ""
+            ],
+            "expected": "msr psp, r0\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd arm cortex 2",
+            "file": "-",
+            "args": "-a arm -b 16",
+            "commands": [
+                "e asm.cpu=cortex;wx 80f30988;pi 1",
+                ""
+            ],
+            "expected": "msr psp, r0\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd call sym bug",
+            "file": "bins/mach0/hello-objc-arm",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.lines.bb=0",
+                "e asm.bytes=0",
+                "e asm.comments=0",
+                "s sym.__Test_callMeNot",
+                "# s+2",
+                "pi 2",
+                "",
+                ""
+            ],
+            "expected": "push {r7, lr}\nmov r7, sp\n\n",
+            "broken": false
+        },
+        {
+            "name": "call fcn eip 32bit",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x5e50",
+                "e asm.bits=32",
+                "af; afn eip",
+                "pd 1 @ 0x5f16~:0",
+                "e asm.lines.bb=0",
+                "e asm.bytes=0",
+                "e asm.comments=0",
+                "",
+                ""
+            ],
+            "expected": "            0x00005f16      e835ffffff     call fcn.eip\n\n",
+            "broken": false
+        },
+        {
+            "name": "call fcn eip 64bit",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x5e50",
+                "e asm.bits=64",
+                "af; afn eip",
+                "pd 1 @ 0x5f16~:0",
+                "e asm.lines.bb=0",
+                "e asm.bytes=0",
+                "e asm.comments=0",
+                "",
+                ""
+            ],
+            "expected": "|           0x00005f16      e835ffffff     call fcn.eip\n\n",
+            "broken": true
+        },
+        {
+            "name": "call fcn rip 64bit",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x5e50",
+                "e asm.bits=64",
+                "af; afn rip",
+                "pd 1 @ 0x5f16~:0",
+                "e asm.lines.bb=0",
+                "e asm.bytes=0",
+                "e asm.comments=0",
+                "",
+                ""
+            ],
+            "expected": "            0x00005f16      e835ffffff     call fcn.rip\n\n",
+            "broken": false
+        },
+        {
+            "name": "lea edx bug segfault for x86 32bit #5710@radare2",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "e asm.lines.bb=false",
+                "e asm.comments=false",
+                "pD@x:8d15d0830408",
+                "",
+                ""
+            ],
+            "expected": " 0x00000000      8d15d0830408   lea edx, [0x80483d0]\n\n",
+            "broken": false
+        },
+        {
+            "name": "lea edx bug segfault for x86 32bit #5710@radare2",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "e asm.lines.bb=false",
+                "e asm.comments=false",
+                "pD@x:8d15d0830408",
+                "",
+                ""
+            ],
+            "expected": " 0x00000000      8d15d0830408   lea edx, [0x80483d0]\n\n",
+            "broken": false
+        },
+        {
+            "name": "p8@x",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.comments=false",
+                "p8@x:8d15d0830408",
+                "",
+                ""
+            ],
+            "expected": "8d15d0830408\n\n",
+            "broken": false
+        },
+        {
+            "name": "px@x",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.comments=false",
+                "e hex.header=false",
+                "px@x:8d15d0830408",
+                "",
+                ""
+            ],
+            "expected": "0x00000000  8d15 d083 0408                           ......\n\n",
+            "broken": false
+        },
+        {
+            "name": "size of function in elf x64 stub",
+            "file": "bins/other/radiff2/hellocxx-osx-fat-intel_1",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x100000dae",
+                "af",
+                "afi~^size[1]",
+                "",
+                ""
+            ],
+            "expected": "6\n\n",
+            "broken": false
+        },
+        {
+            "name": "crackme test",
+            "file": "bins/elf/crackme",
+            "args": "",
+            "commands": [
+                "pd 2",
+                "pi 2",
+                "",
+                ""
+            ],
+            "expected": "            ;-- entry0:\n            ;-- section..text:\n            ;-- _start:\n            0x004005c0      31ed           xor ebp, ebp                ; [14] -r-x section size 584 named .text\n            0x004005c2      4989d1         mov r9, rdx\nxor ebp, ebp\nmov r9, rdx\n",
+            "broken": false
+        },
+        {
+            "name": "indent asm.lines.fcn=0, asm.lines.bb=1 for issue 9316",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "af+ 0 test",
+                "e asm.lines.fcn=0",
+                "e asm.lines.bb=1",
+                "pd 2",
+                ""
+            ],
+            "expected": "(fcn) test 0\n  test ();\n          0x00000000      0000           add byte [rax], al\n          0x00000002      0000           add byte [rax], al\n",
+            "broken": false
+        },
+        {
+            "name": "indent asm.lines.fcn=1, asm.lines.bb=0 for issue 9316",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "af+ 0 test",
+                "e asm.lines.fcn=1",
+                "e asm.lines.bb=0",
+                "pd 2",
+                ""
+            ],
+            "expected": "/ (fcn) test 0\n|   test ();\n| 0x00000000      0000           add byte [rax], al\n  0x00000002      0000           add byte [rax], al\n",
+            "broken": false
+        },
+        {
+            "name": "asm.flgoff indent",
+            "file": "bins/elf/crackme0x05",
+            "args": "",
+            "commands": [
+                "e asm.flags.offset=1s sym.check",
+                "pd 1",
+                ""
+            ],
+            "expected": "            0x080484c8  check:\n            0x080484c8      55             push ebp\n",
+            "broken": false
+        }
+    ]
 }

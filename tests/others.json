@@ -1,0 +1,2100 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "a2f jmp after ret",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f26b8ffffffff4839ca7c1c498b4838498b5138b8010000004839ca7f0ab8ffffffff4839ca7d025dc34883c7684883c6685dc3",
+                "a2f",
+                "afl~?",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "a2f jmp after ret - _size (symsize)",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f26b8ffffffff4839ca7c1c498b4838498b5138b8010000004839ca7f0ab8ffffffff4839ca7d025dc34883c7684883c6685dc3",
+                "a2f",
+                "afl~?",
+                "afl~[2]",
+                "",
+                ""
+            ],
+            "expected": "1\n60\n\n",
+            "broken": false
+        },
+        {
+            "name": "a2f jmp after ret - realsize (bbs_sum)",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b8010000004839ca7f26b8ffffffff4839ca7c1c498b4838498b5138b8010000004839ca7f0ab8ffffffff4839ca7d025dc34883c7684883c6685dc3",
+                "a2f",
+                "afl~?",
+                "afl~[2]",
+                "",
+                ""
+            ],
+            "expected": "1\n60\n\n",
+            "broken": false
+        },
+        {
+            "name": "a2f 8 bbs 4 ret and some jumps",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 85c0740585c07405c385c0eb01c385c07401c3b8efbeaddec3",
+                "a2f",
+                "afb",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 0x00000004 00:0000 4 j 0x00000009 f 0x00000004\n0x00000004 0x00000008 00:0000 4 j 0x0000000d f 0x00000008\n0x00000008 0x00000009 00:0000 1\n0x00000009 0x0000000d 00:0000 4 j 0x0000000e\n0x0000000d 0x0000000e 00:0000 1\n0x0000000e 0x00000012 00:0000 4 j 0x00000013 f 0x00000012\n0x00000012 0x00000013 00:0000 1\n0x00000013 0x00000019 00:0000 6\n\n",
+            "broken": false
+        },
+        {
+            "name": "a2f 3bbs with entry in the middle of the function",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 31c031c983c10183c10285c975f231c931c040c3",
+                "s 0xa",
+                "a2f",
+                "afb",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 0x0000000a 00:0000 10 j 0x0000000a\n0x0000000a 0x0000000e 00:0000 4 j 0x00000000 f 0x0000000e\n0x0000000e 0x00000014 00:0000 6\n\n",
+            "broken": false
+        },
+        {
+            "name": "a2f 6 bbs with entry at the end of the function",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 31c083c00183e801750831c083e80183c00131c983c10183e90175e431d283ea0183c2017402ebd831c0c3",
+                "s 0x26",
+                "a2f",
+                "afb",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 0x0000000a 00:0000 10 j 0x00000012 f 0x0000000a\n0x0000000a 0x00000012 00:0000 8 j 0x00000012\n0x00000012 0x0000001c 00:0000 10 j 0x00000000 f 0x0000001c\n0x0000001c 0x00000026 00:0000 10 j 0x00000028 f 0x00000026\n0x00000026 0x00000028 00:0000 2 j 0x00000000\n0x00000028 0x0000002b 00:0000 3\n\n",
+            "broken": false
+        },
+        {
+            "name": "a2f cjmp",
+            "file": "malloc://0x5000",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e io.cache=true",
+                "e asm.bits=32",
+                "wx 31c0740140c3",
+                "a2f",
+                "afb",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 0x00000004 00:0000 4 j 0x00000005 f 0x00000004\n0x00000004 0x00000005 00:0000 1 j 0x00000005\n0x00000005 0x00000006 00:0000 1\n\n",
+            "broken": false
+        },
+        {
+            "name": "aaa with axt",
+            "file": "bins/anal/keygen.exe",
+            "args": "",
+            "commands": [
+                "aaa",
+                "axt 0x4bffb0",
+                ""
+            ],
+            "expected": "(nofunc) 0x4bfe53 [DATA] mov edx, 0x4bffb0\n\n",
+            "broken": false
+        },
+        {
+            "name": "aaa with maxbbsz",
+            "file": "bins/anal/flare_notepad.ex",
+            "args": "",
+            "commands": [
+                "e anal.bb.maxsize = 2048",
+                "aaa",
+                "pdf~ret?",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "aaa with avra",
+            "file": "bins/elf/class_test",
+            "args": "",
+            "commands": [
+                "aaa",
+                "avra",
+                ""
+            ],
+            "expected": "VMI Type Info at 0x08048f4c:\n  Reference to RTTI's type class: 0x0804b140\n  Reference to type's name: 0x08048f6c\n  Flags: 0x0\n  Count of base classes: 0x2\n      Base class type descriptor address: 0x08048f74\n      Base class flags: 0x2\n      Base class type descriptor address: 0x08048fac\n      Base class flags: 0x402\n\nVMI Type Info at 0x08048f4c:\n  Reference to RTTI's type class: 0x0804b140\n  Reference to type's name: 0x08048f6c\n  Flags: 0x0\n  Count of base classes: 0x2\n      Base class type descriptor address: 0x08048f74\n      Base class flags: 0x2\n      Base class type descriptor address: 0x08048fac\n      Base class flags: 0x402\n\nType Info at 0x08048f74:\n  Reference to RTTI's type class: 0x0804b048\n  Reference to type's name: 0x08048f7c\n\nSI Type Info at 0x08048f84:\n  Reference to RTTI's type class: 0x0804b114\n  Reference to type's name: 0x08048f90\n  Reference to parent's type name: 0x08048fac\n\nSI Type Info at 0x08048f98:\n  Reference to RTTI's type class: 0x0804b114\n  Reference to type's name: 0x08048fa4\n  Reference to parent's type name: 0x08048fac\n\nType Info at 0x08048fac:\n  Reference to RTTI's type class: 0x0804b048\n  Reference to type's name: 0x08048fb4\n\n\n",
+            "broken": false
+        },
+        {
+            "name": "aac on mips be",
+            "file": "bins/elf/analysis/mipsbe-busybox",
+            "args": "",
+            "commands": [
+                "aac",
+                "afl~?",
+                "",
+                ""
+            ],
+            "expected": "1269\n\n",
+            "broken": false
+        },
+        {
+            "name": "raw aac with maps (less because of wrong map address)",
+            "file": "bins/elf/analysis/mipsbe-busybox",
+            "args": "-n -m 0x80000 -a mips -b32 -e cfg.bigendian=true",
+            "commands": [
+                "aac",
+                "afl~?",
+                "",
+                ""
+            ],
+            "expected": "4\n\n",
+            "broken": false
+        },
+        {
+            "name": "raw aac (using a PIC bin)",
+            "file": "bins/elf/libmagic.so",
+            "args": "",
+            "commands": [
+                "aac",
+                "afl~?",
+                "",
+                ""
+            ],
+            "expected": "207\n\n",
+            "broken": false
+        },
+        {
+            "name": "raw aac with maps (using a PIC bin)",
+            "file": "bins/elf/libmagic.so",
+            "args": "-n -m 0x80000 -a arm -b 16 -e cfg.bigendian=false",
+            "commands": [
+                "aac",
+                "e search.in=io.maps",
+                "afl~?",
+                "",
+                ""
+            ],
+            "expected": "96\n\n",
+            "broken": false
+        },
+        {
+            "name": "aav without vinfun",
+            "file": "bins/elf/analysis/mipsbe-busybox",
+            "args": "",
+            "commands": [
+                "af @ 0x0040dea4",
+                "e anal.vinfun=false",
+                "aav",
+                "pd 1 @ 0x0040decc~?andi",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "aav with vinfun",
+            "file": "bins/elf/analysis/mipsbe-busybox",
+            "args": "",
+            "commands": [
+                "af @ 0x0040dea4",
+                "e anal.vinfun=true",
+                "aav",
+                "pd 1 @ 0x0040decc~?dword",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "aav thumb detection",
+            "file": "bins/firmware/armthumb.bin",
+            "args": "-aarm -b32",
+            "commands": [
+                "aav",
+                "f",
+                "",
+                ""
+            ],
+            "expected": "0x0000000c 4 aav.0x0000000c\n\n",
+            "broken": false
+        },
+        {
+            "name": "arj x86 32 bits",
+            "file": "malloc://0x100",
+            "args": "",
+            "commands": [
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e asm.bits=32",
+                "arj",
+                "",
+                ""
+            ],
+            "expected": "{\"oeax\":0,\"eax\":0,\"ebx\":0,\"ecx\":0,\"edx\":0,\"esi\":0,\"edi\":0,\"esp\":0,\"ebp\":0,\"eip\":0,\"eflags\":0}\n\n",
+            "broken": false
+        },
+        {
+            "name": "arj x86 16 bits",
+            "file": "malloc://0x100",
+            "args": "",
+            "commands": [
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e asm.bits=16",
+                "arj",
+                "",
+                ""
+            ],
+            "expected": "{\"ip\":0,\"ax\":0,\"bx\":0,\"cx\":0,\"dx\":0,\"sp\":0,\"bp\":0,\"si\":0,\"di\":0,\"flags\":0}\n\n",
+            "broken": false
+        },
+        {
+            "name": "sym is not fcn",
+            "file": "bins/mach0/mach0-i386",
+            "args": "",
+            "commands": [
+                "",
+                "aa \u003e /dev/null",
+                "afl~sym.__mh_execute_header[0]",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "af x86-32",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e anal.eobjmp=false",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 6a00 4889e5 c3",
+                "af",
+                "afl~[2]",
+                "",
+                ""
+            ],
+            "expected": "6\n\n",
+            "broken": false
+        },
+        {
+            "name": "af x86-32 ujmp eobjmp=true",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e anal.eobjmp=true",
+                "e asm.bits=32",
+                "wx 6a00 4889e5 ff25f8120000 ff25f8120000ffe0c3",
+                "af",
+                "afl~[2]",
+                "",
+                ""
+            ],
+            "expected": "11\n\n",
+            "broken": false
+        },
+        {
+            "name": "af x86-32 ujmp eobjmp=false",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e anal.eobjmp=false",
+                "e asm.bits=32",
+                "wx 6a00 4889e5 ff25f8120000 ff25f8120000ffe0c3",
+                "af",
+                "afl~[2]",
+                "",
+                ""
+            ],
+            "expected": "11\n\n",
+            "broken": false
+        },
+        {
+            "name": "af bug",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e anal.hasnext=0",
+                "e asm.arch=x86",
+                "e anal.eobjmp=false",
+                "e asm.bits=32",
+                "wx 6a004889e54883e4f0488b7d08488d751089fa83c201c1e2034801f24889d1eb044883c1084883390075f64883c108e8580f000089c7e81b390000c3554889e5",
+                "s +0x40",
+                "wx 488d4768488d7e684889c6c9e9013a0000554889e54883c6684883c768c9e9ef390000554889e5534889f1488b5660488b4760488b583048395a307f1d7c2248",
+                "s -0x40",
+                "af",
+                "b 0x80",
+                "pIf",
+                "",
+                ""
+            ],
+            "expected": "push 0\ndec eax\nmov ebp, esp\ndec eax\nand esp, 0xfffffff0\ndec eax\nmov edi, dword [ebp + 8]\ndec eax\nlea esi, [ebp + 0x10]\nmov edx, edi\nadd edx, 1\nshl edx, 3\ndec eax\nadd edx, esi\ndec eax\nmov ecx, edx\njmp 0x25\ndec eax\nadd ecx, 8\ndec eax\ncmp dword [ecx], 0\njne 0x21\ndec eax\nadd ecx, 8\ncall 0xf8c\nmov edi, eax\ncall 0x3956\nret\n\n",
+            "broken": false
+        },
+        {
+            "name": "disasm bug",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e anal.hasnext=0",
+                "e anal.eobjmp=false",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 6a004889e54883e4f0488b7d08488d751089fa83c201c1e2034801f24889d1eb044883c1084883390075f64883c108e8580f000089c7e81b390000c3554889e5",
+                "s+0x40",
+                "wx 488d4768488d7e684889c6c9e9013a0000554889e54883c6684883c768c9e9ef390000554889e5534889f1488b5660488b4760488b583048395a307f1d7c2248",
+                "s-0x40",
+                "b 0x100",
+                "af",
+                "pIf @0",
+                "",
+                ""
+            ],
+            "expected": "push 0\ndec eax\nmov ebp, esp\ndec eax\nand esp, 0xfffffff0\ndec eax\nmov edi, dword [ebp + 8]\ndec eax\nlea esi, [ebp + 0x10]\nmov edx, edi\nadd edx, 1\nshl edx, 3\ndec eax\nadd edx, esi\ndec eax\nmov ecx, edx\njmp 0x25\ndec eax\nadd ecx, 8\ndec eax\ncmp dword [ecx], 0\njne 0x21\ndec eax\nadd ecx, 8\ncall 0xf8c\nmov edi, eax\ncall 0x3956\nret\n\n",
+            "broken": false
+        },
+        {
+            "name": "call-convention",
+            "file": "bins/elf/analysis/x86-simple",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "s entry0",
+                "afc stdcall",
+                "afi~call-convention",
+                "",
+                ""
+            ],
+            "expected": "call-convention: stdcall\n\n",
+            "broken": false
+        },
+        {
+            "name": "function address",
+            "file": "bins/mach0/mach0-i386",
+            "args": "",
+            "commands": [
+                "e anal.hasnext=0",
+                "aa",
+                "afo sym._foo",
+                "afo sym._bar",
+                "",
+                ""
+            ],
+            "expected": "0x00001f50\n0x00001f00\n\n",
+            "broken": false
+        },
+        {
+            "name": "afr",
+            "file": "bins/mach0/mach0-i386",
+            "args": "",
+            "commands": [
+                "e anal.hasnext=0",
+                "afr",
+                "afl",
+                ""
+            ],
+            "expected": "0x00001f00    4 73           sym._bar\n0x00001f50    1 47           sym._foo\n0x00001f80    1 41           sym._main\n\n",
+            "broken": false
+        },
+        {
+            "name": "aF",
+            "file": "bins/mach0/mach0-i386",
+            "args": "",
+            "commands": [
+                "e anal.hasnext=0",
+                "aF",
+                "afl",
+                ""
+            ],
+            "expected": "0x00001f80    1 41           sym._main\n\n",
+            "broken": false
+        },
+        {
+            "name": "function prelude offsets",
+            "file": "bins/mach0/mach0-i386",
+            "args": "",
+            "commands": [
+                "s 0x1000",
+                "aap",
+                "afl~[0]",
+                "",
+                ""
+            ],
+            "expected": "0x00001f00\n0x00001f50\n0x00001f80\n\n",
+            "broken": false
+        },
+        {
+            "name": "function preludes symbol names",
+            "file": "bins/mach0/mach0-i386",
+            "args": "",
+            "commands": [
+                "s 0x1000",
+                "aap",
+                "afl",
+                "",
+                ""
+            ],
+            "expected": "0x00001f00    4 73           sym._bar\n0x00001f50    1 47           sym._foo\n0x00001f80    1 41           sym._main\n\n",
+            "broken": false
+        },
+        {
+            "name": "af afF",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e anal.eobjmp=false",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 6a004889e5c3",
+                "af test",
+                "afF",
+                "pd 1 @ fcn.test",
+                "",
+                ""
+            ],
+            "expected": "/ (fcn) fcn.test\n\\           0x00000000 (6 byte folded function)\n\n",
+            "broken": false
+        },
+        {
+            "name": "af afF graph",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.hasnext=0",
+                "e anal.eobjmp=false",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 6a004889e5c3",
+                "af test",
+                "afF",
+                "agf",
+                "",
+                ""
+            ],
+            "expected": "[0x00000000]\u003e VV @ fcn.test (nodes 1 edges 0 zoom 100%) BB-NORM mouse:canvas-y mov-speed:5\n.---------------------------.\n|  0x0                      |\n| / (fcn) fcn.test          |\n| (6 byte folded function)  |\n`---------------------------'\n\n",
+            "broken": false
+        },
+        {
+            "name": "af-*",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "af-*",
+                "afl",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "ahc",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx ebfe",
+                "ahs 5",
+                "ahc 0x25",
+                "ahf 0x25",
+                "ao 1~jump,fail,size[1]",
+                "",
+                ""
+            ],
+            "expected": "5\n0x00000025\n0x00000025\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi S",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx b801000000",
+                "ahi S",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "mov eax, exit()\n\n",
+            "broken": false
+        },
+        {
+            "name": "iS. and iSj. implementation",
+            "file": "bins/anal/lab1B",
+            "args": "",
+            "commands": [
+                "s 0x188",
+                "iS.",
+                "s 0x08058000",
+                "iS.",
+                "s 0x760",
+                "iSj.",
+                "",
+                ""
+            ],
+            "expected": "Current section\n00 0x00000188    36 0x08048188    36 -r-- .note.gnu.build_id\nCurrent section\n{\"name\":\".plt\",\"size\":240,\"vsize\":240,\"flags\":\"-r-x\",\"paddr\":1888,\"vaddr\":134514528}\n",
+            "broken": false
+        },
+        {
+            "name": "iE and iE. implementation",
+            "file": "bins/anal/lab1B",
+            "args": "",
+            "commands": [
+                "s 0x080489b9",
+                "iE.",
+                "s 0x080489a6",
+                "s+5",
+                "isj.",
+                "",
+                ""
+            ],
+            "expected": "022 0x000009b7 0x080489b7 GLOBAL   FUNC  189 decrypt\n{\"name\":\"prog_timeout\",\"demname\":\"\",\"flagname\":\"sym.prog_timeout\",\"ordinal\":35,\"bind\":\"GLOBAL\",\"size\":17,\"type\":\"FUNC\",\"vaddr\":134515110,\"paddr\":2470}\n",
+            "broken": false
+        },
+        {
+            "name": "address information",
+            "file": "bins/mach0/mach0-i386",
+            "args": "",
+            "commands": [
+                "s entry0",
+                "ai",
+                "s sym.__mh_execute_header",
+                "ai",
+                "",
+                ""
+            ],
+            "expected": "exec\nread\nflag\nflag\n\n",
+            "broken": false
+        },
+        {
+            "name": "af x86-32",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 9090",
+                "ao 1~?",
+                "ao 1",
+                "p8 1",
+                "",
+                ""
+            ],
+            "expected": "15\naddress: 0x0\nopcode: nop\nmnemonic: nop\nprefix: 0\nid: 494\nbytes: 90\nrefptr: 0\nsize: 1\nsign: false\ntype: nop\ncycles: 1\nesil: ,\nstack: null\nfamily: cpu\nstackop: null\n90\n\n",
+            "broken": false
+        },
+        {
+            "name": "af x86-64",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 662e0f1f840000000000",
+                "ao 1~size[1]",
+                "",
+                ""
+            ],
+            "expected": "10\n\n",
+            "broken": false
+        },
+        {
+            "name": "anal/fcn_name",
+            "file": "bins/elf/analysis/main-g",
+            "args": "",
+            "commands": [
+                "s 0x0040042c",
+                "af",
+                "pd 1~sym.call_gmon_start:0",
+                ""
+            ],
+            "expected": "/ (fcn) sym.call_gmon_start 23\n\n",
+            "broken": false
+        },
+        {
+            "name": "anal/fcn_subname",
+            "file": "bins/elf/analysis/main-g",
+            "args": "",
+            "commands": [
+                "s 0x0040042c",
+                "af",
+                "afi~name",
+                "pd 1~sym.call_gmon_start:0",
+                ""
+            ],
+            "expected": "name: sym.call_gmon_start\n/ (fcn) sym.call_gmon_start 23\n\n",
+            "broken": false
+        },
+        {
+            "name": "anal/name",
+            "file": "bins/mach0/ls-osx-x86_64",
+            "args": "",
+            "commands": [
+                "af",
+                "afi~name",
+                "",
+                ""
+            ],
+            "expected": "name: main\n\n",
+            "broken": false
+        },
+        {
+            "name": "anal hasnext on main",
+            "file": "bins/elf/true32",
+            "args": "",
+            "commands": [
+                "e anal.hasnext=true",
+                "af@main",
+                "afi@main~size",
+                "",
+                ""
+            ],
+            "expected": "size: 261\n\n",
+            "broken": false
+        },
+        {
+            "name": "anal without hasnext on main",
+            "file": "bins/elf/true32",
+            "args": "",
+            "commands": [
+                "e anal.hasnext=false",
+                "af@main",
+                "afi@main~size",
+                "",
+                ""
+            ],
+            "expected": "size: 261\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahe",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "ao~?",
+                "ahe test",
+                "ao~esil",
+                "",
+                ""
+            ],
+            "expected": "16\nesil: test\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahe",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "ahe test",
+                "ao~^esil",
+                "",
+                ""
+            ],
+            "expected": "esil: test\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahe 33,rax,=",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "wx 000000",
+                "ahe 33,rax,=",
+                "aes",
+                "dr?rax",
+                "",
+                ""
+            ],
+            "expected": "0x00000021\n\n",
+            "broken": false
+        },
+        {
+            "name": "delete memory format with Cf-",
+            "file": "bins/dmg/src/Hello",
+            "args": "",
+            "commands": [
+                "",
+                "pd 1",
+                "Cf 1 x",
+                "pd 1",
+                "Ps temp_proj",
+                "Cf-",
+                "pd 1",
+                "Ps temp_proj",
+                "Po temp_proj",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      57             push rdi\n            0x00000000 format x {\n0x00000000 = 0x6c726f57\n} 1\ntemp_proj\n            0x00000000      57             push rdi\ntemp_proj\n            0x00000000      57             push rdi\n\n",
+            "broken": false
+        },
+        {
+            "name": "ao cjmp",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 761b",
+                "ao~jump,fail,size",
+                "",
+                ""
+            ],
+            "expected": "size: 2\njump: 0x0000001d\nfail: 0x00000002\n\n",
+            "broken": false
+        },
+        {
+            "name": "aoj 31c0",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 31c0",
+                "aoj~{}",
+                "",
+                ""
+            ],
+            "expected": "[\n  {\n    \"opcode\": \"xor eax, eax\",\n    \"disasm\": \"xor eax, eax\",\n    \"mnemonic\": \"xor\",\n    \"sign\": false,\n    \"prefix\": 0,\n    \"id\": 334,\n    \"opex\": {\n      \"operands\": [\n        {\n          \"size\": 4,\n          \"rw\": 3,\n          \"type\": \"reg\",\n          \"value\": \"eax\"\n        },\n        {\n          \"size\": 4,\n          \"rw\": 1,\n          \"type\": \"reg\",\n          \"value\": \"eax\"\n        }\n      ],\n      \"modrm\": true\n    },\n    \"addr\": 0,\n    \"bytes\": \"31c0\",\n    \"size\": 2,\n    \"type\": \"xor\",\n    \"esil\": \"eax,eax,^=,$z,zf,=,$p,pf,=,$s,sf,=,$0,cf,=,$0,of,=\",\n    \"refptr\": 0,\n    \"cycles\": 1,\n    \"delay\": 0,\n    \"family\": \"cpu\"\n  }\n]\n\n",
+            "broken": false
+        },
+        {
+            "name": "reflines offset",
+            "file": "malloc://1023",
+            "args": "",
+            "commands": [
+                "e asm.calls=false",
+                "e asm.bits=32",
+                "e asm.leahints=false",
+                "e asm.cpu=x86",
+                "e asm.arch=x86",
+                "e anal.cpu=x86",
+                "e scr.utf8=true",
+                "e asm.comments=false",
+                "e asm.bytes=false",
+                "e scr.color=false",
+                "wx 31c039d6724aeb72908db426000000008d7e0131d289e8f7f131d28944241c89f8f7f13944241c76678b93080200008b028b50143b5018736dc6020983c20189501489f031d201cef7f129d639f5762a8b8b8c05000085c975b683c6018b93080200008b028b50143b50187327c6022083c20139f589501477d68b44242c65330514000000753783c43c5b5e5f5dc39089feebc9c744240420000000890424e87cc9ffffeba6c744240409000000890424e86ac9ffff8b8b8c050000eb84e87d1001008db6000000008dbc270000000055575653e8f7f0ffff81c32b9d010083ec3c658b0d14000000894c242c31c98b6a0c8b720889e929f1c1e90285c9894c241c0f848100000039f50f84930000008b7a1801fdf7d721fd8b7a1089e9896a0c2b4a0489fd2b6a0439e97f718b7a0c31ed",
+                "aa \u003e /dev/null",
+                "pd 38",
+                "",
+                ""
+            ],
+            "expected": "┌ (fcn) fcn.00000000 1015\n│           ; var int local_4h @ esp+0x4\n│           ; var int local_1ch @ esp+0x1c\n│           ; var int local_2ch @ esp+0x2c\n│           0x00000000      xor eax, eax\n│           0x00000002      cmp esi, edx\n│       ┌─\u003c 0x00000004      jb 0x50\n│      ┌──\u003c 0x00000006      jmp 0x7a\n       ││   0x00000008      nop\n       ││   0x00000009      lea esi, [esi]\n│     ┌───\u003e 0x00000010      lea edi, [esi + 1]\n│     ⁝││   0x00000013      xor edx, edx\n│     ⁝││   0x00000015      mov eax, ebp\n│     ⁝││   0x00000017      div ecx\n│     ⁝││   0x00000019      xor edx, edx\n│     ⁝││   0x0000001b      mov dword [local_1ch], eax\n│     ⁝││   0x0000001f      mov eax, edi\n│     ⁝││   0x00000021      div ecx\n│     ⁝││   0x00000023      cmp dword [local_1ch], eax\n│    ┌────\u003c 0x00000027      jbe 0x90\n│    │⁝││   0x00000029      mov edx, dword [ebx + 0x208]\n│    │⁝││   0x0000002f      mov eax, dword [edx]\n│    │⁝││   0x00000031      mov edx, dword [eax + 0x14]\n│    │⁝││   0x00000034      cmp edx, dword [eax + 0x18]\n│   ┌─────\u003c 0x00000037      jae 0xa6\n│   ││⁝││   0x00000039      mov byte [edx], 9\n│   ││⁝││   0x0000003c      add edx, 1\n│   ││⁝││   0x0000003f      mov dword [eax + 0x14], edx\n│   ││⁝││   0x00000042      mov eax, esi\n│   ││⁝││   0x00000044      xor edx, edx\n│   ││⁝││   0x00000046      add esi, ecx\n│   ││⁝││   0x00000048      div ecx\n│   ││⁝││   0x0000004a      sub esi, edx\n│   ││⁝││   0x0000004c      cmp ebp, esi\n│  ┌──────\u003c 0x0000004e      jbe 0x7a\n│  │││⁝│└─\u003e 0x00000050      mov ecx, dword [ebx + 0x58c]\n│  │││⁝│    0x00000056      test ecx, ecx\n│  │││└───\u003c 0x00000058      jne 0x10\n│  │││ │    0x0000005a      add esi, 1\n│  │││ │    0x0000005d      mov edx, dword [ebx + 0x208]\n│  │││ │    0x00000063      mov eax, dword [edx]\n│  │││ │    0x00000065      mov edx, dword [eax + 0x14]\n\n",
+            "broken": false
+        },
+        {
+            "name": "reflines offset (ascii)",
+            "file": "malloc://1023",
+            "args": "",
+            "commands": [
+                "e asm.calls=false",
+                "e asm.bits=32",
+                "e asm.leahints=false",
+                "e asm.cpu=x86",
+                "e anal.cpu=x86",
+                "e asm.arch=x86",
+                "e asm.comments=false",
+                "e asm.bytes=false",
+                "e scr.utf8=false",
+                "e scr.color=false",
+                "wx 31c039d6724aeb72908db426000000008d7e0131d289e8f7f131d28944241c89f8f7f13944241c76678b93080200008b028b50143b5018736dc6020983c20189501489f031d201cef7f129d639f5762a8b8b8c05000085c975b683c6018b93080200008b028b50143b50187327c6022083c20139f589501477d68b44242c65330514000000753783c43c5b5e5f5dc39089feebc9c744240420000000890424e87cc9ffffeba6c744240409000000890424e86ac9ffff8b8b8c050000eb84e87d1001008db6000000008dbc270000000055575653e8f7f0ffff81c32b9d010083ec3c658b0d14000000894c242c31c98b6a0c8b720889e929f1c1e90285c9894c241c0f848100000039f50f84930000008b7a1801fdf7d721fd8b7a1089e9896a0c2b4a0489fd2b6a0439e97f718b7a0c31ed",
+                "aa \u003e/dev/null",
+                "pd 38",
+                "",
+                ""
+            ],
+            "expected": "/ (fcn) fcn.00000000 1015\n|           ; var int local_4h @ esp+0x4\n|           ; var int local_1ch @ esp+0x1c\n|           ; var int local_2ch @ esp+0x2c\n|           0x00000000      xor eax, eax\n|           0x00000002      cmp esi, edx\n|       ,=\u003c 0x00000004      jb 0x50\n|      ,==\u003c 0x00000006      jmp 0x7a\n       ||   0x00000008      nop\n       ||   0x00000009      lea esi, [esi]\n|     .---\u003e 0x00000010      lea edi, [esi + 1]\n|     :||   0x00000013      xor edx, edx\n|     :||   0x00000015      mov eax, ebp\n|     :||   0x00000017      div ecx\n|     :||   0x00000019      xor edx, edx\n|     :||   0x0000001b      mov dword [local_1ch], eax\n|     :||   0x0000001f      mov eax, edi\n|     :||   0x00000021      div ecx\n|     :||   0x00000023      cmp dword [local_1ch], eax\n|    ,====\u003c 0x00000027      jbe 0x90\n|    |:||   0x00000029      mov edx, dword [ebx + 0x208]\n|    |:||   0x0000002f      mov eax, dword [edx]\n|    |:||   0x00000031      mov edx, dword [eax + 0x14]\n|    |:||   0x00000034      cmp edx, dword [eax + 0x18]\n|   ,=====\u003c 0x00000037      jae 0xa6\n|   ||:||   0x00000039      mov byte [edx], 9\n|   ||:||   0x0000003c      add edx, 1\n|   ||:||   0x0000003f      mov dword [eax + 0x14], edx\n|   ||:||   0x00000042      mov eax, esi\n|   ||:||   0x00000044      xor edx, edx\n|   ||:||   0x00000046      add esi, ecx\n|   ||:||   0x00000048      div ecx\n|   ||:||   0x0000004a      sub esi, edx\n|   ||:||   0x0000004c      cmp ebp, esi\n|  ,======\u003c 0x0000004e      jbe 0x7a\n|  |||:|`-\u003e 0x00000050      mov ecx, dword [ebx + 0x58c]\n|  |||:|    0x00000056      test ecx, ecx\n|  |||`===\u003c 0x00000058      jne 0x10\n|  ||| |    0x0000005a      add esi, 1\n|  ||| |    0x0000005d      mov edx, dword [ebx + 0x208]\n|  ||| |    0x00000063      mov eax, dword [edx]\n|  ||| |    0x00000065      mov edx, dword [eax + 0x14]\n\n",
+            "broken": false
+        },
+        {
+            "name": "reflines offset 2 (ascii)",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "e asm.relsub=false",
+                "e asm.bytes=false",
+                "e asm.leahints=false",
+                "e scr.utf8=false",
+                "e scr.color=false",
+                "s $S",
+                "aaa \u003e/dev/null",
+                "s 0x000113bd",
+                "pd 28",
+                "",
+                ""
+            ],
+            "expected": "|       ,=\u003c 0x000113bd      je 0x1144e\n|       |   0x000113c3      mov esi, 0x2f                              ; '/' ; int c\n|       |   0x000113c8      call sym.imp.strrchr                       ; char *strrchr(const char *s, int c)\n|       |   0x000113cd      test rax, rax\n|      ,==\u003c 0x000113d0      je 0x11424\n|      ||   0x000113d2      lea rdx, [rax + 1]\n|      ||   0x000113d6      mov rcx, rdx\n|      ||   0x000113d9      sub rcx, rbx\n|      ||   0x000113dc      cmp rcx, 6\n|     ,===\u003c 0x000113e0      jle 0x11424\n|     |||   0x000113e2      lea rsi, [rax - 6]\n|     |||   0x000113e6      mov ecx, 7\n|     |||   0x000113eb      lea rdi, [rip + 0x7ebb]                    ; str..libs ; 0x192ad ; \"/.libs/\"\n|     |||   0x000113f2      repe cmpsb byte [rsi], byte ptr [rdi]      ; [0x2700000000:1]=255 ; 167503724544\n|    ,====\u003c 0x000113f4      jne 0x11424\n|    ||||   0x000113f6      mov ecx, 3\n|    ||||   0x000113fb      mov rsi, rdx\n|    ||||   0x000113fe      mov rbx, rdx\n|    ||||   0x00011401      lea rdi, [rip + 0x7ead]                    ; \"lt-\" ; 0x192b5\n|    ||||   0x00011408      repe cmpsb byte [rsi], byte ptr [rdi]      ; [0x2700000000:1]=255 ; 167503724544\n|    ||||   0x0001140a      seta sil\n|    ||||   0x0001140e      setb cl\n|    ||||   0x00011411      cmp sil, cl\n|   ,=====\u003c 0x00011414      jne 0x11424\n|   |||||   0x00011416      lea rbx, [rax + 4]\n|   |||||   0x0001141a      mov rax, qword [rip + 0xdeaf]              ; reloc.program_invocation_short_name ; [0x1f2d0:8]=0\n|   |||||   0x00011421      mov qword [rax], rbx\n|   |||||   ; CODE XREFS from sub.strrchr_390 (0x113d0, 0x113e0, 0x113f4, 0x11414)\n|   ````--\u003e 0x00011424      mov rax, qword [rip + 0xde3d]              ; [0x1f268:8]=0x21680\n",
+            "broken": false
+        },
+        {
+            "name": "reflines offset 3 (ascii)",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "e asm.relsub=false",
+                "e asm.bytes=false",
+                "e asm.leahints=false",
+                "e scr.utf8=false",
+                "e scr.color=false",
+                "s $S",
+                "aaa \u003e/dev/null",
+                "s 0x00003ca6",
+                "pd 19",
+                "",
+                ""
+            ],
+            "expected": "|           0x00003ca6      cmp eax, 2\n|       ,=\u003c 0x00003ca9      je 0x45ec\n|       |   0x00003caf      cmp eax, 3\n|      ,==\u003c 0x00003cb2      je 0x3ce3\n|      ||   0x00003cb4      sub eax, 1\n|     ,===\u003c 0x00003cb7      je 0x3cbe\n|     |||   ; CODE XREF from main (0x58bc)\n|     |||   0x00003cb9      call sym.imp.abort                         ; void abort(void)\n|     |||   ; CODE XREF from main (0x3cb7)\n|     `---\u003e 0x00003cbe      mov edi, 1                                 ; int fd\n|      ||   0x00003cc3      call sym.imp.isatty                        ; int isatty(int fd)\n|      ||   0x00003cc8      test eax, eax\n|     ,===\u003c 0x00003cca      je 0x4c2e\n|     |||   0x00003cd0      mov dword [rip + 0x1d626], 2               ; [0x21300:4]=0\n|     |||   0x00003cda      mov byte [rip + 0x1d33f], 1                ; [0x21020:1]=0\n|    ,====\u003c 0x00003ce1      jmp 0x3cf9\n|    ||||   ; CODE XREF from main (0x3cb2)\n|    ||`--\u003e 0x00003ce3      mov esi, 5\n|    || |   0x00003ce8      xor edi, edi\n|    || |   0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=0\n|    || |   0x00003cf4      call sub.__stack_chk_fail_740              ; void __stack_chk_fail(void)\n|    || |   ; CODE XREFS from main (0x3ce1, 0x4602, 0x4c38)\n|    `----\u003e 0x00003cf9      lea rdi, [rip + 0x14fb4]                   ; str.QUOTING_STYLE ; 0x18cb4 ; \"QUOTING_STYLE\" ; const char *name\n",
+            "broken": false
+        },
+        {
+            "name": "reflines offset 3 (ascii + wide)",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "e asm.relsub=false",
+                "e asm.bytes=false",
+                "e asm.leahints=false",
+                "e scr.utf8=false",
+                "e scr.color=false",
+                "e asm.lines.wide=true",
+                "s $S",
+                "aaa \u003e/dev/null",
+                "s 0x00003ca6",
+                "pd 19",
+                "",
+                ""
+            ],
+            "expected": "|           0x00003ca6      cmp eax, 2\n|      ,==\u003c 0x00003ca9      je 0x45ec\n|      |    0x00003caf      cmp eax, 3\n|    ,====\u003c 0x00003cb2      je 0x3ce3\n|    | |    0x00003cb4      sub eax, 1\n|  ,======\u003c 0x00003cb7      je 0x3cbe\n|  | | |    ; CODE XREF from main (0x58bc)\n|  | | |    0x00003cb9      call sym.imp.abort                         ; void abort(void)\n|  | | |    ; CODE XREF from main (0x3cb7)\n|  `------\u003e 0x00003cbe      mov edi, 1                                 ; int fd\n|    | |    0x00003cc3      call sym.imp.isatty                        ; int isatty(int fd)\n|    | |    0x00003cc8      test eax, eax\n|  ,======\u003c 0x00003cca      je 0x4c2e\n|  | | |    0x00003cd0      mov dword [rip + 0x1d626], 2               ; [0x21300:4]=0\n|  | | |    0x00003cda      mov byte [rip + 0x1d33f], 1                ; [0x21020:1]=0\n| ========\u003c 0x00003ce1      jmp 0x3cf9\n|  | | |    ; CODE XREF from main (0x3cb2)\n|  | `----\u003e 0x00003ce3      mov esi, 5\n|  |   |    0x00003ce8      xor edi, edi\n|  |   |    0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=0\n|  |   |    0x00003cf4      call sub.__stack_chk_fail_740              ; void __stack_chk_fail(void)\n|  |   |    ; CODE XREFS from main (0x3ce1, 0x4602, 0x4c38)\n| --------\u003e 0x00003cf9      lea rdi, [rip + 0x14fb4]                   ; str.QUOTING_STYLE ; 0x18cb4 ; \"QUOTING_STYLE\" ; const char *name\n",
+            "broken": false
+        },
+        {
+            "name": "reflines offset 3 (ascii + wide)",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "e asm.relsub=false",
+                "e asm.bytes=false",
+                "e asm.leahints=false",
+                "e scr.utf8=false",
+                "e scr.color=false",
+                "e asm.lines.wide=true",
+                "aaa \u003e/dev/null",
+                "s 0x00003ca6",
+                "pd 19",
+                "",
+                ""
+            ],
+            "expected": "|           0x00003ca6      cmp eax, 2\n|      ,==\u003c 0x00003ca9      je 0x45ec\n|      |    0x00003caf      cmp eax, 3\n|    ,====\u003c 0x00003cb2      je 0x3ce3\n|    | |    0x00003cb4      sub eax, 1\n|  ,======\u003c 0x00003cb7      je 0x3cbe\n|  | | |    ; CODE XREF from main (0x58bc)\n|  | | |    0x00003cb9      call sym.imp.abort                         ; void abort(void)\n|  | | |    ; CODE XREF from main (0x3cb7)\n|  `------\u003e 0x00003cbe      mov edi, 1                                 ; int fd\n|    | |    0x00003cc3      call sym.imp.isatty                        ; int isatty(int fd)\n|    | |    0x00003cc8      test eax, eax\n|  ,======\u003c 0x00003cca      je 0x4c2e\n|  | | |    0x00003cd0      mov dword [rip + 0x1d626], 2               ; [0x21300:4]=0\n|  | | |    0x00003cda      mov byte [rip + 0x1d33f], 1                ; [0x21020:1]=0\n| ========\u003c 0x00003ce1      jmp 0x3cf9\n|  | | |    ; CODE XREF from main (0x3cb2)\n|  | `----\u003e 0x00003ce3      mov esi, 5\n|  |   |    0x00003ce8      xor edi, edi\n|  |   |    0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=0\n|  |   |    0x00003cf4      call sub.__stack_chk_fail_740              ; void __stack_chk_fail(void)\n|  |   |    ; CODE XREFS from main (0x3ce1, 0x4602, 0x4c38)\n| --------\u003e 0x00003cf9      lea rdi, [rip + 0x14fb4]                   ; str.QUOTING_STYLE ; 0x18cb4 ; \"QUOTING_STYLE\" ; const char *name\n",
+            "broken": false
+        },
+        {
+            "name": "reflines in noreturn",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "e asm.relsub=false",
+                "e asm.bytes=false",
+                "e asm.leahints=false",
+                "e scr.utf8=false",
+                "e scr.color=false",
+                "e asm.lines.wide=true",
+                "e asm.comments=0",
+                "aaa \u003e/dev/null",
+                "s 0x00012740",
+                "pdf",
+                "",
+                ""
+            ],
+            "expected": "/ (fcn) sub.__stack_chk_fail_740 76\n|   sub.__stack_chk_fail_740 (int arg2);\n|           ; var int local_8h @ rbp-0x8\n|           ; arg int arg2 @ rsi\n|           0x00012740      push rbp\n|           0x00012741      mov rbp, rsp\n|           0x00012744      sub rsp, 0x1030\n|           0x0001274b      or qword [rsp], 0\n|           0x00012750      add rsp, 0x1020\n|           0x00012757      mov rax, qword fs:[0x28]\n|           0x00012760      mov qword [local_8h], rax\n|           0x00012764      xor eax, eax\n|           0x00012766      lea rax, [rip + 0xf033]\n|           0x0001276d      test rdi, rdi\n|           0x00012770      cmovne rax, rdi\n|           0x00012774      mov dword [rax], esi\n|           0x00012776      mov rax, qword [local_8h]\n|           0x0001277a      xor rax, qword fs:[0x28]\n|      ,==\u003c 0x00012783      jne 0x12787\n|      |    0x00012785      leave\n|      |    0x00012786      ret\n\\      `--\u003e 0x00012787      call sym.imp.__stack_chk_fail\n\n",
+            "broken": false
+        },
+        {
+            "name": "⁝ and XREF cmt",
+            "file": "bins/elf/strenc-ctrlchars",
+            "args": "",
+            "commands": [
+                "e scr.utf8=true",
+                "e asm.bytes=false",
+                "s main",
+                "af",
+                "s sym.imp.puts",
+                "?e",
+                "pd 3",
+                "",
+                ""
+            ],
+            "expected": "\n┌ (fcn) sym.imp.puts 6\n│   sym.imp.puts ();\n│       ⁝   ; CALL XREF from sym.main (0x400406)\n└       ⁝   0x004003f0      jmp qword reloc.puts                       ; [0x601018:8]=0x4003f6\n        ⁝   0x004003f6      push 0\n        └─\u003c 0x004003fb      jmp 0x4003e0\n",
+            "broken": false
+        },
+        {
+            "name": "stackptr",
+            "file": "bins/mach0/mac-ls",
+            "args": "",
+            "commands": [
+                "s 0x1000039b6",
+                "af",
+                "e asm.lines.bb=false",
+                "e asm.lines.fcn=false",
+                "e asm.stackptr=true",
+                "pdr~0x100003b27[1]",
+                "pdf~0x100003b27[1]",
+                "pdr~0x100003b3d[1]",
+                "pdr~0x100003b3e[1]",
+                "pdr~0x100003b40[1]",
+                "pdr~0x100003b42[1]",
+                "pdr~0x100003b44[1]",
+                "pdr~0x100003b46[1]",
+                "",
+                ""
+            ],
+            "expected": "104\n8\n48-\n40-\n32-\n24-\n16-\n8-\n\n",
+            "broken": false
+        },
+        {
+            "name": "auto string memory reference (iopa)",
+            "file": "malloc://8096",
+            "args": "",
+            "commands": [
+                "e asm.relsub=false",
+                "e asm.arch = x86",
+                "e asm.bits=64",
+                "e scr.color = false",
+                "e io.va=0",
+                "e asm.lines.bb=0",
+                "e asm.bytes=0",
+                "e asm.cmt.right=10",
+                "wx 488b3541100000",
+                "wv8 0x500 @ 0x1048",
+                "w Hello @ 0x500",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "  ; [0x1048:8]=0x500 \"Hello\"\n  0x00000000      mov rsi, qword [rip + 0x1041]\n\n",
+            "broken": false
+        },
+        {
+            "name": "auto string memory reference (io.va)",
+            "file": "malloc://8096",
+            "args": "",
+            "commands": [
+                "e asm.relsub=false",
+                "e asm.arch = x86",
+                "e asm.bits=64",
+                "e scr.color = false",
+                "e io.va=1",
+                "e asm.lines.bb=0",
+                "e asm.bytes=0",
+                "e asm.cmt.right=10",
+                "wx 488b3541100000",
+                "wv8 0x500 @ 0x1048",
+                "w Hello @ 0x500",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "  ; [0x1048:8]=0x500 \"Hello\"\n  0x00000000      mov rsi, qword [rip + 0x1041]\n\n",
+            "broken": false
+        },
+        {
+            "name": "no string on jmp",
+            "file": "malloc://8096",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "e emu.str=true",
+                "wa jmp 0x100",
+                "w hello @ 0x100",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "        ,=\u003c 0x00000000      e9fb000000     jmp 0x100\n\n",
+            "broken": false
+        },
+        {
+            "name": "no string on cbz",
+            "file": "malloc://8096",
+            "args": "",
+            "commands": [
+                "e asm.arch=arm",
+                "e asm.bits=64",
+                "e cfg.bigendian=false",
+                "e emu.str=true",
+                "wv 0x52800015",
+                "wv 0x340000b5 @ 4",
+                "w hello @ 0x18",
+                "pd 2",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      15008052       movz w21, 0\n        ,=\u003c 0x00000004      b5000034       cbz w21, 0x18               ; likely\n\n",
+            "broken": false
+        },
+        {
+            "name": "No function",
+            "file": "malloc://0x50",
+            "args": "",
+            "commands": [
+                "aftm",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "Basic type Matching",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "s sym.main",
+                "aa",
+                "aei",
+                "aeim",
+                "td int puts(char *s);",
+                "aftm",
+                "s 0x08048409",
+                "pd 1~char *s?",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "call not function",
+            "file": "bins/pe/crackme0x00.exe",
+            "args": "",
+            "commands": [
+                "aa",
+                "s sym._main",
+                "aei",
+                "aeim",
+                "td int strcmp(char *s1, char *s2);",
+                "tk func.strcmp.cc=stdcall",
+                "aftm",
+                "s 0x00401368",
+                "pd 1~char *s1?",
+                "s 0x00401370",
+                "pd 1~char *s2?",
+                "",
+                ""
+            ],
+            "expected": "1\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "Wrong calling convention",
+            "file": "bins/pe/crackme0x00.exe",
+            "args": "",
+            "commands": [
+                "s entry0",
+                "af",
+                "tk CRTStartup=func",
+                "tk func.CRTStartup.args=1",
+                "tk func.CRTStartup.arg0= int,who_cares",
+                "tk func.CRTStartup.cc=THE_CC_THAT_NEVER_EXISTED",
+                "tk func.CRTStartup.ret=eax",
+                "aei",
+                "aeim",
+                "aftm",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "Wrong calling convention",
+            "file": "bins/mach0/ls-osx-x86_64",
+            "args": "",
+            "commands": [
+                "s entry0",
+                "aaa",
+                "afta",
+                "CC. @ 0x100001413",
+                "CC. @ 0x10000145b",
+                "CC. @ 0x100001460",
+                "",
+                ""
+            ],
+            "expected": "int category\nint fd\nunsigned long request\n\n",
+            "broken": false
+        },
+        {
+            "name": "Function definition",
+            "file": "bins/elf/arm1.bin",
+            "args": "",
+            "commands": [
+                "afr @ main",
+                "s 0x000082cc",
+                "pd 1~?*xmalloc",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "Function definition (autorename)",
+            "file": "bins/pe/hello-mingw32",
+            "args": "",
+            "commands": [
+                "aaa",
+                "s 0x00401255",
+                "pd 1~?ExitProcess(UINT",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "Function definition",
+            "file": "bins/elf/ioli/crackme0x00",
+            "args": "",
+            "commands": [
+                "aaa",
+                "s 0x08048469",
+                "pd 1~?strcmp(const",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvt",
+            "file": "bins/mach0/arg",
+            "args": "",
+            "commands": [
+                "s sym._call",
+                "af",
+                "afv",
+                "",
+                ""
+            ],
+            "expected": "var int local_14h @ rbp-0x14\nvar int local_10h @ rbp-0x10\nvar int local_8h @ rbp-0x8\narg int arg1 @ rdi\narg int arg2 @ rsi\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvt",
+            "file": "bins/mach0/macho",
+            "args": "",
+            "commands": [
+                "s 0x100000b60",
+                "af",
+                "afv~local_30h",
+                "afvt local_30h char",
+                "afv~local_30h",
+                "",
+                ""
+            ],
+            "expected": "var int local_30h @ rbp-0x30\nvar char local_30h @ rbp-0x30\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvn",
+            "file": "bins/mach0/macho",
+            "args": "",
+            "commands": [
+                "s 0x100000b60",
+                "af",
+                "afv~local_30h",
+                "afvn local_30h mylocal",
+                "afv~mylocal",
+                "",
+                ""
+            ],
+            "expected": "var int local_30h @ rbp-0x30\nvar int mylocal @ rbp-0x30\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvn + afvn",
+            "file": "bins/mach0/macho",
+            "args": "",
+            "commands": [
+                "s 0x100000b60",
+                "af",
+                "afv~local_30h",
+                "afvn local_30h mylocal",
+                "afvn mylocal local_30h",
+                "afv~local_30h",
+                "",
+                ""
+            ],
+            "expected": "var int local_30h @ rbp-0x30\nvar int local_30h @ rbp-0x30\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvt + afvn",
+            "file": "bins/mach0/macho",
+            "args": "",
+            "commands": [
+                "s 0x100000b60",
+                "af",
+                "afv~local_30h",
+                "afvn local_30h mylocal",
+                "afvt mylocal char",
+                "afv~mylocal",
+                "",
+                ""
+            ],
+            "expected": "var int local_30h @ rbp-0x30\nvar char mylocal @ rbp-0x30\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvn + afvt",
+            "file": "bins/mach0/macho",
+            "args": "",
+            "commands": [
+                "s 0x100000b60",
+                "af",
+                "afv~local_30h",
+                "afvt local_30h char",
+                "afvn local_30h mylocal",
+                "afv~mylocal",
+                "",
+                ""
+            ],
+            "expected": "var int local_30h @ rbp-0x30\nvar char mylocal @ rbp-0x30\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvt + afvt",
+            "file": "bins/mach0/macho",
+            "args": "",
+            "commands": [
+                "s 0x100000b60",
+                "af",
+                "afv~local_30h",
+                "afvt local_30h char",
+                "afvt local_30h int",
+                "afv~local_30h",
+                "",
+                ""
+            ],
+            "expected": "var int local_30h @ rbp-0x30\nvar int local_30h @ rbp-0x30\n\n",
+            "broken": false
+        },
+        {
+            "name": "afva for esp based vars",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.bits=32",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e asm.calls=false",
+                "wx 83ec108b44241899f77c241c8b44241401d08944240c8b44242099f77c24288b44240c01d0894424088b5424148b44240c8d0c028b44242c99f7f98b44240801d0894424048b54240c8b44240801c28b44240401d083c410c38d4c240483e4f0ff71fc5589e55183ec046a076a066a056a046a036a026a01e883ffffff83c41c83ec08506844850408e847feffff83c410b8000000008b4dfcc98d61fcc36690669066909055575653e887feffff81c3371b000083ec0c8b6c24208db30cffffffe8d3fdffff8d8308ffffff29c6c1fe0285f6742531ff8db60000000083ec04ff74242cff74242c55ff94bb08ffffff83c70183c41039f775e383c40c5b5e5f",
+                "e asm.bits=32",
+                "e asm.comments=false",
+                "aa",
+                "afva",
+                "pdf",
+                "",
+                ""
+            ],
+            "expected": "/ (fcn) fcn.00000000 89\n|           ; var int local_4h @ esp+0x4\n|           ; var int local_8h @ esp+0x8\n|           ; var int local_ch @ esp+0xc\n|           ; arg int arg_14h @ esp+0x14\n|           ; arg int arg_18h @ esp+0x18\n|           ; arg int arg_1ch @ esp+0x1c\n|           ; arg int arg_20h @ esp+0x20\n|           ; arg int arg_28h @ esp+0x28\n|           ; arg int arg_2ch @ esp+0x2c\n|           0x00000000      83ec10         sub esp, 0x10\n|           0x00000003      8b442418       mov eax, dword [arg_18h]\n|           0x00000007      99             cdq\n|           0x00000008      f77c241c       idiv dword [arg_1ch]\n|           0x0000000c      8b442414       mov eax, dword [arg_14h]\n|           0x00000010      01d0           add eax, edx\n|           0x00000012      8944240c       mov dword [local_ch], eax\n|           0x00000016      8b442420       mov eax, dword [arg_20h]\n|           0x0000001a      99             cdq\n|           0x0000001b      f77c2428       idiv dword [arg_28h]\n|           0x0000001f      8b44240c       mov eax, dword [local_ch]\n|           0x00000023      01d0           add eax, edx\n|           0x00000025      89442408       mov dword [local_8h], eax\n|           0x00000029      8b542414       mov edx, dword [arg_14h]\n|           0x0000002d      8b44240c       mov eax, dword [local_ch]\n|           0x00000031      8d0c02         lea ecx, [edx + eax]\n|           0x00000034      8b44242c       mov eax, dword [arg_2ch]\n|           0x00000038      99             cdq\n|           0x00000039      f7f9           idiv ecx\n|           0x0000003b      8b442408       mov eax, dword [local_8h]\n|           0x0000003f      01d0           add eax, edx\n|           0x00000041      89442404       mov dword [local_4h], eax\n|           0x00000045      8b54240c       mov edx, dword [local_ch]\n|           0x00000049      8b442408       mov eax, dword [local_8h]\n|           0x0000004d      01c2           add edx, eax\n|           0x0000004f      8b442404       mov eax, dword [local_4h]\n|           0x00000053      01d0           add eax, edx\n|           0x00000055      83c410         add esp, 0x10\n\\           0x00000058      c3             ret\n\n",
+            "broken": false
+        },
+        {
+            "name": "afva for fastcall with no esp vars",
+            "file": "bins/elf/analysis/fast",
+            "args": "",
+            "commands": [
+                "aa",
+                "s sym.fastcaslled",
+                "afc fastcall",
+                "afc",
+                "afva",
+                "pdf",
+                "",
+                ""
+            ],
+            "expected": "fastcall\n/ (fcn) sym.fastcaslled 59\n|   sym.fastcaslled (int arg2, int arg1, int arg_8h, int arg_ch);\n|           ; var int local_20h @ ebp-0x20\n|           ; var int local_1ch @ ebp-0x1c\n|           ; var int local_10h @ ebp-0x10\n|           ; var int local_ch @ ebp-0xc\n|           ; arg int arg_8h @ ebp+0x8\n|           ; arg int arg_ch @ ebp+0xc\n|           ; arg int arg2 @ edx\n|           ; arg int arg1 @ ecx\n|           ; CALL XREF from sym.main (0x80484c7)\n|           0x0804841b      55             push ebp\n|           0x0804841c      89e5           mov ebp, esp\n|           0x0804841e      83ec28         sub esp, 0x28               ; '('\n|           0x08048421      894de4         mov dword [local_1ch], ecx  ; arg1\n|           0x08048424      8955e0         mov dword [local_20h], edx  ; arg2\n|           0x08048427      8b55e4         mov edx, dword [local_1ch]\n|           0x0804842a      8b45e0         mov eax, dword [local_20h]\n|           0x0804842d      01d0           add eax, edx\n|           0x0804842f      8945f4         mov dword [local_ch], eax\n|           0x08048432      8b45e0         mov eax, dword [local_20h]\n|           0x08048435      2b450c         sub eax, dword [arg_ch]\n|           0x08048438      8945f0         mov dword [local_10h], eax\n|           0x0804843b      ff7508         push dword [arg_8h]\n|           0x0804843e      ff75f0         push dword [local_10h]\n|           0x08048441      ff75f4         push dword [local_ch]\n|           0x08048444      6874850408     push str.i__i__i            ; 0x8048574 ; \"%i %i %i\\n\"\n|           0x08048449      e8a2feffff     call sym.imp.printf         ; int printf(const char *format)\n|           0x0804844e      83c410         add esp, 0x10\n|           0x08048451      90             nop\n|           0x08048452      c9             leave\n\\           0x08048453      c20800         ret 8\n",
+            "broken": false
+        },
+        {
+            "name": "afva for cdecl/stdcall with no esp vars",
+            "file": "bins/elf/analysis/fast",
+            "args": "",
+            "commands": [
+                "e asm.calls=false",
+                "aa",
+                "s sym.nonfastcaslled",
+                "afc",
+                "afva",
+                "pdf",
+                "",
+                ""
+            ],
+            "expected": "cdecl\n/ (fcn) sym.nonfastcaslled 51\n|           ; var int local_10h @ ebp-0x10\n|           ; var int local_ch @ ebp-0xc\n|           ; arg int arg_8h @ ebp+0x8\n|           ; arg int arg_ch @ ebp+0xc\n|           ; arg int arg_10h @ ebp+0x10\n|           ; arg int arg_14h @ ebp+0x14\n|           ; CALL XREF from sym.main (0x80484db)\n|           0x08048456      55             push ebp\n|           0x08048457      89e5           mov ebp, esp\n|           0x08048459      83ec18         sub esp, 0x18\n|           0x0804845c      8b5508         mov edx, dword [arg_8h]     ; [0x8:4]=-1 ; 8\n|           0x0804845f      8b450c         mov eax, dword [arg_ch]     ; [0xc:4]=-1 ; 12\n|           0x08048462      01d0           add eax, edx\n|           0x08048464      8945f4         mov dword [local_ch], eax\n|           0x08048467      8b450c         mov eax, dword [arg_ch]     ; [0xc:4]=-1 ; 12\n|           0x0804846a      2b4514         sub eax, dword [arg_14h]\n|           0x0804846d      8945f0         mov dword [local_10h], eax\n|           0x08048470      ff7510         push dword [arg_10h]\n|           0x08048473      ff75f0         push dword [local_10h]\n|           0x08048476      ff75f4         push dword [local_ch]\n|           0x08048479      6874850408     push str.i__i__i            ; 0x8048574 ; \"%i %i %i\\n\"\n|           0x0804847e      e86dfeffff     call sym.imp.printf\n|           0x08048483      83c410         add esp, 0x10\n|           0x08048486      90             nop\n|           0x08048487      c9             leave\n\\           0x08048488      c3             ret\n",
+            "broken": false
+        },
+        {
+            "name": "anal vars crash",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "af",
+                "afvr-*",
+                "afvr-*",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "anal vars crash 2",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e asm.calls=false",
+                "wx 554889e5534881ec3810000048830c24004881c42010000064488b042528000000488945e831c04885ff4889fb909090909090c3 @ 10",
+                "aa",
+                "afvn old_1 new_1",
+                "afvn local_18h my_local",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "/ (fcn) fcn.00000000 62\n|           ; var int my_local @ rbp-0x18\n|           ; arg int arg1 @ rdi\n|           0x00000000      0000           add byte [rax], al\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvb \u0026 afvn",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvn arg_8h ImageHandle",
+                "afvn arg_ch SystemTable",
+                "afvb~?ImageHandle",
+                "afvb~?SystemTable",
+                "",
+                ""
+            ],
+            "expected": "1\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvb* \u0026 afvn",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvn arg_8h ImageHandle",
+                "afvn arg_ch SystemTable",
+                "afvb*~?ImageHandle",
+                "afvb*~?SystemTable",
+                "",
+                ""
+            ],
+            "expected": "1\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvb idx... \u0026 afvn",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvb 8 ImageHandle blah @ 0x10002d8d",
+                "afvb*~ImageHandle",
+                "",
+                ""
+            ],
+            "expected": "afvb 8 ImageHandle blah @ 0x10002d8d\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvbj",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvb 8 ImageHandle blah @ 0x10002d8d",
+                "afvbj~?ImageHandle",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvb-ArgName",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvb 8 ImageHandle blah @ 0x10002d8d",
+                "afvb-ImageHandle",
+                "afvb~?ImageHandle",
+                "",
+                ""
+            ],
+            "expected": "0\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvr \u0026 afvn",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvr esi myreg int @ 0x10002d8d",
+                "afvr~?myreg",
+                "afvn myreg blah",
+                "afvr~?blah",
+                "",
+                ""
+            ],
+            "expected": "1\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvr idx \u0026 afvr*",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvr esi myreg int @ 0x10002d8d",
+                "afvr*~?myreg",
+                "afvr*~?int",
+                "",
+                ""
+            ],
+            "expected": "1\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvr-name",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvr esi myreg int @ 0x10002d8d",
+                "afvr-myreg",
+                "afvr~?myreg",
+                "",
+                ""
+            ],
+            "expected": "0\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvb-* afvr-*",
+            "file": "bins/efi/bootia32.efi",
+            "args": "",
+            "commands": [
+                "af",
+                "afvb-*",
+                "afvr-*",
+                "afvb~?",
+                "afvr~?",
+                "",
+                ""
+            ],
+            "expected": "0\n0\n\n",
+            "broken": false
+        },
+        {
+            "name": "anal vars count",
+            "file": "bins/mach0/ls-osx-x86_64",
+            "args": "",
+            "commands": [
+                "af",
+                "afvb~?",
+                "",
+                ""
+            ],
+            "expected": "13\n\n",
+            "broken": false
+        },
+        {
+            "name": "anal vars retype",
+            "file": "bins/mach0/ls-osx-x86_64",
+            "args": "",
+            "commands": [
+                "af",
+                "afvt local_30h char",
+                "afvb~l_30h",
+                "",
+                ""
+            ],
+            "expected": "var char local_30h @ rbp-0x30\n\n",
+            "broken": false
+        },
+        {
+            "name": "anal vars rename",
+            "file": "bins/mach0/ls-osx-x86_64",
+            "args": "",
+            "commands": [
+                "af",
+                "afvn local_30h newname",
+                "afvb~newname",
+                "",
+                ""
+            ],
+            "expected": "var int newname @ rbp-0x30\n\n",
+            "broken": false
+        },
+        {
+            "name": "vars commenting",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "af",
+                "afvb 8 local_8h int",
+                "Cvb 0x8 comment",
+                "pd1~comment",
+                "",
+                ""
+            ],
+            "expected": "|           ; arg int local_8h @ rbp+0x8    ; comment\n\n",
+            "broken": false
+        },
+        {
+            "name": "vars display in debugger",
+            "file": "bins/elf/analysis/fast",
+            "args": "",
+            "commands": [
+                "aa",
+                "s 0x0804843b",
+                "afvd arg_ch",
+                "afvd local_10h",
+                "",
+                ""
+            ],
+            "expected": "pxr $w @ebp+0xc\npxr $w @ebp-0x10\n\n",
+            "broken": false
+        },
+        {
+            "name": "afvR and afvW test",
+            "file": "bins/elf/crackme0x05",
+            "args": "",
+            "commands": [
+                "aa",
+                "s main",
+                "?e",
+                "afvR",
+                "afvW",
+                "",
+                ""
+            ],
+            "expected": "\n local_78h  0x8048577,0x804858a\n  local_4h  \n local_78h  \n  local_4h  0x804857a\n\n",
+            "broken": false
+        },
+        {
+            "name": "axt avr",
+            "file": "bins/firmware/main.avr",
+            "args": "",
+            "commands": [
+                "f str.hello 12 @ 0x276",
+                "Csa 12 @ str.hello",
+                "axd 0x260 @ str.hello",
+                "pd 1 @ 0x260",
+                ""
+            ],
+            "expected": "            ; DATA XREF from str.hello ()\n            0x00000260      80e0           ldi r24, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "axt capstone x86",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e scr.color=false",
+                "e scr.wheel = false",
+                "aa",
+                "axt @ str.Hello_World",
+                ""
+            ],
+            "expected": "sym.main 0x40050a [DATA] mov edi, str.Hello_World\n\n",
+            "broken": false
+        },
+        {
+            "name": "axt capstone x86: IOLI0",
+            "file": "bins/elf/ioli/crackme0x00",
+            "args": "",
+            "commands": [
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e scr.color=false",
+                "e scr.wheel = false",
+                "aa",
+                "axt @ str.Password:",
+                ""
+            ],
+            "expected": "main 0x804843c [DATA] mov dword [esp], str.Password:\n\n",
+            "broken": false
+        },
+        {
+            "name": "axt capstone x86: IOLI7 aa",
+            "file": "bins/elf/ioli/crackme0x07",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "axt @ sym.imp.exit",
+                ""
+            ],
+            "expected": "sub.Password_Incorrect_524 0x804853d [CALL] call sym.imp.exit\nsub.sscanf_542 0x80485ab [CALL] call sym.imp.exit\nsub.strlen_5b9 0x804866f [CALL] call sym.imp.exit\n\n",
+            "broken": false
+        },
+        {
+            "name": "axt capstone x86: IOLI7 aa",
+            "file": "bins/elf/ioli/crackme0x07",
+            "args": "",
+            "commands": [
+                "",
+                "aaaa",
+                "axt @ sym.imp.exit",
+                ""
+            ],
+            "expected": "sub.Password_Incorrect_524 0x804853d [CALL] call sym.imp.exit\nsub.sscanf_542 0x80485ab [CALL] call sym.imp.exit\nsub.strlen_5b9 0x804866f [CALL] call sym.imp.exit\n\n",
+            "broken": false
+        },
+        {
+            "name": "axt respect relsub",
+            "file": "bins/pe/ibknoreloc64.exe",
+            "args": "",
+            "commands": [
+                "aaa",
+                "e asm.relsub=false",
+                "axt @ sym.imp.msvcrt.dll_printf",
+                "e asm.relsub=true",
+                "axt @ sym.imp.msvcrt.dll_printf",
+                "",
+                ""
+            ],
+            "expected": "entry0 0xffffffffffff100a [CALL] call qword [rip + 0xd8]\nentry0 0xffffffffffff100a [CALL] call qword sym.imp.msvcrt.dll_printf\n\n",
+            "broken": false
+        },
+        {
+            "name": "ax-",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "ax 10 20",
+                "axq",
+                "ax-10 20",
+                "axq",
+                "",
+                ""
+            ],
+            "expected": "0x00000014 -\u003e 0x0000000a  UNKNOWN\n\n",
+            "broken": false
+        },
+        {
+            "name": "ax-@",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "s 20",
+                "ax 10",
+                "axq",
+                "ax-10",
+                "axq",
+                "",
+                ""
+            ],
+            "expected": "0x00000014 -\u003e 0x0000000a  UNKNOWN\n\n",
+            "broken": false
+        },
+        {
+            "name": "ax-*",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "ax 10",
+                "ax",
+                "ax-*",
+                "ax",
+                "",
+                ""
+            ],
+            "expected": "ref.unk.0x0=0xa\nxref.unk.0xa=0\ntypes=code.jmp,code.call,data.mem,data.string\ntypes=code.jmp,code.call,data.mem,data.string\n\n",
+            "broken": true
+        },
+        {
+            "name": "axt unknown function",
+            "file": "bins/pe/lab11.malware",
+            "args": "",
+            "commands": [
+                "aaa",
+                "axt fcn.00401270",
+                "",
+                ""
+            ],
+            "expected": "(nofunc) 0x401a1d [CALL] call fcn.00401270\n\n",
+            "broken": false
+        },
+        {
+            "name": "axf string ref capstone x86",
+            "file": "bins/elf/ioli/crackme0x03",
+            "args": "",
+            "commands": [
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e scr.color = false",
+                "e scr.wheel = false",
+                "aa",
+                "axt str.Sdvvzrug_RN",
+                "axf 0x804848a",
+                "",
+                ""
+            ],
+            "expected": "sym.test 0x804848a [DATA] mov dword [esp], str.Sdvvzrug_RN\nd 0x804848a mov dword [esp], str.Sdvvzrug_RN\n\n",
+            "broken": false
+        },
+        {
+            "name": "x86 ref issue",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx c7052a44000050000000",
+                "ao~^ptr[1]",
+                "",
+                ""
+            ],
+            "expected": "0x00004434\n\n",
+            "broken": false
+        },
+        {
+            "name": "strings xref issue",
+            "file": "bins/elf/redpill",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.strings=true",
+                "aa",
+                "aae",
+                "axt 0x00001d89",
+                "axt 0x00001da0",
+                "axt 0x00001db7",
+                "axt 0x00001dd1",
+                "axt 0x00001de8",
+                "axt 0x00001df4",
+                "axt 0x00001e09",
+                "",
+                ""
+            ],
+            "expected": "main 0x1457 [STRING] lea eax, str.Take_the_Red_Pill\nmain 0x148e [STRING] lea eax, str.use:_._exploit1_PILL\nmain 0x14eb [STRING] lea eax, str.Red_Pill__0x50444552\nmain 0x1502 [STRING] lea eax, str.Your_Pill_0x_08x\nmain 0x1523 [STRING] lea eax, str.Red_Pill\nmain 0x1557 [STRING] lea eax, str.fwhibbit\nmain 0x161d [STRING] lea eax, str.Blue_Pill\n\n",
+            "broken": false
+        },
+        {
+            "name": "reference to like mov [0x400000], 0x1234",
+            "file": "bins/elf/analysis/reference.out",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "axt@0x0804a01c",
+                "",
+                ""
+            ],
+            "expected": "sym.main 0x80483ee [DATA] mov dword obj.a, 0x1337\n\n",
+            "broken": false
+        },
+        {
+            "name": "delete references with ax-",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "ax 10 20",
+                "axq",
+                "ax- 10",
+                "axq",
+                "ax 10 20",
+                "ax 30 40",
+                "axq",
+                "ax-*",
+                "axq",
+                "",
+                ""
+            ],
+            "expected": "0x00000014 -\u003e 0x0000000a  UNKNOWN\n0x00000014 -\u003e 0x0000000a  UNKNOWN\n0x00000028 -\u003e 0x0000001e  UNKNOWN\n\n",
+            "broken": false
+        },
+        {
+            "name": "reference PIC binary",
+            "file": "bins/elf/analysis/xrefpic",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.strings=true",
+                "aa",
+                "aae",
+                "axt@0x80484e0",
+                "",
+                ""
+            ],
+            "expected": "main 0x8048432 [STRING] lea eax, str.Hello_PIC\n\n",
+            "broken": false
+        },
+        {
+            "name": "strings xref issue without relsub",
+            "file": "bins/elf/redpill",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.strings=true",
+                "e asm.relsub=false",
+                "aa",
+                "aae",
+                "axt 0x00001d89",
+                "axt 0x00001da0",
+                "axt 0x00001db7",
+                "axt 0x00001dd1",
+                "axt 0x00001de8",
+                "axt 0x00001df4",
+                "axt 0x00001e09",
+                "",
+                ""
+            ],
+            "expected": "main 0x1457 [STRING] lea eax, [esi - 0x2277]\nmain 0x148e [STRING] lea eax, [esi - 0x2260]\nmain 0x14eb [STRING] lea eax, [esi - 0x2249]\nmain 0x1502 [STRING] lea eax, [esi - 0x222f]\nmain 0x1523 [STRING] lea eax, [esi - 0x2218]\nmain 0x1557 [STRING] lea eax, [esi - 0x220c]\nmain 0x161d [STRING] lea eax, [esi - 0x21f7]\n\n",
+            "broken": false
+        },
+        {
+            "name": "reference PIC binary without relsub",
+            "file": "bins/elf/analysis/xrefpic",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.strings=true",
+                "e asm.relsub=false",
+                "aa",
+                "aae",
+                "axt@0x80484e0",
+                "",
+                ""
+            ],
+            "expected": "main 0x8048432 [STRING] lea eax, [ebx - 0x1b20]\n\n",
+            "broken": false
+        },
+        {
+            "name": "refs on PIC binary disassembly",
+            "file": "bins/elf/analysis/xrefpic",
+            "args": "",
+            "commands": [
+                "",
+                "e anal.strings=true",
+                "aa",
+                "aae",
+                "pd 1 @ 0x08048432",
+                "",
+                ""
+            ],
+            "expected": "|           0x08048432      8d83e0e4ffff   lea eax, str.Hello_PIC      ; 0x80484e0 ; \"Hello PIC!\"\n\n",
+            "broken": false
+        },
+        {
+            "name": "refs on PIC binary disassembly (color)",
+            "file": "bins/elf/analysis/xrefpic",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.bytes=false",
+                "e asm.comments=false",
+                "e scr.color=1",
+                "e anal.strings=true",
+                "aa",
+                "aae",
+                "pd 1 @ 0x08048432",
+                "",
+                ""
+            ],
+            "expected": "\u001b[36m|\u001b[0m \u001b[36m          \u001b[0m\u001b[32m0x08048432\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m\u001b[33mstr.Hello_PIC\u001b[0m\u001b[36m\u001b[0m\u001b[0m\n\n",
+            "broken": false
+        },
+        {
+            "name": "axs",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "axs 0x10",
+                "axq",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 -\u003e 0x00000010  STRING\n\n",
+            "broken": false
+        },
+        {
+            "name": "refs with aar",
+            "file": "bins/elf/crackme",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.lines.bb=false",
+                "e asm.lines.fcn=false",
+                "aar",
+                "pd 1 @0x400730",
+                "pd 1 @0x4007f0",
+                "pd 1 @0x400610",
+                ""
+            ],
+            "expected": ";-- __libc_csu_fini:\n; DATA XREF from entry0 (+0xf)\n0x00400730      f3c3           ret\n; CODE XREF from sym.__do_global_ctors_aux (+0x2d)\n0x004007f0      4883eb08       sub rbx, 8\n;-- __do_global_dtors_aux:\n; CALL XREF from section_end..text (+0x4)\n0x00400610      55             push rbp\n",
+            "broken": false
+        },
+        {
+            "name": "refs with afr",
+            "file": "bins/elf/crackme",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.lines.bb=false",
+                "e asm.lines.fcn=false",
+                "e anal.cjmpref=true",
+                "aa",
+                "afr",
+                "pd 1 @0x400730",
+                "pd 1 @0x4007f0",
+                "pd 1 @0x400610",
+                ""
+            ],
+            "expected": "(fcn) sym.__libc_csu_fini 2\n  sym.__libc_csu_fini ();\n; DATA XREF from entry0 (0x4005cf)\n0x00400730      f3c3           ret\n; CODE XREF from sym.__do_global_ctors_aux (0x4007fd)\n0x004007f0      4883eb08       sub rbx, 8\n(fcn) sym.__do_global_dtors_aux 100\n  sym.__do_global_dtors_aux ();\n; CALL XREF from sym._fini (0x40080c)\n0x00400610      55             push rbp\n",
+            "broken": false
+        },
+        {
+            "name": "cjmp data refs with aar",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=8051",
+                "e asm.lines.bb=false",
+                "e asm.lines.fcn=false",
+                "wx 307401000022",
+                "aar",
+                "pd 1 @_idata+0x2e",
+                ""
+            ],
+            "expected": "; DATA XREF from unk ()\n0x1000002e      ff             mov r7, a\n",
+            "broken": false
+        },
+        {
+            "name": "cjmp data refs with afr",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=8051",
+                "e asm.lines.bb=false",
+                "e asm.lines.fcn=false",
+                "wx 307401000022",
+                "aa",
+                "afr",
+                "pd 1 @_idata+0x2e",
+                ""
+            ],
+            "expected": "; DATA XREF from fcn.00000000 ()\n0x1000002e      ff             mov r7, a\n",
+            "broken": false
+        },
+        {
+            "name": "xtensa stackframe",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "e asm.arch=xtensa",
+                "e asm.bits=32",
+                "wx 12c1f0d91140d382c9213d0d093101f5ebc00000cd028c820c034d0d0112e4c0000008312d0cd811c82112c1100df0",
+                "af",
+                "afvs",
+                "",
+                ""
+            ],
+            "expected": "var int local_4h @ a1+0x4\nvar int local_8h @ a1+0x8\nvar int local_ch @ a1+0xc\n\n",
+            "broken": false
+        }
+    ]
+}

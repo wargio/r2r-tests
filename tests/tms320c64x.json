@@ -1,1 +1,20 @@
-{"type":"cmd","tests":[{"name":"320c64 OPEX","file":"malloc://512280","args":"","commands":["e asm.arch=tms320","e asm.cpu=c64x","wx 0041bd10","aoj~{}","",""],"expected":"[\n  {\n    \"opcode\": \"b 0x20de8\",\n    \"disasm\": \"b 0x20de8\",\n    \"mnemonic\": \"b\",\n    \"sign\": false,\n    \"prefix\": 0,\n    \"id\": 17,\n    \"opex\": {\n      \"operands\": [\n        {\n          \"type\": \"imm\",\n          \"value\": 134632\n        }\n      ]\n    },\n    \"addr\": 0,\n    \"bytes\": \"0041bd10\",\n    \"size\": 4,\n    \"type\": \"jmp\",\n    \"jump\": 134632,\n    \"refptr\": 0,\n    \"cycles\": 0,\n    \"delay\": 0,\n    \"family\": \"cpu\"\n  }\n]\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "320c64 OPEX",
+            "file": "malloc://512280",
+            "args": "",
+            "commands": [
+                "e asm.arch=tms320",
+                "e asm.cpu=c64x",
+                "wx 0041bd10",
+                "aoj~{}",
+                "",
+                ""
+            ],
+            "expected": "[\n  {\n    \"opcode\": \"b 0x20de8\",\n    \"disasm\": \"b 0x20de8\",\n    \"mnemonic\": \"b\",\n    \"sign\": false,\n    \"prefix\": 0,\n    \"id\": 17,\n    \"opex\": {\n      \"operands\": [\n        {\n          \"type\": \"imm\",\n          \"value\": 134632\n        }\n      ]\n    },\n    \"addr\": 0,\n    \"bytes\": \"0041bd10\",\n    \"size\": 4,\n    \"type\": \"jmp\",\n    \"jump\": 134632,\n    \"refptr\": 0,\n    \"cycles\": 0,\n    \"delay\": 0,\n    \"family\": \"cpu\"\n  }\n]\n",
+            "broken": false
+        }
+    ]
+}

@@ -1,781 +1,275 @@
 {
-    "type": "asm",
-    "tests": [{
-        "name": "8051: d \"acall 0x1723\" f123 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad f123"],
-        "expected": "acall 0x1723\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"add a, #0x03\" 2403 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 2403"],
-        "expected": "add a, #0x03\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"add a, 0x20\" 2520 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 2520"],
-        "expected": "add a, 0x20\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"add a, @r1\" 27 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 27"],
-        "expected": "add a, @r1\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"add a, r3\" 2b 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 2b"],
-        "expected": "add a, r3\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"addc a, #0x38\" 3438 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 3438"],
-        "expected": "addc a, #0x38\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"addc a, 0x30\" 3530 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 3530"],
-        "expected": "addc a, 0x30\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"addc a, @r0\" 36 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 36"],
-        "expected": "addc a, @r0\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"addc a, r5\" 3d 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 3d"],
-        "expected": "addc a, r5\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"ajmp 0x1723\" e123 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad e123"],
-        "expected": "ajmp 0x1723\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"anl a, #0x01\" 5401 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 5401"],
-        "expected": "anl a, #0x01\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"anl a, 0x40\" 5540 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 5540"],
-        "expected": "anl a, 0x40\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"anl a, @r0\" 56 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 56"],
-        "expected": "anl a, @r0\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"anl a, r4\" 5c 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 5c"],
-        "expected": "anl a, r4\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"anl c, 0x24.2\" 8222 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 8222"],
-        "expected": "anl c, 0x24.2\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"anl c, /0x24.2\" b022 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad b022"],
-        "expected": "anl c, /0x24.2\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"anl 0x40, a\" 5240 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 5240"],
-        "expected": "anl 0x40, a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"anl 0xc9, #0xdf\" 53c9df 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 53c9df"],
-        "expected": "anl 0xc9, #0xdf\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"cjne a, #0xab, 0x1216\" b4ab13 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad b4ab13"],
-        "expected": "cjne a, #0xab, 0x1216\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"cjne a, 0x60, 0x121b\" b56018 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad b56018"],
-        "expected": "cjne a, 0x60, 0x121b\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"cjne @r1, #0x24, 0x1235\" b72432 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad b72432"],
-        "expected": "cjne @r1, #0x24, 0x1235\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"cjne r7, #0x02, 0x1208\" bf0205 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad bf0205"],
-        "expected": "cjne r7, #0x02, 0x1208\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"clr a\" e4 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad e4"],
-        "expected": "clr a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"clr 0xc8.7\" c2cf 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad c2cf"],
-        "expected": "clr 0xc8.7\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"clr c\" c3 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad c3"],
-        "expected": "clr c\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"cpl a\" f4 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad f4"],
-        "expected": "cpl a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"cpl 0x2a.5\" b255 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad b255"],
-        "expected": "cpl 0x2a.5\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"cpl c\" b3 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad b3"],
-        "expected": "cpl c\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"da a\" d4 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad d4"],
-        "expected": "da a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"dec a\" 14 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 14"],
-        "expected": "dec a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"dec 0x35\" 1535 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 1535"],
-        "expected": "dec 0x35\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"dec @r1\" 17 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 17"],
-        "expected": "dec @r1\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"dec r7\" 1f 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 1f"],
-        "expected": "dec r7\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"div ab\" 84 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 84"],
-        "expected": "div ab\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"djnz 0x40, 0x118b\" d54088 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad d54088"],
-        "expected": "djnz 0x40, 0x118b\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"djnz r0, 0x11fe\" d8fc 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad d8fc"],
-        "expected": "djnz r0, 0x11fe\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"djnz r7, 0x11fc\" dffa 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad dffa"],
-        "expected": "djnz r7, 0x11fc\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"inc a\" 04 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 04"],
-        "expected": "inc a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"inc 0x34\" 0534 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 0534"],
-        "expected": "inc 0x34\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"inc dptr\" a3 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad a3"],
-        "expected": "inc dptr\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"inc r0\" 08 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 08"],
-        "expected": "inc r0\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"jb 0x2f.5, 0x1206\" 207d03 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 207d03"],
-        "expected": "jb 0x2f.5, 0x1206\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"jbc 0x22.5, 0x120b\" 101508 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 101508"],
-        "expected": "jbc 0x22.5, 0x120b\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"jc 0x1205\" 4003 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 4003"],
-        "expected": "jc 0x1205\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"jmp @a+dptr\" 73 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 73"],
-        "expected": "jmp @a+dptr\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"jnb 0x2a.1, 0x120b\" 305108 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 305108"],
-        "expected": "jnb 0x2a.1, 0x120b\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"jnc 0x1209\" 5007 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 5007"],
-        "expected": "jnc 0x1209\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"jnz 0x1215\" 7013 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 7013"],
-        "expected": "jnz 0x1215\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"jz 0x1217\" 6015 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 6015"],
-        "expected": "jz 0x1217\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"lcall 0xb6cf\" 12b6cf 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 12b6cf"],
-        "expected": "lcall 0xb6cf\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"ljmp 0x2c0d\" 022c0d 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 022c0d"],
-        "expected": "ljmp 0x2c0d\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov a, #0xff\" 74ff 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 74ff"],
-        "expected": "mov a, #0xff\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov a, 0x20\" e520 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad e520"],
-        "expected": "mov a, 0x20\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov a, @r1\" e7 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad e7"],
-        "expected": "mov a, @r1\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov a, r6\" ee 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad ee"],
-        "expected": "mov a, r6\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov 0x24.2, c\" 9222 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 9222"],
-        "expected": "mov 0x24.2, c\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov c, 0x24.2\" a222 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad a222"],
-        "expected": "mov c, 0x24.2\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov 0x44, a\" f544 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad f544"],
-        "expected": "mov 0x44, a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov 0xc0, #0x7f\" 75c07f 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 75c07f"],
-        "expected": "mov 0xc0, #0x7f\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov 0x55, 0x44\" 854455 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 854455"],
-        "expected": "mov 0x55, 0x44\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov 0x44, @r1\" 8744 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 8744"],
-        "expected": "mov 0x44, @r1\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov 0x93, r4\" 8c93 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 8c93"],
-        "expected": "mov 0x93, r4\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov dptr, #0x1234\" 901234 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 901234"],
-        "expected": "mov dptr, #0x1234\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov @r0, a\" f6 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad f6"],
-        "expected": "mov @r0, a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov @r1, #0x00\" 7700 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 7700"],
-        "expected": "mov @r1, #0x00\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov @r0, 0x20\" a620 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad a620"],
-        "expected": "mov @r0, 0x20\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov r5, a\" fd 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad fd"],
-        "expected": "mov r5, a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov r1, #0x00\" 7900 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 7900"],
-        "expected": "mov r1, #0x00\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mov r2, 0x32\" aa32 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad aa32"],
-        "expected": "mov r2, 0x32\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"movc a, @a+pc\" 83 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 83"],
-        "expected": "movc a, @a+pc\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"movc a, @a+dptr\" 93 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 93"],
-        "expected": "movc a, @a+dptr\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"movx a, @dptr\" e0 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad e0"],
-        "expected": "movx a, @dptr\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"movx a, @r1\" e3 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad e3"],
-        "expected": "movx a, @r1\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"movx @dptr, a\" f0 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad f0"],
-        "expected": "movx @dptr, a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"movx @r0, a\" f2 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad f2"],
-        "expected": "movx @r0, a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"mul ab\" a4 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad a4"],
-        "expected": "mul ab\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"nop\" 00 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 00"],
-        "expected": "nop\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"orl a, #0x80\" 4480 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 4480"],
-        "expected": "orl a, #0x80\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"orl a, 0x32\" 4532 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 4532"],
-        "expected": "orl a, 0x32\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"orl a, @r0\" 46 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 46"],
-        "expected": "orl a, @r0\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"orl a, r5\" 4d 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 4d"],
-        "expected": "orl a, r5\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"orl c, 0x24.2\" 7222 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 7222"],
-        "expected": "orl c, 0x24.2\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"orl c, /0x24.2\" a022 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad a022"],
-        "expected": "orl c, /0x24.2\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"orl 0x22, a\" 4222 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 4222"],
-        "expected": "orl 0x22, a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"orl 0xdc, #0x02\" 43dc02 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 43dc02"],
-        "expected": "orl 0xdc, #0x02\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"pop 0x93\" d093 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad d093"],
-        "expected": "pop 0x93\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"push 0x93\" c093 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad c093"],
-        "expected": "push 0x93\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"ret\" 22 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 22"],
-        "expected": "ret\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"reti\" 32 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 32"],
-        "expected": "reti\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"rl a\" 23 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 23"],
-        "expected": "rl a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"rlc a\" 33 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 33"],
-        "expected": "rlc a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"rr a\" 03 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 03"],
-        "expected": "rr a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"rrc a\" 13 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 13"],
-        "expected": "rrc a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"setb 0x28.2\" d242 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad d242"],
-        "expected": "setb 0x28.2\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"setb c\" d3 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad d3"],
-        "expected": "setb c\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"sjmp 0x1216\" 8014 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 8014"],
-        "expected": "sjmp 0x1216\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"subb a, #0x01\" 9401 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 9401"],
-        "expected": "subb a, #0x01\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"subb a, 0x44\" 9544 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 9544"],
-        "expected": "subb a, 0x44\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"subb a, @r0\" 96 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 96"],
-        "expected": "subb a, @r0\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"subb a, r5\" 9d 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 9d"],
-        "expected": "subb a, r5\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"swap a\" c4 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad c4"],
-        "expected": "swap a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xch a, 0x45\" c545 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad c545"],
-        "expected": "xch a, 0x45\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xch a, @r0\" c6 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad c6"],
-        "expected": "xch a, @r0\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xch a, r6\" ce 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad ce"],
-        "expected": "xch a, r6\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xchd a, @r1\" d7 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad d7"],
-        "expected": "xchd a, @r1\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xrl a, #0xfa\" 64fa 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 64fa"],
-        "expected": "xrl a, #0xfa\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xrl a, 0x34\" 6534 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 6534"],
-        "expected": "xrl a, 0x34\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xrl a, @r0\" 66 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 66"],
-        "expected": "xrl a, @r0\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xrl a, r7\" 6f 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 6f"],
-        "expected": "xrl a, r7\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xrl 0x34, a\" 6234 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 6234"],
-        "expected": "xrl 0x34, a\n",
-        "broken": false
-    }, {
-        "name": "8051: d \"xrl 0x34, #0xff\" 6334ff 0x1200",
-        "file": "-",
-        "args": "-a 8051",
-        "commands": ["s 0x1200", "pad 6334ff"],
-        "expected": "xrl 0x34, #0xff\n",
-        "broken": false
-    }]
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "8051: checking bitness (asm.bits)",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051",
+                "e asm.bits=8",
+                ""
+            ],
+            "expected": "",
+            "broken": false
+        },
+        {
+            "name": "8051: checking bitness writing (asm.bits)",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051",
+                "e asm.bits",
+                ""
+            ],
+            "expected": "8\n",
+            "broken": false
+        },
+        {
+            "name": "8051 instruction length",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051",
+                "wx 30450d @ 0",
+                "wx d268 @ 3",
+                "wx ef @ 3+2",
+                "ao 3~size",
+                ""
+            ],
+            "expected": "size: 3\nsize: 2\nsize: 1\n",
+            "broken": false
+        },
+        {
+            "name": ": [DJNZ r0,offs] - length check",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; wx d8fc ; ao 1~size",
+                ""
+            ],
+            "expected": "size: 2\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [ACALL addr11] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx f123 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001723\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [AJMP addr11] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx e123 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001723\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [CJNE a,imm,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx b4ab13 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001216\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [CJNE a,dir,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx b56018 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x0000121b\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [CJNE @r1,imm,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx b72432 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001235\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [CJNE r7,imm,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx bf0205 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001208\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [DJNZ dir,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx d54088 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x0000118b\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [DJNZ r0,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx d8fc ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x000011fe\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [DJNZ r0,offs] - length check",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; wx d8fc ; ao 1~size",
+                ""
+            ],
+            "expected": "size: 2\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [DJNZ r7,offs] - length check",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; wx dffa ; ao 1~size",
+                ""
+            ],
+            "expected": "size: 2\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [JB bit,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 207d03 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001206\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [JBC bit,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 101508 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x0000120b\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [JC offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 4003 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001205\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [JNB bit,offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 305108 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x0000120b\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [JNC offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 5007 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001209\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [JNZ offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 7013 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001215\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [JZ offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 6015 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001217\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [LCALL add16] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 12b6cf ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x0000b6cf\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [LJMP addr16] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 022c0d ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00002c0d\n",
+            "broken": false
+        },
+        {
+            "name": "8051: [SJMP offs] - jump check",
+            "file": "malloc://10000",
+            "args": "",
+            "commands": [
+                "e asm.arch=8051 ; s 0x1200 ; wx 8014 ; ao 1~jump",
+                ""
+            ],
+            "expected": "jump: 0x00001216\n",
+            "broken": false
+        }
+    ]
 }

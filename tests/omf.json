@@ -1,0 +1,192 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "load 16 bits omf",
+            "file": "bins/omf/hello_world",
+            "args": "",
+            "commands": [
+                "iI~bits",
+                ""
+            ],
+            "expected": "bits     16\n\n",
+            "broken": false
+        },
+        {
+            "name": "entry point 16 bits omf",
+            "file": "bins/omf/hello_world",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x00001000 paddr=0x00000073 baddr=0x00001000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "symbols 16 bits omf",
+            "file": "bins/omf/hello_world",
+            "args": "",
+            "commands": [
+                "is",
+                ""
+            ],
+            "expected": "[Symbols]\n001 0x00000073 0x00001000 (null) (null)    0 _start\n\n",
+            "broken": false
+        },
+        {
+            "name": "sections 16 bits omf",
+            "file": "bins/omf/hello_world",
+            "args": "",
+            "commands": [
+                "iS",
+                ""
+            ],
+            "expected": "[Sections]\n00 0x00000073    19 0x00001000    19 -rwx text_1\n01 0x00000095    14 0x00001013    14 -rwx data_1\n\n",
+            "broken": false
+        },
+        {
+            "name": "sections 16 bits omf - content",
+            "file": "bins/omf/hello_world",
+            "args": "",
+            "commands": [
+                "px 16 @ section.text_1; px 16 @ section.data_1",
+                ""
+            ],
+            "expected": "- offset -  0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0000:1000  ba0e 00b9 0000 bb01 00b8 0400 cd80 b801  ................\n- offset -  0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0000:1013  4865 6c6c 6f2c 2077 6f72 6c64 210a ffff  Hello, world!...\n\n",
+            "broken": false
+        },
+        {
+            "name": "virtual address 16 bits omf",
+            "file": "bins/omf/hello_world",
+            "args": "",
+            "commands": [
+                "pid 1~mov[1]",
+                ""
+            ],
+            "expected": "ba0e00\n\n",
+            "broken": false
+        },
+        {
+            "name": "load 32 bits omf",
+            "file": "bins/omf/hello_world32",
+            "args": "",
+            "commands": [
+                "iI~bits",
+                ""
+            ],
+            "expected": "bits     32\n\n",
+            "broken": false
+        },
+        {
+            "name": "entry point 32 bits omf",
+            "file": "bins/omf/hello_world32",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x00001000 paddr=0x00000074 baddr=0x00001000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "symbols 32 bits omf",
+            "file": "bins/omf/hello_world32",
+            "args": "",
+            "commands": [
+                "is",
+                ""
+            ],
+            "expected": "[Symbols]\n001 0x00000074 0x00001000 (null) (null)    0 _start\n\n",
+            "broken": false
+        },
+        {
+            "name": "sections 32 bits omf",
+            "file": "bins/omf/hello_world32",
+            "args": "",
+            "commands": [
+                "iS",
+                ""
+            ],
+            "expected": "[Sections]\n00 0x00000074    29 0x00001000    29 -rwx .text_1\n01 0x000000a3    14 0x0000101d    14 -rwx .data_1\n\n",
+            "broken": false
+        },
+        {
+            "name": "virtual address 32 bits omf",
+            "file": "bins/omf/hello_world32",
+            "args": "",
+            "commands": [
+                "pid 1~mov[1]",
+                ""
+            ],
+            "expected": "ba0e000000\n\n",
+            "broken": false
+        },
+        {
+            "name": "multiple symbols omf",
+            "file": "bins/omf/multi_pubdef",
+            "args": "",
+            "commands": [
+                "is",
+                ""
+            ],
+            "expected": "[Symbols]\n001 0x00000084 0x00001000 (null) (null)    0 _start\n002 0x00000097 0x00001013 (null) (null)    0 second_symbol\n\n",
+            "broken": false
+        },
+        {
+            "name": "null checksum omf",
+            "file": "bins/omf/null_checks",
+            "args": "",
+            "commands": [
+                "is",
+                ""
+            ],
+            "expected": "[Symbols]\n001 0x00000073 0x00001000 (null) (null)    0 _start\n\n",
+            "broken": false
+        },
+        {
+            "name": "invalide index segment omf",
+            "file": "bins/omf/invalid_idx",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "invalide string size pubdef record omf",
+            "file": "bins/omf/invalid_str_pubdef",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "invalide string size lnames record omf",
+            "file": "bins/omf/invalid_str_lname",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "invalide record size omf",
+            "file": "bins/omf/invalid_size",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        }
+    ]
+}

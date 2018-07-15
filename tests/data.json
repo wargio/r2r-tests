@@ -1,1 +1,26 @@
-{"type":"cmd","tests":[{"name":"cmp data","file":"-","args":"","commands":["b 16","wx 41","e scr.null=1","cx 41 2\u003e/dev/null","e scr.null=0","?! ?e thats fine","e scr.null=1","cx 11 2\u003e/dev/null","e scr.null=0","?! ?e thats wrong","",""],"expected":"thats fine\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "cmp data",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "b 16",
+                "wx 41",
+                "e scr.null=1",
+                "cx 41 2\u003e/dev/null",
+                "e scr.null=0",
+                "?! ?e thats fine",
+                "e scr.null=1",
+                "cx 11 2\u003e/dev/null",
+                "e scr.null=0",
+                "?! ?e thats wrong",
+                "",
+                ""
+            ],
+            "expected": "thats fine\n\n",
+            "broken": false
+        }
+    ]
+}

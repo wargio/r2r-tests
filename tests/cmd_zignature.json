@@ -1,1 +1,759 @@
-{"type":"cmd","tests":[{"name":"zs unset","file":"-","args":"","commands":["","zs test1","za foo1 b aabbccdd","za bar1 b aabbccdd","zs test2","za foo2 b aabbccdd","za bar2 b aabbccdd","zs test3","za foo3 b aabbccdd","za bar3 b aabbccdd","zs *","zs-test2","z~foo1","z~bar1","z~foo2","z~bar2","z~foo3","z~bar3","",""],"expected":"(test1) foo1:\n(test1) bar1:\nfoo2:\nbar2:\n(test3) foo3:\n(test3) bar3:\n\n","broken":false},{"name":"zsr newname","file":"-","args":"","commands":["","zs test1","za foo1 b aabbccdd","za bar1 b aabbccdd","zs test2","za foo2 b aabbccdd","za bar2 b aabbccdd","zs test3","za foo3 b aabbccdd","za bar3 b aabbccdd","zs test2","zsr newtest2","zs *","z~foo1","z~bar1","z~foo2","z~bar2","z~foo3","z~bar3","",""],"expected":"(test1) foo1:\n(test1) bar1:\n(newtest2) foo2:\n(newtest2) bar2:\n(test3) foo3:\n(test3) bar3:\n\n","broken":false},{"name":"zsr newname (dupplicated name)","file":"-","args":"","commands":["","zs test1","za foo1 b aabbccdd","za bar1 b aabbccdd","zs test2","za foo2 b aabbccdd","za bar2 b aabbccdd","zs test3","za foo3 b aabbccdd","za bar3 b aabbccdd","zs test2","zsr test1","zs *","z~foo1","z~bar1","z~foo2","z~bar2","z~foo3","z~bar3","",""],"expected":"(test1) foo1:\n(test1) bar1:\n(test2) foo2:\n(test2) bar2:\n(test3) foo3:\n(test3) bar3:\n\n","broken":false},{"name":"zsr newname (root zs)","file":"-","args":"","commands":["","zs test1","za foo1 b aabbccdd","za bar1 b aabbccdd","zs test2","za foo2 b aabbccdd","za bar2 b aabbccdd","zs test3","za foo3 b aabbccdd","za bar3 b aabbccdd","zs *","zsr newtest","z~foo1","z~bar1","z~foo2","z~bar2","z~foo3","z~bar3","",""],"expected":"(test1) foo1:\n(test1) bar1:\n(test2) foo2:\n(test2) bar2:\n(test3) foo3:\n(test3) bar3:\n\n","broken":false},{"name":"z-","file":"-","args":"","commands":["zs test","za foo b aa","zs test2","za foo b aa","za bar b bb","zs *","z-foo","z","zs test2","z-foo","z","zs *","z","zs-test","z","z-foo","z","",""],"expected":"(test2) foo:\n  bytes: aa\n(test2) bar:\n  bytes: bb\n(test) foo:\n  bytes: aa\nbar:\n  bytes: bb\n(test2) bar:\n  bytes: bb\n(test) foo:\n  bytes: aa\nfoo:\n  bytes: aa\n(test2) bar:\n  bytes: bb\n(test2) bar:\n  bytes: bb\n\n","broken":false},{"name":"z-*","file":"-","args":"","commands":["","zs test1","za foo1 b aabbccdd","za bar1 b aabbccdd","zs test2","za foo2 b aabbccdd","za bar2 b aabbccdd","zs test3","za foo3 b aabbccdd","za bar3 b aabbccdd","zs test2","z-*","zs *","z~foo2","z~bar2","",""],"expected":"\n","broken":false},{"name":"za b and binmasks","file":"-","args":"","commands":["","za test b .abbc.dd..","z","",""],"expected":"test:\n  bytes: .abbc.dd..\n\n","broken":false},{"name":"za b zero mask","file":"-","args":"","commands":["","za test b ....","z","",""],"expected":"\n","broken":false},{"name":"za g","file":"-","args":"","commands":["","za test g cc=1 nbbs=2 edges=3 ebbs=4","z","",""],"expected":"test:\n  graph: cc=1 nbbs=2 edges=3 ebbs=4\n\n","broken":false},{"name":"za o","file":"-","args":"","commands":["","za test o 0x8048123","z","",""],"expected":"test:\n  offset: 0x08048123\n\n","broken":false},{"name":"za r","file":"-","args":"","commands":["","za test r sym1 sym3 sym2","z","",""],"expected":"test:\n  refs: sym1, sym3, sym2\n\n","broken":false},{"name":"za b + z/","file":"bins/elf/analysis/go_stripped","args":"","commands":["","za sym.fmt.Println b 653b2530000000724b53b834e7150883ec188b15401c22088d4c24048b5c242083ec08ff742434ff742434ff742434525051e829ffffff8b44242089038b4424248943048b44242889430889d883c4345bc204006a106a1ce85e350700c20400","z/","?v sign.bytes.sym.fmt.Println_0","",""],"expected":"0x805b030\n\n","broken":false},{"name":"za a + z/","file":"bins/elf/analysis/go_stripped","args":"","commands":["","za sym.fmt.Println a 653b2530000000724b53b834e7150883ec188b15401c22088d4c24048b5c242083ec08ff742434ff742434ff742434525051e829ffffff8b44242089038b4424248943048b44242889430889d883c4345bc204006a106a1ce85e350700c20400","z/","?v sign.bytes.sym.fmt.Println_1","",""],"expected":"0x805b030\n\n","broken":false},{"name":"za r + z/","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","za sym.main r sym.print","z/","?v sign.refs.sym.main_0","",""],"expected":"0x40055b\n\n","broken":false},{"name":"z/ with search.in","file":"bins/elf/analysis/go_stripped","args":"","commands":["","za date_string b 323030362d30312d30322031353a30343a30352e393939393939393939202d30373030204d535400","za sym.fmt.Println b 653b2530000000724b53b834e7150883ec188b15401c22088d4c24048b5c242083ec08ff742434ff742434ff742434525051e829ffffff8b44242089038b4424248943048b44242889430889d883c4345bc204006a106a1ce85e350700c20400","fs sign","f~?","e search.in=file","z/","?v sign.bytes.date_string_0","?v sign.bytes.sym.fmt.Println_0","f-*","f~?","e search.in=io.sections.exec","z/","?v sign.bytes.elf_header_0","?v sign.bytes.sym.fmt.Println_0","",""],"expected":"0\n0x81a5898\n0x805b030\n0\n0x0\n0x805b030\n\n","broken":false},{"name":"z/ with search.align","file":"malloc://1024","args":"","commands":["","wx 00112233445566778899aabbccddeeff","za foo b 1122","e zign.minsz = 0","e zign.mincc = 0","fs *","e search.align=2","z/","f~?","e search.align=1","z/","f~?","",""],"expected":"0\n1\n\n","broken":false},{"name":"z/ with search.{from,to}","file":"malloc://1024","args":"","commands":["","wx 00112233445566778899aabbccddeeff","za a b 11223344","za b b bbccddee","e zign.minsz = 0","e zign.mincc = 0","fs *","f~?","e search.in=raw","e search.from=0x0","e search.to=0x8","z/","?v sign.bytes.a_0","?v sign.bytes.b_0","f-*","f~?","e search.from=0x8","e search.to=0xf","z/","?v sign.bytes.a_0","?v sign.bytes.b_0","",""],"expected":"0\n0x1\n0x0\n0\n0x0\n0xb\n\n","broken":false},{"name":"z/ with zign.minsz","file":"malloc://1024","args":"","commands":["","wx 00112233445566778899aabbccddeeff","za foo b 11223344","e zign.minsz = 0","fs *","z/","f~?","f-*","e zign.minsz = 5","z/","f~?","",""],"expected":"1\n0\n\n","broken":false},{"name":"za b ; z/ ; aa ; axt","file":"bins/elf/analysis/zigs_stripped","args":"","commands":["","za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3","z/","e anal.hasnext=0","aa","axt 0x400536","",""],"expected":"main 0x40056f [CALL] call sign.bytes.sym.print_0\n","broken":false},{"name":"zaf","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","e zign.mincc = 0","zs zigs","zaf sym.main","z","",""],"expected":"zigs.sym.main:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n","broken":false},{"name":"zaf at offset","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","e zign.mincc = 0","zs zigs","zaf @ sym.main","z","",""],"expected":"zigs.sym.main:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n","broken":false},{"name":"zaf (root zignspace)","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","e zign.mincc = 0","zaf sym.main","z","",""],"expected":"sym.main:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n","broken":false},{"name":"zaf zigname","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","e zign.mincc = 0","zs zigs","zaf sym.main foobar","z","",""],"expected":"foobar:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n","broken":false},{"name":"zaf zigname (root zignspace)","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","e zign.mincc = 0","zaf sym.main foobar","z","",""],"expected":"foobar:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n","broken":false},{"name":"zs + zaf + z/","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","zs zigs","zaf sym.main","z/","?v sign.bytes.zigs.sym.main_0","",""],"expected":"0x40055b\n\n","broken":false},{"name":"zs + zaf + z/","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","zaf sym.main","z/","?v sign.bytes.sym.main_0","",""],"expected":"0x40055b\n\n","broken":false},{"name":"zs + zaf zigname + z/","file":"bins/elf/analysis/zigs","args":"","commands":["","aaa","zaf sym.main foobar","z/","?v sign.bytes.foobar_0","",""],"expected":"0x40055b\n\n","broken":false},{"name":"zc","file":"bins/elf/analysis/zigs_stripped","args":"","commands":["","aa","za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3","zc @@ fcn*","?v sign.bytes.sym.print_0","",""],"expected":"0x400536\n\n","broken":false},{"name":"zc graph zign","file":"bins/elf/analysis/zigs_stripped","args":"","commands":["","aa","za sym.print g cc=1 nbbs=1 edges=0 ebbs=1","e zign.mincc = 0","zc @@ fcn*","?v sign.graph.sym.print_0","",""],"expected":"0x400536\n\n","broken":false},{"name":"zc graph zign with zign.mincc","file":"bins/elf/analysis/zigs_stripped","args":"","commands":["","aa","za sym.print g cc=1 nbbs=1 edges=0 ebbs=1","e zign.mincc = 0","zc @@ fcn*","?v sign.graph.sym.print_0","f-*","e zign.mincc = 10","zc @@ fcn*","?v sign.graph.sym.print_0","",""],"expected":"0x400536\n0x0\n\n","broken":false},{"name":"z/ graph zign","file":"bins/elf/analysis/zigs_stripped","args":"","commands":["","aa","za sym.print_metric g cc=1 nbbs=1 edges=0 ebbs=1","e zign.mincc = 0","z/","?v sign.graph.sym.print_metric_4",""],"expected":"0x400536\n\n","broken":false},{"name":"z/ bytes + graph zign","file":"bins/elf/analysis/zigs_stripped","args":"","commands":["","aa","za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3","za sym.print g cc=1 nbbs=1 edges=0 ebbs=1","e zign.minsz = 0","e zign.mincc = 0","z/","?v sign.bytes.sym.print_0","?v sign.graph.sym.print_4","",""],"expected":"0x400536\n0x400536\n\n","broken":false},{"name":"z/ + zign.{bytes,graph}","file":"bins/elf/analysis/zigs_stripped","args":"","commands":["","aa","za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3","za sym.print g cc=1 nbbs=1 edges=0 ebbs=1","e zign.minsz = 0","e zign.mincc = 0","fs sign","e zign.bytes = true","e zign.graph = false","z/","f~sign.bytes.sym.print?","f~sign.graph.sym.print?","f-*","e zign.bytes = false","e zign.graph = true","z/","f~sign.bytes.sym.print?","f~sign.graph.sym.print?","",""],"expected":"1\n0\n0\n5\n\n","broken":false},{"name":"zc + zign.{bytes,graph}","file":"bins/elf/analysis/zigs_stripped","args":"","commands":["","aa","za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3","za sym.print g cc=1 nbbs=1 edges=0 ebbs=1","e zign.minsz = 0","e zign.mincc = 0","fs sign","e zign.bytes = true","e zign.graph = false","zc @ 0x400536","f~sign.bytes.sym.print?","f~sign.graph.sym.print?","f-*","e zign.bytes = false","e zign.graph = true","zc @ 0x400536","f~sign.bytes.sym.print?","f~sign.graph.sym.print?","",""],"expected":"1\n0\n0\n1\n\n","broken":false},{"name":"aa ; zfs libc-v7.sig","file":"bins/elf/analysis/pid_stripped","args":"","commands":["aa ; zfs ../bins/other/sigs/libc-v7.sig",""],"expected":"Found flirt.__libc_start_main\n\n","broken":false},{"name":"zfd libc-v7.sig","file":"bins/elf/analysis/pid_stripped","args":"","commands":["zfd ../bins/other/sigs/libc-v7.sig",""],"expected":"41564155B8........4154554D89C4534889CD4D89CD4881EC900000004885C0:\n 0. 16 D2A2 0298 0000:__libc_start_main\n\n","broken":false},{"name":"af ; af ; zfs libc-v7.sig","file":"bins/elf/analysis/pid_stripped","args":"","commands":["s 0x4e2420 ; af ; s 0x4e25c7 ; af ; zfs ../bins/other/sigs/libc-v7.sig ; afl ~4e2420",""],"expected":"0x004e2420   40 664          flirt.__libc_start_main\n\n","broken":false},{"name":"aa ; zfs libc-v10.sig","file":"bins/elf/analysis/pid_stripped","args":"","commands":["aa ; zfs ../bins/other/sigs/libc-v10.sig",""],"expected":"Found flirt.__libc_start_main\n\n","broken":false},{"name":"zfd libc-v10.sig","file":"bins/elf/analysis/pid_stripped","args":"","commands":["zfd ../bins/other/sigs/libc-v10.sig",""],"expected":"41564155B8........4154554D89C4534889CD4D89CD4881EC900000004885C0:\n 0. 16 D2A2 0298 0000:__libc_start_main\n\n","broken":false},{"name":"af ; af ; zfs libc-v10.sig","file":"bins/elf/analysis/pid_stripped","args":"","commands":["s 0x4e2420 ; af ; s 0x4e25c7 ; af ; zfs ../bins/other/sigs/libc-v10.sig ; afl ~4e2420",""],"expected":"0x004e2420   40 664          flirt.__libc_start_main\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "zs unset",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "zs test1",
+                "za foo1 b aabbccdd",
+                "za bar1 b aabbccdd",
+                "zs test2",
+                "za foo2 b aabbccdd",
+                "za bar2 b aabbccdd",
+                "zs test3",
+                "za foo3 b aabbccdd",
+                "za bar3 b aabbccdd",
+                "zs *",
+                "zs-test2",
+                "z~foo1",
+                "z~bar1",
+                "z~foo2",
+                "z~bar2",
+                "z~foo3",
+                "z~bar3",
+                "",
+                ""
+            ],
+            "expected": "(test1) foo1:\n(test1) bar1:\nfoo2:\nbar2:\n(test3) foo3:\n(test3) bar3:\n\n",
+            "broken": false
+        },
+        {
+            "name": "zsr newname",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "zs test1",
+                "za foo1 b aabbccdd",
+                "za bar1 b aabbccdd",
+                "zs test2",
+                "za foo2 b aabbccdd",
+                "za bar2 b aabbccdd",
+                "zs test3",
+                "za foo3 b aabbccdd",
+                "za bar3 b aabbccdd",
+                "zs test2",
+                "zsr newtest2",
+                "zs *",
+                "z~foo1",
+                "z~bar1",
+                "z~foo2",
+                "z~bar2",
+                "z~foo3",
+                "z~bar3",
+                "",
+                ""
+            ],
+            "expected": "(test1) foo1:\n(test1) bar1:\n(newtest2) foo2:\n(newtest2) bar2:\n(test3) foo3:\n(test3) bar3:\n\n",
+            "broken": false
+        },
+        {
+            "name": "zsr newname (dupplicated name)",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "zs test1",
+                "za foo1 b aabbccdd",
+                "za bar1 b aabbccdd",
+                "zs test2",
+                "za foo2 b aabbccdd",
+                "za bar2 b aabbccdd",
+                "zs test3",
+                "za foo3 b aabbccdd",
+                "za bar3 b aabbccdd",
+                "zs test2",
+                "zsr test1",
+                "zs *",
+                "z~foo1",
+                "z~bar1",
+                "z~foo2",
+                "z~bar2",
+                "z~foo3",
+                "z~bar3",
+                "",
+                ""
+            ],
+            "expected": "(test1) foo1:\n(test1) bar1:\n(test2) foo2:\n(test2) bar2:\n(test3) foo3:\n(test3) bar3:\n\n",
+            "broken": false
+        },
+        {
+            "name": "zsr newname (root zs)",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "zs test1",
+                "za foo1 b aabbccdd",
+                "za bar1 b aabbccdd",
+                "zs test2",
+                "za foo2 b aabbccdd",
+                "za bar2 b aabbccdd",
+                "zs test3",
+                "za foo3 b aabbccdd",
+                "za bar3 b aabbccdd",
+                "zs *",
+                "zsr newtest",
+                "z~foo1",
+                "z~bar1",
+                "z~foo2",
+                "z~bar2",
+                "z~foo3",
+                "z~bar3",
+                "",
+                ""
+            ],
+            "expected": "(test1) foo1:\n(test1) bar1:\n(test2) foo2:\n(test2) bar2:\n(test3) foo3:\n(test3) bar3:\n\n",
+            "broken": false
+        },
+        {
+            "name": "z-",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "zs test",
+                "za foo b aa",
+                "zs test2",
+                "za foo b aa",
+                "za bar b bb",
+                "zs *",
+                "z-foo",
+                "z",
+                "zs test2",
+                "z-foo",
+                "z",
+                "zs *",
+                "z",
+                "zs-test",
+                "z",
+                "z-foo",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "(test2) foo:\n  bytes: aa\n(test2) bar:\n  bytes: bb\n(test) foo:\n  bytes: aa\nbar:\n  bytes: bb\n(test2) bar:\n  bytes: bb\n(test) foo:\n  bytes: aa\nfoo:\n  bytes: aa\n(test2) bar:\n  bytes: bb\n(test2) bar:\n  bytes: bb\n\n",
+            "broken": false
+        },
+        {
+            "name": "z-*",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "zs test1",
+                "za foo1 b aabbccdd",
+                "za bar1 b aabbccdd",
+                "zs test2",
+                "za foo2 b aabbccdd",
+                "za bar2 b aabbccdd",
+                "zs test3",
+                "za foo3 b aabbccdd",
+                "za bar3 b aabbccdd",
+                "zs test2",
+                "z-*",
+                "zs *",
+                "z~foo2",
+                "z~bar2",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "za b and binmasks",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "za test b .abbc.dd..",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "test:\n  bytes: .abbc.dd..\n\n",
+            "broken": false
+        },
+        {
+            "name": "za b zero mask",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "za test b ....",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "za g",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "za test g cc=1 nbbs=2 edges=3 ebbs=4",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "test:\n  graph: cc=1 nbbs=2 edges=3 ebbs=4\n\n",
+            "broken": false
+        },
+        {
+            "name": "za o",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "za test o 0x8048123",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "test:\n  offset: 0x08048123\n\n",
+            "broken": false
+        },
+        {
+            "name": "za r",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "za test r sym1 sym3 sym2",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "test:\n  refs: sym1, sym3, sym2\n\n",
+            "broken": false
+        },
+        {
+            "name": "za b + z/",
+            "file": "bins/elf/analysis/go_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "za sym.fmt.Println b 653b2530000000724b53b834e7150883ec188b15401c22088d4c24048b5c242083ec08ff742434ff742434ff742434525051e829ffffff8b44242089038b4424248943048b44242889430889d883c4345bc204006a106a1ce85e350700c20400",
+                "z/",
+                "?v sign.bytes.sym.fmt.Println_0",
+                "",
+                ""
+            ],
+            "expected": "0x805b030\n\n",
+            "broken": false
+        },
+        {
+            "name": "za a + z/",
+            "file": "bins/elf/analysis/go_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "za sym.fmt.Println a 653b2530000000724b53b834e7150883ec188b15401c22088d4c24048b5c242083ec08ff742434ff742434ff742434525051e829ffffff8b44242089038b4424248943048b44242889430889d883c4345bc204006a106a1ce85e350700c20400",
+                "z/",
+                "?v sign.bytes.sym.fmt.Println_1",
+                "",
+                ""
+            ],
+            "expected": "0x805b030\n\n",
+            "broken": false
+        },
+        {
+            "name": "za r + z/",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "za sym.main r sym.print",
+                "z/",
+                "?v sign.refs.sym.main_0",
+                "",
+                ""
+            ],
+            "expected": "0x40055b\n\n",
+            "broken": false
+        },
+        {
+            "name": "z/ with search.in",
+            "file": "bins/elf/analysis/go_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "za date_string b 323030362d30312d30322031353a30343a30352e393939393939393939202d30373030204d535400",
+                "za sym.fmt.Println b 653b2530000000724b53b834e7150883ec188b15401c22088d4c24048b5c242083ec08ff742434ff742434ff742434525051e829ffffff8b44242089038b4424248943048b44242889430889d883c4345bc204006a106a1ce85e350700c20400",
+                "fs sign",
+                "f~?",
+                "e search.in=file",
+                "z/",
+                "?v sign.bytes.date_string_0",
+                "?v sign.bytes.sym.fmt.Println_0",
+                "f-*",
+                "f~?",
+                "e search.in=io.sections.exec",
+                "z/",
+                "?v sign.bytes.elf_header_0",
+                "?v sign.bytes.sym.fmt.Println_0",
+                "",
+                ""
+            ],
+            "expected": "0\n0x81a5898\n0x805b030\n0\n0x0\n0x805b030\n\n",
+            "broken": false
+        },
+        {
+            "name": "z/ with search.align",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "wx 00112233445566778899aabbccddeeff",
+                "za foo b 1122",
+                "e zign.minsz = 0",
+                "e zign.mincc = 0",
+                "fs *",
+                "e search.align=2",
+                "z/",
+                "f~?",
+                "e search.align=1",
+                "z/",
+                "f~?",
+                "",
+                ""
+            ],
+            "expected": "0\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "z/ with search.{from,to}",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "wx 00112233445566778899aabbccddeeff",
+                "za a b 11223344",
+                "za b b bbccddee",
+                "e zign.minsz = 0",
+                "e zign.mincc = 0",
+                "fs *",
+                "f~?",
+                "e search.in=raw",
+                "e search.from=0x0",
+                "e search.to=0x8",
+                "z/",
+                "?v sign.bytes.a_0",
+                "?v sign.bytes.b_0",
+                "f-*",
+                "f~?",
+                "e search.from=0x8",
+                "e search.to=0xf",
+                "z/",
+                "?v sign.bytes.a_0",
+                "?v sign.bytes.b_0",
+                "",
+                ""
+            ],
+            "expected": "0\n0x1\n0x0\n0\n0x0\n0xb\n\n",
+            "broken": false
+        },
+        {
+            "name": "z/ with zign.minsz",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "wx 00112233445566778899aabbccddeeff",
+                "za foo b 11223344",
+                "e zign.minsz = 0",
+                "fs *",
+                "z/",
+                "f~?",
+                "f-*",
+                "e zign.minsz = 5",
+                "z/",
+                "f~?",
+                "",
+                ""
+            ],
+            "expected": "1\n0\n\n",
+            "broken": false
+        },
+        {
+            "name": "za b ; z/ ; aa ; axt",
+            "file": "bins/elf/analysis/zigs_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3",
+                "z/",
+                "e anal.hasnext=0",
+                "aa",
+                "axt 0x400536",
+                "",
+                ""
+            ],
+            "expected": "main 0x40056f [CALL] call sign.bytes.sym.print_0\n",
+            "broken": false
+        },
+        {
+            "name": "zaf",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "e zign.mincc = 0",
+                "zs zigs",
+                "zaf sym.main",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "zigs.sym.main:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n",
+            "broken": false
+        },
+        {
+            "name": "zaf at offset",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "e zign.mincc = 0",
+                "zs zigs",
+                "zaf @ sym.main",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "zigs.sym.main:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n",
+            "broken": false
+        },
+        {
+            "name": "zaf (root zignspace)",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "e zign.mincc = 0",
+                "zaf sym.main",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "sym.main:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n",
+            "broken": false
+        },
+        {
+            "name": "zaf zigname",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "e zign.mincc = 0",
+                "zs zigs",
+                "zaf sym.main foobar",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "foobar:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n",
+            "broken": false
+        },
+        {
+            "name": "zaf zigname (root zignspace)",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "e zign.mincc = 0",
+                "zaf sym.main foobar",
+                "z",
+                "",
+                ""
+            ],
+            "expected": "foobar:\n  bytes: 554889e54883ec1089....48......bf........e8........b800000000c9c3\n  graph: cc=1 nbbs=1 edges=0 ebbs=1\n  offset: 0x0040055b\n  refs: sym.print\n\n",
+            "broken": false
+        },
+        {
+            "name": "zs + zaf + z/",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "zs zigs",
+                "zaf sym.main",
+                "z/",
+                "?v sign.bytes.zigs.sym.main_0",
+                "",
+                ""
+            ],
+            "expected": "0x40055b\n\n",
+            "broken": false
+        },
+        {
+            "name": "zs + zaf + z/",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "zaf sym.main",
+                "z/",
+                "?v sign.bytes.sym.main_0",
+                "",
+                ""
+            ],
+            "expected": "0x40055b\n\n",
+            "broken": false
+        },
+        {
+            "name": "zs + zaf zigname + z/",
+            "file": "bins/elf/analysis/zigs",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "zaf sym.main foobar",
+                "z/",
+                "?v sign.bytes.foobar_0",
+                "",
+                ""
+            ],
+            "expected": "0x40055b\n\n",
+            "broken": false
+        },
+        {
+            "name": "zc",
+            "file": "bins/elf/analysis/zigs_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3",
+                "zc @@ fcn*",
+                "?v sign.bytes.sym.print_0",
+                "",
+                ""
+            ],
+            "expected": "0x400536\n\n",
+            "broken": false
+        },
+        {
+            "name": "zc graph zign",
+            "file": "bins/elf/analysis/zigs_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "za sym.print g cc=1 nbbs=1 edges=0 ebbs=1",
+                "e zign.mincc = 0",
+                "zc @@ fcn*",
+                "?v sign.graph.sym.print_0",
+                "",
+                ""
+            ],
+            "expected": "0x400536\n\n",
+            "broken": false
+        },
+        {
+            "name": "zc graph zign with zign.mincc",
+            "file": "bins/elf/analysis/zigs_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "za sym.print g cc=1 nbbs=1 edges=0 ebbs=1",
+                "e zign.mincc = 0",
+                "zc @@ fcn*",
+                "?v sign.graph.sym.print_0",
+                "f-*",
+                "e zign.mincc = 10",
+                "zc @@ fcn*",
+                "?v sign.graph.sym.print_0",
+                "",
+                ""
+            ],
+            "expected": "0x400536\n0x0\n\n",
+            "broken": false
+        },
+        {
+            "name": "z/ graph zign",
+            "file": "bins/elf/analysis/zigs_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "za sym.print_metric g cc=1 nbbs=1 edges=0 ebbs=1",
+                "e zign.mincc = 0",
+                "z/",
+                "?v sign.graph.sym.print_metric_4",
+                ""
+            ],
+            "expected": "0x400536\n\n",
+            "broken": false
+        },
+        {
+            "name": "z/ bytes + graph zign",
+            "file": "bins/elf/analysis/zigs_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3",
+                "za sym.print g cc=1 nbbs=1 edges=0 ebbs=1",
+                "e zign.minsz = 0",
+                "e zign.mincc = 0",
+                "z/",
+                "?v sign.bytes.sym.print_0",
+                "?v sign.graph.sym.print_4",
+                "",
+                ""
+            ],
+            "expected": "0x400536\n0x400536\n\n",
+            "broken": false
+        },
+        {
+            "name": "z/ + zign.{bytes,graph}",
+            "file": "bins/elf/analysis/zigs_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3",
+                "za sym.print g cc=1 nbbs=1 edges=0 ebbs=1",
+                "e zign.minsz = 0",
+                "e zign.mincc = 0",
+                "fs sign",
+                "e zign.bytes = true",
+                "e zign.graph = false",
+                "z/",
+                "f~sign.bytes.sym.print?",
+                "f~sign.graph.sym.print?",
+                "f-*",
+                "e zign.bytes = false",
+                "e zign.graph = true",
+                "z/",
+                "f~sign.bytes.sym.print?",
+                "f~sign.graph.sym.print?",
+                "",
+                ""
+            ],
+            "expected": "1\n0\n0\n5\n\n",
+            "broken": false
+        },
+        {
+            "name": "zc + zign.{bytes,graph}",
+            "file": "bins/elf/analysis/zigs_stripped",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "za sym.print b 5548....48......48......48......48....bf........b8........e8........90c9c3",
+                "za sym.print g cc=1 nbbs=1 edges=0 ebbs=1",
+                "e zign.minsz = 0",
+                "e zign.mincc = 0",
+                "fs sign",
+                "e zign.bytes = true",
+                "e zign.graph = false",
+                "zc @ 0x400536",
+                "f~sign.bytes.sym.print?",
+                "f~sign.graph.sym.print?",
+                "f-*",
+                "e zign.bytes = false",
+                "e zign.graph = true",
+                "zc @ 0x400536",
+                "f~sign.bytes.sym.print?",
+                "f~sign.graph.sym.print?",
+                "",
+                ""
+            ],
+            "expected": "1\n0\n0\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "aa ; zfs libc-v7.sig",
+            "file": "bins/elf/analysis/pid_stripped",
+            "args": "",
+            "commands": [
+                "aa ; zfs bins/other/sigs/libc-v7.sig",
+                ""
+            ],
+            "expected": "Found flirt.__libc_start_main\n\n",
+            "broken": false
+        },
+        {
+            "name": "zfd libc-v7.sig",
+            "file": "bins/elf/analysis/pid_stripped",
+            "args": "",
+            "commands": [
+                "zfd bins/other/sigs/libc-v7.sig",
+                ""
+            ],
+            "expected": "41564155B8........4154554D89C4534889CD4D89CD4881EC900000004885C0:\n 0. 16 D2A2 0298 0000:__libc_start_main\n\n",
+            "broken": false
+        },
+        {
+            "name": "af ; af ; zfs libc-v7.sig",
+            "file": "bins/elf/analysis/pid_stripped",
+            "args": "",
+            "commands": [
+                "s 0x4e2420 ; af ; s 0x4e25c7 ; af ; zfs bins/other/sigs/libc-v7.sig ; afl ~4e2420",
+                ""
+            ],
+            "expected": "0x004e2420   40 664          flirt.__libc_start_main\n\n",
+            "broken": false
+        },
+        {
+            "name": "aa ; zfs libc-v10.sig",
+            "file": "bins/elf/analysis/pid_stripped",
+            "args": "",
+            "commands": [
+                "aa ; zfs bins/other/sigs/libc-v10.sig",
+                ""
+            ],
+            "expected": "Found flirt.__libc_start_main\n\n",
+            "broken": false
+        },
+        {
+            "name": "zfd libc-v10.sig",
+            "file": "bins/elf/analysis/pid_stripped",
+            "args": "",
+            "commands": [
+                "zfd bins/other/sigs/libc-v10.sig",
+                ""
+            ],
+            "expected": "41564155B8........4154554D89C4534889CD4D89CD4881EC900000004885C0:\n 0. 16 D2A2 0298 0000:__libc_start_main\n\n",
+            "broken": false
+        },
+        {
+            "name": "af ; af ; zfs libc-v10.sig",
+            "file": "bins/elf/analysis/pid_stripped",
+            "args": "",
+            "commands": [
+                "s 0x4e2420 ; af ; s 0x4e25c7 ; af ; zfs bins/other/sigs/libc-v10.sig ; afl ~4e2420",
+                ""
+            ],
+            "expected": "0x004e2420   40 664          flirt.__libc_start_main\n\n",
+            "broken": false
+        }
+    ]
+}

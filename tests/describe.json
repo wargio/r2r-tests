@@ -1,1 +1,38 @@
-{"type":"cmd","tests":[{"name":"asm.describe alignment with memory access","file":"-","args":"","commands":["","e asm.arch = x86","e anal.arch = x86","e asm.bits=32","\"wa mov eax, [0x100]\"","e asm.describe = true","pd 1","",""],"expected":"            0x00000000      a100010000     mov eax, dword [0x100]      ; [0x100:4]=0 ; moves data from src to dst\n\n","broken":false},{"name":"asm.describe alignment","file":"-","args":"","commands":["","wa nop","e asm.describe = true","pd 1","",""],"expected":"            0x00000000      90             nop                         ; no operation\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "asm.describe alignment with memory access",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e asm.bits=32",
+                "\"wa mov eax, [0x100]\"",
+                "e asm.describe = true",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      a100010000     mov eax, dword [0x100]      ; [0x100:4]=0 ; moves data from src to dst\n\n",
+            "broken": false
+        },
+        {
+            "name": "asm.describe alignment",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "wa nop",
+                "e asm.describe = true",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      90             nop                         ; no operation\n\n",
+            "broken": false
+        }
+    ]
+}

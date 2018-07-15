@@ -1,0 +1,281 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "loading a BIOS file [64k]",
+            "file": "bins/firmware/bios_64k.bin",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "entrypoint decoding",
+            "file": "bins/firmware/bios_64k.bin",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "corrupted section data",
+            "file": "bins/firmware/bios_64k.bin",
+            "args": "",
+            "commands": [
+                "pi 1",
+                ""
+            ],
+            "expected": "ljmp 0xf000:0xffaa\n\n",
+            "broken": false
+        },
+        {
+            "name": "ljmp follow",
+            "file": "bins/firmware/bios_64k.bin",
+            "args": "",
+            "commands": [
+                "s $j",
+                "? $$",
+                ""
+            ],
+            "expected": "hex     0xfffaa\noctal   03777652\nunit    1023.9K\nsegment f000:0faa\nint32   1048490\nstring  \"\\xaa\\xff\\x0f\"\nbinary  0b000011111111111110101010\nfvalue: 1048490.0\nfloat:  0.000000f\ndouble: 0.000000\ntrits   0t1222021020222\n",
+            "broken": false
+        },
+        {
+            "name": "loading a BIOS file [128k]",
+            "file": "bins/firmware/bios_128k.bin",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "entrypoint decoding",
+            "file": "bins/firmware/bios_128k.bin",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "corrupted section data",
+            "file": "bins/firmware/bios_128k.bin",
+            "args": "",
+            "commands": [
+                "pi 1",
+                ""
+            ],
+            "expected": "ljmp 0xf000:0xffaa\n\n",
+            "broken": false
+        },
+        {
+            "name": "loading a BIOS file [256k]",
+            "file": "bins/firmware/bios_256k.bin",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "entrypoint decoding",
+            "file": "bins/firmware/bios_256k.bin",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "corrupted section data",
+            "file": "bins/firmware/bios_256k.bin",
+            "args": "",
+            "commands": [
+                "pi 1",
+                ""
+            ],
+            "expected": "ljmp 0xf000:0xffaa\n\n",
+            "broken": false
+        },
+        {
+            "name": "loading a BIOS file [512k]",
+            "file": "bins/firmware/bios_512k.bin",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "entrypoint decoding",
+            "file": "bins/firmware/bios_512k.bin",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "corrupted section data",
+            "file": "bins/firmware/bios_512k.bin",
+            "args": "",
+            "commands": [
+                "pi 1",
+                ""
+            ],
+            "expected": "ljmp 0xf000:0xffaa\n\n",
+            "broken": false
+        },
+        {
+            "name": "loading a BIOS file [1M]",
+            "file": "bins/firmware/bios_1M.bin",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "entrypoint decoding",
+            "file": "bins/firmware/bios_1M.bin",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "corrupted section data",
+            "file": "bins/firmware/bios_1M.bin",
+            "args": "",
+            "commands": [
+                "pi 1",
+                ""
+            ],
+            "expected": "ljmp 0xf000:0xffaa\n\n",
+            "broken": false
+        },
+        {
+            "name": "loading a BIOS file [2M]",
+            "file": "bins/firmware/bios_2M.bin",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "entrypoint decoding",
+            "file": "bins/firmware/bios_2M.bin",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "corrupted section data",
+            "file": "bins/firmware/bios_2M.bin",
+            "args": "",
+            "commands": [
+                "pi 1",
+                ""
+            ],
+            "expected": "ljmp 0xf000:0xffaa\n\n",
+            "broken": false
+        },
+        {
+            "name": "loading a BIOS file [4M]",
+            "file": "bins/firmware/bios_4M.bin",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "entrypoint decoding",
+            "file": "bins/firmware/bios_4M.bin",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "corrupted section data",
+            "file": "bins/firmware/bios_4M.bin",
+            "args": "",
+            "commands": [
+                "pi 1",
+                ""
+            ],
+            "expected": "ljmp 0xf000:0xffaa\n\n",
+            "broken": false
+        },
+        {
+            "name": "loading a BIOS file [8M]",
+            "file": "bins/firmware/bios_8M.bin",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "entrypoint decoding",
+            "file": "bins/firmware/bios_8M.bin",
+            "args": "",
+            "commands": [
+                "ie~addr",
+                ""
+            ],
+            "expected": "vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "corrupted section data",
+            "file": "bins/firmware/bios_8M.bin",
+            "args": "",
+            "commands": [
+                "pi 1",
+                ""
+            ],
+            "expected": "ljmp 0xf000:0xffaa\n\n",
+            "broken": false
+        }
+    ]
+}

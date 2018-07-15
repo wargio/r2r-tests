@@ -1,0 +1,309 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "baddr ==",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "rabin2 -qe ${R2_FILE};!rabin2 -B 0x400000 -qe ${R2_FILE}"
+            ],
+            "expected": "0x00400410\n0x00400410",
+            "broken": false
+        },
+        {
+            "name": "baddr \u003e 0",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "rabin2 -qe ${R2_FILE};!rabin2 -B 0x800000 -qe ${R2_FILE}"
+            ],
+            "expected": "0x00400410\n0x00800410",
+            "broken": false
+        },
+        {
+            "name": "baddr 0",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "rabin2 -qe ${R2_FILE};!rabin2 -B 0 -qe ${R2_FILE}"
+            ],
+            "expected": "0x00400410\n0x00000410",
+            "broken": false
+        },
+        {
+            "name": "laddr 0",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "rabin2 -G 0 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x00400410 paddr=0x00000410 baddr=0x00400000 laddr=0x00000000 haddr=0x00000018 type=program\n\n1 entrypoints",
+            "broken": false
+        },
+        {
+            "name": "laddr 0 \u0026\u0026 baddr 0",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "rabin2 -G 0 -B 0 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x00000410 paddr=0x00000410 baddr=0x00000000 laddr=0x00000000 haddr=0x00000018 type=program\n\n1 entrypoints",
+            "broken": false
+        },
+        {
+            "name": "rabin -k file",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "rabin2 -k ${R2_FILE}"
+            ],
+            "expected": "\u003c\u003cEXPECT_ERR",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -K md5 -S file",
+            "file": "bins/pe/a.exe",
+            "args": "",
+            "commands": [
+                "rabin2 -K md5 -S ${R2_FILE}"
+            ],
+            "expected": "[Sections]\n00 0x00000400  2560 0x00401000  4096 -r-x md5=3d6a5b8dc5e41b09659638ad5735e5b5 .text\n01 0x00000e00   512 0x00402000  4096 -rw- md5=b3c542ba67f2d1a949fa1a25ce22f7e3 .data\n02 0x00001000   512 0x00403000  4096 -r-- md5=c9a877a4e945b087b8323830442c88d6 .rdata\n03 0x00000000     0 0x00404000  4096 -rw- md5=d41d8cd98f00b204e9800998ecf8427e .bss\n04 0x00001200  1024 0x00405000  4096 -rw- md5=963212dc58a74f32e0f6ffce84dcf7ea .idata",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -s file pe",
+            "file": "bins/pe/a.exe",
+            "args": "",
+            "commands": [
+                "rabin2 -s ${R2_FILE}|wc -l|awk \"{print \\$1}\""
+            ],
+            "expected": "21",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -s file elf",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "rabin2 -s ${R2_FILE}|wc -l|awk \"{print \\$1}\""
+            ],
+            "expected": "66",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -S, -SS, -rS and -rSS file elf",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "rabin2 -S ${R2_FILE}|wc -l|awk \"{print \\$1}\"",
+                "!rabin2 -SS ${R2_FILE}|wc -l|awk \"{print \\$1}\"",
+                "!rabin2 -rS ${R2_FILE}|wc -l|awk \"{print \\$1}\"",
+                "!rabin2 -rSS ${R2_FILE}|wc -l|awk \"{print \\$1}\"",
+                "!env RABIN2_PREFIX=prixfixe rabin2 -S ${R2_FILE} |grep prixfixe. |wc -l |awk \"{print \\$1}\"",
+                "!env RABIN2_PREFIX=prixfixe rabin2 -SS ${R2_FILE} |grep prixfixe. |wc -l |awk \"{print \\$1}\"",
+                "!env RABIN2_PREFIX=prixfixe rabin2 -rS ${R2_FILE} |grep prixfixe. |wc -l |awk \"{print \\$1}\"",
+                "!env RABIN2_PREFIX=prixfixe rabin2 -rSS ${R2_FILE} |grep prixfixe. |wc -l |awk \"{print \\$1}\""
+            ],
+            "expected": "31\n10\n121\n37\n30\n9\n120\n36",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -z pe",
+            "file": "bins/pe/a.exe",
+            "args": "",
+            "commands": [
+                "rabin2 -z ${R2_FILE}|wc -l|awk \"{print \\$1}\""
+            ],
+            "expected": "4",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -z elf",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "rabin2 -z ${R2_FILE}|wc -l|awk \"{print \\$1}\""
+            ],
+            "expected": "1",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -G 0x1000 -rs fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -G 0x1000 -rs ${R2_FILE}|grep \"f \" | wc -l|awk \"{print \\$1}\""
+            ],
+            "expected": "3",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -G 0x1300 -rs fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -G 0x1300 -rs ${R2_FILE}|wc -l|awk \"{print \\$1}\""
+            ],
+            "expected": "1",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -G 0x1000 -e fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -G 0x1000 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x100000ef8 paddr=0x00001ef8 baddr=0x100000000 laddr=0x00001000 haddr=0x00000570 type=program\n\n1 entrypoints",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -e fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x100000ef8 paddr=0x00001ef8 baddr=0x100000000 laddr=0x00001000 haddr=0x00000570 type=program\n\n1 entrypoints",
+            "broken": true
+        },
+        {
+            "name": "rabin2 -G 0x5000 -e fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -G 0x5000 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x00001f44 paddr=0x00005f44 baddr=0x00001000 laddr=0x00005000 haddr=0x00000420 type=program\n\n1 entrypoints",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -a x86 -b 32 -e fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -a x86 -b 32 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x00001f44 paddr=0x00005f44 baddr=0x00001000 laddr=0x00005000 haddr=0x00000420 type=program\n\n1 entrypoints",
+            "broken": true
+        },
+        {
+            "name": "rabin2 -B 0x2000000 -G 0x1000 -e fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -B 0x2000000 -G 0x1000 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x02000ef8 paddr=0x00001ef8 baddr=0x02000000 laddr=0x00001000 haddr=0x00000570 type=program\n\n1 entrypoints",
+            "broken": false
+        },
+        {
+            "name": "TODO: test on pie fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -B 0x2000000 -G 0x1000 -e ${R2_FILE}"
+            ],
+            "expected": "???",
+            "broken": true
+        },
+        {
+            "name": "rabin2 -B 0x2000000 -e arm64",
+            "file": "bins/mach0/hello-ios-arm64",
+            "args": "",
+            "commands": [
+                "rabin2 -B 0x2000000 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x02007f34 paddr=0x00007f34 baddr=0x02000000 laddr=0x00000000 haddr=0x00000468 type=program\n\n1 entrypoints",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -B 0x2000000 -e arm64",
+            "file": "bins/mach0/hello-ios-arm64",
+            "args": "",
+            "commands": [
+                "rabin2 -B 0x2000000 -e ${R2_FILE}"
+            ],
+            "expected": "[Entrypoints]\nvaddr=0x02007f34 paddr=0x00007f34 baddr=0x02000000 laddr=0x00000000 haddr=0x00000468 type=program\n\n1 entrypoints",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -a x86 -b 32 -i fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -a x86 -b 32 -i ${R2_FILE}"
+            ],
+            "expected": "[Imports]\n   0 0x00001f94    NONE    FUNC exit\n   1 0x00000000    NONE    FUNC dyld_stub_binder",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -G 0x5000 -i fatmach0",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "",
+            "commands": [
+                "rabin2 -G 0x5000 -i ${R2_FILE}"
+            ],
+            "expected": "[Imports]\n   0 0x00001f94    NONE    FUNC exit\n   1 0x00000000    NONE    FUNC dyld_stub_binder",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -qqz",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "rabin2 -qqz ${R2_FILE}"
+            ],
+            "expected": "Hello World",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -qOr",
+            "file": "bins/elf/analysis/ls-linux-x86_64-zlul",
+            "args": "",
+            "commands": [
+                "rabin2 -qOr/.data/-1 ${FILE}",
+                "!rabin2 -qOr/.data/-1 ${FILE}"
+            ],
+            "expected": "",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -qOp/.data/rwx on PE32",
+            "file": "bins/pe/test.exe",
+            "args": "",
+            "commands": [
+                "m /tmp/rabin2testpe1.exe",
+                "!rabin2 -qOp/.data/rwx -o/tmp/rabin2testpe1.exe ${R2_FILE}",
+                "!rabin2 -S /tmp/rabin2testpe1.exe",
+                "rm /tmp/rabin2testpe1.exe"
+            ],
+            "expected": "wx e0000040 @ 0x244\n[Sections]\n00 0x00000400 35328 0x00401000 36864 -r-x .text\n01 0x00008e00  9216 0x0040a000 12288 -r-- .rdata\n02 0x0000b200  4096 0x0040d000 12288 -rwx .data\n03 0x0000c200   512 0x00410000  4096 -r-- .rsrc\n04 0x0000c400  3584 0x00411000  4096 -r-- .reloc",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -qOp//8 on PE32+",
+            "file": "bins/pe/normal64.exe",
+            "args": "",
+            "commands": [
+                "m /tmp/rabin2testpe2.exe",
+                "!rabin2 -qOp//8 -o/tmp/rabin2testpe2.exe ${R2_FILE}",
+                "!rabin2 -S /tmp/rabin2testpe2.exe",
+                "rm /tmp/rabin2testpe2.exe"
+            ],
+            "expected": "wx 10000000 @ 0x16c\n[Sections]\n00 0x00000200   512 0x00401000  4096 s--- sect_0",
+            "broken": false
+        },
+        {
+            "name": "rabin2 -g",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "rabin2 -g ${R2_FILE}"
+            ],
+            "expected": "[Sections]\n00 0x00000000     0 0x00000000     0 ---- \n01 0x00000134    19 0x08048134    19 -r-- .interp\n02 0x00000148    32 0x08048148    32 -r-- .note.ABI_tag\n03 0x00000168    36 0x08048168    36 -r-- .note.gnu.build_id\n04 0x0000018c    32 0x0804818c    32 -r-- .gnu.hash\n05 0x000001ac    80 0x080481ac    80 -r-- .dynsym\n06 0x000001fc    74 0x080481fc    74 -r-- .dynstr\n07 0x00000246    10 0x08048246    10 -r-- .gnu.version\n08 0x00000250    32 0x08048250    32 -r-- .gnu.version_r\n09 0x00000270     8 0x08048270     8 -r-- .rel.dyn\n10 0x00000278    24 0x08048278    24 -r-- .rel.plt\n11 0x00000290    35 0x08048290    35 -r-x .init\n12 0x000002c0    64 0x080482c0    64 -r-x .plt\n13 0x00000300   404 0x08048300   404 -r-x .text\n14 0x00000494    20 0x08048494    20 -r-x .fini\n15 0x000004a8    21 0x080484a8    21 -r-- .rodata\n16 0x000004c0    44 0x080484c0    44 -r-- .eh_frame_hdr\n17 0x000004ec   176 0x080484ec   176 -r-- .eh_frame\n18 0x0000059c     4 0x0804959c     4 -rw- .init_array\n19 0x000005a0     4 0x080495a0     4 -rw- .fini_array\n20 0x000005a4     4 0x080495a4     4 -rw- .jcr\n21 0x000005a8   232 0x080495a8   232 -rw- .dynamic\n22 0x00000690     4 0x08049690     4 -rw- .got\n23 0x00000694    24 0x08049694    24 -rw- .got.plt\n24 0x000006ac     8 0x080496ac     8 -rw- .data\n25 0x000006b4     0 0x080496b4     4 -rw- .bss\n26 0x000006b4    17 0x00000000    17 ---- .comment\n27 0x000006c5   262 0x00000000   262 ---- .shstrtab\n28 0x00000c7c  1104 0x00000000  1104 ---- .symtab\n29 0x000010cc   599 0x00000000   599 ---- .strtab\n[Segments]\n00 0x00000034   256 0x08048034   256 -r-x PHDR\n01 0x00000134    19 0x08048134    19 -r-- INTERP\n02 0x00000000  1436 0x08048000  1436 -r-x LOAD0\n03 0x0000059c   280 0x0804959c   284 -rw- LOAD1\n04 0x000005a8   232 0x080495a8   232 -rw- DYNAMIC\n05 0x00000148    68 0x08048148    68 -r-- NOTE\n06 0x000004c0    44 0x080484c0    44 -r-- GNU_EH_FRAME\n07 0x00000000     0 0x00000000     0 -rw- GNU_STACK\n08 0x00000000    52 0x08048000    52 -rw- ehdr\n[Entrypoints]\nvaddr=0x08048300 paddr=0x00000300 baddr=0x08048000 laddr=0x00000000 haddr=0x00000018 type=program\n\n1 entrypoints\n[Constructors]\nvaddr=0x080483d0 paddr=0x080483d0 baddr=0x08048000 laddr=0x00000000 haddr=0x0000059c type=init\nvaddr=0x080483b0 paddr=0x080483b0 baddr=0x08048000 laddr=0x00000000 haddr=0x000005a0 type=fini\n\n2 entrypoints\n[Main]\nvaddr=0x08048400 paddr=0x00000400\n[Imports]\n   1 0x080482d0  GLOBAL    FUNC puts\n   2 0x080482e0    WEAK  NOTYPE __gmon_start__\n   3 0x080482f0  GLOBAL    FUNC __libc_start_main\n[Symbols]\n001 0x00000134 0x08048134  LOCAL   SECT    0\n002 0x00000148 0x08048148  LOCAL   SECT    0\n003 0x00000168 0x08048168  LOCAL   SECT    0\n004 0x0000018c 0x0804818c  LOCAL   SECT    0\n005 0x000001ac 0x080481ac  LOCAL   SECT    0\n006 0x000001fc 0x080481fc  LOCAL   SECT    0\n007 0x00000246 0x08048246  LOCAL   SECT    0\n008 0x00000250 0x08048250  LOCAL   SECT    0\n009 0x00000270 0x08048270  LOCAL   SECT    0\n010 0x00000278 0x08048278  LOCAL   SECT    0\n011 0x00000290 0x08048290  LOCAL   SECT    0\n012 0x000002c0 0x080482c0  LOCAL   SECT    0\n013 0x00000300 0x08048300  LOCAL   SECT    0\n014 0x00000494 0x08048494  LOCAL   SECT    0\n015 0x000004a8 0x080484a8  LOCAL   SECT    0\n016 0x000004c0 0x080484c0  LOCAL   SECT    0\n017 0x000004ec 0x080484ec  LOCAL   SECT    0\n018 0x0000059c 0x0804959c  LOCAL   SECT    0\n019 0x000005a0 0x080495a0  LOCAL   SECT    0\n020 0x000005a4 0x080495a4  LOCAL   SECT    0\n021 0x000005a8 0x080495a8  LOCAL   SECT    0\n022 0x00000690 0x08049690  LOCAL   SECT    0\n023 0x00000694 0x08049694  LOCAL   SECT    0\n024 0x000006ac 0x080496ac  LOCAL   SECT    0\n025 0x000006b4 0x080496b4  LOCAL   SECT    0\n026 0x00000000 0x08048000  LOCAL   SECT    0\n027 0x00000000 0x08048000  LOCAL   FILE    0 init.c\n028 0x00000000 0x08048000  LOCAL   FILE    0\n029 0x00000000 0x08048000  LOCAL   FILE    0 crtstuff.c\n030 0x000005a4 0x080495a4  LOCAL    OBJ    0 __JCR_LIST__\n031 0x00000340 0x08048340  LOCAL   FUNC    0 deregister_tm_clones\n032 0x00000370 0x08048370  LOCAL   FUNC    0 register_tm_clones\n033 0x000003b0 0x080483b0  LOCAL   FUNC    0 __do_global_dtors_aux\n034 0x000006b4 0x080496b4  LOCAL    OBJ    1 completed.5979\n035 0x000005a0 0x080495a0  LOCAL    OBJ    0 __do_global_dtors_aux_fini_array_entry\n036 0x000003d0 0x080483d0  LOCAL   FUNC    0 frame_dummy\n037 0x0000059c 0x0804959c  LOCAL    OBJ    0 __frame_dummy_init_array_entry\n038 0x00000000 0x08048000  LOCAL   FILE    0 hello.c\n039 0x00000000 0x08048000  LOCAL   FILE    0 crtstuff.c\n040 0x00000598 0x08048598  LOCAL    OBJ    0 __FRAME_END__\n041 0x000005a4 0x080495a4  LOCAL    OBJ    0 __JCR_END__\n042 0x00000000 0x08048000  LOCAL   FILE    0\n043 0x000005a0 0x080495a0  LOCAL NOTYPE    0 __init_array_end\n044 0x000005a8 0x080495a8  LOCAL    OBJ    0 _DYNAMIC\n045 0x0000059c 0x0804959c  LOCAL NOTYPE    0 __init_array_start\n046 0x00000694 0x08049694  LOCAL    OBJ    0 _GLOBAL_OFFSET_TABLE_\n047 0x00000490 0x08048490 GLOBAL   FUNC    2 __libc_csu_fini\n049 0x00000330 0x08048330 GLOBAL   FUNC    4 __x86.get_pc_thunk.bx\n050 0x000006ac 0x080496ac   WEAK NOTYPE    0 data_start\n051 0x000006b4 0x080496b4 GLOBAL NOTYPE    0 _edata\n052 0x00000494 0x08048494 GLOBAL   FUNC    0 _fini\n053 0x000006ac 0x080496ac GLOBAL NOTYPE    0 __data_start\n056 0x000006b0 0x080496b0 GLOBAL    OBJ    0 __dso_handle\n057 0x000004ac 0x080484ac GLOBAL    OBJ    4 _IO_stdin_used\n059 0x00000420 0x08048420 GLOBAL   FUNC   97 __libc_csu_init\n060 0x080496b8 0x080496b8 GLOBAL NOTYPE    0 _end\n061 0x00000300 0x08048300 GLOBAL   FUNC    0 _start\n062 0x000004a8 0x080484a8 GLOBAL    OBJ    4 _fp_hw\n063 0x000006b4 0x080496b4 GLOBAL NOTYPE    0 __bss_start\n064 0x00000400 0x08048400 GLOBAL   FUNC   28 main\n066 0x000006b4 0x080496b4 GLOBAL    OBJ    0 __TMC_END__\n068 0x00000290 0x08048290 GLOBAL   FUNC    0 _init\n001 0x000002d0 0x080482d0 GLOBAL   FUNC   16 imp.puts\n002 0x000002e0 0x080482e0   WEAK NOTYPE   16 imp.__gmon_start__\n003 0x000002f0 0x080482f0 GLOBAL   FUNC   16 imp.__libc_start_main\n000 0x000004b0 0x080484b0  12  13 (.rodata) ascii Hello world!\narch     x86\nbinsz    4899\nbintype  elf\nbits     32\ncanary   false\nclass    ELF32\ncrypto   false\nendian   little\nhavecode true\nintrp    /lib/ld-linux.so.2\nlang     c\nlinenum  true\nlsyms    true\nmachine  Intel 80386\nmaxopsz  16\nminopsz  1\nnx       true\nos       linux\npcalign  0\npic      false\nrelocs   true\nrelro    no\nrpath    NONE\nstatic   false\nstripped false\nsubsys   linux\nva       true\n0x00000000  ELF MAGIC   0x464c457f\n0x00000010  Type        0x0002\n0x00000012  Machine     0x0003\n0x00000014  Version     0x00000001\n0x00000018  Entrypoint  0x08048300\n0x0000001c  PhOff       0x00000034\n0x00000020  ShOff       0x000007cc\n[Linked libraries]\nlibc.so.6\n\n1 library\n[Relocations]\nvaddr=0x08049690 paddr=0x00000690 type=SET_32 __gmon_start__\nvaddr=0x080496a0 paddr=0x000006a0 type=SET_32 puts\nvaddr=0x080496a4 paddr=0x000006a4 type=SET_32 __gmon_start__\nvaddr=0x080496a8 paddr=0x000006a8 type=SET_32 __libc_start_main\n\n4 relocations\n4899\nVersion symbols section '.gnu.version' contains 5 entries:\n Addr: 0x08048246  Offset: 0x00000246  Link: 5 (.dynsym)\n  0x00000000: 0 (*local*)\n  0x00000001: 2 (GLIBC_2.0)\n  0x00000002: 0 (*local*)\n  0x00000003: 2 (GLIBC_2.0)\n  0x00000004: 1 (*global*)\n\n\nVersion need section '.gnu.version_r' contains 1 entries:\n Addr: 0x08048250  Offset: 0x00000250  Link to section: 6 (.dynstr)\n  0x00000000: Version: 1  File: libc.so.6  Cnt: 1\n  0x00000010:   Name: GLIBC_2.0  Flags: none Version: 2",
+            "broken": false
+        }
+    ]
+}

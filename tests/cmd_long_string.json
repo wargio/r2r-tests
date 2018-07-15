@@ -1,18 +1,27 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "pD@x:90~str~?",
-        "file": "bins/mach0/bin_longstring",
-        "args": "-e asm.cmt.right=true",
-        "commands": ["s 0x10000088a; pd 3~string~?", ""],
-        "expected": "4\n\n",
-        "broken": true
-    }, {
-        "name": "pD@x:90",
-        "file": "bins/mach0/bin_longstring",
-        "args": "-e asm.cmt.right=false",
-        "commands": ["s 0x10000088a; pd 3~?string", ""],
-        "expected": "4\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "pD@x:90~str~?",
+            "file": "bins/mach0/bin_longstring",
+            "args": "-e asm.cmt.right=true",
+            "commands": [
+                "s 0x10000088a; pd 3~string~?",
+                ""
+            ],
+            "expected": "4\n\n",
+            "broken": true
+        },
+        {
+            "name": "pD@x:90",
+            "file": "bins/mach0/bin_longstring",
+            "args": "-e asm.cmt.right=false",
+            "commands": [
+                "s 0x10000088a; pd 3~?string",
+                ""
+            ],
+            "expected": "4\n\n",
+            "broken": false
+        }
+    ]
 }

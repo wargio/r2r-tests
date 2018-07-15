@@ -1,1 +1,192 @@
-{"type":"cmd","tests":[{"name":"s0x","file":"-","args":"","commands":["s0x33","s",""],"expected":"0x33\n","broken":false},{"name":"seek far offset","file":"-","args":"","commands":["","s 0x7fffff8000b54000 ; ?v $$","s 0x8fffff8000b54000 ; ?v $$","",""],"expected":"0x7fffff8000b54000\n0x8fffff8000b54000\n\n","broken":false},{"name":"seek math (symbol addition)","file":"bins/elf/analysis/hello-linux-x86_64","args":"","commands":["","s sym._start + 8","s","",""],"expected":"0x400418\n\n","broken":false},{"name":"seek opcodes","file":"-","args":"","commands":["","e asm.arch=x86","e asm.bits=64","wx 4883c668","s 0; so   ; ?v $$","s 0; so 1 ; ?v $$","",""],"expected":"0x4\n0x4\n\n","broken":false},{"name":"seek line","file":"bins/mach0/mac-ls","args":"","commands":["","sl 1; ?v $$","e lines.from=0x100002000","e lines.to=0x100004000","sl 9","sl","sl+1","sl","sl-2","sl","sl 999999999999","sl","sl 0","sl","sl 1; ?v $$","",""],"expected":"0x100001058\n9\n10\n8\n8\n8\n0x1000025a3\n","broken":false},{"name":"seek local flag","file":"bins/elf/analysis/main","args":"","commands":["","af@main","f.foo@main+4","s main+.foo","s","s main+.foo","s","",""],"expected":"0x40050a\n0x40050a\n\n","broken":false},{"name":"Redodups","file":"malloc://512","args":"","commands":["","s $$","s $$","s $$","s $$","s*~?","",""],"expected":"1\n\n","broken":false},{"name":"seek backwards","file":"malloc://0x4000","args":"","commands":["","s 0","b 64","wb 38","s 64","wb deadbeef","s-32","px","",""],"expected":"- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0x00000020  3838 3838 3838 3838 3838 3838 3838 3838  8888888888888888\n0x00000030  3838 3838 3838 3838 3838 3838 3838 3838  8888888888888888\n0x00000040  dead beef dead beef dead beef dead beef  ................\n0x00000050  dead beef dead beef dead beef dead beef  ................\n\n","broken":false},{"name":"seek silent","file":"-","args":"","commands":["","s 0x100","s","s*","?e","s 0x200","s","s*","?e","ss 0x300","s","s*","",""],"expected":"0x100\nf undo_0 @ 0x0\n\n0x200\nf undo_1 @ 0x0\nf undo_0 @ 0x100\n\n0x300\nf undo_1 @ 0x0\nf undo_0 @ 0x100\n\n","broken":false},{"name":"seek silent to register","file":"-","args":"","commands":["","e asm.arch=x86","e asm.bits=32","dr eax=0x200","dr ebx=0x300","s 0x100","s","s*","?e","sr eax","s","s*","?e","ssr ebx","s","s*","",""],"expected":"0x100\nf undo_0 @ 0x0\n\n0x200\nf undo_1 @ 0x0\nf undo_0 @ 0x100\n\n0x300\nf undo_1 @ 0x0\nf undo_0 @ 0x100\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "s0x",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "s0x33",
+                "s",
+                ""
+            ],
+            "expected": "0x33\n",
+            "broken": false
+        },
+        {
+            "name": "seek far offset",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x7fffff8000b54000 ; ?v $$",
+                "s 0x8fffff8000b54000 ; ?v $$",
+                "",
+                ""
+            ],
+            "expected": "0x7fffff8000b54000\n0x8fffff8000b54000\n\n",
+            "broken": false
+        },
+        {
+            "name": "seek math (symbol addition)",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "",
+                "s sym._start + 8",
+                "s",
+                "",
+                ""
+            ],
+            "expected": "0x400418\n\n",
+            "broken": false
+        },
+        {
+            "name": "seek opcodes",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 4883c668",
+                "s 0; so   ; ?v $$",
+                "s 0; so 1 ; ?v $$",
+                "",
+                ""
+            ],
+            "expected": "0x4\n0x4\n\n",
+            "broken": false
+        },
+        {
+            "name": "seek line",
+            "file": "bins/mach0/mac-ls",
+            "args": "",
+            "commands": [
+                "",
+                "sl 1; ?v $$",
+                "e lines.from=0x100002000",
+                "e lines.to=0x100004000",
+                "sl 9",
+                "sl",
+                "sl+1",
+                "sl",
+                "sl-2",
+                "sl",
+                "sl 999999999999",
+                "sl",
+                "sl 0",
+                "sl",
+                "sl 1; ?v $$",
+                "",
+                ""
+            ],
+            "expected": "0x100001058\n9\n10\n8\n8\n8\n0x1000025a3\n",
+            "broken": false
+        },
+        {
+            "name": "seek local flag",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "af@main",
+                "f.foo@main+4",
+                "s main+.foo",
+                "s",
+                "s main+.foo",
+                "s",
+                "",
+                ""
+            ],
+            "expected": "0x40050a\n0x40050a\n\n",
+            "broken": false
+        },
+        {
+            "name": "Redodups",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "",
+                "s $$",
+                "s $$",
+                "s $$",
+                "s $$",
+                "s*~?",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "seek backwards",
+            "file": "malloc://0x4000",
+            "args": "",
+            "commands": [
+                "",
+                "s 0",
+                "b 64",
+                "wb 38",
+                "s 64",
+                "wb deadbeef",
+                "s-32",
+                "px",
+                "",
+                ""
+            ],
+            "expected": "- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0x00000020  3838 3838 3838 3838 3838 3838 3838 3838  8888888888888888\n0x00000030  3838 3838 3838 3838 3838 3838 3838 3838  8888888888888888\n0x00000040  dead beef dead beef dead beef dead beef  ................\n0x00000050  dead beef dead beef dead beef dead beef  ................\n\n",
+            "broken": false
+        },
+        {
+            "name": "seek silent",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x100",
+                "s",
+                "s*",
+                "?e",
+                "s 0x200",
+                "s",
+                "s*",
+                "?e",
+                "ss 0x300",
+                "s",
+                "s*",
+                "",
+                ""
+            ],
+            "expected": "0x100\nf undo_0 @ 0x0\n\n0x200\nf undo_1 @ 0x0\nf undo_0 @ 0x100\n\n0x300\nf undo_1 @ 0x0\nf undo_0 @ 0x100\n\n",
+            "broken": false
+        },
+        {
+            "name": "seek silent to register",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "dr eax=0x200",
+                "dr ebx=0x300",
+                "s 0x100",
+                "s",
+                "s*",
+                "?e",
+                "sr eax",
+                "s",
+                "s*",
+                "?e",
+                "ssr ebx",
+                "s",
+                "s*",
+                "",
+                ""
+            ],
+            "expected": "0x100\nf undo_0 @ 0x0\n\n0x200\nf undo_1 @ 0x0\nf undo_0 @ 0x100\n\n0x300\nf undo_1 @ 0x0\nf undo_0 @ 0x100\n\n",
+            "broken": false
+        }
+    ]
+}

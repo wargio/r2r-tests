@@ -1,0 +1,78 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "io ff",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "",
+                "p8 4 @ 0x999999999",
+                "",
+                ""
+            ],
+            "expected": "ffffffff\n\n",
+            "broken": false
+        },
+        {
+            "name": "io ff based on seek",
+            "file": "bins/pe/b.exe",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x0040200b",
+                "p8 10",
+                "s +1",
+                "p8 10",
+                "",
+                ""
+            ],
+            "expected": "00000000000000000000\n00000000000000000000\n\n",
+            "broken": false
+        },
+        {
+            "name": "presection read",
+            "file": "bins/mach0/ls-ios",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x8000",
+                "p8 16",
+                "s 0x8000-1",
+                "p8 16",
+                "",
+                ""
+            ],
+            "expected": "00009de404108de2014080e2042181e0\nff00009de404108de2014080e2042181\n\n",
+            "broken": false
+        },
+        {
+            "name": "pre-0x0-read1",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "",
+                "e io.va=true",
+                "p8 2 @ -1",
+                "",
+                ""
+            ],
+            "expected": "ff00\n\n",
+            "broken": false
+        },
+        {
+            "name": "pre-0x0-read2",
+            "file": "malloc://32",
+            "args": "",
+            "commands": [
+                "",
+                "e io.va=true",
+                "p8 4 @ -2",
+                "",
+                ""
+            ],
+            "expected": "ffff0000\n\n",
+            "broken": false
+        }
+    ]
+}

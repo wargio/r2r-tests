@@ -1,1 +1,91 @@
-{"type":"cmd","tests":[{"name":"/ search.in=io.maps without -m","file":"bins//wasm/inc.wast","args":"-m 0x80000","commands":["","e search.in=io.maps","e io.va=true","/ get~[0]","",""],"expected":"0x00080053\n0x00080067\n\n","broken":false},{"name":"/ search.in=io.maps without -m","file":"bins//wasm/inc.wast","args":"","commands":["","e search.in=io.maps","/ get~[0]","",""],"expected":"0x00000053\n0x00000067\n\n","broken":false},{"name":"/ search.in=(default)","file":"bins//wasm/inc.wast","args":"","commands":["","/ get~[0]","",""],"expected":"0x00000053\n0x00000067\n\n","broken":false},{"name":"/ search.in=file","file":"bins//wasm/inc.wast","args":"","commands":["","e search.in=file","/ get~[0]","",""],"expected":"0x00000053\n0x00000067\n\n","broken":false},{"name":"/ search io.maps with map","file":"bins//wasm/inc.wast","args":"-m 0x80000","commands":["","e search.in=io.maps","e io.va=true","/ get~[0]","",""],"expected":"0x00080053\n0x00080067\n\n","broken":false},{"name":"/ search io.maps 2","file":"bins//wasm/inc.wast","args":"-m 0x80000","commands":["","om 3 0x400000","e io.va=true","e search.in=io.maps","/ get~[0]",""],"expected":"0x00080053\n0x00080067\n0x00400053\n0x00400067\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "/ search.in=io.maps without -m",
+            "file": "bins//wasm/inc.wast",
+            "args": "-m 0x80000",
+            "commands": [
+                "",
+                "e search.in=io.maps",
+                "e io.va=true",
+                "/ get~[0]",
+                "",
+                ""
+            ],
+            "expected": "0x00080053\n0x00080067\n\n",
+            "broken": false
+        },
+        {
+            "name": "/ search.in=io.maps without -m",
+            "file": "bins//wasm/inc.wast",
+            "args": "",
+            "commands": [
+                "",
+                "e search.in=io.maps",
+                "/ get~[0]",
+                "",
+                ""
+            ],
+            "expected": "0x00000053\n0x00000067\n\n",
+            "broken": false
+        },
+        {
+            "name": "/ search.in=(default)",
+            "file": "bins//wasm/inc.wast",
+            "args": "",
+            "commands": [
+                "",
+                "/ get~[0]",
+                "",
+                ""
+            ],
+            "expected": "0x00000053\n0x00000067\n\n",
+            "broken": false
+        },
+        {
+            "name": "/ search.in=file",
+            "file": "bins//wasm/inc.wast",
+            "args": "",
+            "commands": [
+                "",
+                "e search.in=file",
+                "/ get~[0]",
+                "",
+                ""
+            ],
+            "expected": "0x00000053\n0x00000067\n\n",
+            "broken": false
+        },
+        {
+            "name": "/ search io.maps with map",
+            "file": "bins//wasm/inc.wast",
+            "args": "-m 0x80000",
+            "commands": [
+                "",
+                "e search.in=io.maps",
+                "e io.va=true",
+                "/ get~[0]",
+                "",
+                ""
+            ],
+            "expected": "0x00080053\n0x00080067\n\n",
+            "broken": false
+        },
+        {
+            "name": "/ search io.maps 2",
+            "file": "bins//wasm/inc.wast",
+            "args": "-m 0x80000",
+            "commands": [
+                "",
+                "om 3 0x400000",
+                "e io.va=true",
+                "e search.in=io.maps",
+                "/ get~[0]",
+                ""
+            ],
+            "expected": "0x00080053\n0x00080067\n0x00400053\n0x00400067\n\n",
+            "broken": false
+        }
+    ]
+}

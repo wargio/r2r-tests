@@ -1,1 +1,33 @@
-{"type":"cmd","tests":[{"name":"sandbox disable","file":"-","args":"","commands":["e cfg.sandbox=true","e cfg.sandbox=false","e cfg.sandbox","",""],"expected":"true\n\n","broken":false},{"name":"sandbox open","file":"-","args":"","commands":["e cfg.sandbox=true","o~[4]","oc /bin/ls","",""],"expected":"malloc://512\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "sandbox disable",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e cfg.sandbox=true",
+                "e cfg.sandbox=false",
+                "e cfg.sandbox",
+                "",
+                ""
+            ],
+            "expected": "true\n\n",
+            "broken": false
+        },
+        {
+            "name": "sandbox open",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e cfg.sandbox=true",
+                "o~[4]",
+                "oc /bin/ls",
+                "",
+                ""
+            ],
+            "expected": "malloc://512\n\n",
+            "broken": false
+        }
+    ]
+}

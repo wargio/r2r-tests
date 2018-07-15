@@ -1,1 +1,55 @@
-{"type":"cmd","tests":[{"name":"p8 2 @x:9090","file":"malloc://1024","args":"","commands":["p8 2 @x:9090","",""],"expected":"9090\n\n","broken":false},{"name":"p8 8 @x:9090","file":"malloc://1024","args":"","commands":["p8 8 @x:9090","",""],"expected":"9090000000000000\n","broken":true},{"name":"pi 2 @x:9090","file":"malloc://1024","args":"","commands":["pi 2 @x:9090","",""],"expected":"nop\nnop\n\n","broken":false},{"name":"pi 3 @x:9090","file":"malloc://1024","args":"","commands":["e asm.arch=x86","e asm.bits=64","pi 3 @x:9090","",""],"expected":"nop\nnop\nadd byte [rax], al\n\n","broken":true}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "p8 2 @x:9090",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "p8 2 @x:9090",
+                "",
+                ""
+            ],
+            "expected": "9090\n\n",
+            "broken": false
+        },
+        {
+            "name": "p8 8 @x:9090",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "p8 8 @x:9090",
+                "",
+                ""
+            ],
+            "expected": "9090000000000000\n",
+            "broken": true
+        },
+        {
+            "name": "pi 2 @x:9090",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "pi 2 @x:9090",
+                "",
+                ""
+            ],
+            "expected": "nop\nnop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi 3 @x:9090",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "pi 3 @x:9090",
+                "",
+                ""
+            ],
+            "expected": "nop\nnop\nadd byte [rax], al\n\n",
+            "broken": true
+        }
+    ]
+}

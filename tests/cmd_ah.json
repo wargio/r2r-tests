@@ -1,25 +1,59 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "ah- offset",
-        "file": "-",
-        "args": "",
-        "commands": ["", "ahi 10 @ 0", "ahi 8 @ 16", "?e before:", "ah", "ah- 0x10", "?e after:", "ah", "", ""],
-        "expected": "before:\n 0x00000000 - 0x00000000 =\u003e immbase=10\n 0x00000010 - 0x00000010 =\u003e immbase=8\nafter:\n 0x00000000 - 0x00000000 =\u003e immbase=10\n\n",
-        "broken": false
-    }, {
-        "name": "ah-offset",
-        "file": "-",
-        "args": "",
-        "commands": ["", "ahi 10 @ 0", "ahi 8 @ 16", "?e before:", "ah", "ah-0x10", "?e after:", "ah", "", ""],
-        "expected": "before:\n 0x00000000 - 0x00000000 =\u003e immbase=10\n 0x00000010 - 0x00000010 =\u003e immbase=8\nafter:\n 0x00000000 - 0x00000000 =\u003e immbase=10\n\n",
-        "broken": false
-    }, {
-        "name": "ah*",
-        "file": "-",
-        "args": "",
-        "commands": ["", "ahi 10 @ 0", "ahi 8 @ 16", "ah*", "ah* 16", "", ""],
-        "expected": "ahi 10 @ 0x0\nahi 8 @ 0x10\nahi 8 @ 0x10\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "ah- offset",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "ahi 10 @ 0",
+                "ahi 8 @ 16",
+                "?e before:",
+                "ah",
+                "ah- 0x10",
+                "?e after:",
+                "ah",
+                "",
+                ""
+            ],
+            "expected": "before:\n 0x00000000 - 0x00000000 =\u003e immbase=10\n 0x00000010 - 0x00000010 =\u003e immbase=8\nafter:\n 0x00000000 - 0x00000000 =\u003e immbase=10\n\n",
+            "broken": false
+        },
+        {
+            "name": "ah-offset",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "ahi 10 @ 0",
+                "ahi 8 @ 16",
+                "?e before:",
+                "ah",
+                "ah-0x10",
+                "?e after:",
+                "ah",
+                "",
+                ""
+            ],
+            "expected": "before:\n 0x00000000 - 0x00000000 =\u003e immbase=10\n 0x00000010 - 0x00000010 =\u003e immbase=8\nafter:\n 0x00000000 - 0x00000000 =\u003e immbase=10\n\n",
+            "broken": false
+        },
+        {
+            "name": "ah*",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "ahi 10 @ 0",
+                "ahi 8 @ 16",
+                "ah*",
+                "ah* 16",
+                "",
+                ""
+            ],
+            "expected": "ahi 10 @ 0x0\nahi 8 @ 0x10\nahi 8 @ 0x10\n\n",
+            "broken": false
+        }
+    ]
 }

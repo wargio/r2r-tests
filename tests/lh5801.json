@@ -1,1 +1,1675 @@
-{"type":"asm","tests":[{"name":"lh5801: d \"adc #(1234h)\" fda31234","file":"-","args":"-a lh5801","commands":["pad fda31234"],"expected":"adc #(1234h)\n","broken":false},{"name":"lh5801: d \"adc #(x)\" fd03","file":"-","args":"-a lh5801","commands":["pad fd03"],"expected":"adc #(x)\n","broken":false},{"name":"lh5801: d \"adc (1234h)\" a31234","file":"-","args":"-a lh5801","commands":["pad a31234"],"expected":"adc (1234h)\n","broken":false},{"name":"lh5801: d \"adc (x)\" 03","file":"-","args":"-a lh5801","commands":["pad 03"],"expected":"adc (x)\n","broken":false},{"name":"lh5801: d \"adc xh\" 82","file":"-","args":"-a lh5801","commands":["pad 82"],"expected":"adc xh\n","broken":false},{"name":"lh5801: d \"adc xl\" 02","file":"-","args":"-a lh5801","commands":["pad 02"],"expected":"adc xl\n","broken":false},{"name":"lh5801: d \"adi #(1234h), 56h\" fdef123456","file":"-","args":"-a lh5801","commands":["pad fdef123456"],"expected":"adi #(1234h), 56h\n","broken":false},{"name":"lh5801: d \"adi #(x), 12h\" fd4f12","file":"-","args":"-a lh5801","commands":["pad fd4f12"],"expected":"adi #(x), 12h\n","broken":false},{"name":"lh5801: d \"adi (1234h), 56h\" ef123456","file":"-","args":"-a lh5801","commands":["pad ef123456"],"expected":"adi (1234h), 56h\n","broken":false},{"name":"lh5801: d \"adi (x), 12h\" 4f12","file":"-","args":"-a lh5801","commands":["pad 4f12"],"expected":"adi (x), 12h\n","broken":false},{"name":"lh5801: d \"adi a, 12h\" b312","file":"-","args":"-a lh5801","commands":["pad b312"],"expected":"adi a, 12h\n","broken":false},{"name":"lh5801: d \"adr x\" fdca","file":"-","args":"-a lh5801","commands":["pad fdca"],"expected":"adr x\n","broken":false},{"name":"lh5801: d \"aex\" f1","file":"-","args":"-a lh5801","commands":["pad f1"],"expected":"aex\n","broken":false},{"name":"lh5801: d \"am0\" fdce","file":"-","args":"-a lh5801","commands":["pad fdce"],"expected":"am0\n","broken":false},{"name":"lh5801: d \"am1\" fdde","file":"-","args":"-a lh5801","commands":["pad fdde"],"expected":"am1\n","broken":false},{"name":"lh5801: d \"and #(1234h)\" fda91234","file":"-","args":"-a lh5801","commands":["pad fda91234"],"expected":"and #(1234h)\n","broken":false},{"name":"lh5801: d \"and #(x)\" fd09","file":"-","args":"-a lh5801","commands":["pad fd09"],"expected":"and #(x)\n","broken":false},{"name":"lh5801: d \"and (1234h)\" a91234","file":"-","args":"-a lh5801","commands":["pad a91234"],"expected":"and (1234h)\n","broken":false},{"name":"lh5801: d \"and (x)\" 09","file":"-","args":"-a lh5801","commands":["pad 09"],"expected":"and (x)\n","broken":false},{"name":"lh5801: d \"ani #(3456h), 78h\" fde9345678","file":"-","args":"-a lh5801","commands":["pad fde9345678"],"expected":"ani #(3456h), 78h\n","broken":false},{"name":"lh5801: d \"ani #(x), 12h\" fd4912","file":"-","args":"-a lh5801","commands":["pad fd4912"],"expected":"ani #(x), 12h\n","broken":false},{"name":"lh5801: d \"ani (3456h), 78h\" e9345678","file":"-","args":"-a lh5801","commands":["pad e9345678"],"expected":"ani (3456h), 78h\n","broken":false},{"name":"lh5801: d \"ani (x), 12h\" 4912","file":"-","args":"-a lh5801","commands":["pad 4912"],"expected":"ani (x), 12h\n","broken":false},{"name":"lh5801: d \"ani a, 12h\" b912","file":"-","args":"-a lh5801","commands":["pad b912"],"expected":"ani a, 12h\n","broken":false},{"name":"lh5801: d \"atp\" fdcc","file":"-","args":"-a lh5801","commands":["pad fdcc"],"expected":"atp\n","broken":false},{"name":"lh5801: d \"att\" fdec","file":"-","args":"-a lh5801","commands":["pad fdec"],"expected":"att\n","broken":false},{"name":"lh5801: d \"bch +12h\" 8e12","file":"-","args":"-a lh5801","commands":["pad 8e12"],"expected":"bch +12h\n","broken":false},{"name":"lh5801: d \"bch -34h\" 9e34","file":"-","args":"-a lh5801","commands":["pad 9e34"],"expected":"bch -34h\n","broken":false},{"name":"lh5801: d \"bcr +12h\" 8112","file":"-","args":"-a lh5801","commands":["pad 8112"],"expected":"bcr +12h\n","broken":false},{"name":"lh5801: d \"bcr -12h\" 9112","file":"-","args":"-a lh5801","commands":["pad 9112"],"expected":"bcr -12h\n","broken":false},{"name":"lh5801: d \"bcs +12h\" 8312","file":"-","args":"-a lh5801","commands":["pad 8312"],"expected":"bcs +12h\n","broken":false},{"name":"lh5801: d \"bcs -12h\" 9312","file":"-","args":"-a lh5801","commands":["pad 9312"],"expected":"bcs -12h\n","broken":false},{"name":"lh5801: d \"bhr +12h\" 8512","file":"-","args":"-a lh5801","commands":["pad 8512"],"expected":"bhr +12h\n","broken":false},{"name":"lh5801: d \"bhr -12h\" 9512","file":"-","args":"-a lh5801","commands":["pad 9512"],"expected":"bhr -12h\n","broken":false},{"name":"lh5801: d \"bhs +12h\" 8712","file":"-","args":"-a lh5801","commands":["pad 8712"],"expected":"bhs +12h\n","broken":false},{"name":"lh5801: d \"bhs -12h\" 9712","file":"-","args":"-a lh5801","commands":["pad 9712"],"expected":"bhs -12h\n","broken":false},{"name":"lh5801: d \"bii #(3456h), 12h\" fded345612","file":"-","args":"-a lh5801","commands":["pad fded345612"],"expected":"bii #(3456h), 12h\n","broken":false},{"name":"lh5801: d \"bii #(x), 12h\" fd4d12","file":"-","args":"-a lh5801","commands":["pad fd4d12"],"expected":"bii #(x), 12h\n","broken":false},{"name":"lh5801: d \"bii (3456h), 12h\" ed345612","file":"-","args":"-a lh5801","commands":["pad ed345612"],"expected":"bii (3456h), 12h\n","broken":false},{"name":"lh5801: d \"bii (x), 12h\" 4d12","file":"-","args":"-a lh5801","commands":["pad 4d12"],"expected":"bii (x), 12h\n","broken":false},{"name":"lh5801: d \"bii a, 12h\" bf12","file":"-","args":"-a lh5801","commands":["pad bf12"],"expected":"bii a, 12h\n","broken":false},{"name":"lh5801: d \"bit #(1234h)\" fdaf1234","file":"-","args":"-a lh5801","commands":["pad fdaf1234"],"expected":"bit #(1234h)\n","broken":false},{"name":"lh5801: d \"bit #(x)\" fd0f","file":"-","args":"-a lh5801","commands":["pad fd0f"],"expected":"bit #(x)\n","broken":false},{"name":"lh5801: d \"bit (1234h)\" af1234","file":"-","args":"-a lh5801","commands":["pad af1234"],"expected":"bit (1234h)\n","broken":false},{"name":"lh5801: d \"bit (x)\" 0f","file":"-","args":"-a lh5801","commands":["pad 0f"],"expected":"bit (x)\n","broken":false},{"name":"lh5801: d \"bvr +12h\" 8d12","file":"-","args":"-a lh5801","commands":["pad 8d12"],"expected":"bvr +12h\n","broken":false},{"name":"lh5801: d \"bvr -12h\" 9d12","file":"-","args":"-a lh5801","commands":["pad 9d12"],"expected":"bvr -12h\n","broken":false},{"name":"lh5801: d \"bvs +12h\" 8f12","file":"-","args":"-a lh5801","commands":["pad 8f12"],"expected":"bvs +12h\n","broken":false},{"name":"lh5801: d \"bvs -12h\" 9f12","file":"-","args":"-a lh5801","commands":["pad 9f12"],"expected":"bvs -12h\n","broken":false},{"name":"lh5801: d \"bzr +12h\" 8912","file":"-","args":"-a lh5801","commands":["pad 8912"],"expected":"bzr +12h\n","broken":false},{"name":"lh5801: d \"bzr -12h\" 9912","file":"-","args":"-a lh5801","commands":["pad 9912"],"expected":"bzr -12h\n","broken":false},{"name":"lh5801: d \"bzs +12h\" 8b12","file":"-","args":"-a lh5801","commands":["pad 8b12"],"expected":"bzs +12h\n","broken":false},{"name":"lh5801: d \"bzs -12h\" 9b12","file":"-","args":"-a lh5801","commands":["pad 9b12"],"expected":"bzs -12h\n","broken":false},{"name":"lh5801: d \"cdv\" fd8e","file":"-","args":"-a lh5801","commands":["pad fd8e"],"expected":"cdv\n","broken":false},{"name":"lh5801: d \"cin\" f7","file":"-","args":"-a lh5801","commands":["pad f7"],"expected":"cin\n","broken":false},{"name":"lh5801: d \"cpa #(1234h)\" fda71234","file":"-","args":"-a lh5801","commands":["pad fda71234"],"expected":"cpa #(1234h)\n","broken":false},{"name":"lh5801: d \"cpa #(x)\" fd07","file":"-","args":"-a lh5801","commands":["pad fd07"],"expected":"cpa #(x)\n","broken":false},{"name":"lh5801: d \"cpa (1234h)\" a71234","file":"-","args":"-a lh5801","commands":["pad a71234"],"expected":"cpa (1234h)\n","broken":false},{"name":"lh5801: d \"cpa (x)\" 07","file":"-","args":"-a lh5801","commands":["pad 07"],"expected":"cpa (x)\n","broken":false},{"name":"lh5801: d \"cpa xh\" 86","file":"-","args":"-a lh5801","commands":["pad 86"],"expected":"cpa xh\n","broken":false},{"name":"lh5801: d \"cpa xl\" 06","file":"-","args":"-a lh5801","commands":["pad 06"],"expected":"cpa xl\n","broken":false},{"name":"lh5801: d \"cpi a, 12h\" b712","file":"-","args":"-a lh5801","commands":["pad b712"],"expected":"cpi a, 12h\n","broken":false},{"name":"lh5801: d \"cpi xh, 12h\" 4c12","file":"-","args":"-a lh5801","commands":["pad 4c12"],"expected":"cpi xh, 12h\n","broken":false},{"name":"lh5801: d \"cpi xl, 12h\" 4e12","file":"-","args":"-a lh5801","commands":["pad 4e12"],"expected":"cpi xl, 12h\n","broken":false},{"name":"lh5801: d \"dca #(y)\" fd9c","file":"-","args":"-a lh5801","commands":["pad fd9c"],"expected":"dca #(y)\n","broken":false},{"name":"lh5801: d \"dca (y)\" 9c","file":"-","args":"-a lh5801","commands":["pad 9c"],"expected":"dca (y)\n","broken":false},{"name":"lh5801: d \"dcs #(x)\" fd0c","file":"-","args":"-a lh5801","commands":["pad fd0c"],"expected":"dcs #(x)\n","broken":false},{"name":"lh5801: d \"dcs (x)\" 0c","file":"-","args":"-a lh5801","commands":["pad 0c"],"expected":"dcs (x)\n","broken":false},{"name":"lh5801: d \"dec a\" df","file":"-","args":"-a lh5801","commands":["pad df"],"expected":"dec a\n","broken":false},{"name":"lh5801: d \"dec u\" 66","file":"-","args":"-a lh5801","commands":["pad 66"],"expected":"dec u\n","broken":false},{"name":"lh5801: d \"dec uh\" fd62","file":"-","args":"-a lh5801","commands":["pad fd62"],"expected":"dec uh\n","broken":false},{"name":"lh5801: d \"dec ul\" 62","file":"-","args":"-a lh5801","commands":["pad 62"],"expected":"dec ul\n","broken":false},{"name":"lh5801: d \"eai 12h\" bd12","file":"-","args":"-a lh5801","commands":["pad bd12"],"expected":"eai 12h\n","broken":false},{"name":"lh5801: d \"eor #(1234h)\" fdad1234","file":"-","args":"-a lh5801","commands":["pad fdad1234"],"expected":"eor #(1234h)\n","broken":false},{"name":"lh5801: d \"eor #(x)\" fd0d","file":"-","args":"-a lh5801","commands":["pad fd0d"],"expected":"eor #(x)\n","broken":false},{"name":"lh5801: d \"eor (1234h)\" ad1234","file":"-","args":"-a lh5801","commands":["pad ad1234"],"expected":"eor (1234h)\n","broken":false},{"name":"lh5801: d \"eor (x)\" 0d","file":"-","args":"-a lh5801","commands":["pad 0d"],"expected":"eor (x)\n","broken":false},{"name":"lh5801: d \"hlt\" fdb1","file":"-","args":"-a lh5801","commands":["pad fdb1"],"expected":"hlt\n","broken":false},{"name":"lh5801: d \"inc a\" dd","file":"-","args":"-a lh5801","commands":["pad dd"],"expected":"inc a\n","broken":false},{"name":"lh5801: d \"inc u\" 64","file":"-","args":"-a lh5801","commands":["pad 64"],"expected":"inc u\n","broken":false},{"name":"lh5801: d \"inc uh\" fd60","file":"-","args":"-a lh5801","commands":["pad fd60"],"expected":"inc uh\n","broken":false},{"name":"lh5801: d \"inc ul\" 60","file":"-","args":"-a lh5801","commands":["pad 60"],"expected":"inc ul\n","broken":false},{"name":"lh5801: d \"ita\" fdba","file":"-","args":"-a lh5801","commands":["pad fdba"],"expected":"ita\n","broken":false},{"name":"lh5801: d \"jmp 1234h\" ba1234","file":"-","args":"-a lh5801","commands":["pad ba1234"],"expected":"jmp 1234h\n","broken":false},{"name":"lh5801: d \"lda #(1234h)\" fda51234","file":"-","args":"-a lh5801","commands":["pad fda51234"],"expected":"lda #(1234h)\n","broken":false},{"name":"lh5801: d \"lda #(x)\" fd05","file":"-","args":"-a lh5801","commands":["pad fd05"],"expected":"lda #(x)\n","broken":false},{"name":"lh5801: d \"lda (1234h)\" a51234","file":"-","args":"-a lh5801","commands":["pad a51234"],"expected":"lda (1234h)\n","broken":false},{"name":"lh5801: d \"lda (x)\" 05","file":"-","args":"-a lh5801","commands":["pad 05"],"expected":"lda (x)\n","broken":false},{"name":"lh5801: d \"lda xh\" 84","file":"-","args":"-a lh5801","commands":["pad 84"],"expected":"lda xh\n","broken":false},{"name":"lh5801: d \"lda xl\" 04","file":"-","args":"-a lh5801","commands":["pad 04"],"expected":"lda xl\n","broken":false},{"name":"lh5801: d \"lde x\" 47","file":"-","args":"-a lh5801","commands":["pad 47"],"expected":"lde x\n","broken":false},{"name":"lh5801: d \"ldi a, 12h\" b512","file":"-","args":"-a lh5801","commands":["pad b512"],"expected":"ldi a, 12h\n","broken":false},{"name":"lh5801: d \"ldi xh, 12h\" 4812","file":"-","args":"-a lh5801","commands":["pad 4812"],"expected":"ldi xh, 12h\n","broken":false},{"name":"lh5801: d \"ldi xl, 12h\" 4a12","file":"-","args":"-a lh5801","commands":["pad 4a12"],"expected":"ldi xl, 12h\n","broken":false},{"name":"lh5801: d \"ldx p\" fd58","file":"-","args":"-a lh5801","commands":["pad fd58"],"expected":"ldx p\n","broken":false},{"name":"lh5801: d \"ldx s\" fd48","file":"-","args":"-a lh5801","commands":["pad fd48"],"expected":"ldx s\n","broken":false},{"name":"lh5801: d \"ldx x\" fd08","file":"-","args":"-a lh5801","commands":["pad fd08"],"expected":"ldx x\n","broken":false},{"name":"lh5801: d \"lin x\" 45","file":"-","args":"-a lh5801","commands":["pad 45"],"expected":"lin x\n","broken":false},{"name":"lh5801: d \"lop 30h\" 8830","file":"-","args":"-a lh5801","commands":["pad 8830"],"expected":"lop 30h\n","broken":false},{"name":"lh5801: d \"nop\" 38","file":"-","args":"-a lh5801","commands":["pad 38"],"expected":"nop\n","broken":false},{"name":"lh5801: d \"off\" fd4c","file":"-","args":"-a lh5801","commands":["pad fd4c"],"expected":"off\n","broken":false},{"name":"lh5801: d \"ora #(1234h)\" fdab1234","file":"-","args":"-a lh5801","commands":["pad fdab1234"],"expected":"ora #(1234h)\n","broken":false},{"name":"lh5801: d \"ora #(x)\" fd0b","file":"-","args":"-a lh5801","commands":["pad fd0b"],"expected":"ora #(x)\n","broken":false},{"name":"lh5801: d \"ora (1234h)\" ab1234","file":"-","args":"-a lh5801","commands":["pad ab1234"],"expected":"ora (1234h)\n","broken":false},{"name":"lh5801: d \"ora (x)\" 0b","file":"-","args":"-a lh5801","commands":["pad 0b"],"expected":"ora (x)\n","broken":false},{"name":"lh5801: d \"ori #(1234h), 56h\" fdeb123456","file":"-","args":"-a lh5801","commands":["pad fdeb123456"],"expected":"ori #(1234h), 56h\n","broken":false},{"name":"lh5801: d \"ori #(x), 12h\" fd4b12","file":"-","args":"-a lh5801","commands":["pad fd4b12"],"expected":"ori #(x), 12h\n","broken":false},{"name":"lh5801: d \"ori (1234h), 56h\" eb123456","file":"-","args":"-a lh5801","commands":["pad eb123456"],"expected":"ori (1234h), 56h\n","broken":false},{"name":"lh5801: d \"ori (x), 12h\" 4b12","file":"-","args":"-a lh5801","commands":["pad 4b12"],"expected":"ori (x), 12h\n","broken":false},{"name":"lh5801: d \"ori a, 12h\" bb12","file":"-","args":"-a lh5801","commands":["pad bb12"],"expected":"ori a, 12h\n","broken":false},{"name":"lh5801: d \"pop a\" fd8a","file":"-","args":"-a lh5801","commands":["pad fd8a"],"expected":"pop a\n","broken":false},{"name":"lh5801: d \"pop y\" fd1a","file":"-","args":"-a lh5801","commands":["pad fd1a"],"expected":"pop y\n","broken":false},{"name":"lh5801: d \"psh a\" fdc8","file":"-","args":"-a lh5801","commands":["pad fdc8"],"expected":"psh a\n","broken":false},{"name":"lh5801: d \"psh y\" fd98","file":"-","args":"-a lh5801","commands":["pad fd98"],"expected":"psh y\n","broken":false},{"name":"lh5801: d \"rdp\" fdc0","file":"-","args":"-a lh5801","commands":["pad fdc0"],"expected":"rdp\n","broken":false},{"name":"lh5801: d \"rec\" f9","file":"-","args":"-a lh5801","commands":["pad f9"],"expected":"rec\n","broken":false},{"name":"lh5801: d \"rie\" fdbe","file":"-","args":"-a lh5801","commands":["pad fdbe"],"expected":"rie\n","broken":false},{"name":"lh5801: d \"ror\" d1","file":"-","args":"-a lh5801","commands":["pad d1"],"expected":"ror\n","broken":false},{"name":"lh5801: d \"rpu\" e3","file":"-","args":"-a lh5801","commands":["pad e3"],"expected":"rpu\n","broken":false},{"name":"lh5801: d \"rpv\" b8","file":"-","args":"-a lh5801","commands":["pad b8"],"expected":"rpv\n","broken":false},{"name":"lh5801: d \"rti\" 8a","file":"-","args":"-a lh5801","commands":["pad 8a"],"expected":"rti\n","broken":false},{"name":"lh5801: d \"rtn\" 9a","file":"-","args":"-a lh5801","commands":["pad 9a"],"expected":"rtn\n","broken":false},{"name":"lh5801: d \"sbc #(1234h)\" fda11234","file":"-","args":"-a lh5801","commands":["pad fda11234"],"expected":"sbc #(1234h)\n","broken":false},{"name":"lh5801: d \"sbc #(x)\" fd01","file":"-","args":"-a lh5801","commands":["pad fd01"],"expected":"sbc #(x)\n","broken":false},{"name":"lh5801: d \"sbc (1234h)\" a11234","file":"-","args":"-a lh5801","commands":["pad a11234"],"expected":"sbc (1234h)\n","broken":false},{"name":"lh5801: d \"sbc (x)\" 01","file":"-","args":"-a lh5801","commands":["pad 01"],"expected":"sbc (x)\n","broken":false},{"name":"lh5801: d \"sbc xh\" 80","file":"-","args":"-a lh5801","commands":["pad 80"],"expected":"sbc xh\n","broken":false},{"name":"lh5801: d \"sbc xl\" 00","file":"-","args":"-a lh5801","commands":["pad 00"],"expected":"sbc xl\n","broken":false},{"name":"lh5801: d \"sbi a, 12h\" b112","file":"-","args":"-a lh5801","commands":["pad b112"],"expected":"sbi a, 12h\n","broken":false},{"name":"lh5801: d \"sde x\" 43","file":"-","args":"-a lh5801","commands":["pad 43"],"expected":"sde x\n","broken":false},{"name":"lh5801: d \"sdp\" fdc1","file":"-","args":"-a lh5801","commands":["pad fdc1"],"expected":"sdp\n","broken":false},{"name":"lh5801: d \"sec\" fb","file":"-","args":"-a lh5801","commands":["pad fb"],"expected":"sec\n","broken":false},{"name":"lh5801: d \"shl\" d9","file":"-","args":"-a lh5801","commands":["pad d9"],"expected":"shl\n","broken":false},{"name":"lh5801: d \"shr\" d5","file":"-","args":"-a lh5801","commands":["pad d5"],"expected":"shr\n","broken":false},{"name":"lh5801: d \"sie\" fd81","file":"-","args":"-a lh5801","commands":["pad fd81"],"expected":"sie\n","broken":false},{"name":"lh5801: d \"sin x\" 41","file":"-","args":"-a lh5801","commands":["pad 41"],"expected":"sin x\n","broken":false},{"name":"lh5801: d \"sjp 1234h\" be1234","file":"-","args":"-a lh5801","commands":["pad be1234"],"expected":"sjp 1234h\n","broken":false},{"name":"lh5801: d \"spu\" e1","file":"-","args":"-a lh5801","commands":["pad e1"],"expected":"spu\n","broken":false},{"name":"lh5801: d \"spv\" a8","file":"-","args":"-a lh5801","commands":["pad a8"],"expected":"spv\n","broken":false},{"name":"lh5801: d \"sta #(3456h)\" fdae3456","file":"-","args":"-a lh5801","commands":["pad fdae3456"],"expected":"sta #(3456h)\n","broken":false},{"name":"lh5801: d \"sta #(x)\" fd0e","file":"-","args":"-a lh5801","commands":["pad fd0e"],"expected":"sta #(x)\n","broken":false},{"name":"lh5801: d \"sta (3456h)\" ae3456","file":"-","args":"-a lh5801","commands":["pad ae3456"],"expected":"sta (3456h)\n","broken":false},{"name":"lh5801: d \"sta (x)\" 0e","file":"-","args":"-a lh5801","commands":["pad 0e"],"expected":"sta (x)\n","broken":false},{"name":"lh5801: d \"sta xh\" 08","file":"-","args":"-a lh5801","commands":["pad 08"],"expected":"sta xh\n","broken":false},{"name":"lh5801: d \"sta xl\" 0a","file":"-","args":"-a lh5801","commands":["pad 0a"],"expected":"sta xl\n","broken":false},{"name":"lh5801: d \"stx p\" fd5e","file":"-","args":"-a lh5801","commands":["pad fd5e"],"expected":"stx p\n","broken":false},{"name":"lh5801: d \"stx s\" fd4e","file":"-","args":"-a lh5801","commands":["pad fd4e"],"expected":"stx s\n","broken":false},{"name":"lh5801: d \"stx x\" fd4a","file":"-","args":"-a lh5801","commands":["pad fd4a"],"expected":"stx x\n","broken":false},{"name":"lh5801: d \"tin\" f5","file":"-","args":"-a lh5801","commands":["pad f5"],"expected":"tin\n","broken":false},{"name":"lh5801: d \"tta\" fdaa","file":"-","args":"-a lh5801","commands":["pad fdaa"],"expected":"tta\n","broken":false},{"name":"lh5801: d \"vcr 12h\" c112","file":"-","args":"-a lh5801","commands":["pad c112"],"expected":"vcr 12h\n","broken":false},{"name":"lh5801: d \"vcs 12h\" c312","file":"-","args":"-a lh5801","commands":["pad c312"],"expected":"vcs 12h\n","broken":false},{"name":"lh5801: d \"vej c0h\" c0","file":"-","args":"-a lh5801","commands":["pad c0"],"expected":"vej c0h\n","broken":false},{"name":"lh5801: d \"vej c2h\" c2","file":"-","args":"-a lh5801","commands":["pad c2"],"expected":"vej c2h\n","broken":false},{"name":"lh5801: d \"vhr 12h\" c512","file":"-","args":"-a lh5801","commands":["pad c512"],"expected":"vhr 12h\n","broken":false},{"name":"lh5801: d \"vhs 12h\" c712","file":"-","args":"-a lh5801","commands":["pad c712"],"expected":"vhs 12h\n","broken":false},{"name":"lh5801: d \"vvr 12h\" cd12","file":"-","args":"-a lh5801","commands":["pad cd12"],"expected":"vvr 12h\n","broken":false},{"name":"lh5801: d \"vvs 12h\" cf12","file":"-","args":"-a lh5801","commands":["pad cf12"],"expected":"vvs 12h\n","broken":false},{"name":"lh5801: d \"vzr 12h\" c912","file":"-","args":"-a lh5801","commands":["pad c912"],"expected":"vzr 12h\n","broken":false},{"name":"lh5801: d \"vzs 12h\" cb12","file":"-","args":"-a lh5801","commands":["pad cb12"],"expected":"vzs 12h\n","broken":false},{"name":"lh5801: dB \"drl #(x)\" fdd7","file":"-","args":"-a lh5801","commands":["pad fdd7"],"expected":"drl #(x)\n","broken":true},{"name":"lh5801: dB \"drl (x)\" d7","file":"-","args":"-a lh5801","commands":["pad d7"],"expected":"drl (x)\n","broken":true},{"name":"lh5801: dB \"drr #(x)\" fdd3","file":"-","args":"-a lh5801","commands":["pad fdd3"],"expected":"drr #(x)\n","broken":true},{"name":"lh5801: dB \"drr (x)\" d3","file":"-","args":"-a lh5801","commands":["pad d3"],"expected":"drr (x)\n","broken":true},{"name":"lh5801: dB \"ldi s, 1234h\" aa1234","file":"-","args":"-a lh5801","commands":["pad aa1234"],"expected":"ldi s, 1234h\n","broken":true},{"name":"lh5801: dB \"rol\" d8","file":"-","args":"-a lh5801","commands":["pad d8"],"expected":"rol\n","broken":true},{"name":"lh5801: dB \"vmj 12h\" cd12","file":"-","args":"-a lh5801","commands":["pad cd12"],"expected":"vmj 12h\n","broken":true}]}
+{
+    "type": "asm",
+    "tests": [
+        {
+            "name": "lh5801: d \"adc #(1234h)\" fda31234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fda31234"
+            ],
+            "expected": "adc #(1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adc #(x)\" fd03",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd03"
+            ],
+            "expected": "adc #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adc (1234h)\" a31234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad a31234"
+            ],
+            "expected": "adc (1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adc (x)\" 03",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 03"
+            ],
+            "expected": "adc (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adc xh\" 82",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 82"
+            ],
+            "expected": "adc xh\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adc xl\" 02",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 02"
+            ],
+            "expected": "adc xl\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adi #(1234h), 56h\" fdef123456",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdef123456"
+            ],
+            "expected": "adi #(1234h), 56h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adi #(x), 12h\" fd4f12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd4f12"
+            ],
+            "expected": "adi #(x), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adi (1234h), 56h\" ef123456",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad ef123456"
+            ],
+            "expected": "adi (1234h), 56h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adi (x), 12h\" 4f12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 4f12"
+            ],
+            "expected": "adi (x), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adi a, 12h\" b312",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad b312"
+            ],
+            "expected": "adi a, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"adr x\" fdca",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdca"
+            ],
+            "expected": "adr x\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"aex\" f1",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad f1"
+            ],
+            "expected": "aex\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"am0\" fdce",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdce"
+            ],
+            "expected": "am0\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"am1\" fdde",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdde"
+            ],
+            "expected": "am1\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"and #(1234h)\" fda91234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fda91234"
+            ],
+            "expected": "and #(1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"and #(x)\" fd09",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd09"
+            ],
+            "expected": "and #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"and (1234h)\" a91234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad a91234"
+            ],
+            "expected": "and (1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"and (x)\" 09",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 09"
+            ],
+            "expected": "and (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ani #(3456h), 78h\" fde9345678",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fde9345678"
+            ],
+            "expected": "ani #(3456h), 78h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ani #(x), 12h\" fd4912",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd4912"
+            ],
+            "expected": "ani #(x), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ani (3456h), 78h\" e9345678",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad e9345678"
+            ],
+            "expected": "ani (3456h), 78h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ani (x), 12h\" 4912",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 4912"
+            ],
+            "expected": "ani (x), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ani a, 12h\" b912",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad b912"
+            ],
+            "expected": "ani a, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"atp\" fdcc",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdcc"
+            ],
+            "expected": "atp\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"att\" fdec",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdec"
+            ],
+            "expected": "att\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bch +12h\" 8e12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8e12"
+            ],
+            "expected": "bch +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bch -34h\" 9e34",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9e34"
+            ],
+            "expected": "bch -34h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bcr +12h\" 8112",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8112"
+            ],
+            "expected": "bcr +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bcr -12h\" 9112",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9112"
+            ],
+            "expected": "bcr -12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bcs +12h\" 8312",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8312"
+            ],
+            "expected": "bcs +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bcs -12h\" 9312",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9312"
+            ],
+            "expected": "bcs -12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bhr +12h\" 8512",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8512"
+            ],
+            "expected": "bhr +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bhr -12h\" 9512",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9512"
+            ],
+            "expected": "bhr -12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bhs +12h\" 8712",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8712"
+            ],
+            "expected": "bhs +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bhs -12h\" 9712",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9712"
+            ],
+            "expected": "bhs -12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bii #(3456h), 12h\" fded345612",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fded345612"
+            ],
+            "expected": "bii #(3456h), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bii #(x), 12h\" fd4d12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd4d12"
+            ],
+            "expected": "bii #(x), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bii (3456h), 12h\" ed345612",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad ed345612"
+            ],
+            "expected": "bii (3456h), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bii (x), 12h\" 4d12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 4d12"
+            ],
+            "expected": "bii (x), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bii a, 12h\" bf12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad bf12"
+            ],
+            "expected": "bii a, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bit #(1234h)\" fdaf1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdaf1234"
+            ],
+            "expected": "bit #(1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bit #(x)\" fd0f",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd0f"
+            ],
+            "expected": "bit #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bit (1234h)\" af1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad af1234"
+            ],
+            "expected": "bit (1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bit (x)\" 0f",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 0f"
+            ],
+            "expected": "bit (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bvr +12h\" 8d12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8d12"
+            ],
+            "expected": "bvr +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bvr -12h\" 9d12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9d12"
+            ],
+            "expected": "bvr -12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bvs +12h\" 8f12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8f12"
+            ],
+            "expected": "bvs +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bvs -12h\" 9f12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9f12"
+            ],
+            "expected": "bvs -12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bzr +12h\" 8912",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8912"
+            ],
+            "expected": "bzr +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bzr -12h\" 9912",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9912"
+            ],
+            "expected": "bzr -12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bzs +12h\" 8b12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8b12"
+            ],
+            "expected": "bzs +12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"bzs -12h\" 9b12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9b12"
+            ],
+            "expected": "bzs -12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cdv\" fd8e",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd8e"
+            ],
+            "expected": "cdv\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cin\" f7",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad f7"
+            ],
+            "expected": "cin\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpa #(1234h)\" fda71234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fda71234"
+            ],
+            "expected": "cpa #(1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpa #(x)\" fd07",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd07"
+            ],
+            "expected": "cpa #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpa (1234h)\" a71234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad a71234"
+            ],
+            "expected": "cpa (1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpa (x)\" 07",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 07"
+            ],
+            "expected": "cpa (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpa xh\" 86",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 86"
+            ],
+            "expected": "cpa xh\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpa xl\" 06",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 06"
+            ],
+            "expected": "cpa xl\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpi a, 12h\" b712",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad b712"
+            ],
+            "expected": "cpi a, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpi xh, 12h\" 4c12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 4c12"
+            ],
+            "expected": "cpi xh, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"cpi xl, 12h\" 4e12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 4e12"
+            ],
+            "expected": "cpi xl, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"dca #(y)\" fd9c",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd9c"
+            ],
+            "expected": "dca #(y)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"dca (y)\" 9c",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9c"
+            ],
+            "expected": "dca (y)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"dcs #(x)\" fd0c",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd0c"
+            ],
+            "expected": "dcs #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"dcs (x)\" 0c",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 0c"
+            ],
+            "expected": "dcs (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"dec a\" df",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad df"
+            ],
+            "expected": "dec a\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"dec u\" 66",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 66"
+            ],
+            "expected": "dec u\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"dec uh\" fd62",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd62"
+            ],
+            "expected": "dec uh\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"dec ul\" 62",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 62"
+            ],
+            "expected": "dec ul\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"eai 12h\" bd12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad bd12"
+            ],
+            "expected": "eai 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"eor #(1234h)\" fdad1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdad1234"
+            ],
+            "expected": "eor #(1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"eor #(x)\" fd0d",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd0d"
+            ],
+            "expected": "eor #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"eor (1234h)\" ad1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad ad1234"
+            ],
+            "expected": "eor (1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"eor (x)\" 0d",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 0d"
+            ],
+            "expected": "eor (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"hlt\" fdb1",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdb1"
+            ],
+            "expected": "hlt\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"inc a\" dd",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad dd"
+            ],
+            "expected": "inc a\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"inc u\" 64",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 64"
+            ],
+            "expected": "inc u\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"inc uh\" fd60",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd60"
+            ],
+            "expected": "inc uh\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"inc ul\" 60",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 60"
+            ],
+            "expected": "inc ul\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ita\" fdba",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdba"
+            ],
+            "expected": "ita\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"jmp 1234h\" ba1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad ba1234"
+            ],
+            "expected": "jmp 1234h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lda #(1234h)\" fda51234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fda51234"
+            ],
+            "expected": "lda #(1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lda #(x)\" fd05",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd05"
+            ],
+            "expected": "lda #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lda (1234h)\" a51234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad a51234"
+            ],
+            "expected": "lda (1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lda (x)\" 05",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 05"
+            ],
+            "expected": "lda (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lda xh\" 84",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 84"
+            ],
+            "expected": "lda xh\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lda xl\" 04",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 04"
+            ],
+            "expected": "lda xl\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lde x\" 47",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 47"
+            ],
+            "expected": "lde x\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ldi a, 12h\" b512",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad b512"
+            ],
+            "expected": "ldi a, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ldi xh, 12h\" 4812",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 4812"
+            ],
+            "expected": "ldi xh, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ldi xl, 12h\" 4a12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 4a12"
+            ],
+            "expected": "ldi xl, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ldx p\" fd58",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd58"
+            ],
+            "expected": "ldx p\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ldx s\" fd48",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd48"
+            ],
+            "expected": "ldx s\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ldx x\" fd08",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd08"
+            ],
+            "expected": "ldx x\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lin x\" 45",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 45"
+            ],
+            "expected": "lin x\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"lop 30h\" 8830",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8830"
+            ],
+            "expected": "lop 30h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"nop\" 38",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 38"
+            ],
+            "expected": "nop\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"off\" fd4c",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd4c"
+            ],
+            "expected": "off\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ora #(1234h)\" fdab1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdab1234"
+            ],
+            "expected": "ora #(1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ora #(x)\" fd0b",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd0b"
+            ],
+            "expected": "ora #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ora (1234h)\" ab1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad ab1234"
+            ],
+            "expected": "ora (1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ora (x)\" 0b",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 0b"
+            ],
+            "expected": "ora (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ori #(1234h), 56h\" fdeb123456",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdeb123456"
+            ],
+            "expected": "ori #(1234h), 56h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ori #(x), 12h\" fd4b12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd4b12"
+            ],
+            "expected": "ori #(x), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ori (1234h), 56h\" eb123456",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad eb123456"
+            ],
+            "expected": "ori (1234h), 56h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ori (x), 12h\" 4b12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 4b12"
+            ],
+            "expected": "ori (x), 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ori a, 12h\" bb12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad bb12"
+            ],
+            "expected": "ori a, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"pop a\" fd8a",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd8a"
+            ],
+            "expected": "pop a\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"pop y\" fd1a",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd1a"
+            ],
+            "expected": "pop y\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"psh a\" fdc8",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdc8"
+            ],
+            "expected": "psh a\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"psh y\" fd98",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd98"
+            ],
+            "expected": "psh y\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"rdp\" fdc0",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdc0"
+            ],
+            "expected": "rdp\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"rec\" f9",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad f9"
+            ],
+            "expected": "rec\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"rie\" fdbe",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdbe"
+            ],
+            "expected": "rie\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"ror\" d1",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad d1"
+            ],
+            "expected": "ror\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"rpu\" e3",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad e3"
+            ],
+            "expected": "rpu\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"rpv\" b8",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad b8"
+            ],
+            "expected": "rpv\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"rti\" 8a",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 8a"
+            ],
+            "expected": "rti\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"rtn\" 9a",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 9a"
+            ],
+            "expected": "rtn\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sbc #(1234h)\" fda11234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fda11234"
+            ],
+            "expected": "sbc #(1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sbc #(x)\" fd01",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd01"
+            ],
+            "expected": "sbc #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sbc (1234h)\" a11234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad a11234"
+            ],
+            "expected": "sbc (1234h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sbc (x)\" 01",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 01"
+            ],
+            "expected": "sbc (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sbc xh\" 80",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 80"
+            ],
+            "expected": "sbc xh\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sbc xl\" 00",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 00"
+            ],
+            "expected": "sbc xl\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sbi a, 12h\" b112",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad b112"
+            ],
+            "expected": "sbi a, 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sde x\" 43",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 43"
+            ],
+            "expected": "sde x\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sdp\" fdc1",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdc1"
+            ],
+            "expected": "sdp\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sec\" fb",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fb"
+            ],
+            "expected": "sec\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"shl\" d9",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad d9"
+            ],
+            "expected": "shl\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"shr\" d5",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad d5"
+            ],
+            "expected": "shr\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sie\" fd81",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd81"
+            ],
+            "expected": "sie\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sin x\" 41",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 41"
+            ],
+            "expected": "sin x\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sjp 1234h\" be1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad be1234"
+            ],
+            "expected": "sjp 1234h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"spu\" e1",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad e1"
+            ],
+            "expected": "spu\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"spv\" a8",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad a8"
+            ],
+            "expected": "spv\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sta #(3456h)\" fdae3456",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdae3456"
+            ],
+            "expected": "sta #(3456h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sta #(x)\" fd0e",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd0e"
+            ],
+            "expected": "sta #(x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sta (3456h)\" ae3456",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad ae3456"
+            ],
+            "expected": "sta (3456h)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sta (x)\" 0e",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 0e"
+            ],
+            "expected": "sta (x)\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sta xh\" 08",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 08"
+            ],
+            "expected": "sta xh\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"sta xl\" 0a",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad 0a"
+            ],
+            "expected": "sta xl\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"stx p\" fd5e",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd5e"
+            ],
+            "expected": "stx p\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"stx s\" fd4e",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd4e"
+            ],
+            "expected": "stx s\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"stx x\" fd4a",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fd4a"
+            ],
+            "expected": "stx x\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"tin\" f5",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad f5"
+            ],
+            "expected": "tin\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"tta\" fdaa",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdaa"
+            ],
+            "expected": "tta\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vcr 12h\" c112",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad c112"
+            ],
+            "expected": "vcr 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vcs 12h\" c312",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad c312"
+            ],
+            "expected": "vcs 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vej c0h\" c0",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad c0"
+            ],
+            "expected": "vej c0h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vej c2h\" c2",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad c2"
+            ],
+            "expected": "vej c2h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vhr 12h\" c512",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad c512"
+            ],
+            "expected": "vhr 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vhs 12h\" c712",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad c712"
+            ],
+            "expected": "vhs 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vvr 12h\" cd12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad cd12"
+            ],
+            "expected": "vvr 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vvs 12h\" cf12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad cf12"
+            ],
+            "expected": "vvs 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vzr 12h\" c912",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad c912"
+            ],
+            "expected": "vzr 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: d \"vzs 12h\" cb12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad cb12"
+            ],
+            "expected": "vzs 12h\n",
+            "broken": false
+        },
+        {
+            "name": "lh5801: dB \"drl #(x)\" fdd7",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdd7"
+            ],
+            "expected": "drl #(x)\n",
+            "broken": true
+        },
+        {
+            "name": "lh5801: dB \"drl (x)\" d7",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad d7"
+            ],
+            "expected": "drl (x)\n",
+            "broken": true
+        },
+        {
+            "name": "lh5801: dB \"drr #(x)\" fdd3",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad fdd3"
+            ],
+            "expected": "drr #(x)\n",
+            "broken": true
+        },
+        {
+            "name": "lh5801: dB \"drr (x)\" d3",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad d3"
+            ],
+            "expected": "drr (x)\n",
+            "broken": true
+        },
+        {
+            "name": "lh5801: dB \"ldi s, 1234h\" aa1234",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad aa1234"
+            ],
+            "expected": "ldi s, 1234h\n",
+            "broken": true
+        },
+        {
+            "name": "lh5801: dB \"rol\" d8",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad d8"
+            ],
+            "expected": "rol\n",
+            "broken": true
+        },
+        {
+            "name": "lh5801: dB \"vmj 12h\" cd12",
+            "file": "-",
+            "args": "-a lh5801",
+            "commands": [
+                "pad cd12"
+            ],
+            "expected": "vmj 12h\n",
+            "broken": true
+        }
+    ]
+}

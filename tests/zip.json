@@ -1,0 +1,60 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "io-zip",
+            "file": "zip://../bins/java/example.zip",
+            "args": "",
+            "commands": [
+                "q",
+                ""
+            ],
+            "expected": "0 research_data/experiment/decompiler/dumped_jar_dec/c.class\n\n",
+            "broken": false
+        },
+        {
+            "name": "io-zip entrypoints for c.class",
+            "file": "zip://../bins/java/example.zip//research_data/experiment/decompiler/dumped_jar_dec/c.class",
+            "args": "",
+            "commands": [
+                "ieq",
+                ""
+            ],
+            "expected": "0x000002af\n0x000002da\n0x00000312\n0x000003ab\n\n",
+            "broken": false
+        },
+        {
+            "name": "io-zip entrypoints for c.class",
+            "file": "zip://../bins/java/example.zip::0",
+            "args": "",
+            "commands": [
+                "ieq",
+                ""
+            ],
+            "expected": "0x000002af\n0x000002da\n0x00000312\n0x000003ab\n\n",
+            "broken": false
+        },
+        {
+            "name": "io-zip hello.apk",
+            "file": "apk://../bins/dex/Hello.apk",
+            "args": "",
+            "commands": [
+                "ieq",
+                ""
+            ],
+            "expected": "0x000001c0\n\n",
+            "broken": false
+        },
+        {
+            "name": "io-zip hello.apk",
+            "file": "zip://../bins/dex/Hello.apk",
+            "args": "",
+            "commands": [
+                "ieq",
+                ""
+            ],
+            "expected": "0 classes.dex\n\n",
+            "broken": false
+        }
+    ]
+}

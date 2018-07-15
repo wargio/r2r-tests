@@ -9,4 +9,9 @@ fi
 
 find "$CURDIR/tests" -type f | while read FNAME; do
 	"$R2RBIN" --jobs 1 --seq --errors-only "$FNAME"
+#	EXIT=$?
+#	if [ $EXIT -eq 1 ]; then
+#		echo "BROKEN"
+#		break
+#	fi
 done

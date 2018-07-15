@@ -1,151 +1,330 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "one node",
-        "file": "-",
-        "args": "",
-        "commands": ["", "agn title1 body1", "aggk~nodes=", "aggk~nodes.title1.body", "aggk~nodes.title1.w", "aggk~nodes.title1.h", "", ""],
-        "expected": "agraph.nodes=title1\nagraph.nodes.title1.body=base64:Ym9keTE=\nagraph.nodes.title1.w=0x16\nagraph.nodes.title1.h=0x4\n\n",
-        "broken": false
-    }, {
-        "name": "two nodes",
-        "file": "-",
-        "args": "",
-        "commands": ["", "agn \"Title with super long text and space\" body1", "agn title2 \"SuperLongBodyWithALot Of text and spaces\"", "aggk~nodes=", "aggk~nodes.Title with super long text and space.body=", "aggk~nodes.title2.body=", "aggk~nodes.Title with super long text and space.w", "aggk~nodes.Title with super long text and space.h", "aggk~nodes.title2.w", "aggk~nodes.title2.h", "", ""],
-        "expected": "agraph.nodes=Title with super long text and space,title2\nagraph.nodes.Title with super long text and space.body=base64:Ym9keTE=\nagraph.nodes.title2.body=base64:U3VwZXJMb25nQm9keVdpdGhBTG90IE9mIHRleHQgYW5kIHNwYWNlcw==\nagraph.nodes.Title with super long text and space.w=0x2a\nagraph.nodes.Title with super long text and space.h=0x4\nagraph.nodes.title2.w=0x2c\nagraph.nodes.title2.h=0x4\n\n",
-        "broken": false
-    }, {
-        "name": "base64 body",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 base64:aGVsbG8gd29ybGQ=", "aggk~nodes.title1.body=", "", ""],
-        "expected": "agraph.nodes.title1.body=base64:aGVsbG8gd29ybGQ=\n\n",
-        "broken": false
-    }, {
-        "name": "long base64 body",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 base64:dGhpcyBpcyBhIHZlcnkgbG9uZyB0ZXh0IHRoYXQgd2hlbiBlbmNvZGVkIHdpbGwgY2F1c2UgYSAKIGluIHRoZSBiYXNlNjQ=", "aggk~nodes.title1.body=", "", ""],
-        "expected": "agraph.nodes.title1.body=base64:dGhpcyBpcyBhIHZlcnkgbG9uZyB0ZXh0IHRoYXQgd2hlbiBlbmNvZGVkIHdpbGwgY2F1c2UgYSAKIGluIHRoZSBiYXNlNjQ=\n\n",
-        "broken": false
-    }, {
-        "name": "two nodes same title",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 body1", "agn title1 \"Super long body with something\"", "agn title1 \"Super super super long body to do tests........\"", "aggk~nodes=", "aggk~nodes.title1.body=", "aggk~nodes.title1.w=", "", ""],
-        "expected": "agraph.nodes=title1\nagraph.nodes.title1.body=base64:Ym9keTE=\nagraph.nodes.title1.w=0x16\n\n",
-        "broken": false
-    }, {
-        "name": "remove node",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 body1", "agn- title1", "aggk~nodes=", "aggk~nodes.title1", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "remove node with title that contain spaces",
-        "file": "-",
-        "args": "",
-        "commands": ["agn \"Title with spaces\" body1", "agn- \"Title with spaces\"", "aggk~nodes=", "aggk~nodes.Title with spaces", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "remove non-existent node",
-        "file": "-",
-        "args": "",
-        "commands": ["agn \"Title with spaces\" body1", "agn- NotValid", "aggk~nodes=", "aggk~nodes.Title with spaces.body=", "", ""],
-        "expected": "agraph.nodes=Title with spaces\nagraph.nodes.Title with spaces.body=base64:Ym9keTE=\n\n",
-        "broken": false
-    }, {
-        "name": "remove edge",
-        "file": "-",
-        "args": "",
-        "commands": ["agn \"Title with spaces\" body1", "agn \"Title with spaces 2\" body2", "age- \"Title with spaces\" \"Title with spaces 2\"", "aggk~nodes=", "aggk~nodes.Title with spaces.neighbours=", "", ""],
-        "expected": "agraph.nodes=Title with spaces,Title with spaces 2\n\n",
-        "broken": false
-    }, {
-        "name": "get graph of a function",
-        "file": "bins/elf/analysis/hello-linux-x86_64",
-        "args": "",
-        "commands": ["af", "aggk $$~nodes=", ""],
-        "expected": "agraph.nodes=0x400410\n\n",
-        "broken": true
-    }, {
-        "name": "no selected node in non-interactive",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 body1", "agg", ""],
-        "expected": ".--------------------.\n|  title1            |\n| body1              |\n`--------------------'\n\n",
-        "broken": false
-    }, {
-        "name": "agf one",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=32", "e asm.calls=false", "\"wa push ebp;mov ebp,esp;pop ebp;ret\"", "af", "agf", ""],
-        "expected": "[0x00000000]\u003e VV @ fcn.00000000 (nodes 1 edges 0 zoom 100%) BB-NORM mouse:canvas-y mov-speed:5\n.----------------------.\n|  0x0                 |\n| (fcn) fcn.00000000 5 |\n| push ebp             |\n| mov ebp, esp         |\n| pop ebp              |\n| ret                  |\n`----------------------'\n",
-        "broken": false
-    }, {
-        "name": "agg one",
-        "file": "-",
-        "args": "",
-        "commands": ["agn 0x0 base64:cHVzaCBlYnAKbW92IGVicCwgZXNwCnBvcCBlYnAKcmV0", "agg", ""],
-        "expected": ".--------------------.\n|  0x0               |\n| push ebp           |\n| mov ebp, esp       |\n| pop ebp            |\n| ret                |\n`--------------------'\n\n",
-        "broken": false
-    }, {
-        "name": "graph size",
-        "file": "-",
-        "args": "",
-        "commands": ["aggk~agraph.w=", "aggk~agraph.h=", "agn title1 body1", "aggk~agraph.w=", "aggk~agraph.h=", "", ""],
-        "expected": "agraph.w=0\nagraph.h=0\nagraph.w=22\nagraph.h=7\n\n",
-        "broken": false
-    }, {
-        "name": "graph size with edges",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 body1", "agn title2 \"body2 long body with a lot of spaces and dots....\"", "agn title3 body3", "age title1 title2", "age title2 title3", "age title1 title3", "age title3 title1", "aggk~agraph.w=0x35", "agg | head -2 | tail -1 | tr -d \" \" | grep \"=----------------=\"", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "graph size with self-referenced bb",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 body1", "age title1 title1", "aggk~agraph.w=0x16", "aggk~agraph.h=0x4", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "graph title",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 body1", "e graph.title=This is the graph title", "agg", "", ""],
-        "expected": "This is the graph title\n.--------------------.\n|  title1            |\n| body1              |\n`--------------------'\n\n",
-        "broken": false
-    }, {
-        "name": "print r2 commands to create graph",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 body1", "agn title2 body2", "agn title3 base64:dGhpcyBpcyBteSBib2R5CndpdGggbmV3bGluZXM=", "age title1 title2", "age title3 title1", "agg*", "", ""],
-        "expected": "agn \"title1\" base64:Ym9keTE=\nagn \"title3\" base64:dGhpcyBpcyBteSBib2R5CndpdGggbmV3bGluZXM=\nagn \"title2\" base64:Ym9keTI=\nage \"title1\" \"title2\"\nage \"title3\" \"title1\"\n\n",
-        "broken": false
-    }, {
-        "name": "graph self-ref block",
-        "file": "-",
-        "args": "",
-        "commands": ["agn title1 body1", "age title1 title1", "agg", "", ""],
-        "expected": ".----.\n|    |\n|.--------------------.\n||  title1            |\n|| body1              |\n|`--------------------'\n|    v\n|    |\n`----'\n\n",
-        "broken": false
-    }, {
-        "name": "with anal.nopskip",
-        "file": "bins/elf/analysis/ls-alxchk",
-        "args": "",
-        "commands": ["e anal.nopskip=true", "aaa", "s 0x00011390", "agf \u003e /dev/null", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "super mario block (#8788)",
-        "file": "bins/elf/analysis/hello-android-mips",
-        "args": "",
-        "commands": ["e emu.str=true", "s 0x0008049c", "af+ 0x0008049c super_mario_fix", "afb+ 0x0008049c 0x0008049c 8", "e io.cache=true", "wx c2a2c2a2c2a2 @ 0x80510", "e asm.strenc=utf8", "agf", "e scr.strconv=asciidot", "agf", ""],
-        "expected": "",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "one node",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "agn title1 body1",
+                "aggk~nodes=",
+                "aggk~nodes.title1.body",
+                "aggk~nodes.title1.w",
+                "aggk~nodes.title1.h",
+                "",
+                ""
+            ],
+            "expected": "agraph.nodes=title1\nagraph.nodes.title1.body=base64:Ym9keTE=\nagraph.nodes.title1.w=0x16\nagraph.nodes.title1.h=0x4\n\n",
+            "broken": false
+        },
+        {
+            "name": "two nodes",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "agn \"Title with super long text and space\" body1",
+                "agn title2 \"SuperLongBodyWithALot Of text and spaces\"",
+                "aggk~nodes=",
+                "aggk~nodes.Title with super long text and space.body=",
+                "aggk~nodes.title2.body=",
+                "aggk~nodes.Title with super long text and space.w",
+                "aggk~nodes.Title with super long text and space.h",
+                "aggk~nodes.title2.w",
+                "aggk~nodes.title2.h",
+                "",
+                ""
+            ],
+            "expected": "agraph.nodes=Title with super long text and space,title2\nagraph.nodes.Title with super long text and space.body=base64:Ym9keTE=\nagraph.nodes.title2.body=base64:U3VwZXJMb25nQm9keVdpdGhBTG90IE9mIHRleHQgYW5kIHNwYWNlcw==\nagraph.nodes.Title with super long text and space.w=0x2a\nagraph.nodes.Title with super long text and space.h=0x4\nagraph.nodes.title2.w=0x2c\nagraph.nodes.title2.h=0x4\n\n",
+            "broken": false
+        },
+        {
+            "name": "base64 body",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 base64:aGVsbG8gd29ybGQ=",
+                "aggk~nodes.title1.body=",
+                "",
+                ""
+            ],
+            "expected": "agraph.nodes.title1.body=base64:aGVsbG8gd29ybGQ=\n\n",
+            "broken": false
+        },
+        {
+            "name": "long base64 body",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 base64:dGhpcyBpcyBhIHZlcnkgbG9uZyB0ZXh0IHRoYXQgd2hlbiBlbmNvZGVkIHdpbGwgY2F1c2UgYSAKIGluIHRoZSBiYXNlNjQ=",
+                "aggk~nodes.title1.body=",
+                "",
+                ""
+            ],
+            "expected": "agraph.nodes.title1.body=base64:dGhpcyBpcyBhIHZlcnkgbG9uZyB0ZXh0IHRoYXQgd2hlbiBlbmNvZGVkIHdpbGwgY2F1c2UgYSAKIGluIHRoZSBiYXNlNjQ=\n\n",
+            "broken": false
+        },
+        {
+            "name": "two nodes same title",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 body1",
+                "agn title1 \"Super long body with something\"",
+                "agn title1 \"Super super super long body to do tests........\"",
+                "aggk~nodes=",
+                "aggk~nodes.title1.body=",
+                "aggk~nodes.title1.w=",
+                "",
+                ""
+            ],
+            "expected": "agraph.nodes=title1\nagraph.nodes.title1.body=base64:Ym9keTE=\nagraph.nodes.title1.w=0x16\n\n",
+            "broken": false
+        },
+        {
+            "name": "remove node",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 body1",
+                "agn- title1",
+                "aggk~nodes=",
+                "aggk~nodes.title1",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "remove node with title that contain spaces",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn \"Title with spaces\" body1",
+                "agn- \"Title with spaces\"",
+                "aggk~nodes=",
+                "aggk~nodes.Title with spaces",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "remove non-existent node",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn \"Title with spaces\" body1",
+                "agn- NotValid",
+                "aggk~nodes=",
+                "aggk~nodes.Title with spaces.body=",
+                "",
+                ""
+            ],
+            "expected": "agraph.nodes=Title with spaces\nagraph.nodes.Title with spaces.body=base64:Ym9keTE=\n\n",
+            "broken": false
+        },
+        {
+            "name": "remove edge",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn \"Title with spaces\" body1",
+                "agn \"Title with spaces 2\" body2",
+                "age- \"Title with spaces\" \"Title with spaces 2\"",
+                "aggk~nodes=",
+                "aggk~nodes.Title with spaces.neighbours=",
+                "",
+                ""
+            ],
+            "expected": "agraph.nodes=Title with spaces,Title with spaces 2\n\n",
+            "broken": false
+        },
+        {
+            "name": "get graph of a function",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "af",
+                "aggk $$~nodes=",
+                ""
+            ],
+            "expected": "agraph.nodes=0x400410\n\n",
+            "broken": true
+        },
+        {
+            "name": "no selected node in non-interactive",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 body1",
+                "agg",
+                ""
+            ],
+            "expected": ".--------------------.\n|  title1            |\n| body1              |\n`--------------------'\n\n",
+            "broken": false
+        },
+        {
+            "name": "agf one",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "e asm.calls=false",
+                "\"wa push ebp;mov ebp,esp;pop ebp;ret\"",
+                "af",
+                "agf",
+                ""
+            ],
+            "expected": "[0x00000000]\u003e VV @ fcn.00000000 (nodes 1 edges 0 zoom 100%) BB-NORM mouse:canvas-y mov-speed:5\n.----------------------.\n|  0x0                 |\n| (fcn) fcn.00000000 5 |\n| push ebp             |\n| mov ebp, esp         |\n| pop ebp              |\n| ret                  |\n`----------------------'\n",
+            "broken": false
+        },
+        {
+            "name": "agg one",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn 0x0 base64:cHVzaCBlYnAKbW92IGVicCwgZXNwCnBvcCBlYnAKcmV0",
+                "agg",
+                ""
+            ],
+            "expected": ".--------------------.\n|  0x0               |\n| push ebp           |\n| mov ebp, esp       |\n| pop ebp            |\n| ret                |\n`--------------------'\n\n",
+            "broken": false
+        },
+        {
+            "name": "graph size",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "aggk~agraph.w=",
+                "aggk~agraph.h=",
+                "agn title1 body1",
+                "aggk~agraph.w=",
+                "aggk~agraph.h=",
+                "",
+                ""
+            ],
+            "expected": "agraph.w=0\nagraph.h=0\nagraph.w=22\nagraph.h=7\n\n",
+            "broken": false
+        },
+        {
+            "name": "graph size with edges",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 body1",
+                "agn title2 \"body2 long body with a lot of spaces and dots....\"",
+                "agn title3 body3",
+                "age title1 title2",
+                "age title2 title3",
+                "age title1 title3",
+                "age title3 title1",
+                "aggk~agraph.w=0x35",
+                "agg | head -2 | tail -1 | tr -d \" \" | grep \"=----------------=\"",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "graph size with self-referenced bb",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 body1",
+                "age title1 title1",
+                "aggk~agraph.w=0x16",
+                "aggk~agraph.h=0x4",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "graph title",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 body1",
+                "e graph.title=This is the graph title",
+                "agg",
+                "",
+                ""
+            ],
+            "expected": "This is the graph title\n.--------------------.\n|  title1            |\n| body1              |\n`--------------------'\n\n",
+            "broken": false
+        },
+        {
+            "name": "print r2 commands to create graph",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 body1",
+                "agn title2 body2",
+                "agn title3 base64:dGhpcyBpcyBteSBib2R5CndpdGggbmV3bGluZXM=",
+                "age title1 title2",
+                "age title3 title1",
+                "agg*",
+                "",
+                ""
+            ],
+            "expected": "agn \"title1\" base64:Ym9keTE=\nagn \"title3\" base64:dGhpcyBpcyBteSBib2R5CndpdGggbmV3bGluZXM=\nagn \"title2\" base64:Ym9keTI=\nage \"title1\" \"title2\"\nage \"title3\" \"title1\"\n\n",
+            "broken": false
+        },
+        {
+            "name": "graph self-ref block",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "agn title1 body1",
+                "age title1 title1",
+                "agg",
+                "",
+                ""
+            ],
+            "expected": ".----.\n|    |\n|.--------------------.\n||  title1            |\n|| body1              |\n|`--------------------'\n|    v\n|    |\n`----'\n",
+            "broken": false
+        },
+        {
+            "name": "with anal.nopskip",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "e anal.nopskip=true",
+                "aaa",
+                "s 0x00011390",
+                "agf \u003e /dev/null",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "super mario block (#8788)",
+            "file": "bins/elf/analysis/hello-android-mips",
+            "args": "",
+            "commands": [
+                "e emu.str=true",
+                "s 0x0008049c",
+                "af+ 0x0008049c super_mario_fix",
+                "afb+ 0x0008049c 0x0008049c 8",
+                "e io.cache=true",
+                "wx c2a2c2a2c2a2 @ 0x80510",
+                "e asm.strenc=utf8",
+                "agf",
+                "e scr.strconv=asciidot",
+                "agf",
+                ""
+            ],
+            "expected": "[0x0008049c]\u003e VV @ super_mario_fix (nodes 1 edges 0 zoom 100%) BB-NORM mouse:canvas-y mov-speed:5\n.-------------------------------------------------.\n|  0x8049c                                        |\n| (fcn) super_mario_fix 8                         |\n|   super_mario_fix ();                           |\n|    ; segment.ehdr                               |\n| lui v0, 8                                       |\n|    ; \"\\u00a2\\u00a2\\u00a2World\" section..rodata  |\n| addiu a0, v0, 0x510                             |\n`-------------------------------------------------'\n[0x0008049c]\u003e VV @ super_mario_fix (nodes 1 edges 0 zoom 100%) BB-NORM mouse:canvas-y mov-speed:5\n.----------------------------------.\n|  0x8049c                         |\n| (fcn) super_mario_fix 8          |\n|   super_mario_fix ();            |\n|    ; segment.ehdr                |\n| lui v0, 8                        |\n|    ; \"...World\" section..rodata  |\n| addiu a0, v0, 0x510              |\n`----------------------------------'\n",
+            "broken": false
+        }
+    ]
 }

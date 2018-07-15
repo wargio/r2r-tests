@@ -1,1 +1,73 @@
-{"type":"cmd","tests":[{"name":"seekbug pi -x","file":"malloc://1024","args":"","commands":["","e scr.null=true","s 0x200","pi -3","e scr.null=false","s","",""],"expected":"0x200\n\n","broken":false},{"name":"seekbug pid -x","file":"malloc://1024","args":"","commands":["","e scr.null=true","s 0x200","pid -3","e scr.null=false","s","",""],"expected":"0x200\n\n","broken":false},{"name":"seekbug pd -x","file":"malloc://1024","args":"","commands":["","e scr.null=true","s 0x200","pd -3","e scr.null=false","s","",""],"expected":"0x200\n\n","broken":false},{"name":"seekbug px -x","file":"malloc://1024","args":"","commands":["","e scr.null=true","s 0x200","px -3","e scr.null=false","s","",""],"expected":"0x200\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "seekbug pi -x",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e scr.null=true",
+                "s 0x200",
+                "pi -3",
+                "e scr.null=false",
+                "s",
+                "",
+                ""
+            ],
+            "expected": "0x200\n\n",
+            "broken": false
+        },
+        {
+            "name": "seekbug pid -x",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e scr.null=true",
+                "s 0x200",
+                "pid -3",
+                "e scr.null=false",
+                "s",
+                "",
+                ""
+            ],
+            "expected": "0x200\n\n",
+            "broken": false
+        },
+        {
+            "name": "seekbug pd -x",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e scr.null=true",
+                "s 0x200",
+                "pd -3",
+                "e scr.null=false",
+                "s",
+                "",
+                ""
+            ],
+            "expected": "0x200\n\n",
+            "broken": false
+        },
+        {
+            "name": "seekbug px -x",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e scr.null=true",
+                "s 0x200",
+                "px -3",
+                "e scr.null=false",
+                "s",
+                "",
+                ""
+            ],
+            "expected": "0x200\n\n",
+            "broken": false
+        }
+    ]
+}

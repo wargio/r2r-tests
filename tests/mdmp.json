@@ -1,0 +1,427 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": ": open",
+            "file": "bins/mdmp/calc.dmp",
+            "args": "",
+            "commands": [
+                "i~format",
+                "",
+                ""
+            ],
+            "expected": "format   mdmp\n\n",
+            "broken": false
+        },
+        {
+            "name": ": info",
+            "file": "bins/mdmp/calc.dmp",
+            "args": "",
+            "commands": [
+                "iI",
+                "",
+                ""
+            ],
+            "expected": "arch     x86\nbinsz    36724\nbintype  mdmp\nbits     64\ncanary   false\ncrypto   false\nendian   little\nflags    0x00040000\nhavecode true\nhdr.csum 0x00000000\nlinenum  false\nlsyms    false\nmachine  AMD64\nmaxopsz  16\nminopsz  1\nnx       false\nos       Windows NT Workstation 6.1.7601\npcalign  0\npic      false\nrelocs   false\nrpath    NONE\nstatic   true\nstreams  13\nstripped false\nva       true\n\n",
+            "broken": false
+        },
+        {
+            "name": ": sections",
+            "file": "bins/mdmp/calc.dmp",
+            "args": "",
+            "commands": [
+                "iS~calc",
+                "",
+                ""
+            ],
+            "expected": "09 0x00000000 929792 0xfffe0000 929792 ---- C:_Windows_System32_calc.exe\n\n",
+            "broken": false
+        },
+        {
+            "name": ": entrypoints nomem .dmp",
+            "file": "bins/mdmp/calc.dmp",
+            "args": "",
+            "commands": [
+                "ie",
+                "",
+                ""
+            ],
+            "expected": "[Entrypoints]\n\n0 entrypoints\n\n",
+            "broken": false
+        },
+        {
+            "name": ": resolve vaddr to paddr",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "px 64 @ 0x00400000",
+                "",
+                ""
+            ],
+            "expected": "- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF\n0x00400000  4d5a 9000 0300 0000 0400 0000 ffff 0000  MZ..............\n0x00400010  b800 0000 0000 0000 4000 0000 0000 0000  ........@.......\n0x00400020  0000 0000 0000 0000 0000 0000 0000 0000  ................\n0x00400030  0000 0000 0000 0000 0000 0000 8000 0000  ................\n\n",
+            "broken": false
+        },
+        {
+            "name": ": test format definitions",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "'-nn'",
+            "commands": [
+                "pf.",
+                "",
+                ""
+            ],
+            "expected": "pf.mdmp_memory_descriptor q? StartOfMemoryRange (mdmp_location_descriptor)Memory\npf.mdmp_misc_info d[4]Bdtttddddd SizeOfInfo (mdmp_misc1_flags)Flags1 ProcessId ProcessCreateTime ProcessUserTime ProcessKernelTime ProcessorMaxMhz ProcessorCurrentMhz ProcessorMhzLimit ProcessorMaxIdleState ProcessorCurrentIdleState\npf.mdmp_thread_list d[1]? NumberOfThreads (mdmp_thread)Threads\npf.mdmp_module qddtd???qq BaseOfImage SizeOfImage CheckSum TimeDateStamp ModuleNameRVA (mdmp_vs_fixedfileinfo)VersionInfo (mdmp_location_descriptor)CvRecord (mdmp_location_descriptor)MiscRecord Reserved0 Reserved1\npf.mdmp_system_info [2]EwwbBddd[4]Ed[2]Ew[2]q (mdmp_processor_architecture)ProcessorArchitecture ProcessorLevel ProcessorRevision NumberOfProcessors (mdmp_product_type)ProductType MajorVersion MinorVersion BuildNumber (mdmp_platform_id)PlatformId CsdVersionRva (mdmp_suite_mask)SuiteMask Reserved2 ProcessorFeatures\npf.mdmp_exception [4]E[4]Eqqdd[15]q (mdmp_exception_code)ExceptionCode (mdmp_exception_flags)ExceptionFlags ExceptionRecord ExceptionAddress NumberParameters __UnusedAlignment ExceptionInformation\npf.mdmp_module_list d[10]? NumberOfModule (mdmp_module)Modules\npf.mdmp_location_descriptor dd DataSize RVA\npf.mdmp_string dZ Length Buffer\npf.mdmp_memory64_list qq[83]? NumberOfMemoryRanges BaseRva (mdmp_memory_descriptor64)MemoryRanges\npf.mdmp_vs_fixedfileinfo ddddddddddddd dwSignature dwStrucVersion dwFileVersionMs dwFileVersionLs dwProductVersionMs dwProductVersionLs dwFileFlagsMask dwFileFlags dwFileOs dwFileType dwFileSubtype dwFileDateMs dwFileDateLs\npf.mdmp_location_descriptor64 qq DataSize RVA\npf.mdmp_header [4]zddddt[8]B Signature Version NumberOfStreams StreamDirectoryRVA CheckSum TimeDateStamp (mdmp_type)Flags\npf.mdmp_exception_stream dd?? ThreadId __Alignment (mdmp_exception)ExceptionRecord (mdmp_location_descriptor)ThreadContext\npf.mdmp_memory_descriptor64 qq StartOfMemoryRange DataSize\npf.mdmp_directory [4]E? (mdmp_stream_type)StreamType (mdmp_location_descriptor)Location\npf.mdmp_memory_info qq[4]Edq[4]E[4]E[4]Ed BaseAddress AllocationBase (mdmp_page_protect)AllocationProtect __Alignment1 RegionSize (mdmp_mem_state)State (mdmp_page_protect)Protect (mdmp_mem_type)Type __Alignment2\npf.mdmp_thread ddddq?? ThreadId SuspendCount PriorityClass Priority Teb (mdmp_memory_descriptor)Stack (mdmp_location_descriptor)ThreadContext\npf.mdmp_memory_info_list ddq[127]? SizeOfHeader SizeOfEntry NumberOfEntries (mdmp_memory_info)MemoryInfo\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - libraries count",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "il~libraries",
+                "",
+                ""
+            ],
+            "expected": "[Linked libraries]\n57 libraries\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - libraries resolving",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "il~kernel32.dll",
+                "",
+                ""
+            ],
+            "expected": "[0x00400000] - kernel32.dll\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - entrypoints count",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "ie~entrypoints",
+                "iee~entrypoints",
+                "",
+                ""
+            ],
+            "expected": "9 entrypoints\n2 entrypoints\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - entrypoints resolving",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "ie~0x004014e0",
+                "",
+                ""
+            ],
+            "expected": "vaddr=0x004014e0 paddr=0x000990b2 baddr=0x00000000 laddr=0x00000000 haddr=0x00097c7a type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - symbols count",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "is~?",
+                "",
+                ""
+            ],
+            "expected": "7467\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - symbols resolving 1",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "is~imp.KERNEL32.dll_DeleteCriticalSection:0",
+                "",
+                ""
+            ],
+            "expected": "001 0x0009dcda 0x00406108   NONE   FUNC    0 imp.KERNEL32.dll_DeleteCriticalSection\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - symbols resolving 2",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "is~ntdll.dll_RtlDeleteCriticalSection:0",
+                "",
+                ""
+            ],
+            "expected": "358 0x001c2176 0x76fb05a4   NONE   FUNC    0 imp.ntdll.dll_RtlDeleteCriticalSection\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - imports count",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "ii~?",
+                "",
+                ""
+            ],
+            "expected": "2029\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - imports resolving",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "ii~KERNEL32.dll_TerminateProcess",
+                "",
+                ""
+            ],
+            "expected": "  17 0x00406148    NONE    FUNC KERNEL32.dll_TerminateProcess\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - exports count",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "iE~?",
+                "",
+                ""
+            ],
+            "expected": "5439\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - exports resolving",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "iE~ntdll.dll_Ordinal_1",
+                "",
+                ""
+            ],
+            "expected": "1992 0x0041f1f2 0x77802620 GLOBAL   FUNC    0 ntdll.dll_Ordinal_1\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - relocs count",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "ir~relocations",
+                "",
+                ""
+            ],
+            "expected": "2028 relocations\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - relocs resolving",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "ir~msvcrt.dll___dllonexit",
+                "",
+                ""
+            ],
+            "expected": "vaddr=0x00406160 paddr=0x0009dd32 type=SET_32 msvcrt.dll___dllonexit\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 32bit - relocs following",
+            "file": "bins/mdmp/hello.dmp",
+            "args": "",
+            "commands": [
+                "pd 12 @[0x004061cc]",
+                "",
+                ""
+            ],
+            "expected": "            ;-- msvcrt.dll_vfprintf:\n            0x773e7430      8bff           mov edi, edi\n            0x773e7432      55             push rbp\n            0x773e7433      8bec           mov ebp, esp\n            0x773e7435      ff7510         push qword [rbp + 0x10]\n            0x773e7438      6a00           push 0\n            0x773e743a      ff750c         push qword [rbp + 0xc]\n            0x773e743d      ff7508         push qword [rbp + 8]\n            0x773e7440      68fdcc3777     push 0x7737ccfd\n            0x773e7445      e800feffff     call 0x773e724a\n            0x773e744a      83c414         add esp, 0x14\n            0x773e744d      5d             pop rbp\n            0x773e744e      c3             ret\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - libraries count",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "il~libraries",
+                "",
+                ""
+            ],
+            "expected": "[Linked libraries]\n49 libraries\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - libraries resolving",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "il~kernel32.dll",
+                "",
+                ""
+            ],
+            "expected": "[0x00400000] - kernel32.dll\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - entrypoints count",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "ie~entrypoints",
+                "",
+                ""
+            ],
+            "expected": "5 entrypoints\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - entrypoints resolving",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "ie~0x00401500",
+                "",
+                ""
+            ],
+            "expected": "vaddr=0x00401500 paddr=0x0009418f baddr=0x00000000 laddr=0x00000000 haddr=0x00092d37 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - symbols count",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "is~?",
+                "",
+                ""
+            ],
+            "expected": "6825\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - symbols resolving 1",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "is~imp.KERNEL32.dll_DeleteCriticalSection",
+                "",
+                ""
+            ],
+            "expected": "001 0x0009ae8b 0x004081fc   NONE   FUNC    0 imp.KERNEL32.dll_DeleteCriticalSection\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - symbols resolving 2",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "is~ntdll.dll_A_SHAFinal",
+                "",
+                ""
+            ],
+            "expected": "008 0x001eb87f 0x77728bf0 GLOBAL   FUNC    0 ntdll.dll_A_SHAFinal\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - imports count",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "ii~?",
+                "",
+                ""
+            ],
+            "expected": "1510\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - imports resolving",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "ii~KERNEL32.dll_GetCurrentProcessId",
+                "",
+                ""
+            ],
+            "expected": "   4 0x00408214    NONE    FUNC KERNEL32.dll_GetCurrentProcessId\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - exports count",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "iE~?",
+                "",
+                ""
+            ],
+            "expected": "5316\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - exports resolving",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "iE~ntdll.dll_CsrVerifyRegion",
+                "",
+                ""
+            ],
+            "expected": "038 0x0029513f 0x777d24b0 GLOBAL   FUNC    0 ntdll.dll_CsrVerifyRegion\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - relocs count",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "ir~relocations",
+                "",
+                ""
+            ],
+            "expected": "1509 relocations\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - relocs resolving",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "ir~KERNEL32.dll_DeleteCriticalSection",
+                "",
+                ""
+            ],
+            "expected": "vaddr=0x004081fc paddr=0x0009ae8b type=SET_64 KERNEL32.dll_DeleteCriticalSection\n\n",
+            "broken": false
+        },
+        {
+            "name": ": 64bit - relocs following",
+            "file": "bins/mdmp/hello64.dmp",
+            "args": "",
+            "commands": [
+                "pd 9 @[0x004083ac]",
+                "",
+                ""
+            ],
+            "expected": "            ;-- msvcrt.dll_vfprintf:\n            0x7fefdb0a1a4      4883ec38       sub rsp, 0x38            ; '8'\n            0x7fefdb0a1a8      4c89442420     mov qword [rsp + 0x20], r8\n            0x7fefdb0a1ad      4c8bc2         mov r8, rdx\n            0x7fefdb0a1b0      488bd1         mov rdx, rcx\n            0x7fefdb0a1b3      488d0dea7ffa.  lea rcx, [0x7fefdab21a4]\n            0x7fefdb0a1ba      4533c9         xor r9d, r9d\n            0x7fefdb0a1bd      e87efdffff     call 0x7fefdb09f40\n            0x7fefdb0a1c2      4883c438       add rsp, 0x38            ; '8'\n            0x7fefdb0a1c6      c3             ret\n\n",
+            "broken": false
+        },
+        {
+            "name": ": reload file",
+            "file": "bins/mdmp/calc.dmp",
+            "args": "",
+            "commands": [
+                "ib",
+                "?e ok",
+                "",
+                ""
+            ],
+            "expected": "ok\n\n",
+            "broken": false
+        }
+    ]
+}

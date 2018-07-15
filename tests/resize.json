@@ -1,0 +1,41 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "r xx",
+            "file": ".resize.V1OzXt",
+            "args": "-w",
+            "commands": [
+                "i~^size[1]",
+                "r 10",
+                "i~^size[1]",
+                "r 4",
+                "i~^size[1]",
+                "r+6",
+                "i~^size[1]",
+                "!rm ${R2_FILE}",
+                ""
+            ],
+            "expected": "0\n0xa\n0x4\n0xa\n\n",
+            "broken": false
+        },
+        {
+            "name": "r/wx nn",
+            "file": ".resize.V11zXt",
+            "args": "-w",
+            "commands": [
+                "e io.va=0",
+                "i~^size[1]",
+                "wx 010203",
+                "i~^size[1]",
+                "w hello world",
+                "i~^size[1]",
+                "psz",
+                "!rm ${R2_FILE}",
+                ""
+            ],
+            "expected": "0\n0x3\n0xb\nhello world\n\n",
+            "broken": false
+        }
+    ]
+}

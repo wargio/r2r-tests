@@ -1,1 +1,405 @@
-{"type":"asm","tests":[{"name":"ebc: d \"add64 r4, r6(1)\" cc640100","file":"-","args":"-a ebc","commands":["pad cc640100"],"expected":"add64 r4, r6(1)\n","broken":false},{"name":"ebc: d \"add64 r7, r4\" 4c47","file":"-","args":"-a ebc","commands":["pad 4c47"],"expected":"add64 r7, r4\n","broken":false},{"name":"ebc: d \"and64 r7, r4\" 5447","file":"-","args":"-a ebc","commands":["pad 5447"],"expected":"and64 r7, r4\n","broken":false},{"name":"ebc: d \"ashr32 r4, r6(1)\" 99640100","file":"-","args":"-a ebc","commands":["pad 99640100"],"expected":"ashr32 r4, r6(1)\n","broken":false},{"name":"ebc: d \"break 6\" 0006","file":"-","args":"-a ebc","commands":["pad 0006"],"expected":"break 6\n","broken":false},{"name":"ebc: d \"call32 r0(0xffff5d9a)\" 83109a5dffff","file":"-","args":"-a ebc","commands":["pad 83109a5dffff"],"expected":"call32 r0(0xffff5d9a)\n","broken":false},{"name":"ebc: d \"call32 r0(0xfffff47c)\" 83107cf4ffff","file":"-","args":"-a ebc","commands":["pad 83107cf4ffff"],"expected":"call32 r0(0xfffff47c)\n","broken":false},{"name":"ebc: d \"call32a r7\" 0307","file":"-","args":"-a ebc","commands":["pad 0307"],"expected":"call32a r7\n","broken":false},{"name":"ebc: d \"call32exa @r7(+1, +0)\" 832f01000010","file":"-","args":"-a ebc","commands":["pad 832f01000010"],"expected":"call32exa @r7(+1, +0)\n","broken":false},{"name":"ebc: d \"cmp64eq r7, r4\" 4547","file":"-","args":"-a ebc","commands":["pad 4547"],"expected":"cmp64eq r7, r4\n","broken":false},{"name":"ebc: d \"cmp64gte r7, r6\" 4767","file":"-","args":"-a ebc","commands":["pad 4767"],"expected":"cmp64gte r7, r6\n","broken":false},{"name":"ebc: d \"cmpi32weq r7 (+2, +144), 1\" 2d1742120100","file":"-","args":"-a ebc","commands":["pad 2d1742120100"],"expected":"cmpi32weq r7 (+2, +144), 1\n","broken":false},{"name":"ebc: d \"cmpi64wugte r7, 2\" 71070200","file":"-","args":"-a ebc","commands":["pad 71070200"],"expected":"cmpi64wugte r7, 2\n","broken":false},{"name":"ebc: d \"divu64 r7, r6(2)\" d1670200","file":"-","args":"-a ebc","commands":["pad d1670200"],"expected":"divu64 r7, r6(2)\n","broken":false},{"name":"ebc: d \"extndd64 r4, r4\" 5c44","file":"-","args":"-a ebc","commands":["pad 5c44"],"expected":"extndd64 r4, r4\n","broken":false},{"name":"ebc: d \"jmp32cc 0x28a\" 81908a020000","file":"-","args":"-a ebc","commands":["pad 81908a020000"],"expected":"jmp32cc 0x28a\n","broken":false},{"name":"ebc: d \"jmp8 0x3\" 0203","file":"-","args":"-a ebc","commands":["pad 0203"],"expected":"jmp8 0x3\n","broken":false},{"name":"ebc: d \"jmp8cc 0xdf\" 82df","file":"-","args":"-a ebc","commands":["pad 82df"],"expected":"jmp8cc 0xdf\n","broken":false},{"name":"ebc: d \"jmp8cs 0xd\" c20d","file":"-","args":"-a ebc","commands":["pad c20d"],"expected":"jmp8cs 0xd\n","broken":false},{"name":"ebc: d \"mod32 r7, r6(4)\" 92670400","file":"-","args":"-a ebc","commands":["pad 92670400"],"expected":"mod32 r7, r6(4)\n","broken":false},{"name":"ebc: d \"modu64 r7, r4\" 5347","file":"-","args":"-a ebc","commands":["pad 5347"],"expected":"modu64 r7, r4\n","broken":false},{"name":"ebc: d \"movdd r7, @r7(+7, +584)\" 63f787240010","file":"-","args":"-a ebc","commands":["pad 63f787240010"],"expected":"movdd r7, @r7(+7, +584)\n","broken":false},{"name":"ebc: d \"movdw @r0(+0, +56), r6\" 9f683800","file":"-","args":"-a ebc","commands":["pad 9f683800"],"expected":"movdw @r0(+0, +56), r6\n","broken":false},{"name":"ebc: d \"movdw r4, @r4\" 1fc4","file":"-","args":"-a ebc","commands":["pad 1fc4"],"expected":"movdw r4, @r4\n","broken":false},{"name":"ebc: d \"movidw @r0(+5, +0), 4\" 776805200400","file":"-","args":"-a ebc","commands":["pad 776805200400"],"expected":"movidw @r0(+5, +0), 4\n","broken":false},{"name":"ebc: d \"movinw @r0(+0, +48), (+0, +100)\" 784830006400","file":"-","args":"-a ebc","commands":["pad 784830006400"],"expected":"movinw @r0(+0, +48), (+0, +100)\n","broken":false},{"name":"ebc: d \"movinw r7, (+2, +8)\" 78072210","file":"-","args":"-a ebc","commands":["pad 78072210"],"expected":"movinw r7, (+2, +8)\n","broken":false},{"name":"ebc: d \"moviqw r6, 0\" 77360000","file":"-","args":"-a ebc","commands":["pad 77360000"],"expected":"moviqw r6, 0\n","broken":false},{"name":"ebc: d \"moviqw r7, 65535\" 7737ffff","file":"-","args":"-a ebc","commands":["pad 7737ffff"],"expected":"moviqw r7, 65535\n","broken":false},{"name":"ebc: d \"movnw r7, @r0(+0, +16)\" 72871000","file":"-","args":"-a ebc","commands":["pad 72871000"],"expected":"movnw r7, @r0(+0, +16)\n","broken":false},{"name":"ebc: d \"movqw r0, r0(+0, +80)\" 60005000","file":"-","args":"-a ebc","commands":["pad 60005000"],"expected":"movqw r0, r0(+0, +80)\n","broken":false},{"name":"ebc: d \"movsnw r7, @r0(+0, +56)\" 65873800","file":"-","args":"-a ebc","commands":["pad 65873800"],"expected":"movsnw r7, @r0(+0, +56)\n","broken":false},{"name":"ebc: d \"neg64 r7, r7\" 4b77","file":"-","args":"-a ebc","commands":["pad 4b77"],"expected":"neg64 r7, r7\n","broken":false},{"name":"ebc: d \"not32 r7, r7\" 0a77","file":"-","args":"-a ebc","commands":["pad 0a77"],"expected":"not32 r7, r7\n","broken":false},{"name":"ebc: d \"or64 r7, r6(15)\" d5670f00","file":"-","args":"-a ebc","commands":["pad d5670f00"],"expected":"or64 r7, r6(15)\n","broken":false},{"name":"ebc: d \"ret\" 0400","file":"-","args":"-a ebc","commands":["pad 0400"],"expected":"ret\n","broken":false},{"name":"ebc: d \"shl64 r7, r4\" 5747","file":"-","args":"-a ebc","commands":["pad 5747"],"expected":"shl64 r7, r4\n","broken":false},{"name":"ebc: d \"shr64 r7, r4\" 5847","file":"-","args":"-a ebc","commands":["pad 5847"],"expected":"shr64 r7, r4\n","broken":false},{"name":"ebc: d \"storesp r7, FLAGS\" 2a07","file":"-","args":"-a ebc","commands":["pad 2a07"],"expected":"storesp r7, FLAGS\n","broken":false},{"name":"ebc: d \"xor32 r7, r4\" 1647","file":"-","args":"-a ebc","commands":["pad 1647"],"expected":"xor32 r7, r4\n","broken":false}]}
+{
+    "type": "asm",
+    "tests": [
+        {
+            "name": "ebc: d \"add64 r4, r6(1)\" cc640100",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad cc640100"
+            ],
+            "expected": "add64 r4, r6(1)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"add64 r7, r4\" 4c47",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 4c47"
+            ],
+            "expected": "add64 r7, r4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"and64 r7, r4\" 5447",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 5447"
+            ],
+            "expected": "and64 r7, r4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"ashr32 r4, r6(1)\" 99640100",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 99640100"
+            ],
+            "expected": "ashr32 r4, r6(1)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"break 6\" 0006",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 0006"
+            ],
+            "expected": "break 6\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"call32 r0(0xffff5d9a)\" 83109a5dffff",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 83109a5dffff"
+            ],
+            "expected": "call32 r0(0xffff5d9a)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"call32 r0(0xfffff47c)\" 83107cf4ffff",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 83107cf4ffff"
+            ],
+            "expected": "call32 r0(0xfffff47c)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"call32a r7\" 0307",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 0307"
+            ],
+            "expected": "call32a r7\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"call32exa @r7(+1, +0)\" 832f01000010",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 832f01000010"
+            ],
+            "expected": "call32exa @r7(+1, +0)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"cmp64eq r7, r4\" 4547",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 4547"
+            ],
+            "expected": "cmp64eq r7, r4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"cmp64gte r7, r6\" 4767",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 4767"
+            ],
+            "expected": "cmp64gte r7, r6\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"cmpi32weq r7 (+2, +144), 1\" 2d1742120100",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 2d1742120100"
+            ],
+            "expected": "cmpi32weq r7 (+2, +144), 1\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"cmpi64wugte r7, 2\" 71070200",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 71070200"
+            ],
+            "expected": "cmpi64wugte r7, 2\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"divu64 r7, r6(2)\" d1670200",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad d1670200"
+            ],
+            "expected": "divu64 r7, r6(2)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"extndd64 r4, r4\" 5c44",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 5c44"
+            ],
+            "expected": "extndd64 r4, r4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"jmp32cc 0x28a\" 81908a020000",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 81908a020000"
+            ],
+            "expected": "jmp32cc 0x28a\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"jmp8 0x3\" 0203",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 0203"
+            ],
+            "expected": "jmp8 0x3\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"jmp8cc 0xdf\" 82df",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 82df"
+            ],
+            "expected": "jmp8cc 0xdf\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"jmp8cs 0xd\" c20d",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad c20d"
+            ],
+            "expected": "jmp8cs 0xd\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"mod32 r7, r6(4)\" 92670400",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 92670400"
+            ],
+            "expected": "mod32 r7, r6(4)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"modu64 r7, r4\" 5347",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 5347"
+            ],
+            "expected": "modu64 r7, r4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movdd r7, @r7(+7, +584)\" 63f787240010",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 63f787240010"
+            ],
+            "expected": "movdd r7, @r7(+7, +584)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movdw @r0(+0, +56), r6\" 9f683800",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 9f683800"
+            ],
+            "expected": "movdw @r0(+0, +56), r6\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movdw r4, @r4\" 1fc4",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 1fc4"
+            ],
+            "expected": "movdw r4, @r4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movidw @r0(+5, +0), 4\" 776805200400",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 776805200400"
+            ],
+            "expected": "movidw @r0(+5, +0), 4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movinw @r0(+0, +48), (+0, +100)\" 784830006400",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 784830006400"
+            ],
+            "expected": "movinw @r0(+0, +48), (+0, +100)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movinw r7, (+2, +8)\" 78072210",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 78072210"
+            ],
+            "expected": "movinw r7, (+2, +8)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"moviqw r6, 0\" 77360000",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 77360000"
+            ],
+            "expected": "moviqw r6, 0\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"moviqw r7, 65535\" 7737ffff",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 7737ffff"
+            ],
+            "expected": "moviqw r7, 65535\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movnw r7, @r0(+0, +16)\" 72871000",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 72871000"
+            ],
+            "expected": "movnw r7, @r0(+0, +16)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movqw r0, r0(+0, +80)\" 60005000",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 60005000"
+            ],
+            "expected": "movqw r0, r0(+0, +80)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"movsnw r7, @r0(+0, +56)\" 65873800",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 65873800"
+            ],
+            "expected": "movsnw r7, @r0(+0, +56)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"neg64 r7, r7\" 4b77",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 4b77"
+            ],
+            "expected": "neg64 r7, r7\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"not32 r7, r7\" 0a77",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 0a77"
+            ],
+            "expected": "not32 r7, r7\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"or64 r7, r6(15)\" d5670f00",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad d5670f00"
+            ],
+            "expected": "or64 r7, r6(15)\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"ret\" 0400",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 0400"
+            ],
+            "expected": "ret\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"shl64 r7, r4\" 5747",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 5747"
+            ],
+            "expected": "shl64 r7, r4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"shr64 r7, r4\" 5847",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 5847"
+            ],
+            "expected": "shr64 r7, r4\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"storesp r7, FLAGS\" 2a07",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 2a07"
+            ],
+            "expected": "storesp r7, FLAGS\n",
+            "broken": false
+        },
+        {
+            "name": "ebc: d \"xor32 r7, r4\" 1647",
+            "file": "-",
+            "args": "-a ebc",
+            "commands": [
+                "pad 1647"
+            ],
+            "expected": "xor32 r7, r4\n",
+            "broken": false
+        }
+    ]
+}

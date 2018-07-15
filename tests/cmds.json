@@ -1,1 +1,174 @@
-{"type":"cmd","tests":[{"name":"quotes multicommands","file":"malloc://128","args":"","commands":["\"wa nop;nop\";pi 3",""],"expected":"nop\nnop\nadd byte [rax], al\n\n","broken":false},{"name":"quotes multicommands 2","file":"malloc://128","args":"","commands":["e asm.arch=x86 ; e asm.bits=32 ;p8 1;\"wa nop;nop\";pi 3",""],"expected":"00\nnop\nnop\nadd byte [eax], al\n\n","broken":false},{"name":"quotes multicommands 2","file":"malloc://128","args":"","commands":["e asm.arch=x86 ; e asm.bits=32 ;\"w hello;world\";\"wa inc eax;inc eax\";psz",""],"expected":"@@llo;world\n\n","broken":false},{"name":"p8 2@x:9090","file":"malloc://128","args":"","commands":["","e asm.arch=x86","e asm.bits=32","p8 2 @x:9090","",""],"expected":"9090\n\n","broken":false},{"name":"pi 2@x:9090","file":"malloc://128","args":"","commands":["","e asm.arch=x86","e asm.bits=32","pi 2 @x:9090","",""],"expected":"nop\nnop\n\n","broken":false},{"name":"pdi 2@x:9090@0x1000","file":"malloc://128","args":"","commands":["","e asm.arch=x86","e asm.bits=32","pdi 2 @x:9090@0x1000","",""],"expected":"0x00001000                   90  nop\n0x00001001                   90  nop\n\n","broken":false},{"name":"pd 2@x:9090","file":"malloc://128","args":"","commands":["","e asm.arch=x86","e asm.bits=32","pd 2 @x:9090","",""],"expected":"            0x00000000      90             nop\n            0x00000001      90             nop\n\n","broken":false},{"name":"pad 9090","file":"malloc://128","args":"","commands":["","e asm.arch=x86","e asm.bits=32","pad 9090","",""],"expected":"nop\nnop\n\n","broken":false},{"name":"pie 90","file":"malloc://128","args":"","commands":["","e asm.arch=x86","e asm.bits=64","wx 4989d1","pie 1","",""],"expected":"0x00000000 rdx,r9,=\n\n","broken":false},{"name":"pa nop,nop","file":"malloc://128","args":"","commands":["","e asm.arch=x86","e asm.bits=32","\"pa nop;nop\"","",""],"expected":"9090\n\n","broken":false},{"name":"r2 asm with pa","file":"-","args":"","commands":["e asm.arch=x86","e asm.bits=32","f TEST=33","pa mov eax, TEST","",""],"expected":"b821000000\n\n","broken":true},{"name":"r2 asm with pa","file":"-","args":"","commands":["e asm.arch=x86","e asm.bits=32","f TEST=33","pa mov eax, 33","",""],"expected":"b821000000\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "quotes multicommands",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "\"wa nop;nop\";pi 3",
+                ""
+            ],
+            "expected": "nop\nnop\nadd byte [rax], al\n\n",
+            "broken": false
+        },
+        {
+            "name": "quotes multicommands 2",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86 ; e asm.bits=32 ;p8 1;\"wa nop;nop\";pi 3",
+                ""
+            ],
+            "expected": "00\nnop\nnop\nadd byte [eax], al\n\n",
+            "broken": false
+        },
+        {
+            "name": "quotes multicommands 2",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86 ; e asm.bits=32 ;\"w hello;world\";\"wa inc eax;inc eax\";psz",
+                ""
+            ],
+            "expected": "@@llo;world\n\n",
+            "broken": false
+        },
+        {
+            "name": "p8 2@x:9090",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "p8 2 @x:9090",
+                "",
+                ""
+            ],
+            "expected": "9090\n\n",
+            "broken": false
+        },
+        {
+            "name": "pi 2@x:9090",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "pi 2 @x:9090",
+                "",
+                ""
+            ],
+            "expected": "nop\nnop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdi 2@x:9090@0x1000",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "pdi 2 @x:9090@0x1000",
+                "",
+                ""
+            ],
+            "expected": "0x00001000                   90  nop\n0x00001001                   90  nop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd 2@x:9090",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "pd 2 @x:9090",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      90             nop\n            0x00000001      90             nop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pad 9090",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "pad 9090",
+                "",
+                ""
+            ],
+            "expected": "nop\nnop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pie 90",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 4989d1",
+                "pie 1",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 rdx,r9,=\n\n",
+            "broken": false
+        },
+        {
+            "name": "pa nop,nop",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "\"pa nop;nop\"",
+                "",
+                ""
+            ],
+            "expected": "9090\n\n",
+            "broken": false
+        },
+        {
+            "name": "r2 asm with pa",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "f TEST=33",
+                "pa mov eax, TEST",
+                "",
+                ""
+            ],
+            "expected": "b821000000\n\n",
+            "broken": true
+        },
+        {
+            "name": "r2 asm with pa",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "f TEST=33",
+                "pa mov eax, 33",
+                "",
+                ""
+            ],
+            "expected": "b821000000\n\n",
+            "broken": false
+        }
+    ]
+}

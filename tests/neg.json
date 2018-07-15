@@ -1,0 +1,31 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "io/neg",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "p8 4 @ 0-2",
+                "",
+                ""
+            ],
+            "expected": "ffff0000\n\n",
+            "broken": false
+        },
+        {
+            "name": "io/neg 2",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "s- 1000",
+                "? $o~?0x0",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        }
+    ]
+}

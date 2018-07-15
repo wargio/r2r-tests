@@ -1,1 +1,35 @@
-{"type":"cmd","tests":[{"name":"issue 3479","file":"malloc://1024","args":"","commands":["w aac","p8 3","/x 616163","f~?","",""],"expected":"616163\n0x00000000 hit0_0 616163\n1\n\n","broken":false},{"name":"issue 3479","file":"malloc://1024","args":"","commands":["w aac","p8 3","/x 6163","f~?","",""],"expected":"616163\n0x00000001 hit0_0 6163\n1\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "issue 3479",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "w aac",
+                "p8 3",
+                "/x 616163",
+                "f~?",
+                "",
+                ""
+            ],
+            "expected": "616163\n0x00000000 hit0_0 616163\n1\n\n",
+            "broken": false
+        },
+        {
+            "name": "issue 3479",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "w aac",
+                "p8 3",
+                "/x 6163",
+                "f~?",
+                "",
+                ""
+            ],
+            "expected": "616163\n0x00000001 hit0_0 6163\n1\n\n",
+            "broken": false
+        }
+    ]
+}

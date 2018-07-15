@@ -1,0 +1,27 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "DOL: sqrxz4 - open",
+            "file": "bins/psx/HITPSX.EXE",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "DOL: sqrxz4 - iI",
+            "file": "bins/psx/HITPSX.EXE",
+            "args": "",
+            "commands": [
+                "iI~?psx",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        }
+    ]
+}

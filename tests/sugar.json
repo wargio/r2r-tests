@@ -1,1 +1,20 @@
-{"type":"cmd","tests":[{"name":"t/sugar","file":"-","args":"","commands":["","ph md5@s:hello","ph md5 @ s:hello","ph md5@x:01020304","",""],"expected":"5d41402abc4b2a76b9719d911017c592\n5d41402abc4b2a76b9719d911017c592\n08d6c05a21512a79a1dfeb9d2a8f262f\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "t/sugar",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "ph md5@s:hello",
+                "ph md5 @ s:hello",
+                "ph md5@x:01020304",
+                "",
+                ""
+            ],
+            "expected": "5d41402abc4b2a76b9719d911017c592\n5d41402abc4b2a76b9719d911017c592\n08d6c05a21512a79a1dfeb9d2a8f262f\n\n",
+            "broken": false
+        }
+    ]
+}

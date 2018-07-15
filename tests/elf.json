@@ -1,1 +1,17 @@
-{"type":"cmd","tests":[{"name":"fuzzed elfs","file":"","args":"","commands":[],"expected":"","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "search in va",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "/x 9066~[0]",
+                "",
+                ""
+            ],
+            "expected": "0x08048323\n0x08048325\n0x08048327\n0x08048329\n0x0804832b\n0x0804832d\n0x08048335\n0x08048337\n0x08048339\n0x0804833b\n0x0804833d\n0x0804841d\n\n",
+            "broken": false
+        }
+    ]
+}

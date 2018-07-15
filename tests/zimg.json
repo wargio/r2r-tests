@@ -1,0 +1,17 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "Test 32-bit arm",
+            "file": "bins/zimg/arm32",
+            "args": "",
+            "commands": [
+                "iI~arch",
+                "",
+                ""
+            ],
+            "expected": "arch     arm\n\n",
+            "broken": false
+        }
+    ]
+}

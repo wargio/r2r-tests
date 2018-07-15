@@ -1,1 +1,215 @@
-{"type":"asm","tests":[{"name":"pic_pic18_8: d \"addlw 0x12\" 120f","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 120f"],"expected":"addlw 0x12\n","broken":false},{"name":"pic_pic18_8: d \"addwf 0xd1, 0, 1\" d125","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad d125"],"expected":"addwf 0xd1, 0, 1\n","broken":false},{"name":"pic_pic18_8: d \"addwfc 0x35, 1, 0\" 3522","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 3522"],"expected":"addwfc 0x35, 1, 0\n","broken":false},{"name":"pic_pic18_8: d \"andwf 0x85, 1, 1\" 8517","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 8517"],"expected":"andwf 0x85, 1, 1\n","broken":false},{"name":"pic_pic18_8: d \"bcf 0x42, 7, 1\" 429f","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 429f"],"expected":"bcf 0x42, 7, 1\n","broken":false},{"name":"pic_pic18_8: d \"bnn 0xfa\" fae7","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad fae7"],"expected":"bnn 0xfa\n","broken":false},{"name":"pic_pic18_8: d \"bra 0x51e\" 1ed5","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 1ed5"],"expected":"bra 0x51e\n","broken":false},{"name":"pic_pic18_8: d \"call 0x612a1, 1\" a1ed12f6","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad a1ed12f6"],"expected":"call 0x612a1, 1\n","broken":false},{"name":"pic_pic18_8: d \"clrf 0x15, 0\" 156a","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 156a"],"expected":"clrf 0x15, 0\n","broken":false},{"name":"pic_pic18_8: d \"comf 0x48, 0, 0\" 481c","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 481c"],"expected":"comf 0x48, 0, 0\n","broken":false},{"name":"pic_pic18_8: d \"cpfseq 0x71, 1\" 7163","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 7163"],"expected":"cpfseq 0x71, 1\n","broken":false},{"name":"pic_pic18_8: d \"cpfsgt 0x62, 0\" 6264","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 6264"],"expected":"cpfsgt 0x62, 0\n","broken":false},{"name":"pic_pic18_8: d \"cpfslt 0xc4, 0\" c460","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad c460"],"expected":"cpfslt 0xc4, 0\n","broken":false},{"name":"pic_pic18_8: d \"goto 0x274e\" a7ef13f0","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad a7ef13f0"],"expected":"goto 0x274e\n","broken":false},{"name":"pic_pic18_8: d \"invalid\" 02","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 02"],"expected":"invalid\n","broken":false},{"name":"pic_pic18_8: dB \"invalid\" 0200","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 0200"],"expected":"invalid\n","broken":true},{"name":"pic_pic18_8: d \"lfsr fsr2, 4005\" 2feea5f0","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 2feea5f0"],"expected":"lfsr fsr2, 4005\n","broken":false},{"name":"pic_pic18_8: d \"movff 0xe54, 0x49\" 54ce49f0","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 54ce49f0"],"expected":"movff 0xe54, 0x49\n","broken":false},{"name":"pic_pic18_8: d \"movlb 0xd\" 0d01","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 0d01"],"expected":"movlb 0xd\n","broken":false},{"name":"pic_pic18_8: d \"nop\" 15f0","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 15f0"],"expected":"nop\n","broken":false},{"name":"pic_pic18_8: d \"return 0\" 1200","file":"-","args":"-a pic -e asm.cpu=pic18 -b 8","commands":["pad 1200"],"expected":"return 0\n","broken":false}]}
+{
+    "type": "asm",
+    "tests": [
+        {
+            "name": "pic_pic18_8: d \"addlw 0x12\" 120f",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 120f"
+            ],
+            "expected": "addlw 0x12\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"addwf 0xd1, 0, 1\" d125",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad d125"
+            ],
+            "expected": "addwf 0xd1, 0, 1\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"addwfc 0x35, 1, 0\" 3522",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 3522"
+            ],
+            "expected": "addwfc 0x35, 1, 0\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"andwf 0x85, 1, 1\" 8517",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 8517"
+            ],
+            "expected": "andwf 0x85, 1, 1\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"bcf 0x42, 7, 1\" 429f",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 429f"
+            ],
+            "expected": "bcf 0x42, 7, 1\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"bnn 0xfa\" fae7",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad fae7"
+            ],
+            "expected": "bnn 0xfa\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"bra 0x51e\" 1ed5",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 1ed5"
+            ],
+            "expected": "bra 0x51e\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"call 0x612a1, 1\" a1ed12f6",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad a1ed12f6"
+            ],
+            "expected": "call 0x612a1, 1\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"clrf 0x15, 0\" 156a",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 156a"
+            ],
+            "expected": "clrf 0x15, 0\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"comf 0x48, 0, 0\" 481c",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 481c"
+            ],
+            "expected": "comf 0x48, 0, 0\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"cpfseq 0x71, 1\" 7163",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 7163"
+            ],
+            "expected": "cpfseq 0x71, 1\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"cpfsgt 0x62, 0\" 6264",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 6264"
+            ],
+            "expected": "cpfsgt 0x62, 0\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"cpfslt 0xc4, 0\" c460",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad c460"
+            ],
+            "expected": "cpfslt 0xc4, 0\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"goto 0x274e\" a7ef13f0",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad a7ef13f0"
+            ],
+            "expected": "goto 0x274e\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"invalid\" 02",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 02"
+            ],
+            "expected": "invalid\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: dB \"invalid\" 0200",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 0200"
+            ],
+            "expected": "invalid\n",
+            "broken": true
+        },
+        {
+            "name": "pic_pic18_8: d \"lfsr fsr2, 4005\" 2feea5f0",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 2feea5f0"
+            ],
+            "expected": "lfsr fsr2, 4005\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"movff 0xe54, 0x49\" 54ce49f0",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 54ce49f0"
+            ],
+            "expected": "movff 0xe54, 0x49\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"movlb 0xd\" 0d01",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 0d01"
+            ],
+            "expected": "movlb 0xd\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"nop\" 15f0",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 15f0"
+            ],
+            "expected": "nop\n",
+            "broken": false
+        },
+        {
+            "name": "pic_pic18_8: d \"return 0\" 1200",
+            "file": "-",
+            "args": "-a pic -e asm.cpu=pic18 -b 8",
+            "commands": [
+                "pad 1200"
+            ],
+            "expected": "return 0\n",
+            "broken": false
+        }
+    ]
+}

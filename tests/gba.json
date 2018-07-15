@@ -1,0 +1,16 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "GBA: 3D - S",
+            "file": "bins/gba/3D.gba",
+            "args": "",
+            "commands": [
+                "S",
+                ""
+            ],
+            "expected": "[00:00] * pa=0x00000000 r-x va=0x08000000 sz=0x105cc vsz=0x2000000 ROM\n\n",
+            "broken": false
+        }
+    ]
+}

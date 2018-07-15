@@ -1,60 +1,105 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "condition 33??",
-        "file": "-",
-        "args": "",
-        "commands": ["?= 33", "?? ?e win", "", ""],
-        "expected": "win\n\n",
-        "broken": false
-    }, {
-        "name": "condition 33?!",
-        "file": "-",
-        "args": "",
-        "commands": ["?= 33", "?! ?e win", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "condition 0??",
-        "file": "-",
-        "args": "",
-        "commands": ["?= 0", "?? ?e win", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "condition 0?!",
-        "file": "-",
-        "args": "",
-        "commands": ["?= 0", "?! ?e win", "", ""],
-        "expected": "win\n\n",
-        "broken": false
-    }, {
-        "name": "oneline condition 33??",
-        "file": "-",
-        "args": "",
-        "commands": ["?= 33;?? ?e win", "", ""],
-        "expected": "win\n\n",
-        "broken": false
-    }, {
-        "name": "oneline condition 33?!",
-        "file": "-",
-        "args": "",
-        "commands": ["?= 33;?! ?e win", "", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "oneline condition 0?!",
-        "file": "-",
-        "args": "",
-        "commands": ["?= 0;?! ?e win", "", ""],
-        "expected": "win\n\n",
-        "broken": false
-    }, {
-        "name": "oneline condition 0??",
-        "file": "-",
-        "args": "",
-        "commands": ["?= 0;?? ?e win", "", ""],
-        "expected": "\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "condition 33??",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "?= 33",
+                "?? ?e win",
+                "",
+                ""
+            ],
+            "expected": "win\n\n",
+            "broken": false
+        },
+        {
+            "name": "condition 33?!",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "?= 33",
+                "?! ?e win",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "condition 0??",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "?= 0",
+                "?? ?e win",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "condition 0?!",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "?= 0",
+                "?! ?e win",
+                "",
+                ""
+            ],
+            "expected": "win\n\n",
+            "broken": false
+        },
+        {
+            "name": "oneline condition 33??",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "?= 33;?? ?e win",
+                "",
+                ""
+            ],
+            "expected": "win\n\n",
+            "broken": false
+        },
+        {
+            "name": "oneline condition 33?!",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "?= 33;?! ?e win",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "oneline condition 0?!",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "?= 0;?! ?e win",
+                "",
+                ""
+            ],
+            "expected": "win\n\n",
+            "broken": false
+        },
+        {
+            "name": "oneline condition 0??",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "?= 0;?? ?e win",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        }
+    ]
 }

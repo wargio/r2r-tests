@@ -1,0 +1,27 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "DOL: sqrxz4 - open",
+            "file": "bins/dol/sqrxz4-gc.dol",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "DOL: sqrxz4 - iI",
+            "file": "bins/dol/sqrxz4-gc.dol",
+            "args": "",
+            "commands": [
+                "iI~?wii",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        }
+    ]
+}

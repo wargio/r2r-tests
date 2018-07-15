@@ -1,11 +1,21 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "xtensa blt",
-        "file": "-",
-        "args": "",
-        "commands": ["", "e asm.arch=xtensa", "e asm.bits=32", "wx 3a8868037813690568237915783362650232c31072650352c5108723e437640c68037813", "ao@0x1a~jump", "", ""],
-        "expected": "jump: 0x00000002\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "xtensa blt",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=xtensa",
+                "e asm.bits=32",
+                "wx 3a8868037813690568237915783362650232c31072650352c5108723e437640c68037813",
+                "ao@0x1a~jump",
+                "",
+                ""
+            ],
+            "expected": "jump: 0x00000002\n\n",
+            "broken": false
+        }
+    ]
 }

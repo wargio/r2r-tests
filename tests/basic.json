@@ -1,39 +1,85 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "t/basic",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "w test", "w test@333", "w test@666", "?e", "e search.in=block", "b 777", "/ test", "", ""],
-        "expected": "\n0x00000000 hit0_0 \"test\"\n0x0000014d hit0_1 \"test\"\n0x0000029a hit0_2 \"test\"\n\n",
-        "broken": false
-    }, {
-        "name": "t/basic",
-        "file": "bins/elf/analysis/x86-helloworld-gcc",
-        "args": "",
-        "commands": ["", "b 0x100", "e search.from = 0x08048301", "e search.to = 0x8048390", "/x b4960408ffd0c9c3", "", ""],
-        "expected": "0x08048362 hit0_0 b4960408ffd0c9c3\n\n",
-        "broken": false
-    }, {
-        "name": "t/basic",
-        "file": "bins/elf/analysis/x86-helloworld-gcc",
-        "args": "",
-        "commands": ["", "b 100", "e search.from = 0x08048301", "e search.to = 0x8048390", "/x b4960408ffd0c9c3", "", ""],
-        "expected": "0x08048362 hit0_0 b4960408ffd0c9c3\n\n",
-        "broken": false
-    }, {
-        "name": "overlap0",
-        "file": "-",
-        "args": "",
-        "commands": ["", "w AAAA", "/x 4141", "", ""],
-        "expected": "0x00000000 hit0_0 4141\n0x00000002 hit0_1 4141\n\n",
-        "broken": false
-    }, {
-        "name": "overlap1",
-        "file": "-",
-        "args": "",
-        "commands": ["", "e search.overlap=true", "w AAAA", "/x 4141", "", ""],
-        "expected": "0x00000000 hit0_0 4141\n0x00000001 hit0_1 4141\n0x00000002 hit0_2 4141\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "t/basic",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "w test",
+                "w test@333",
+                "w test@666",
+                "?e",
+                "e search.in=block",
+                "b 777",
+                "/ test",
+                "",
+                ""
+            ],
+            "expected": "\n0x00000000 hit0_0 \"test\"\n0x0000014d hit0_1 \"test\"\n0x0000029a hit0_2 \"test\"\n\n",
+            "broken": false
+        },
+        {
+            "name": "t/basic",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "",
+                "b 0x100",
+                "e search.from = 0x08048301",
+                "e search.to = 0x8048390",
+                "/x b4960408ffd0c9c3",
+                "",
+                ""
+            ],
+            "expected": "0x08048362 hit0_0 b4960408ffd0c9c3\n\n",
+            "broken": false
+        },
+        {
+            "name": "t/basic",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "",
+                "b 100",
+                "e search.from = 0x08048301",
+                "e search.to = 0x8048390",
+                "/x b4960408ffd0c9c3",
+                "",
+                ""
+            ],
+            "expected": "0x08048362 hit0_0 b4960408ffd0c9c3\n\n",
+            "broken": false
+        },
+        {
+            "name": "overlap0",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "w AAAA",
+                "/x 4141",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 hit0_0 4141\n0x00000002 hit0_1 4141\n\n",
+            "broken": false
+        },
+        {
+            "name": "overlap1",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e search.overlap=true",
+                "w AAAA",
+                "/x 4141",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 hit0_0 4141\n0x00000001 hit0_1 4141\n0x00000002 hit0_2 4141\n\n",
+            "broken": false
+        }
+    ]
 }

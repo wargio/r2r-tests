@@ -1,0 +1,27 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "NES: Pong - open",
+            "file": "bins/nes/Pong.nes",
+            "args": "-A",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "NES: Pong - detection",
+            "file": "bins/nes/Pong.nes",
+            "args": "",
+            "commands": [
+                "iI~os",
+                ""
+            ],
+            "expected": "os       nes\n\n",
+            "broken": false
+        }
+    ]
+}

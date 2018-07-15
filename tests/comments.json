@@ -1,1 +1,160 @@
-{"type":"cmd","tests":[{"name":"add comment","file":"malloc://1024","args":"","commands":["","CCa 0x123 hello","C*~?","C*~[3]","",""],"expected":"1\n0x00000123\n\n","broken":false},{"name":"#3829 remove comment where another meta is already defined","file":"bins/elf/analysis/main","args":"","commands":["CCu lol @ str.Hello_World","CC- @ str.Hello_World","pd 1 @ str.Hello_World","",""],"expected":"            ;-- str.Hello_World:\n            0x004005c4     .string \"Hello World\" ; len=12\n\n","broken":false},{"name":"add comment","file":"malloc://1024","args":"","commands":["","CC hello","C*~?","",""],"expected":"1\n\n","broken":false},{"name":"add comment at","file":"malloc://1024","args":"","commands":["","CCa 8 hello","C*~?","CC*","",""],"expected":"1\nCCu base64:aGVsbG8= @ 0x00000008\n\n","broken":false},{"name":"del comment","file":"malloc://1024","args":"","commands":["","CC hello","CC-hello","C*~?","",""],"expected":"0\n\n","broken":false},{"name":"add two comment","file":"malloc://1024","args":"","commands":["","CC hello @ 0x200","CC world @ 0x400","C*~?","",""],"expected":"2\n\n","broken":false},{"name":"del comment at address","file":"malloc://1024","args":"","commands":["","CC hello @ 0x200","CC world @ 0x400","CC-@0x400","C*~?","",""],"expected":"1\n\n","broken":false},{"name":"multiline comment","file":"malloc://1024","args":"","commands":["e asm.bits=32","CC hello @ 0x200","CC world @ 0x200","CC.@0x200~?","CC~?","e asm.profile=simple","e asm.cmt.right=0","e scr.color=false","pd 2 @ 0x200",""],"expected":"1\n1\n            ; hello world\n            0x00000200      0000           add byte [eax], al\n            0x00000202      0000           add byte [eax], al\n","broken":false},{"name":"cmtright","file":"malloc://1024","args":"","commands":["CC hello","e scr.color=false","wx 90","e asm.cmt.right=1","pd 1","e asm.cmt.right=0","pd 1",""],"expected":"            0x00000000      90             nop                         ; hello\n            ; hello\n            0x00000000      90             nop\n","broken":false},{"name":"cmtrefs","file":"bins/elf/analysis/main","args":"","commands":["aaa","e asm.cmt.refs = true","f test.flag @ 0x004003e0","CC test comment @ 0x004003e0","pd 1 @ 0x0040050f",""],"expected":"|           0x0040050f      e8ccfeffff     call sym.imp.puts           ; int puts(const char *s) ; (test.flag) ; (test comment)\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "add comment",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "CCa 0x123 hello",
+                "C*~?",
+                "C*~[3]",
+                "",
+                ""
+            ],
+            "expected": "1\n0x00000123\n\n",
+            "broken": false
+        },
+        {
+            "name": "#3829 remove comment where another meta is already defined",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "CCu lol @ str.Hello_World",
+                "CC- @ str.Hello_World",
+                "pd 1 @ str.Hello_World",
+                "",
+                ""
+            ],
+            "expected": "            ;-- \"Hello World\":\n            0x004005c4     .string \"Hello World\" ; len=12\n",
+            "broken": false
+        },
+        {
+            "name": "add comment",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "CC hello",
+                "C*~?",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "add comment at",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "CCa 8 hello",
+                "C*~?",
+                "CC*",
+                "",
+                ""
+            ],
+            "expected": "1\nCCu base64:aGVsbG8= @ 0x00000008\n\n",
+            "broken": false
+        },
+        {
+            "name": "del comment",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "CC hello",
+                "CC-hello",
+                "C*~?",
+                "",
+                ""
+            ],
+            "expected": "0\n\n",
+            "broken": false
+        },
+        {
+            "name": "add two comment",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "CC hello @ 0x200",
+                "CC world @ 0x400",
+                "C*~?",
+                "",
+                ""
+            ],
+            "expected": "2\n\n",
+            "broken": false
+        },
+        {
+            "name": "del comment at address",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "CC hello @ 0x200",
+                "CC world @ 0x400",
+                "CC-@0x400",
+                "C*~?",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "multiline comment",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.bits=32",
+                "CC hello @ 0x200",
+                "CC world @ 0x200",
+                "CC.@0x200~?",
+                "CC~?",
+                "e asm.profile=simple",
+                "e asm.cmt.right=0",
+                "e scr.color=false",
+                "pd 2 @ 0x200",
+                ""
+            ],
+            "expected": "1\n1\n            ; hello world\n            0x00000200      0000           add byte [eax], al\n            0x00000202      0000           add byte [eax], al\n",
+            "broken": false
+        },
+        {
+            "name": "cmtright",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "CC hello",
+                "e scr.color=false",
+                "wx 90",
+                "e asm.cmt.right=1",
+                "pd 1",
+                "e asm.cmt.right=0",
+                "pd 1",
+                ""
+            ],
+            "expected": "            0x00000000      90             nop                         ; hello\n            ; hello\n            0x00000000      90             nop\n",
+            "broken": false
+        },
+        {
+            "name": "cmtrefs",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "aaa",
+                "e asm.cmt.refs = true",
+                "f test.flag @ 0x004003e0",
+                "CC test comment @ 0x004003e0",
+                "pd 1 @ 0x0040050f",
+                ""
+            ],
+            "expected": "|           0x0040050f      e8ccfeffff     call sym.imp.puts           ; int puts(const char *s) ; (test.flag) ; (test comment)\n\n",
+            "broken": false
+        }
+    ]
+}

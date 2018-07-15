@@ -1,102 +1,180 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "md iso",
-        "file": "bins/fs/iso.img",
-        "args": "",
-        "commands": ["md /root", "", ""],
-        "expected": "d .\nd ..\nf LS.\nf README.MD\nf SERVICES.\n\n",
-        "broken": false
-    }, {
-        "name": "md iso3",
-        "file": "bins/fs/iso3.img",
-        "args": "",
-        "commands": ["md /root", "", ""],
-        "expected": "d .\nd ..\nd bin\nd etc\nf README.md\n\n",
-        "broken": false
-    }, {
-        "name": "mp gpt",
-        "file": "bins/fs/gpt.img",
-        "args": "",
-        "commands": ["mp gpt", "", ""],
-        "expected": "0 00 0x0000100000 0x0020100000\n1 00 0x0020100000 0x1b24700000\n2 00 0x1b24700000 0x1d1eb00000\n\n",
-        "broken": false
-    }, {
-        "name": "m iso9660 auto",
-        "file": "bins/fs/iso.img",
-        "args": "",
-        "commands": ["m", "", ""],
-        "expected": "iso9660\t0x0\t/root\n\n",
-        "broken": false
-    }, {
-        "name": "m ext2 auto",
-        "file": "bins/fs/ext2.img",
-        "args": "",
-        "commands": ["m", "", ""],
-        "expected": "ext2\t0x0\t/root\n\n",
-        "broken": false
-    }, {
-        "name": "m hfs auto",
-        "file": "bins/fs/hfs.img",
-        "args": "",
-        "commands": ["m", "", ""],
-        "expected": "hfs\t0x0\t/root\n\n",
-        "broken": false
-    }, {
-        "name": "m fat auto",
-        "file": "bins/fs/fat.img",
-        "args": "",
-        "commands": ["m", "", ""],
-        "expected": "fat\t0x0\t/root\n\n",
-        "broken": false
-    }, {
-        "name": "md ext2 auto",
-        "file": "bins/fs/ext2.img",
-        "args": "-n",
-        "commands": ["m /root", "md /root~?", "", ""],
-        "expected": "6\n\n",
-        "broken": false
-    }, {
-        "name": "md ext2",
-        "file": "bins/fs/ext2.img",
-        "args": "-n",
-        "commands": ["m /root ext2", "md /root", "", ""],
-        "expected": "d .\nd ..\nd lost+found\nd bin\nd etc\nf README.md\n\n",
-        "broken": false
-    }, {
-        "name": "md ext2 cat file",
-        "file": "bins/fs/ext2.img",
-        "args": "-n",
-        "commands": ["m /root ext2", "mg /root/README.md", "", ""],
-        "expected": "This is an EXT2 partition\n\n\n",
-        "broken": false
-    }, {
-        "name": "md vfat",
-        "file": "bins/fs/fat.img",
-        "args": "-n",
-        "commands": ["m /root fat", "md /root", "", ""],
-        "expected": "d etc\nd bin\nf README.md\n\n",
-        "broken": false
-    }, {
-        "name": "md fat cat file",
-        "file": "bins/fs/fat.img",
-        "args": "-n",
-        "commands": ["m /root fat", "mg /root/README.md", "", ""],
-        "expected": "This is a FAT partition\n\n\n",
-        "broken": false
-    }, {
-        "name": "md hfs",
-        "file": "bins/fs/hfs.img",
-        "args": "-n",
-        "commands": ["m /root hfs", "md /root", "", ""],
-        "expected": "d bin\nd etc\nf README.md\n\n",
-        "broken": false
-    }, {
-        "name": "md hfs cat file",
-        "file": "bins/fs/hfs.img",
-        "args": "-n",
-        "commands": ["m /root hfs", "mg /root/README.md", "", ""],
-        "expected": "This is an HFS partition\n\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "md iso",
+            "file": "bins/fs/iso.img",
+            "args": "",
+            "commands": [
+                "md /root",
+                "",
+                ""
+            ],
+            "expected": "d .\nd ..\nf LS.\nf README.MD\nf SERVICES.\n\n",
+            "broken": false
+        },
+        {
+            "name": "md iso3",
+            "file": "bins/fs/iso3.img",
+            "args": "",
+            "commands": [
+                "md /root",
+                "",
+                ""
+            ],
+            "expected": "d .\nd ..\nd bin\nd etc\nf README.md\n\n",
+            "broken": false
+        },
+        {
+            "name": "mp gpt",
+            "file": "bins/fs/gpt.img",
+            "args": "",
+            "commands": [
+                "mp gpt",
+                "",
+                ""
+            ],
+            "expected": "0 00 0x0000100000 0x0020100000\n1 00 0x0020100000 0x1b24700000\n2 00 0x1b24700000 0x1d1eb00000\n\n",
+            "broken": false
+        },
+        {
+            "name": "m iso9660 auto",
+            "file": "bins/fs/iso.img",
+            "args": "",
+            "commands": [
+                "m",
+                "",
+                ""
+            ],
+            "expected": "iso9660\t0x0\t/root\n\n",
+            "broken": false
+        },
+        {
+            "name": "m ext2 auto",
+            "file": "bins/fs/ext2.img",
+            "args": "",
+            "commands": [
+                "m",
+                "",
+                ""
+            ],
+            "expected": "ext2\t0x0\t/root\n\n",
+            "broken": false
+        },
+        {
+            "name": "m hfs auto",
+            "file": "bins/fs/hfs.img",
+            "args": "",
+            "commands": [
+                "m",
+                "",
+                ""
+            ],
+            "expected": "hfs\t0x0\t/root\n\n",
+            "broken": false
+        },
+        {
+            "name": "m fat auto",
+            "file": "bins/fs/fat.img",
+            "args": "",
+            "commands": [
+                "m",
+                "",
+                ""
+            ],
+            "expected": "fat\t0x0\t/root\n\n",
+            "broken": false
+        },
+        {
+            "name": "md ext2 auto",
+            "file": "bins/fs/ext2.img",
+            "args": "-n",
+            "commands": [
+                "m /root",
+                "md /root~?",
+                "",
+                ""
+            ],
+            "expected": "6\n\n",
+            "broken": false
+        },
+        {
+            "name": "md ext2",
+            "file": "bins/fs/ext2.img",
+            "args": "-n",
+            "commands": [
+                "m /root ext2",
+                "md /root",
+                "",
+                ""
+            ],
+            "expected": "d .\nd ..\nd lost+found\nd bin\nd etc\nf README.md\n\n",
+            "broken": false
+        },
+        {
+            "name": "md ext2 cat file",
+            "file": "bins/fs/ext2.img",
+            "args": "-n",
+            "commands": [
+                "m /root ext2",
+                "mg /root/README.md",
+                "",
+                ""
+            ],
+            "expected": "This is an EXT2 partition\n\n\n",
+            "broken": false
+        },
+        {
+            "name": "md vfat",
+            "file": "bins/fs/fat.img",
+            "args": "-n",
+            "commands": [
+                "m /root fat",
+                "md /root",
+                "",
+                ""
+            ],
+            "expected": "d etc\nd bin\nf README.md\n\n",
+            "broken": false
+        },
+        {
+            "name": "md fat cat file",
+            "file": "bins/fs/fat.img",
+            "args": "-n",
+            "commands": [
+                "m /root fat",
+                "mg /root/README.md",
+                "",
+                ""
+            ],
+            "expected": "This is a FAT partition\n\n\n",
+            "broken": false
+        },
+        {
+            "name": "md hfs",
+            "file": "bins/fs/hfs.img",
+            "args": "-n",
+            "commands": [
+                "m /root hfs",
+                "md /root",
+                "",
+                ""
+            ],
+            "expected": "d bin\nd etc\nf README.md\n\n",
+            "broken": false
+        },
+        {
+            "name": "md hfs cat file",
+            "file": "bins/fs/hfs.img",
+            "args": "-n",
+            "commands": [
+                "m /root hfs",
+                "mg /root/README.md",
+                "",
+                ""
+            ],
+            "expected": "This is an HFS partition\n\n\n",
+            "broken": false
+        }
+    ]
 }

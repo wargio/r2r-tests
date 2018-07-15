@@ -1,1 +1,354 @@
-{"type":"cmd","tests":[{"name":"hello-arm32","file":"bins/elf/analysis/hello-arm32","args":"","commands":["?v $M","?v $s","",""],"expected":"0x10000\n0x90c\n\n","broken":false},{"name":"hello-arm32","file":"bins/elf/analysis/hello-arm32","args":"-B 0x4000","commands":["?v $M","?v $s","",""],"expected":"0x4000\n0x90c\n\n","broken":false},{"name":"$FB (fcn-begin)","file":"malloc://1024","args":"","commands":["s 42","af","s 44","s $FB","s",""],"expected":"0x2a\n\n","broken":false},{"name":"$$ (malloc)","file":"malloc://1024","args":"","commands":["?v $$","s 42","?v $$","s-","?v $$",""],"expected":"0x0\n0x2a\n0x0\n\n","broken":false},{"name":"$$$ (malloc)","file":"-","args":"","commands":["v $$ @ 0x300","?v $$$ @ 0x300","s 0x123","?v $$ @ 0x300","?v $$$ @ 0x300","?e","(test, ?v $$$)",".(test)",".(test) @ 0x300","s","(test2, .(test) @ 0x400)",".(test2)","s",".(test2) @ 0x300","s"],"expected":"0x300\n0x0\n0x300\n0x123\n\n0x123\n0x123\n0x123\n0x123\n0x123\n0x123\n0x123","broken":false},{"name":"nested $$","file":"-","args":"","commands":["nested_seek, ?v $$)",".(nested_seek) @ 0x500","(nested_seek2, ?v $$, .(nested_seek) @ 0x600, ?v $$)",".(nested_seek2) @ 0x700"],"expected":"0x500\n0x700\n0x600\n0x700","broken":false},{"name":"no seek change on pdf @ addr (#10007)","file":"bins/elf/redpill","args":"","commands":[" asm.bytes=false","af @ 0x1a71","s entry0","s","pdf @ 0x1a71 \u003e /dev/null","s  # should be the same as before"],"expected":"0xf40\n0xf40","broken":false},{"name":"$o (malloc)","file":"malloc://1024","args":"","commands":["?v $o","s 42","?v $o","s-","?v $o","",""],"expected":"0x0\n0x2a\n0x0\n\n","broken":false},{"name":"$s (malloc)","file":"malloc://1024","args":"","commands":["?v $s","",""],"expected":"0x400\n\n","broken":false},{"name":"$j (malloc)","file":"malloc://1024","args":"","commands":["e asm.bits=32","e asm.arch = x86","e anal.arch = x86","wa jmp 0x30","?v $j","wa jz 0x01","?v $j","wa xor eax, eax","?v $j","?e","",""],"expected":"0x30\n0x1\n0xffffffffffffffff\n\n\n","broken":false},{"name":"$f (malloc)","file":"malloc://1024","args":"","commands":["e asm.bits=32","e asm.arch = x86","e anal.arch = x86","wx eb2e","?v $f","wx 0f84fbffffff","?v $f","wx 31c0","?v $f","",""],"expected":"0xffffffffffffffff\n0x6\n0xffffffffffffffff\n\n","broken":false},{"name":"$m (malloc)","file":"malloc://1024","args":"","commands":["e asm.arch=x86","e asm.bits=32","wa mov eax, [0x500]","?v $m","wa mov eax, ebx","?v $m","?e","",""],"expected":"0x500\n0xffffffffffffffff\n\n\n","broken":false},{"name":"$l (malloc)","file":"malloc://1024","args":"","commands":["e asm.bits=32","e asm.arch = x86","e anal.arch = x86","wa xor eax, eax","?v $l","wa mov esp, 0x1","?v $l","wx c3","?v $l",""],"expected":"0x2\n0x5\n0x1\n\n","broken":false},{"name":"$e (malloc)","file":"-","args":"","commands":["e asm.arch=x86","e asm.bits=32","wa inc eax","?v $e","wa jmp 0x01","?v $e","wa ret","?v $e","wa call 0x01","?v $e","",""],"expected":"0x0\n0x1\n0x1\n0x0\n","broken":false},{"name":"$e (malloc) 2","file":"malloc://1024","args":"","commands":["e asm.bits = 0x20","?v ${asm.bits}","",""],"expected":"0x20\n","broken":false},{"name":"$e (malloc) 3","file":"malloc://1024","args":"","commands":["? 5+3","?v $?","? 0","?v $?","",""],"expected":"hex     0x8\noctal   010\nunit    8\nsegment 0000:0008\nint32   8\nstring  \"\\b\"\nbinary  0b00001000\nfvalue: 8.0\nfloat:  0.000000f\ndouble: 0.000000\ntrits   0t22\n0x8\nhex     0x0\noctal   00\nunit    0\nsegment 0000:0000\nint32   0\nstring  \"\\0\"\nbinary  0b00000000\nfvalue: 0.0\nfloat:  0.000000f\ndouble: 0.000000\ntrits   0t0\n0x0\n","broken":false},{"name":"$$ (x86-simple)","file":"bins/elf/analysis/x86-simple","args":"","commands":["?v $$","s 42","?v $$","s-","?v $$",""],"expected":"0x8048060\n0x2a\n0x8048060\n\n","broken":false},{"name":"$o (x86-simple)","file":"bins/elf/analysis/x86-simple","args":"","commands":["?v $o","s 42","?v $o","s-","?v $o","",""],"expected":"0x60\n0x2a\n0x60\n\n","broken":false},{"name":"$b (x86-simple)","file":"bins/elf/analysis/x86-simple","args":"","commands":["e asm.bits=32","e asm.arch = x86","e anal.arch = x86","b 123","?v $b","? $b","",""],"expected":"0x7b\nhex     0x7b\noctal   0173\nunit    123\nsegment 0000:007b\nint32   123\nstring  \"{\"\nbinary  0b01111011\nfvalue: 123.0\nfloat:  0.000000f\ndouble: 0.000000\ntrits   0t11120\n","broken":false},{"name":"$s (x86-simple)","file":"bins/elf/analysis/x86-simple","args":"","commands":["?v $s","",""],"expected":"0xfc\n\n","broken":false},{"name":"?p and ?P","file":"bins/elf/analysis/simple.elf","args":"","commands":["?p 0x08000060","?P 0x00000060","",""],"expected":"0x00000060\n0x08000060\n\n","broken":false},{"name":"?p and ?P","file":"bins/elf/analysis/simple.elf","args":"","commands":["?p 0xdeadbeef","?P 0xdeadbeef","",""],"expected":"no map at 0xdeadbeef\nno map at 0xdeadbeef\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "hello-arm32",
+            "file": "bins/elf/analysis/hello-arm32",
+            "args": "",
+            "commands": [
+                "?v $M",
+                "?v $s",
+                "",
+                ""
+            ],
+            "expected": "0x10000\n0x90c\n\n",
+            "broken": false
+        },
+        {
+            "name": "hello-arm32",
+            "file": "bins/elf/analysis/hello-arm32",
+            "args": "-B 0x4000",
+            "commands": [
+                "?v $M",
+                "?v $s",
+                "",
+                ""
+            ],
+            "expected": "0x4000\n0x90c\n\n",
+            "broken": false
+        },
+        {
+            "name": "$FB (fcn-begin)",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "s 42",
+                "af",
+                "s 44",
+                "s $FB",
+                "s",
+                ""
+            ],
+            "expected": "0x2a\n\n",
+            "broken": false
+        },
+        {
+            "name": "$$ (malloc)",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "?v $$",
+                "s 42",
+                "?v $$",
+                "s-",
+                "?v $$",
+                ""
+            ],
+            "expected": "0x0\n0x2a\n0x0\n\n",
+            "broken": false
+        },
+        {
+            "name": "$$$ (malloc)",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "v $$ @ 0x300",
+                "?v $$$ @ 0x300",
+                "s 0x123",
+                "?v $$ @ 0x300",
+                "?v $$$ @ 0x300",
+                "?e",
+                "(test, ?v $$$)",
+                ".(test)",
+                ".(test) @ 0x300",
+                "s",
+                "(test2, .(test) @ 0x400)",
+                ".(test2)",
+                "s",
+                ".(test2) @ 0x300",
+                "s"
+            ],
+            "expected": "0x300\n0x0\n0x300\n0x123\n\n0x123\n0x123\n0x123\n0x123\n0x123\n0x123\n0x123",
+            "broken": false
+        },
+        {
+            "name": "nested $$",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "nested_seek, ?v $$)",
+                ".(nested_seek) @ 0x500",
+                "(nested_seek2, ?v $$, .(nested_seek) @ 0x600, ?v $$)",
+                ".(nested_seek2) @ 0x700"
+            ],
+            "expected": "0x500\n0x700\n0x600\n0x700",
+            "broken": false
+        },
+        {
+            "name": "no seek change on pdf @ addr (#10007)",
+            "file": "bins/elf/redpill",
+            "args": "",
+            "commands": [
+                " asm.bytes=false",
+                "af @ 0x1a71",
+                "s entry0",
+                "s",
+                "pdf @ 0x1a71 \u003e /dev/null",
+                "s  # should be the same as before"
+            ],
+            "expected": "0xf40\n0xf40",
+            "broken": false
+        },
+        {
+            "name": "$o (malloc)",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "?v $o",
+                "s 42",
+                "?v $o",
+                "s-",
+                "?v $o",
+                "",
+                ""
+            ],
+            "expected": "0x0\n0x2a\n0x0\n\n",
+            "broken": false
+        },
+        {
+            "name": "$s (malloc)",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "?v $s",
+                "",
+                ""
+            ],
+            "expected": "0x400\n\n",
+            "broken": false
+        },
+        {
+            "name": "$j (malloc)",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.bits=32",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "wa jmp 0x30",
+                "?v $j",
+                "wa jz 0x01",
+                "?v $j",
+                "wa xor eax, eax",
+                "?v $j",
+                "?e",
+                "",
+                ""
+            ],
+            "expected": "0x30\n0x1\n0xffffffffffffffff\n\n\n",
+            "broken": false
+        },
+        {
+            "name": "$f (malloc)",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.bits=32",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "wx eb2e",
+                "?v $f",
+                "wx 0f84fbffffff",
+                "?v $f",
+                "wx 31c0",
+                "?v $f",
+                "",
+                ""
+            ],
+            "expected": "0xffffffffffffffff\n0x6\n0xffffffffffffffff\n\n",
+            "broken": false
+        },
+        {
+            "name": "$m (malloc)",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wa mov eax, [0x500]",
+                "?v $m",
+                "wa mov eax, ebx",
+                "?v $m",
+                "?e",
+                "",
+                ""
+            ],
+            "expected": "0x500\n0xffffffffffffffff\n\n\n",
+            "broken": false
+        },
+        {
+            "name": "$l (malloc)",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.bits=32",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "wa xor eax, eax",
+                "?v $l",
+                "wa mov esp, 0x1",
+                "?v $l",
+                "wx c3",
+                "?v $l",
+                ""
+            ],
+            "expected": "0x2\n0x5\n0x1\n\n",
+            "broken": false
+        },
+        {
+            "name": "$e (malloc)",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wa inc eax",
+                "?v $e",
+                "wa jmp 0x01",
+                "?v $e",
+                "wa ret",
+                "?v $e",
+                "wa call 0x01",
+                "?v $e",
+                "",
+                ""
+            ],
+            "expected": "0x0\n0x1\n0x1\n0x0\n",
+            "broken": false
+        },
+        {
+            "name": "$e (malloc) 2",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.bits = 0x20",
+                "?v ${asm.bits}",
+                "",
+                ""
+            ],
+            "expected": "0x20\n",
+            "broken": false
+        },
+        {
+            "name": "$e (malloc) 3",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "? 5+3",
+                "?v $?",
+                "? 0",
+                "?v $?",
+                "",
+                ""
+            ],
+            "expected": "hex     0x8\noctal   010\nunit    8\nsegment 0000:0008\nint32   8\nstring  \"\\b\"\nbinary  0b00001000\nfvalue: 8.0\nfloat:  0.000000f\ndouble: 0.000000\ntrits   0t22\n0x8\nhex     0x0\noctal   00\nunit    0\nsegment 0000:0000\nint32   0\nstring  \"\\0\"\nbinary  0b00000000\nfvalue: 0.0\nfloat:  0.000000f\ndouble: 0.000000\ntrits   0t0\n0x0\n",
+            "broken": false
+        },
+        {
+            "name": "$$ (x86-simple)",
+            "file": "bins/elf/analysis/x86-simple",
+            "args": "",
+            "commands": [
+                "?v $$",
+                "s 42",
+                "?v $$",
+                "s-",
+                "?v $$",
+                ""
+            ],
+            "expected": "0x8048060\n0x2a\n0x8048060\n\n",
+            "broken": false
+        },
+        {
+            "name": "$o (x86-simple)",
+            "file": "bins/elf/analysis/x86-simple",
+            "args": "",
+            "commands": [
+                "?v $o",
+                "s 42",
+                "?v $o",
+                "s-",
+                "?v $o",
+                "",
+                ""
+            ],
+            "expected": "0x60\n0x2a\n0x60\n\n",
+            "broken": false
+        },
+        {
+            "name": "$b (x86-simple)",
+            "file": "bins/elf/analysis/x86-simple",
+            "args": "",
+            "commands": [
+                "e asm.bits=32",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "b 123",
+                "?v $b",
+                "? $b",
+                "",
+                ""
+            ],
+            "expected": "0x7b\nhex     0x7b\noctal   0173\nunit    123\nsegment 0000:007b\nint32   123\nstring  \"{\"\nbinary  0b01111011\nfvalue: 123.0\nfloat:  0.000000f\ndouble: 0.000000\ntrits   0t11120\n",
+            "broken": false
+        },
+        {
+            "name": "$s (x86-simple)",
+            "file": "bins/elf/analysis/x86-simple",
+            "args": "",
+            "commands": [
+                "?v $s",
+                "",
+                ""
+            ],
+            "expected": "0xfc\n\n",
+            "broken": false
+        },
+        {
+            "name": "?p and ?P",
+            "file": "bins/elf/analysis/simple.elf",
+            "args": "",
+            "commands": [
+                "?p 0x08000060",
+                "?P 0x00000060",
+                "",
+                ""
+            ],
+            "expected": "0x00000060\n0x08000060\n\n",
+            "broken": false
+        },
+        {
+            "name": "?p and ?P",
+            "file": "bins/elf/analysis/simple.elf",
+            "args": "",
+            "commands": [
+                "?p 0xdeadbeef",
+                "?P 0xdeadbeef",
+                "",
+                ""
+            ],
+            "expected": "no map at 0xdeadbeef\nno map at 0xdeadbeef\n\n",
+            "broken": false
+        }
+    ]
+}

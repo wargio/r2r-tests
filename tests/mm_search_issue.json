@@ -1,1 +1,19 @@
-{"type":"cmd","tests":[{"name":"t/mm_search_issue","file":"bins/elf/analysis/test_hex_search_issues","args":"","commands":["","e search.in=io.sections","/x 0100000000000000000000ff","",""],"expected":"0x000f862c hit0_0 0100000000000000000000ff\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "t/mm_search_issue",
+            "file": "bins/elf/analysis/test_hex_search_issues",
+            "args": "",
+            "commands": [
+                "",
+                "e search.in=io.sections",
+                "/x 0100000000000000000000ff",
+                "",
+                ""
+            ],
+            "expected": "0x000f862c hit0_0 0100000000000000000000ff\n",
+            "broken": false
+        }
+    ]
+}

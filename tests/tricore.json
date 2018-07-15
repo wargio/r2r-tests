@@ -1,0 +1,64 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "TriCore lea",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "!rasm2 -a tricore -d d916606c",
+                ""
+            ],
+            "expected": "lea a6, [a1]-14944\n",
+            "broken": false
+        },
+        {
+            "name": "TriCore sub",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "!rasm2 -a tricore -d 200a",
+                "",
+                ""
+            ],
+            "expected": "sub.a sp, 10\n\n",
+            "broken": false
+        },
+        {
+            "name": "TriCore multi",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "!rasm2 -a tricore -d 0f0200007cb10880f8130200",
+                "",
+                ""
+            ],
+            "expected": "sh d0, d2, d0\njnz.a a11, 0x00000006\nld.bu d0, [a15]8\nst.a [sp]76, a15\nmov d0, d0\n\n",
+            "broken": false
+        },
+        {
+            "name": "TriCore multi",
+            "file": "malloc://512",
+            "args": "",
+            "commands": [
+                "!rasm2 -a tricore -d 0f0200007cb10880f8130200",
+                "",
+                ""
+            ],
+            "expected": "sh d0, d2, d0\njnz.a a11, 0x00000006\nld.bu d0, [a15]8\nst.a [sp]76, a15\nmov d0, d0\n\n",
+            "broken": false
+        },
+        {
+            "name": "TriCore return_0.elf",
+            "file": "bins/tricore/return_0.elf",
+            "args": "",
+            "commands": [
+                "iI~arch",
+                "",
+                ""
+            ],
+            "expected": "arch     tricore\n\n",
+            "broken": false
+        }
+    ]
+}

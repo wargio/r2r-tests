@@ -1,158 +1,383 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "ahi s + endian",
-        "file": "-",
-        "args": "",
-        "commands": ["", "wx b8410d4300", "e asm.arch=x86", "ahi s", "e cfg.bigendian=false", "pi 1", "e cfg.bigendian=true", "pi 1", "", ""],
-        "expected": "mov eax, 'C\\x0dA'\nmov eax, 'A\\x0dC'\n",
-        "broken": false
-    }, {
-        "name": "ahi s + endian 2",
-        "file": "-",
-        "args": "",
-        "commands": ["", "wx b841424300", "e asm.arch=x86", "ahi s", "e cfg.bigendian=false", "pi 1", "e cfg.bigendian=true", "pi 1", "", ""],
-        "expected": "mov eax, 'CBA'\nmov eax, 'ABC'\n\n",
-        "broken": false
-    }, {
-        "name": "ahi none",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "pi 1", "", ""],
-        "expected": "sub rsp, 0x648\n\n",
-        "broken": false
-    }, {
-        "name": "ahi with colors",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "e scr.color=1", "wx 4881ec48060000", "pd 1", "ahi 10", "pd 1", "", ""],
-        "expected": "  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[33m48\u001b[37m81\u001b[37mec\u001b[33m48\u001b[37m06\u001b[32m00\u001b[37m.\u001b[0m  \u001b[33msub\u001b[36m rsp\u001b[0m,\u001b[36m\u001b[36m \u001b[33m0x648\u001b[0m\u001b[0m\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[33m48\u001b[37m81\u001b[37mec\u001b[33m48\u001b[37m06\u001b[32m00\u001b[37m.\u001b[0m  \u001b[33msub\u001b[36m rsp\u001b[0m,\u001b[36m\u001b[36m \u001b[33m1608\u001b[0m\u001b[0m\u001b[0m\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 0x41 -\u003e 'A'",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "wx 4883f841 # cmp rax, 0x41", "pi 1", "ahi s", "pi 1", "", ""],
-        "expected": "cmp rax, 0x41\ncmp rax, 'A'\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 0xe -\u003e 1",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "wx 4883f80e # cmp rax, 0xe", "pi 1", "ahi 2", "pi 1", "", ""],
-        "expected": "cmp rax, 0xe\ncmp rax, 1110b\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 4 -\u003e 1",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "wx 4883f804 # cmp rax, 4", "pi 1", "ahi 2", "pi 1", "", ""],
-        "expected": "cmp rax, 4\ncmp rax, 100b\n\n",
-        "broken": false
-    }, {
-        "name": "ahi none",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "pd 1", "", ""],
-        "expected": "            0x00000000      4881ec480600.  sub rsp, 0x648\n\n",
-        "broken": false
-    }, {
-        "name": "ahi none",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "ahi 16", "wx 4881ec48060000", "pd 1", "", ""],
-        "expected": "            0x00000000      4881ec480600.  sub rsp, 0x648\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 10",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "ahi 10", "pd 1", "", ""],
-        "expected": "            0x00000000      4881ec480600.  sub rsp, 1608\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 8",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "ahi 8", "pd 1", "", ""],
-        "expected": "            0x00000000      4881ec480600.  sub rsp, 03110\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 2",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "ahi 2", "pd 1", "", ""],
-        "expected": "            0x00000000      4881ec480600.  sub rsp, 11001001000b\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 2 - pi",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 4881ec48060000", "ahi 2", "pi 1", "", ""],
-        "expected": "sub rsp, 11001001000b\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 2",
-        "file": "malloc://16",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 4883e4f0", "ahi 2", "pi 1", "", ""],
-        "expected": "and rsp, 1111111111111111111111111111111111111111111111111111111111110000b\n\n",
-        "broken": false
-    }, {
-        "name": "ahi 10",
-        "file": "malloc://16",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 4883e4f0", "ahi 10", "pi 1", "", ""],
-        "expected": "and rsp, -16\n\n",
-        "broken": false
-    }, {
-        "name": "ahi s",
-        "file": "malloc://16",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx b841414141", "ahi s", "pi 1", "", ""],
-        "expected": "mov eax, 'AAAA'\n\n",
-        "broken": false
-    }, {
-        "name": "ah*",
-        "file": "malloc://16",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 4883e4f0", "ahi 10 @ 0x00404879", "ah*", "", ""],
-        "expected": "ahi 10 @ 0x404879\n\n",
-        "broken": false
-    }, {
-        "name": "ah.",
-        "file": "malloc://16",
-        "args": "",
-        "commands": ["", "ahi 10 @ 0x8", "s 0x8", "ah.", "", ""],
-        "expected": " 0x00000008 - 0x00000008 =\u003e immbase=10\n\n",
-        "broken": false
-    }, {
-        "name": "64bit ahi 10",
-        "file": "-",
-        "args": "-m 0x100001000",
-        "commands": ["", "e io.va", "e asm.relsub=false", "e asm.leahints=false", "e asm.arch=x86", "e asm.bits=64", "e io.va=true", "wx c7055f44000000000000", "pd 1", "e asm.relsub=true; pd 1", "ahi 10; pd 1", "", ""],
-        "expected": "true\n            0x100001000      c7055f440000.  mov dword [rip + 0x445f], 0 ; [0x100005469:4]=-1\n            0x100001000      c7055f440000.  mov dword [0x100005469], 0 ; [0x100005469:4]=-1\n            0x100001000      c7055f440000.  mov dword [4294988905], 0  ; [0x100005469:4]=-1\n\n",
-        "broken": false
-    }, {
-        "name": "ahi s",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch=x86", "wx 67c744246864616572", "pi 1", "ahi s", "pi 1", "", ""],
-        "expected": "mov dword [esp + 0x68], 0x72656164\nmov dword [esp + 0x68], 'read'\n\n",
-        "broken": false
-    }, {
-        "name": "ahi s 2",
-        "file": "-",
-        "args": "",
-        "commands": ["wx b868584d56", "e asm.bits=64", "ahi s", "pi 1", "", ""],
-        "expected": "mov eax, 'VMXh'\n\n",
-        "broken": false
-    }, {
-        "name": "ahi s - pd with colors",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.comments=false", "e asm.bits=64", "e asm.arch=x86", "wx 67c74424681b5b306d", "ahi s", "e scr.color=0", "pd 1", "e scr.color=1", "pd 1", "", ""],
-        "expected": "            0x00000000      mov dword [esp + 0x68], 'm0[\\x1b'\n  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[37mmov dword \u001b[0m[\u001b[36mesp \u001b[0m+\u001b[36m\u001b[36m \u001b[33m0x68\u001b[0m]\u001b[36m\u001b[0m,\u001b[36m\u001b[36m \u001b[33m'm0[\\x1b'\u001b[0m\u001b[0m\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "ahi s + endian",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "wx b8410d4300",
+                "e asm.arch=x86",
+                "ahi s",
+                "e cfg.bigendian=false",
+                "pi 1",
+                "e cfg.bigendian=true",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "mov eax, 'C\\x0dA'\nmov eax, 'A\\x0dC'\n",
+            "broken": false
+        },
+        {
+            "name": "ahi s + endian 2",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "wx b841424300",
+                "e asm.arch=x86",
+                "ahi s",
+                "e cfg.bigendian=false",
+                "pi 1",
+                "e cfg.bigendian=true",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "mov eax, 'CBA'\nmov eax, 'ABC'\n\n",
+            "broken": false
+        },
+        {
+            "name": "1: ahi none",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "sub rsp, 0x648\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi with colors",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "e scr.color=1",
+                "wx 4881ec48060000",
+                "pd 1",
+                "ahi 10",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[33m48\u001b[37m81\u001b[37mec\u001b[33m48\u001b[37m06\u001b[32m00\u001b[37m.\u001b[0m  \u001b[33msub\u001b[36m rsp\u001b[0m,\u001b[36m\u001b[36m \u001b[33m0x648\u001b[0m\u001b[0m\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[33m48\u001b[37m81\u001b[37mec\u001b[33m48\u001b[37m06\u001b[32m00\u001b[37m.\u001b[0m  \u001b[33msub\u001b[36m rsp\u001b[0m,\u001b[36m\u001b[36m \u001b[33m1608\u001b[0m\u001b[0m\u001b[0m\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi 0x41 -\u003e 'A'",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "wx 4883f841 # cmp rax, 0x41",
+                "pi 1",
+                "ahi s",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "cmp rax, 0x41\ncmp rax, 'A'\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi 0xe -\u003e 1",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "wx 4883f80e # cmp rax, 0xe",
+                "pi 1",
+                "ahi 2",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "cmp rax, 0xe\ncmp rax, 1110b\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi 4 -\u003e 1",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "wx 4883f804 # cmp rax, 4",
+                "pi 1",
+                "ahi 2",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "cmp rax, 4\ncmp rax, 100b\n\n",
+            "broken": false
+        },
+        {
+            "name": "2: ahi none",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      4881ec480600.  sub rsp, 0x648\n\n",
+            "broken": false
+        },
+        {
+            "name": "3: ahi none",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "ahi 16",
+                "wx 4881ec48060000",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      4881ec480600.  sub rsp, 0x648\n\n",
+            "broken": false
+        },
+        {
+            "name": "1: ahi 10",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "ahi 10",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      4881ec480600.  sub rsp, 1608\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi 8",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "ahi 8",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      4881ec480600.  sub rsp, 03110\n\n",
+            "broken": false
+        },
+        {
+            "name": "1: ahi 2",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "ahi 2",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      4881ec480600.  sub rsp, 11001001000b\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi 2 - pi",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 4881ec48060000",
+                "ahi 2",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "sub rsp, 11001001000b\n\n",
+            "broken": false
+        },
+        {
+            "name": "2: ahi 2",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 4883e4f0",
+                "ahi 2",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "and rsp, 1111111111111111111111111111111111111111111111111111111111110000b\n\n",
+            "broken": false
+        },
+        {
+            "name": "2: ahi 10",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 4883e4f0",
+                "ahi 10",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "and rsp, -16\n\n",
+            "broken": false
+        },
+        {
+            "name": "1: ahi s",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx b841414141",
+                "ahi s",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "mov eax, 'AAAA'\n\n",
+            "broken": false
+        },
+        {
+            "name": "ah*",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 4883e4f0",
+                "ahi 10 @ 0x00404879",
+                "ah*",
+                "",
+                ""
+            ],
+            "expected": "ahi 10 @ 0x404879\n\n",
+            "broken": false
+        },
+        {
+            "name": "ah.",
+            "file": "malloc://16",
+            "args": "",
+            "commands": [
+                "",
+                "ahi 10 @ 0x8",
+                "s 0x8",
+                "ah.",
+                "",
+                ""
+            ],
+            "expected": " 0x00000008 - 0x00000008 =\u003e immbase=10\n\n",
+            "broken": false
+        },
+        {
+            "name": "64bit ahi 10",
+            "file": "-",
+            "args": "-m 0x100001000",
+            "commands": [
+                "",
+                "e io.va",
+                "e asm.relsub=false",
+                "e asm.leahints=false",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "e io.va=true",
+                "wx c7055f44000000000000",
+                "pd 1",
+                "e asm.relsub=true; pd 1",
+                "ahi 10; pd 1",
+                "",
+                ""
+            ],
+            "expected": "true\n            0x100001000      c7055f440000.  mov dword [rip + 0x445f], 0 ; [0x100005469:4]=-1\n            0x100001000      c7055f440000.  mov dword [0x100005469], 0 ; [0x100005469:4]=-1\n            0x100001000      c7055f440000.  mov dword [4294988905], 0  ; [0x100005469:4]=-1\n\n",
+            "broken": false
+        },
+        {
+            "name": "2: ahi s",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 67c744246864616572",
+                "pi 1",
+                "ahi s",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "mov dword [esp + 0x68], 0x72656164\nmov dword [esp + 0x68], 'read'\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi s 2",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "wx b868584d56",
+                "e asm.bits=64",
+                "ahi s",
+                "pi 1",
+                "",
+                ""
+            ],
+            "expected": "mov eax, 'VMXh'\n\n",
+            "broken": false
+        },
+        {
+            "name": "ahi s - pd with colors",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "e asm.comments=false",
+                "e asm.bits=64",
+                "e asm.arch=x86",
+                "wx 67c74424681b5b306d",
+                "ahi s",
+                "e scr.color=0",
+                "pd 1",
+                "e scr.color=1",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      mov dword [esp + 0x68], 'm0[\\x1b'\n  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[37mmov dword \u001b[0m[\u001b[36mesp \u001b[0m+\u001b[36m\u001b[36m \u001b[33m0x68\u001b[0m]\u001b[36m\u001b[0m,\u001b[36m\u001b[36m \u001b[33m'm0[\\x1b'\u001b[0m\u001b[0m\n",
+            "broken": false
+        }
+    ]
 }

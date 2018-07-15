@@ -1,1 +1,41 @@
-{"type":"cmd","tests":[{"name":"comment spaces","file":"--","args":"","commands":["CS one","CC foo","CS two","CC bar @ 1","CC cow @ 2","CC","CS","",""],"expected":"0x00000001 CCu \"bar\"\n0x00000002 CCu \"cow\"\n0    1 . one\n1    2 * two\n\n","broken":true},{"name":"select all meta spaces","file":"--","args":"","commands":["CS one","CC foo","CS two","CC bar @ 1","CC cow @ 2","CS *","CC","",""],"expected":"0x00000000 CCu \"foo\"\n0x00000001 CCu \"bar\"\n0x00000002 CCu \"cow\"\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "comment spaces",
+            "file": "--",
+            "args": "",
+            "commands": [
+                "CS one",
+                "CC foo",
+                "CS two",
+                "CC bar @ 1",
+                "CC cow @ 2",
+                "CC",
+                "CS",
+                "",
+                ""
+            ],
+            "expected": "0x00000001 CCu \"bar\"\n0x00000002 CCu \"cow\"\n0    1 . one\n1    2 * two\n\n",
+            "broken": true
+        },
+        {
+            "name": "select all meta spaces",
+            "file": "--",
+            "args": "",
+            "commands": [
+                "CS one",
+                "CC foo",
+                "CS two",
+                "CC bar @ 1",
+                "CC cow @ 2",
+                "CS *",
+                "CC",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 CCu \"foo\"\n0x00000001 CCu \"bar\"\n0x00000002 CCu \"cow\"\n\n",
+            "broken": false
+        }
+    ]
+}

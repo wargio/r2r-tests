@@ -1,1 +1,143 @@
-{"type":"cmd","tests":[{"name":"debruijn little endian","file":"-","args":"","commands":["","e cfg.bigendian=false","wopO 0x41574141","",""],"expected":"64\n\n","broken":false},{"name":"debruijn big endian","file":"-","args":"","commands":["","e cfg.bigendian=true","wopO 0x41574141","",""],"expected":"65\n\n","broken":false},{"name":"wopD 0x10 @ 0","file":"-","args":"","commands":["wopD 0x10 @ 0","p8 0x10","",""],"expected":"41414142414143414144414145414146\n\n","broken":false},{"name":"wopD 0x10 @ 0","file":"-","args":"","commands":["wopD 0x10 @ 0","p8 0x10","",""],"expected":"41414142414143414144414145414146\n\n","broken":false},{"name":"wopO 0x41417641","file":"-","args":"","commands":["wopO 0x41417641","",""],"expected":"140\n\n","broken":false},{"name":"wopO 41417641","file":"-","args":"","commands":["wopO 41417641","",""],"expected":"\n","broken":false},{"name":"woE woD rc4","file":"-","args":"","commands":["w helloworld","woE rc4 key","woD rc4 key","ps","",""],"expected":"helloworld\n\n","broken":false},{"name":"woE woD xor","file":"-","args":"","commands":["w helloworld","woE xor key","woD xor key","ps","",""],"expected":"helloworld\n\n","broken":false},{"name":"woE woD blowfish","file":"-","args":"","commands":["w helloworld","woE blowfish key","woD blowfish key","ps","",""],"expected":"helloworld\n\n","broken":false},{"name":"woE woD aes-ecb","file":"-","args":"","commands":["w helloworld","woE aes-ecb key","woD aes-ecb key","ps","",""],"expected":"helloworld\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "debruijn little endian",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e cfg.bigendian=false",
+                "wopO 0x41574141",
+                "",
+                ""
+            ],
+            "expected": "64\n\n",
+            "broken": false
+        },
+        {
+            "name": "debruijn big endian",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e cfg.bigendian=true",
+                "wopO 0x41574141",
+                "",
+                ""
+            ],
+            "expected": "65\n\n",
+            "broken": false
+        },
+        {
+            "name": "wopD 0x10 @ 0",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "wopD 0x10 @ 0",
+                "p8 0x10",
+                "",
+                ""
+            ],
+            "expected": "41414142414143414144414145414146\n\n",
+            "broken": false
+        },
+        {
+            "name": "wopD 0x10 @ 0",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "wopD 0x10 @ 0",
+                "p8 0x10",
+                "",
+                ""
+            ],
+            "expected": "41414142414143414144414145414146\n\n",
+            "broken": false
+        },
+        {
+            "name": "wopO 0x41417641",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "wopO 0x41417641",
+                "",
+                ""
+            ],
+            "expected": "140\n\n",
+            "broken": false
+        },
+        {
+            "name": "wopO 41417641",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "wopO 41417641",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "woE woD rc4",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "w helloworld",
+                "woE rc4 key",
+                "woD rc4 key",
+                "ps",
+                "",
+                ""
+            ],
+            "expected": "helloworld\n\n",
+            "broken": false
+        },
+        {
+            "name": "woE woD xor",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "w helloworld",
+                "woE xor key",
+                "woD xor key",
+                "ps",
+                "",
+                ""
+            ],
+            "expected": "helloworld\n\n",
+            "broken": false
+        },
+        {
+            "name": "woE woD blowfish",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "w helloworld",
+                "woE blowfish key",
+                "woD blowfish key",
+                "ps",
+                "",
+                ""
+            ],
+            "expected": "helloworld\n\n",
+            "broken": false
+        },
+        {
+            "name": "woE woD aes-ecb",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "w helloworld",
+                "woE aes-ecb key",
+                "woD aes-ecb key",
+                "ps",
+                "",
+                ""
+            ],
+            "expected": "helloworld\n\n",
+            "broken": false
+        }
+    ]
+}

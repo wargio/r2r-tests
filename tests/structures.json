@@ -1,1 +1,60 @@
-{"type":"cmd","tests":[{"name":"structure variable delete shadowed","file":"bins/elf/analysis/main_structure","args":"","commands":["aaa","s main","afvb*","\"td struct S1 { int a; int b; int c; char d[256]; short e; }\"","afvn local_110h s1","afvt s1 S1","afvb*","",""],"expected":"afvb -288 local_120h int @ 0x4004a6\nafvb -276 local_114h int @ 0x4004a6\nafvb -272 local_110h int @ 0x4004a6\nafvb -268 local_10ch int @ 0x4004a6\nafvb -264 local_108h int @ 0x4004a6\nafvb -4 local_4h int @ 0x4004a6\nafvb -288 local_120h int @ 0x4004a6\nafvb -276 local_114h int @ 0x4004a6\nafvb -272 s1 S1 @ 0x4004a6\n\n","broken":false},{"name":"structure offset in disassembly","file":"bins/elf/analysis/main_structure","args":"","commands":["aaa","s main","\"td struct S1 { int a; int b; int c; char d[256]; short e; }\"","afvn local_110h s1","pd 4 @ 0x004004be~[2-4]","afvt s1 S1","pd 4 @ 0x004004be~[2-4]","",""],"expected":"mov dword [s1]\nmov dword [local_10ch]\nmov dword [local_108h]\nlea rax [s1]\nmov dword [s1.a]\nmov dword [s1.b]\nmov dword [s1.c]\nlea rax [s1.a]\n","broken":false},{"name":"structure field rename reflects immediately","file":"bins/elf/analysis/main_structure","args":"","commands":["aaa","s main","\"td struct S1 { int a; int b; int c; char d[256]; short e; }\"","afvn local_110h s1","afvt s1 S1","pd 4 @ 0x004004be~[2-4]","\"td struct S1 { int x; int y; int c; char d[256]; short e; }\"","pd 4 @ 0x004004be~[2-4]","",""],"expected":"mov dword [s1.a]\nmov dword [s1.b]\nmov dword [s1.c]\nlea rax [s1.a]\nmov dword [s1.x]\nmov dword [s1.y]\nmov dword [s1.c]\nlea rax [s1.x]\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "structure variable delete shadowed",
+            "file": "bins/elf/analysis/main_structure",
+            "args": "",
+            "commands": [
+                "aaa",
+                "s main",
+                "afvb*",
+                "\"td struct S1 { int a; int b; int c; char d[256]; short e; }\"",
+                "afvn local_110h s1",
+                "afvt s1 S1",
+                "afvb*",
+                "",
+                ""
+            ],
+            "expected": "afvb -288 local_120h int @ 0x4004a6\nafvb -276 local_114h int @ 0x4004a6\nafvb -272 local_110h int @ 0x4004a6\nafvb -268 local_10ch int @ 0x4004a6\nafvb -264 local_108h int @ 0x4004a6\nafvb -4 local_4h int @ 0x4004a6\nafvb -288 local_120h int @ 0x4004a6\nafvb -276 local_114h int @ 0x4004a6\nafvb -272 s1 S1 @ 0x4004a6\n\n",
+            "broken": false
+        },
+        {
+            "name": "structure offset in disassembly",
+            "file": "bins/elf/analysis/main_structure",
+            "args": "",
+            "commands": [
+                "aaa",
+                "s main",
+                "\"td struct S1 { int a; int b; int c; char d[256]; short e; }\"",
+                "afvn local_110h s1",
+                "pd 4 @ 0x004004be~[2-4]",
+                "afvt s1 S1",
+                "pd 4 @ 0x004004be~[2-4]",
+                "",
+                ""
+            ],
+            "expected": "mov dword [s1]\nmov dword [local_10ch]\nmov dword [local_108h]\nlea rax [s1]\nmov dword [s1.a]\nmov dword [s1.b]\nmov dword [s1.c]\nlea rax [s1.a]\n",
+            "broken": false
+        },
+        {
+            "name": "structure field rename reflects immediately",
+            "file": "bins/elf/analysis/main_structure",
+            "args": "",
+            "commands": [
+                "aaa",
+                "s main",
+                "\"td struct S1 { int a; int b; int c; char d[256]; short e; }\"",
+                "afvn local_110h s1",
+                "afvt s1 S1",
+                "pd 4 @ 0x004004be~[2-4]",
+                "\"td struct S1 { int x; int y; int c; char d[256]; short e; }\"",
+                "pd 4 @ 0x004004be~[2-4]",
+                "",
+                ""
+            ],
+            "expected": "mov dword [s1.a]\nmov dword [s1.b]\nmov dword [s1.c]\nlea rax [s1.a]\nmov dword [s1.x]\nmov dword [s1.y]\nmov dword [s1.c]\nlea rax [s1.x]\n",
+            "broken": false
+        }
+    ]
+}

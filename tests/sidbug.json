@@ -1,1 +1,35 @@
-{"type":"cmd","tests":[{"name":"sidbug1","file":"bins/other/pvm2-indiecito.sid","args":"","commands":["/x 01010102","",""],"expected":"0x000011fe hit0_0 01010102\n\n","broken":false},{"name":"sidbug2","file":"-","args":"","commands":["","e search.from=0","e search.to=10","e search.in=raw","b 10","wx 0101010102","/x 01010102","",""],"expected":"0x00000001 hit0_0 01010102\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "sidbug1",
+            "file": "bins/other/pvm2-indiecito.sid",
+            "args": "",
+            "commands": [
+                "/x 01010102",
+                "",
+                ""
+            ],
+            "expected": "0x000011fe hit0_0 01010102\n\n",
+            "broken": false
+        },
+        {
+            "name": "sidbug2",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e search.from=0",
+                "e search.to=10",
+                "e search.in=raw",
+                "b 10",
+                "wx 0101010102",
+                "/x 01010102",
+                "",
+                ""
+            ],
+            "expected": "0x00000001 hit0_0 01010102\n\n",
+            "broken": false
+        }
+    ]
+}

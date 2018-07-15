@@ -1,0 +1,38 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "VSF: Rocky Horror Picture Show- open",
+            "file": "bins/vsf/c128-rhps-rom.vsf",
+            "args": "-A",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "VSF: Rocky Horror Picture Show- detection",
+            "file": "bins/vsf/c128-rhps-rom.vsf",
+            "args": "",
+            "commands": [
+                "iI~os",
+                ""
+            ],
+            "expected": "os       C128\n\n",
+            "broken": false
+        },
+        {
+            "name": "VSF: Rocky Horror Picture Show- ROMs",
+            "file": "bins/vsf/c128-rhps-rom.vsf",
+            "args": "",
+            "commands": [
+                "S",
+                ""
+            ],
+            "expected": "[00:00] * pa=0x000420a1 r-x va=0x00004000 sz=0x7000 vsz=0x7000 BASIC\n[00:01] . pa=0x000490a1 r-x va=0x0000b000 sz=0x1000 vsz=0x1000 MONITOR\n[00:02] . pa=0x0004a0a1 r-x va=0x0000c000 sz=0x1000 vsz=0x1000 EDITOR\n[00:03] . pa=0x000400a1 r-x va=0x0000e000 sz=0x2000 vsz=0x2000 KERNAL\n[00:04] * pa=0x0000008c rwx va=0x00000000 sz=0x10000 vsz=0x10000 RAM_BANK_0\n[00:05] * pa=0x0001008c rwx va=0x00000000 sz=0x10000 vsz=0x10000 RAM_BANK_1\n\n",
+            "broken": false
+        }
+    ]
+}

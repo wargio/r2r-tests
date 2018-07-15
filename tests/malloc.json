@@ -1,1 +1,29 @@
-{"type":"cmd","tests":[{"name":"t/malloc","file":"malloc://1024","args":"","commands":["","s 0x666","s","s 15","s","s 034","s","s 0","s+2","s -1","s","s+0x4","s","",""],"expected":"0x666\n0xf\n0x1c\n0x1\n0x5\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "t/malloc",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x666",
+                "s",
+                "s 15",
+                "s",
+                "s 034",
+                "s",
+                "s 0",
+                "s+2",
+                "s -1",
+                "s",
+                "s+0x4",
+                "s",
+                "",
+                ""
+            ],
+            "expected": "0x666\n0xf\n0x1c\n0x1\n0x5\n\n",
+            "broken": false
+        }
+    ]
+}

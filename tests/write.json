@@ -1,0 +1,22 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "write",
+            "file": ".newfile",
+            "args": "-w",
+            "commands": [
+                "",
+                "e io.va=0",
+                "w jeje",
+                "i~size[1]",
+                "p8 4",
+                "rm ./.newfile",
+                "",
+                ""
+            ],
+            "expected": "0x4\n6a656a65\n\n",
+            "broken": false
+        }
+    ]
+}

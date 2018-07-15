@@ -1,1 +1,107 @@
-{"type":"asm","tests":[{"name":"x86_16: Bd \"call 0\" e8fdff","file":"-","args":"-a x86 -b 16","commands":["pad e8fdff"],"expected":"call 0\n","broken":true},{"name":"x86_16: a \"jmp 0x0\" ebfe","file":"-","args":"-a x86 -b 16","commands":["pa jmp 0x0"],"expected":"ebfe\n","broken":false},{"name":"x86_16: a \"jmp 0x10\" eb0e","file":"-","args":"-a x86 -b 16","commands":["pa jmp 0x10"],"expected":"eb0e\n","broken":false},{"name":"x86_16: a \"jmp 0x34\" eb32","file":"-","args":"-a x86 -b 16","commands":["pa jmp 0x34"],"expected":"eb32\n","broken":false},{"name":"x86_16: a \"jne 0x14\" 7512","file":"-","args":"-a x86 -b 16","commands":["pa jne 0x14"],"expected":"7512\n","broken":false},{"name":"x86_16: a \"jnz 0x94\" 660f858d000000","file":"-","args":"-a x86 -b 16","commands":["pa jnz 0x94"],"expected":"660f858d000000\n","broken":false},{"name":"x86_16: a \"jnz -0x94\" 660f8565ffffff","file":"-","args":"-a x86 -b 16","commands":["pa jnz -0x94"],"expected":"660f8565ffffff\n","broken":false},{"name":"x86_16: a \"jno -0x34\" 71ca","file":"-","args":"-a x86 -b 16","commands":["pa jno -0x34"],"expected":"71ca\n","broken":false},{"name":"x86_16: d \"jmp 0xfec50\" e95bec f000:fff2","file":"-","args":"-a x86 -b 16","commands":["s f000","pad e95bec"],"expected":"jmp 0xfec50\n","broken":false},{"name":"x86_16: d \"jmp 0x1fec50\" e95bec 0x001ffff2","file":"-","args":"-a x86 -b 16","commands":["s 0x001ffff2","pad e95bec"],"expected":"jmp 0x1fec50\n","broken":false}]}
+{
+    "type": "asm",
+    "tests": [
+        {
+            "name": "x86_16: Bd \"call 0\" e8fdff",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "pad e8fdff"
+            ],
+            "expected": "call 0\n",
+            "broken": true
+        },
+        {
+            "name": "x86_16: a \"jmp 0x0\" ebfe",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "pa jmp 0x0"
+            ],
+            "expected": "ebfe\n",
+            "broken": false
+        },
+        {
+            "name": "x86_16: a \"jmp 0x10\" eb0e",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "pa jmp 0x10"
+            ],
+            "expected": "eb0e\n",
+            "broken": false
+        },
+        {
+            "name": "x86_16: a \"jmp 0x34\" eb32",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "pa jmp 0x34"
+            ],
+            "expected": "eb32\n",
+            "broken": false
+        },
+        {
+            "name": "x86_16: a \"jne 0x14\" 7512",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "pa jne 0x14"
+            ],
+            "expected": "7512\n",
+            "broken": false
+        },
+        {
+            "name": "x86_16: a \"jnz 0x94\" 660f858d000000",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "pa jnz 0x94"
+            ],
+            "expected": "660f858d000000\n",
+            "broken": false
+        },
+        {
+            "name": "x86_16: a \"jnz -0x94\" 660f8565ffffff",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "pa jnz -0x94"
+            ],
+            "expected": "660f8565ffffff\n",
+            "broken": false
+        },
+        {
+            "name": "x86_16: a \"jno -0x34\" 71ca",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "pa jno -0x34"
+            ],
+            "expected": "71ca\n",
+            "broken": false
+        },
+        {
+            "name": "x86_16: d \"jmp 0xfec50\" e95bec f000:fff2",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "s f000",
+                "pad e95bec"
+            ],
+            "expected": "jmp 0xfec50\n",
+            "broken": false
+        },
+        {
+            "name": "x86_16: d \"jmp 0x1fec50\" e95bec 0x001ffff2",
+            "file": "-",
+            "args": "-a x86 -b 16",
+            "commands": [
+                "s 0x001ffff2",
+                "pad e95bec"
+            ],
+            "expected": "jmp 0x1fec50\n",
+            "broken": false
+        }
+    ]
+}

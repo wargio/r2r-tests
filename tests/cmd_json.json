@@ -1,25 +1,46 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "test pDj missing newline issue",
-        "file": "-",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 4883c768", "pDj 4~{}", "", ""],
-        "expected": "[\n  {\n    \"offset\": 0,\n    \"val\": 104,\n    \"esil\": \"104,rdi,+=,$o,of,=,$s,sf,=,$z,zf,=,$c63,cf,=,$p,pf,=\",\n    \"refptr\": false,\n    \"fcn_addr\": 0,\n    \"fcn_last\": 0,\n    \"size\": 4,\n    \"opcode\": \"add rdi, 0x68\",\n    \"disasm\": \"add rdi, 0x68\",\n    \"bytes\": \"4883c768\",\n    \"family\": \"cpu\",\n    \"type\": \"add\",\n    \"type_num\": 17,\n    \"type2_num\": 0\n  }\n]\n\n",
-        "broken": false
-    }, {
-        "name": "/j with backlsash",
-        "file": "bins/pe/ConsoleApplication1.exe",
-        "args": "",
-        "commands": ["/j ConsoleApplication1.pdb~{}", "", ""],
-        "expected": "[\n  {\n    \"offset\": 4203952,\n    \"type\": \"string\",\n    \"data\": \"cation1\\\\Release\\\\ConsoleApplication1.pdb  \"\n  }\n]\n",
-        "broken": false
-    }, {
-        "name": "empty irj should print empty array",
-        "file": "-",
-        "args": "",
-        "commands": ["", "irj", "", ""],
-        "expected": "[]\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "test pDj missing newline issue",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 4883c768",
+                "pDj 4~{}",
+                "",
+                ""
+            ],
+            "expected": "[\n  {\n    \"offset\": 0,\n    \"val\": 104,\n    \"esil\": \"104,rdi,+=,$o,of,=,$s,sf,=,$z,zf,=,$c63,cf,=,$p,pf,=\",\n    \"refptr\": false,\n    \"fcn_addr\": 0,\n    \"fcn_last\": 0,\n    \"size\": 4,\n    \"opcode\": \"add rdi, 0x68\",\n    \"disasm\": \"add rdi, 0x68\",\n    \"bytes\": \"4883c768\",\n    \"family\": \"cpu\",\n    \"type\": \"add\",\n    \"type_num\": 17,\n    \"type2_num\": 0\n  }\n]\n\n",
+            "broken": false
+        },
+        {
+            "name": "/j with backlsash",
+            "file": "bins/pe/ConsoleApplication1.exe",
+            "args": "",
+            "commands": [
+                "/j ConsoleApplication1.pdb~{}",
+                "",
+                ""
+            ],
+            "expected": "[\n  {\n    \"offset\": 4203952,\n    \"type\": \"string\",\n    \"data\": \"cation1\\\\Release\\\\ConsoleApplication1.pdb  \"\n  }\n]\n",
+            "broken": false
+        },
+        {
+            "name": "empty irj should print empty array",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "irj",
+                "",
+                ""
+            ],
+            "expected": "[]\n",
+            "broken": false
+        }
+    ]
 }

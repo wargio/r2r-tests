@@ -1,0 +1,38 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "dupfd bug",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e file.nowarn=true",
+                "e file.loadmethod=append",
+                "e scr.null=true",
+                "10o -",
+                "e scr.null=false",
+                "o~?",
+                "",
+                ""
+            ],
+            "expected": "11\n\n",
+            "broken": false
+        },
+        {
+            "name": "dupfd hard",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e file.loadmethod=append",
+                "e file.nowarn=true",
+                "e scr.null=true",
+                "1000o -",
+                "e scr.null=false",
+                "o~?",
+                ""
+            ],
+            "expected": "1001\n\n",
+            "broken": false
+        }
+    ]
+}

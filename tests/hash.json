@@ -1,1 +1,17 @@
-{"type":"cmd","tests":[{"name":"search count","file":"bins/elf/analysis/x86-helloworld-gcc","args":"","commands":["ph crc32 @ $$+10","/h crc32 83618b8a",""],"expected":"83618b8a\nf hash.crc32.83618b8a = 0x804830a\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "search count",
+            "file": "bins/elf/analysis/x86-helloworld-gcc",
+            "args": "",
+            "commands": [
+                "ph crc32 @ $$+10",
+                "/h crc32 83618b8a",
+                ""
+            ],
+            "expected": "83618b8a\nf hash.crc32.83618b8a = 0x804830a\n\n",
+            "broken": false
+        }
+    ]
+}

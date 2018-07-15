@@ -1,1 +1,33 @@
-{"type":"cmd","tests":[{"name":"base64 encode","file":"-","args":"","commands":["b 11","w hello world","p6e","",""],"expected":"aGVsbG8gd29ybGQ=\n\n","broken":false},{"name":"base64 decode","file":"-","args":"","commands":["b 16","w aGVsbG8gd29ybGQ=","p6d","",""],"expected":"hello world\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "base64 encode",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "b 11",
+                "w hello world",
+                "p6e",
+                "",
+                ""
+            ],
+            "expected": "aGVsbG8gd29ybGQ=\n\n",
+            "broken": false
+        },
+        {
+            "name": "base64 decode",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "b 16",
+                "w aGVsbG8gd29ybGQ=",
+                "p6d",
+                "",
+                ""
+            ],
+            "expected": "hello world\n\n",
+            "broken": false
+        }
+    ]
+}

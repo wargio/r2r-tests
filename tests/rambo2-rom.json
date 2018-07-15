@@ -1,0 +1,38 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "VSF: Rambo II- open",
+            "file": "bins/vsf/c64-rambo2-rom.vsf",
+            "args": "-A",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "VSF: Rambo II- detection",
+            "file": "bins/vsf/c64-rambo2-rom.vsf",
+            "args": "",
+            "commands": [
+                "iI~os",
+                ""
+            ],
+            "expected": "os       C64\n\n",
+            "broken": false
+        },
+        {
+            "name": "VSF: Rambo II- ROMs",
+            "file": "bins/vsf/c64-rambo2-rom.vsf",
+            "args": "",
+            "commands": [
+                "S",
+                ""
+            ],
+            "expected": "[00:00] . pa=0x0001209d r-x va=0x0000a000 sz=0x2000 vsz=0x2000 BASIC\n[00:01] . pa=0x0001009d r-x va=0x0000e000 sz=0x2000 vsz=0x2000 KERNAL\n[00:02] * pa=0x00000084 rwx va=0x00000000 sz=0x10000 vsz=0x10000 RAM\n\n",
+            "broken": false
+        }
+    ]
+}

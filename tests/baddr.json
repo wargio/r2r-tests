@@ -1,0 +1,134 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "io.baddr",
+            "file": "bins/elf/analysis/pie",
+            "args": "",
+            "commands": [
+                "",
+                "?v entry0",
+                "",
+                ""
+            ],
+            "expected": "0x450\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.baddr",
+            "file": "bins/elf/analysis/pie",
+            "args": "-B 0xf00000",
+            "commands": [
+                "",
+                "?v entry0",
+                "",
+                ""
+            ],
+            "expected": "0xf00450\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.baddr",
+            "file": "bins/elf/analysis/pie",
+            "args": "",
+            "commands": [
+                "!rabin2 -B 0xf00000 -re ${R2_FILE} | grep 0x",
+                ""
+            ],
+            "expected": "f entry0 1 @ 0x00f00450\nf entry0_haddr 1 @ 0x00000018\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.baddr entry0 data",
+            "file": "bins/elf/analysis/pie",
+            "args": "",
+            "commands": [
+                "",
+                "ie~paddr[3]",
+                "ie~vaddr[1]",
+                "p8 10 @ 0x00000450",
+                "",
+                ""
+            ],
+            "expected": "0x00000450\n0x00000450\n31ed5e89e183e4f05054\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.baddr -B entry0 data",
+            "file": "bins/elf/analysis/pie",
+            "args": "-B 0x100000",
+            "commands": [
+                "p8 10 @ 0x00100450",
+                "",
+                ""
+            ],
+            "expected": "31ed5e89e183e4f05054\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.baddr -x86_32 entry0 data",
+            "file": "bins/mach0/fatmach0-3true",
+            "args": "-a x86 -b 32",
+            "commands": [
+                "",
+                "ie~paddr[3]",
+                "ie~vaddr[1]",
+                "p8 10 @ 0x00001f44",
+                "p8 10 @ 0x00005f44",
+                "",
+                ""
+            ],
+            "expected": "0x00005f44\n0x00001f44\n6a0089e583e4f083ec10\n6a0089e583e4f083ec10\n\n",
+            "broken": false
+        },
+        {
+            "name": "io.baddr",
+            "file": "bins/elf/analysis/pie",
+            "args": "-B 0xf00000",
+            "commands": [
+                "!rabin2 -B 0xf00000 -re ${R2_FILE} | grep 0x",
+                "p8 10 @ 0x00f00450",
+                ""
+            ],
+            "expected": "f entry0 1 @ 0x00f00450\nf entry0_haddr 1 @ 0x00000018\n31ed5e89e183e4f05054\n\n",
+            "broken": false
+        },
+        {
+            "name": "e bin.baddr",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "",
+            "commands": [
+                "?v `e bin.baddr`",
+                "",
+                ""
+            ],
+            "expected": "0x400000\n\n",
+            "broken": false
+        },
+        {
+            "name": "e bin.baddr changed",
+            "file": "bins/elf/analysis/hello-linux-x86_64",
+            "args": "-B 0xf00000",
+            "commands": [
+                "?v `e bin.baddr`",
+                "",
+                ""
+            ],
+            "expected": "0xf00000\n\n",
+            "broken": false
+        },
+        {
+            "name": "bin.baddr and anal",
+            "file": "bins/elf/analysis/pie",
+            "args": "-B 0xf00000",
+            "commands": [
+                "aaa",
+                "afl",
+                "",
+                ""
+            ],
+            "expected": "0x00f003ec    3 35           sym._init\n0x00f00420    1 6            sym.imp.__cxa_finalize\n0x00f00430    1 6            loc.imp.__gmon_start\n0x00f00440    1 6            sym.imp.__libc_start_main\n0x00f00450    1 49           entry0\n0x00f00482    1 4            fcn.00f00482\n0x00f00490    1 4            sym.__x86.get_pc_thunk.bx\n0x00f004a0    4 61           sym.deregister_tm_clones\n0x00f004e0    4 71           sym.register_tm_clones\n0x00f00530    5 71           sym.__do_global_dtors_aux\n0x00f00580    4 69   -\u003e 60   entry1.init\n0x00f005c5    1 4            sym.main\n0x00f005d0    4 97           sym.__libc_csu_init\n0x00f00640    1 2            sym.__libc_csu_fini\n0x00f00644    1 20           sym._fini\n\n",
+            "broken": false
+        }
+    ]
+}

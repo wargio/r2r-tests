@@ -1,18 +1,34 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "Cvb variable null pointer deref",
-        "file": "bins/elf/analysis/x64-simple",
-        "args": "",
-        "commands": ["", "aaa", "Cvb local_10", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "CC.",
-        "file": "-",
-        "args": "",
-        "commands": ["CC hello @ 10", "CC.", "CC.10", "CC.@10", "CC@10", "", ""],
-        "expected": "hello\nhello\n0x0000000a CCu \"hello\"\n\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "Cvb variable null pointer deref",
+            "file": "bins/elf/analysis/x64-simple",
+            "args": "",
+            "commands": [
+                "",
+                "aaa",
+                "Cvb local_10",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "CC.",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "CC hello @ 10",
+                "CC.",
+                "CC.10",
+                "CC.@10",
+                "CC@10",
+                "",
+                ""
+            ],
+            "expected": "hello\nhello\n0x0000000a CCu \"hello\"\n\n",
+            "broken": false
+        }
+    ]
 }

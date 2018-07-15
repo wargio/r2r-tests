@@ -1,690 +1,1735 @@
 {
     "type": "cmd",
-    "tests": [{
-        "name": "pd multiplemain",
-        "file": "bins/elf/mipsloop",
-        "args": "",
-        "commands": ["pd 1@main~main?", ""],
-        "expected": "1\n",
-        "broken": false
-    }, {
-        "name": "pd v8 and cortex",
-        "file": "malloc://128",
-        "args": "-a arm -b 16",
-        "commands": ["?e", "pad fff7c0ea@e:asm.cpu=v8", "pad fff7c0ea@e:asm.cpu=cortex", "pad fff7c0ea@e:asm.cpu=v8", "pad fff7c0ea@e:asm.cpu=cortex", "pad fff7c0ea@e:asm.cpu=v8", "pad fff7c0ea@e:asm.cpu=", "pad fff7c0ea@e:asm.cpu=tetris", "", ""],
-        "expected": "\nblx 0xfffff584\ninvalid\nblx 0xfffff584\ninvalid\nblx 0xfffff584\nblx 0xfffff584\nblx 0xfffff584\n\n",
-        "broken": false
-    }, {
-        "name": "immstr",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["", "e asm.bits=64", "e asm.arch = x86", "e anal.arch = x86", "wx 6833320000", "e asm.imm.str=1", "pd 1", ""],
-        "expected": "            0x00000000      6833320000     push 0x3233                 ; '32'\n\n",
-        "broken": false
-    }, {
-        "name": "pd pseudo=1 cmtright=0",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["wx 4889e5", "e asm.pseudo =1", "e asm.cmtright =0", "pd 1", "", ""],
-        "expected": "            0x00000000      4889e5         rbp = rsp\n\n",
-        "broken": false
-    }, {
-        "name": "pd 0",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["pd 0", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "pd 1-1",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["pd 1-1", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "pd foo-33",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["f foo=33;pd foo-33", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "pd 1",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["wx 90", "e asm.lines.bb=0", "b 1", "pd", "pd 1", "", ""],
-        "expected": "  0x00000000      90             nop\n  0x00000000      90             nop\n",
-        "broken": false
-    }, {
-        "name": "pd double comma",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["e asm.bits=64", "e asm.arch = x86", "e anal.arch = x86", "wx b8ffffffff", "e asm.lines.bb=0", "pd 1", "", ""],
-        "expected": "  0x00000000      b8ffffffff     mov eax, 0xffffffff                   ; -1\n",
-        "broken": false
-    }, {
-        "name": "pd@x:90",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["e asm.lines.bb=0", "pd@x:90", "", ""],
-        "expected": "  0x00000000      90             nop\n\n",
-        "broken": false
-    }, {
-        "name": "asm.filter issue",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.filter=1", "e asm.arch=arm", "e asm.bits=64", "", "wx fa67bba9", "pd 1", "", ""],
-        "expected": "            0x00000000      fa67bba9       stp x26, x25, [sp, -0x50]!\n\n",
-        "broken": false
-    }, {
-        "name": "asm.filter issue",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.filter=0", "e asm.arch=arm", "e asm.bits=64", "wx fa67bba9", "pd 1", "", ""],
-        "expected": "            0x00000000      fa67bba9       stp x26, x25, [sp, -0x50]!\n\n",
-        "broken": false
-    }, {
-        "name": "asm.filter issue #6752",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "s 0x100", "wx e801000000c350c3", "e asm.arch=x86", "e asm.bits=64", "aaaa", "e asm.pseudo=true", "e asm.offset=false", "e asm.lines.bb=false", "e asm.marks=false", "e asm.nbytes=0", "e asm.comments=false", "e asm.flags=false", "e asm.fcnlines=false", "e asm.calls=false", "e asm.functions=false", "e scr.color=false", "f-rip", "pd 1", "", ""],
-        "expected": "fcn.00000106 ()\n",
-        "broken": false
-    }, {
-        "name": "pd pseudo test for issue #7026",
-        "file": "malloc://8",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=64", "wx 31ed", "e asm.pseudo=true", "e asm.comments=true", "e asm.cmtright=true", "pd 1", "e asm.cmtright=false", "pd 1", ""],
-        "expected": "            0x00000000      31ed           ebp = 0\n            0x00000000      31ed           ebp = 0\n\n",
-        "broken": false
-    }, {
-        "name": "pd pseudo test for issue #7268",
-        "file": "malloc://8",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=64", "wx 4889e5", "e asm.pseudo=true", "e asm.comments=true", "e scr.color=1", "e asm.cmt.right=true", "pd 1", "e asm.cmt.right=false", "pd 1", ""],
-        "expected": "  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[33m48\u001b[37m89\u001b[37me5\u001b[0m         \u001b[37mrbp =\u001b[36m rsp\u001b[0m\u001b[0m\u001b[0m\n\u001b[0m  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[33m48\u001b[37m89\u001b[37me5\u001b[0m         \u001b[37mrbp =\u001b[36m rsp\u001b[0m\u001b[0m\n",
-        "broken": false
-    }, {
-        "name": "pd bits hint",
-        "file": "-",
-        "args": "-a snes",
-        "commands": ["wx a97e00", "ahb 8", "e scr.color=1", "pd 1", "", ""],
-        "expected": "  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[37ma9\u001b[33m7e\u001b[32m00\u001b[0m         \u001b[35mlda\u001b[36m #\u001b[33m0x007e\u001b[0m\u001b[0m\u001b[0m\n\n",
-        "broken": false
-    }, {
-        "name": "ASCII Recognition",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=32", "e scr.columns = 90", "wx ba3d000000", "pd 1", "", ""],
-        "expected": "            0x00000000      ba3d000000     mov edx, 0x3d               ; '='\n\n",
-        "broken": false
-    }, {
-        "name": "ASCII Recognition 2",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=32", "e scr.columns = 90", "wx c6852fffffff61", "pd 1", "", ""],
-        "expected": "            0x00000000      c6852fffffff.  mov byte [ebp - 0xd1], 0x61 ; 'a'\n\n",
-        "broken": false
-    }, {
-        "name": "String capstone",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch = x86", "e asm.arch=x86", "e asm.bits=32", "e scr.columns = 90", "aa", "pd 1 @ 0x0040050a", "", ""],
-        "expected": "|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; 0x4005c4 ; \"Hello World\"\n\n",
-        "broken": false
-    }, {
-        "name": "pD -10",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 90909090909090909090 ; s 10 ; pD -10", "", ""],
-        "expected": "            0x00000000      90             nop\n            0x00000001      90             nop\n            0x00000002      90             nop\n            0x00000003      90             nop\n            0x00000004      90             nop\n            0x00000005      90             nop\n            0x00000006      90             nop\n            0x00000007      90             nop\n            0x00000008      90             nop\n            0x00000009      90             nop\n\n",
-        "broken": false
-    }, {
-        "name": "pd -10",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 90909090909090909090 ; s 10 ; pd -10", "", ""],
-        "expected": "            0x00000000      90             nop\n            0x00000001      90             nop\n            0x00000002      90             nop\n            0x00000003      90             nop\n            0x00000004      90             nop\n            0x00000005      90             nop\n            0x00000006      90             nop\n            0x00000007      90             nop\n            0x00000008      90             nop\n            0x00000009      90             nop\n\n",
-        "broken": false
-    }, {
-        "name": "pD -9 @ 0x0040050f",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "pD -9 @ 0x0040050f", "", ""],
-        "expected": "            ;-- main:\n            0x00400506      55             push rbp\n            0x00400507      4889e5         mov rbp, rsp\n            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; 0x4005c4 ; \"Hello World\"\n",
-        "broken": false
-    }, {
-        "name": "pd -3 @ 0x0040050f",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "pd -3 @ 0x0040050f", "", ""],
-        "expected": "            ;-- main:\n            0x00400506      55             push rbp\n            0x00400507      4889e5         mov rbp, rsp\n            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; 0x4005c4 ; \"Hello World\"\n",
-        "broken": false
-    }, {
-        "name": "pda 10",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wx 90909090909090909090 ; pda 10", "", ""],
-        "expected": "0x00000000                   90  nop\n0x00000001                   90  nop\n0x00000002                   90  nop\n0x00000003                   90  nop\n0x00000004                   90  nop\n0x00000005                   90  nop\n0x00000006                   90  nop\n0x00000007                   90  nop\n0x00000008                   90  nop\n0x00000009                   90  nop\n\n",
-        "broken": false
-    }, {
-        "name": "pdj -1",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=32", "wx 56687cd3400090", "aaa", "s 6", "pdj -1", "", ""],
-        "expected": "[{\"offset\":1,\"ptr\":4248444,\"val\":4248444,\"esil\":\"4248444,4,esp,-=,esp,=[4]\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":1016,\"size\":5,\"opcode\":\"push 0x40d37c\",\"disasm\":\"push 0x40d37c\",\"bytes\":\"687cd34000\",\"family\":\"cpu\",\"type\":\"push\",\"type_num\":13,\"type2_num\":0}]\n\n\n",
-        "broken": false
-    }, {
-        "name": "pdj 3 @ main",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "pdj 3 @ main", "", ""],
-        "expected": "[{\"offset\":4195590,\"esil\":\"rbp,8,rsp,-=,rsp,=[8]\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":1,\"opcode\":\"push rbp\",\"disasm\":\"push rbp\",\"bytes\":\"55\",\"family\":\"cpu\",\"type\":\"upush\",\"type_num\":12,\"type2_num\":0,\"flags\":[\"main\",\"sym.main\"]},{\"offset\":4195591,\"esil\":\"rsp,rbp,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"mov rbp, rsp\",\"disasm\":\"mov rbp, rsp\",\"bytes\":\"4889e5\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":4195594,\"ptr\":4195780,\"esil\":\"4195780,edi,=,0xffffffff,rdi,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov edi, 0x4005c4\",\"disasm\":\"mov edi, str.Hello_World\",\"bytes\":\"bfc4054000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0}]\n\n",
-        "broken": false
-    }, {
-        "name": "pdj -3 @ 0x0040050f",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "pdj -3 @ 0x0040050f", "", ""],
-        "expected": "[{\"offset\":4195590,\"esil\":\"rbp,8,rsp,-=,rsp,=[8]\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":1,\"opcode\":\"push rbp\",\"disasm\":\"push rbp\",\"bytes\":\"55\",\"family\":\"cpu\",\"type\":\"upush\",\"type_num\":12,\"type2_num\":0,\"flags\":[\"main\",\"sym.main\"]},{\"offset\":4195591,\"esil\":\"rsp,rbp,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"mov rbp, rsp\",\"disasm\":\"mov rbp, rsp\",\"bytes\":\"4889e5\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":4195594,\"ptr\":4195780,\"esil\":\"4195780,edi,=,0xffffffff,rdi,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov edi, 0x4005c4\",\"disasm\":\"mov edi, str.Hello_World\",\"bytes\":\"bfc4054000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0}]\n\n",
-        "broken": false
-    }, {
-        "name": "pdj str in opcode",
-        "file": "bins/java/Hello.class",
-        "args": "",
-        "commands": ["", "pdj 1 @ 0x000002ae", "", ""],
-        "expected": "[{\"offset\":686,\"ptr\":0,\"val\":0,\"esil\":\"\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":2,\"opcode\":\"ldc \\\"World\\\"\",\"disasm\":\"ldc \\\"World\\\"\",\"bytes\":\"120b\",\"family\":\"cpu\",\"type\":\"push\",\"type_num\":13,\"type2_num\":2138640,\"jump\":0,\"fail\":0}]\n\n\n",
-        "broken": false
-    }, {
-        "name": "pdfline",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "e anal.eobjmp=true", "wx ff2572962100", "af", "pdf~jmp[0]", "afi~size[1]", "", ""],
-        "expected": "\\\n6\n\n",
-        "broken": false
-    }, {
-        "name": "pdfline 2",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "e anal.eobjmp=false", "wx ff2572962100", "af", "afi~size[1]", "", ""],
-        "expected": "6\n\n",
-        "broken": false
-    }, {
-        "name": "pdfline defaults",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["", "e asm.arch=x86", "e asm.bits=64", "wa jmp rax", "af", "afi~size[1]", "", ""],
-        "expected": "2\n\n",
-        "broken": false
-    }, {
-        "name": "pd asm.bytes and asm.lbytes",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=64", "wx 488d85c0f9ffff488985b8f9ffff4585f6", "e asm.lines.bb = false", "e asm.lbytes = true", "e asm.nbytes = 6", "pd 3", "e asm.nbytes = 10", "pd 3", "e asm.lbytes = false", "pd 3", "e asm.nbytes = 6", "pd 3", "", ""],
-        "expected": "  0x00000000      488d85c0f9ff.  lea rax, [rbp - 0x640]\n  0x00000007      488985b8f9ff.  mov qword [rbp - 0x648], rax\n  0x0000000e      4585f6         test r14d, r14d\n  0x00000000      488d85c0f9ffff         lea rax, [rbp - 0x640]\n  0x00000007      488985b8f9ffff         mov qword [rbp - 0x648], rax\n  0x0000000e      4585f6                 test r14d, r14d\n  0x00000000              488d85c0f9ffff  lea rax, [rbp - 0x640]\n  0x00000007              488985b8f9ffff  mov qword [rbp - 0x648], rax\n  0x0000000e                      4585f6  test r14d, r14d\n  0x00000000       488d85c0f9ff.  lea rax, [rbp - 0x640]\n  0x00000007       488985b8f9ff.  mov qword [rbp - 0x648], rax\n  0x0000000e              4585f6  test r14d, r14d\n",
-        "broken": false
-    }, {
-        "name": "pd asm.relsub",
-        "file": "malloc://1024",
-        "args": "-m 0x400000",
-        "commands": ["", "e io.va=true", "e asm.relsub=false", "e asm.arch=x86", "e asm.leahints=false", "e asm.bits=64", "wx 488d0502000000", "e asm.lines.bb=false", "e asm.comments=false", "pd 1", "e asm.relsub=true", "pd 1", "", ""],
-        "expected": "  0x00400000      488d05020000.  lea rax, [rip + 2]\n  0x00400000      488d05020000.  lea rax, [0x00400009]\n",
-        "broken": false
-    }, {
-        "name": "pd asm.var.subonly",
-        "file": "malloc://1024",
-        "args": "",
-        "commands": ["e asm.arch=x86", "e asm.bits=64", "e asm.varsub=true", "e asm.lines.bb=false", "e asm.bytes=false", "e asm.comments=false", "e asm.lines.fcn=false", "e asm.offset=false", "e scr.color=false", "wx 554889e583ec60488b44244089ec5dc3", "af", "afva", "e asm.var.subonly=true", "pd 1 @ 0~local", "pd 1 @ 7", "e asm.var.subonly=false", "pd 1 @ 0~local", "pd 1 @ 7", ""],
-        "expected": "; var int local_40h @ rsp+0x40\n     mov rax, qword [local_40h]\n; var int local_40h @ rsp+0x40\n     mov rax, qword [rsp + local_40h]\n\n",
-        "broken": false
-    }, {
-        "name": "pd wide string",
-        "file": "bins/pe/c.exe",
-        "args": "",
-        "commands": ["e io.cache=true", "s 0x403000", "wx 4d00 5900 5200 4500 5300 0000", "s 0x00401334", "pd 1~MYRES?", "", ""],
-        "expected": "1\n\n",
-        "broken": false
-    }, {
-        "name": "pds change name",
-        "file": "bins/mach0/mac-ls",
-        "args": "",
-        "commands": ["e asm.flags=false", "s sym.func.100004401", "af", "afn newname", "s-", "pds", ""],
-        "expected": "0x100001085 call newname\n0x100001093 call sym.imp.setlocale\n0x1000010a3 call sym.imp.isatty\n0x1000010b6 str.COLUMNS\n0x1000010bd call sym.imp.getenv\n0x1000010cf call sym.imp.atoi\n0x1000010e6 call sym.imp.ioctl\n0x10000110d str.COLUMNS\n0x100001114 call sym.imp.getenv\n0x100001121 call sym.imp.atoi\n0x10000112c call sym.imp.getuid\n\n",
-        "broken": false
-    }, {
-        "name": "pdf fcnline",
-        "file": "bins/pe/a.exe",
-        "args": "",
-        "commands": ["e asm.fcnlines=true", "s 0x004017c0", "af+ 0x004017c0 fcn2.0x004017c0", "afb+ 0x4017c0 0x4017c0 13 0x4017dd 0x4017cd", "pdf", ""],
-        "expected": "/ (fcn) fcn2.0x004017c0 13\n|   fcn2.0x004017c0 ();\n|           0x004017c0      51             push ecx\n|           0x004017c1      89e1           mov ecx, esp\n|           0x004017c3      83c108         add ecx, 8\n|           0x004017c6      3d00100000     cmp eax, 0x1000\n\\       ,=\u003c 0x004017cb      7210           jb 0x4017dd\n\n",
-        "broken": false
-    }, {
-        "name": "r_str_escape anal",
-        "file": "bins/pe/a.exe",
-        "args": "",
-        "commands": ["pd 1 @ 0x00401322", "", ""],
-        "expected": "            0x00401322      c70424043040.  mov dword [esp], 0x403004   ; [0x403004:4]=0xa7025 ; \"%p\\n\"\n",
-        "broken": false
-    }, {
-        "name": "r_str_escape io + no 'u' prefix for single-char strings",
-        "file": "bins/pe/testapp-msvc64.exe",
-        "args": "",
-        "commands": ["pd 1 @ 0x140001034", "pd 1 @ 0x140001070", "", ""],
-        "expected": "            0x140001034      488d05495001.  lea rax, [0x140016084]     ; \"\\r\"\n            0x140001070      488d053d5001.  lea rax, [0x1400160b4]     ; \"a\"\n",
-        "broken": false
-    }, {
-        "name": "r_str_escape anal addr",
-        "file": "bins/pe/cmd_adf_sample0.exe",
-        "args": "",
-        "commands": ["pd 1 @ 0x0040116a", "", ""],
-        "expected": "            0x0040116a      6828304000     push 0x403028               ; \"End\\r\\n\"\n",
-        "broken": false
-    }, {
-        "name": "no rep flag in cmt with gen str flag (lea)",
-        "file": "bins/elf/analysis/ls-alxchk",
-        "args": "",
-        "commands": ["e asm.cmt.right=true", "pd 1 @ 0x0001145f", "e asm.cmt.right=false", "pd 1 @ 0x0001145f", ""],
-        "expected": "            0x0001145f      488d3d72a100.  lea rdi, str.A_NULL_argv_0__was_passed_through_an_exec_system_call. ; 0x1b5d8 ; \"A NULL argv[0] was passed through an exec system call.\\n\"\n            ; 0x1b5d8\n            ; \"A NULL argv[0] was passed through an exec system call.\\n\"\n            0x0001145f      488d3d72a100.  lea rdi, str.A_NULL_argv_0__was_passed_through_an_exec_system_call.\n",
-        "broken": false
-    }, {
-        "name": "flag in cmt with manual flag (lea)",
-        "file": "bins/elf/analysis/ls-alxchk",
-        "args": "",
-        "commands": ["f- @ 0x1b5d8", "f NULL_error 56 @ 0x1b5d8", "e asm.cmt.right=true", "pd 1 @ 0x0001145f", "e asm.cmt.right=false", "pd 1 @ 0x0001145f", ""],
-        "expected": "            0x0001145f      488d3d72a100.  lea rdi, [0x0001b5d8]       ; NULL_error ; \"A NULL argv[0] was passed through an exec system call.\\n\"\n            ; NULL_error\n            ; \"A NULL argv[0] was passed through an exec system call.\\n\"\n            0x0001145f      488d3d72a100.  lea rdi, [0x0001b5d8]\n",
-        "broken": false
-    }, {
-        "name": "no rep flag in cmt with gen str flag (push)",
-        "file": "bins/pe/ConsoleApplication1.exe",
-        "args": "",
-        "commands": ["e asm.cmt.right=true", "pd 1 @ 0x004010f0", "e asm.cmt.right=false", "pd 1 @ 0x004010f0", ""],
-        "expected": "            0x004010f0      68b8214000     push str.Number_of_CPU__d   ; 0x4021b8 ; u\"Number of CPU %d\\n\"\n            ; 0x4021b8\n            ; u\"Number of CPU %d\\n\"\n            0x004010f0      68b8214000     push str.Number_of_CPU__d\n",
-        "broken": false
-    }, {
-        "name": "flag in cmt with manual flag (push)",
-        "file": "bins/pe/ConsoleApplication1.exe",
-        "args": "",
-        "commands": ["f- @ 0x4021b8", "f num_cpu 36 @ 0x4021b8", "e asm.cmt.right=true", "pd 1 @ 0x004010f0", "e asm.cmt.right=false", "pd 1 @ 0x004010f0", ""],
-        "expected": "            0x004010f0      68b8214000     push 0x4021b8               ; num_cpu ; u\"Number of CPU %d\\n\"\n            ; num_cpu\n            ; u\"Number of CPU %d\\n\"\n            0x004010f0      68b8214000     push 0x4021b8\n",
-        "broken": false
-    }, {
-        "name": "no rep flag in cmt with gen sym flag (mov)",
-        "file": "bins/pe/ConsoleApplication1.exe",
-        "args": "",
-        "commands": ["e asm.cmt.right=true", "pd 1 @ 0x004010fa", "e asm.cmt.right=false", "pd 1 @ 0x004010fa", ""],
-        "expected": "            0x004010fa      8b3500204000   mov esi, dword sym.imp.KERNEL32.dll_GetLastError ; [0x402000:4]=0x29f4 reloc.KERNEL32.dll_GetLastError\n            ; [0x402000:4]=0x29f4 reloc.KERNEL32.dll_GetLastError\n            0x004010fa      8b3500204000   mov esi, dword sym.imp.KERNEL32.dll_GetLastError\n",
-        "broken": false
-    }, {
-        "name": "flag in cmt with manual flag (mov)",
-        "file": "bins/pe/ConsoleApplication1.exe",
-        "args": "",
-        "commands": ["f- @ 0x402000", "f ptr_GetLastError 0 @ 0x402000", "e asm.cmt.right=true", "pd 1 @ 0x004010fa", "e asm.cmt.right=false", "pd 1 @ 0x004010fa", ""],
-        "expected": "            0x004010fa      8b3500204000   mov esi, dword [0x402000]   ; ptr_GetLastError ; [0x402000:4]=0x29f4 reloc.KERNEL32.dll_GetLastError\n            ; ptr_GetLastError\n            ; [0x402000:4]=0x29f4 reloc.KERNEL32.dll_GetLastError\n            0x004010fa      8b3500204000   mov esi, dword [0x402000]\n",
-        "broken": false
-    }, {
-        "name": "pd asm.filter color",
-        "file": "bins/elf/analysis/ls-alxchk",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.comments=false", "e scr.color=1", "e asm.filter=true", "pd 1 @ 0x0001145f", "e asm.filter=false", "pd 1 @ 0x0001145f", "", ""],
-        "expected": "  \u001b[36m          \u001b[0m\u001b[32m0x0001145f\u001b[0m      \u001b[37mlea\u001b[36m rdi\u001b[0m,\u001b[36m\u001b[36m \u001b[0m\u001b[33mstr.A_NULL_argv_0__was_passed_through_an_exec_system_call.\u001b[0m\u001b[36m\u001b[0m\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[32m0x0001145f\u001b[0m      \u001b[37mlea\u001b[36m rdi\u001b[0m,\u001b[36m\u001b[36m \u001b[0m[\u001b[36m\u001b[33m0x0001b5d8\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\n\n",
-        "broken": false
-    }, {
-        "name": "ANSI and wide string flag cmts",
-        "file": "bins/pe/testapp-msvc64.exe",
-        "args": "",
-        "commands": ["e str.escbslash=false", "e asm.cmt.right=true", "pd 1 @ 0x140001004", "pd 1 @ 0x140001010", "pd 1 @ 0x14000101c", "e asm.cmt.right=false", "pd 1 @ 0x140001004", "pd 1 @ 0x140001010", "pd 1 @ 0x14000101c", ""],
-        "expected": "            0x140001004      488d05f54f01.  lea rax, str.ANSI__esc:__e_33m ; section..data ; 0x140016000 ; \"\\tANSI\\esc: \\x1b[33m\\r\\n\"\n            0x140001010      488d05015001.  lea rax, str.wide__esc:__e_0m ; 0x140016018 ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x14000101c      488d051d5001.  lea rax, str.wide__in_Arabic: ; 0x140016040 ; u\"\\\"wide\\\" in Arabic: \\u0648\\u0627\\u0633\\u0639\"\n            ; section..data\n            ; 0x140016000\n            ; \"\\tANSI\\esc: \\x1b[33m\\r\\n\"\n            0x140001004      488d05f54f01.  lea rax, str.ANSI__esc:__e_33m\n            ; 0x140016018\n            ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, str.wide__esc:__e_0m\n            ; 0x140016040\n            ; u\"\\\"wide\\\" in Arabic: \\u0648\\u0627\\u0633\\u0639\"\n            0x14000101c      488d051d5001.  lea rax, str.wide__in_Arabic:\n",
-        "broken": false
-    }, {
-        "name": "no ffffff test for issue #7755",
-        "file": "bins/pe/testapp-msvc64.exe",
-        "args": "",
-        "commands": ["pd 1 @ 0x140001040", "", ""],
-        "expected": "            0x140001040      488d05415001.  lea rax, [0x140016088]     ; u\"r2 \\u1308\\u23f4\\u23f4\"\n\n",
-        "broken": false
-    }, {
-        "name": "asm.asciidot",
-        "file": "bins/elf/strenc",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.cmt.off=false", "e str.escbslash=true", "e asm.strenc=latin1", "e scr.strconv=asciiesc", "pd 1 @ 0x0040169d", "e scr.strconv=asciidot", "pd 1 @ 0x0040169d", "e asm.filter=false", "e asm.noisy=false", "pd 1 @ 0x00401693", "e asm.strenc=utf8", "pd 1 @ 0x00401693", "e asm.strenc=utf16le", "pd 1 @ 0x004016ac", "e asm.strenc=utf32le", "pd 1 @ 0x004016ed", "pd 1 @ 0x004016f7", ""],
-        "expected": "            0x0040169d      mov esi, str.see                           ; \"see \\xdab\\xbee\\xace\\xcaf\\n\"\n            0x0040169d      mov esi, str.see                           ; \"see .b.e.e.f\\n\"\n            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:.[33m ......... .[0m\\n\"\n            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:.[33m ... .[0m.\"\n            0x004016ac      mov edi, 0x40224a                          ; u\"utf16le\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in green:.[32m ... .[0m.\"\n            0x004016ed      mov edi, 0x40258c                          ; U\"utf32le\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in cyan:.[36m ... .[0m.\"\n            0x004016f7      mov edi, 0x40266c                          ; U\"Mountain range with embedded quad zeros: .A.A.A.\"\n",
-        "broken": false
-    }, {
-        "name": "asm.strenc utf8",
-        "file": "bins/elf/strenc",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.filter=false", "e asm.noisy=false", "e str.escbslash=true", "e asm.strenc=utf8", "pd 1 @ 0x00401693", "e asm.strenc=latin1", "pd 1 @ 0x00401693", "e asm.strenc=guess", "pd 1 @ 0x00401693", ""],
-        "expected": "            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:\\x1b[33m \\u00a2\\u20ac\\U00010348 \\x1b[0m\\n\"\n            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:\\x1b[33m \\xc2\\xa2\\xe2\\x82\\xac\\xf0\\x90\\x8d\\x88 \\x1b[0m\\n\"\n            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:\\x1b[33m \\u00a2\\u20ac\\U00010348 \\x1b[0m\\n\"\n",
-        "broken": false
-    }, {
-        "name": "asm.strenc latin1",
-        "file": "bins/pe/testapp-msvc64.exe",
-        "args": "",
-        "commands": ["e asm.filter=false", "e asm.noisy=false", "e asm.strenc=latin1", "pd 1 @ 0x140001058", "e asm.strenc=utf8", "pd 1 @ 0x140001058", "", ""],
-        "expected": "            0x140001058      488d05415001.  lea rax, [0x1400160a0]     ; \"latin1 gate: \\xce\\xbb\\xab\\xce\"\n            0x140001058      488d05415001.  lea rax, [0x1400160a0]     ; \"latin1 gate: \\u03bb\\xab\\xce\"\n",
-        "broken": false
-    }, {
-        "name": "asm.strenc utf16le",
-        "file": "bins/elf/strenc",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.filter=false", "e asm.noisy=false", "e str.escbslash=true", "e asm.strenc=guess", "pd 1 @ 0x004016ac", "e asm.filter=true", "e asm.cmt.off=false", "e asm.strenc=guess", "pd 1 @ 0x004016b6", "e asm.strenc=utf16le", "pd 1 @ 0x004016b6", "e asm.strenc=guess", "pd 1 @ 0x004016c0", "e asm.strenc=utf16le", "pd 1 @ 0x004016c0", "pd 1 @ 0x004016ca", "pd 1 @ 0x004016d4", ""],
-        "expected": "            0x004016ac      mov edi, 0x40224a                          ; u\"utf16le\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in green:\\x1b[32m \\xa2\\u20ac\\U00010348 \\x1b[0m\\n\"\n            0x004016b6      mov edi, str.e_e_b                         ; \"_%e%e%b% \"\n            0x004016b6      mov edi, str.e_e_b                         ; u\"\\u255f\\u2565\\u2565\\u2562 is a wall with no embedded zeros\\n\"\n            0x004016c0      mov edi, 0x40230c                          ; \" %B%\"\n            0x004016c0      mov edi, 0x40230c                          ; u\"\\u2520\\u2542\\u2500\\u2500\\u2542\\u2528 is a fence with embedded zeros\\n\"\n            0x004016ca      mov edi, 0x40235a                          ; u\"\\u2520\\u2542-\\u2500-\\u2500\\u2542\\u2528 is a fence with embedded double zeros\\n\"\n            0x004016d4      mov edi, str.e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k ; u\"\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\"\n",
-        "broken": false
-    }, {
-        "name": "asm.strenc utf32le",
-        "file": "bins/elf/strenc",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.cmt.off=false", "e str.escbslash=true", "e asm.strenc=utf16le", "pd 1 @ 0x004016de", "e asm.strenc=utf32le", "pd 1 @ 0x004016de", "e asm.filter=false", "e asm.noisy=false", "e asm.strenc=guess", "pd 1 @ 0x004016ed", "pd 1 @ 0x004016f7", "pd 1 @ 0x00401701", "e asm.strenc=utf32le", "pd 1 @ 0x00401701", ""],
-        "expected": "            0x004016de      mov esi, str.Linux_wide__esc:__e_0m        ; u\"\\t\"\n            0x004016de      mov esi, str.Linux_wide__esc:__e_0m        ; U\"\\tLinux_wide\\\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x004016ed      mov edi, 0x40258c                          ; U\"utf32le\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in cyan:\\x1b[36m \\xa2\\u20ac\\U00010348 \\x1b[0m\\n\"\n            0x004016f7      mov edi, 0x40266c                          ; U\"Mountain range with embedded quad zeros: \\U00010300A\\U00010300A\\U00010300A\\n\"\n            0x00401701      mov edi, 0x402730                          ; \"e%\"\n            0x00401701      mov edi, 0x402730                          ; U\"\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\"\n",
-        "broken": false
-    }, {
-        "name": "asm.strenc guess utf16le",
-        "file": "bins/pe/testapp-msvc64.exe",
-        "args": "",
-        "commands": ["e asm.filter=false", "e asm.noisy=false", "e asm.strenc=guess", "pd 1 @ 0x14000104c", "e asm.strenc=utf16le", "pd 1 @ 0x14000104c", "", ""],
-        "expected": "            0x14000104c      488d05455001.  lea rax, [0x140016098]     ; \"@\"\n            0x14000104c      488d05455001.  lea rax, [0x140016098]     ; u\"@\\ufffd\\ud801\"\n\n",
-        "broken": false
-    }, {
-        "name": "asm.strenc guess utf32le",
-        "file": "bins/elf/strenc-guess-utf32le",
-        "args": "",
-        "commands": ["e asm.cmt.off=false", "e asm.bytes=false", "e asm.strenc=guess", "pd 1 @ 0x00400463", "e asm.strenc=utf32le", "pd 1 @ 0x00400463", ""],
-        "expected": "            0x00400463      mov edi, str.ABCDEF                        ; \"A\"\n            0x00400463      mov edi, str.ABCDEF                        ; U\"ABCDEF\\U0010ffff  G\\U00110000  H\\U7ffdfeff\\n\"\n",
-        "broken": false
-    }, {
-        "name": "hide flag iff unchanged and string shown",
-        "file": "bins/pe/testapp-msvc64.exe",
-        "args": "",
-        "commands": ["e asm.filter=false", "e asm.noisy=false", "e str.escbslash=false", "e asm.cmt.right=true", "pd 1 @ 0x140001010", "pd 1 @ 0x140001028", "e asm.cmt.right=false", "pd 1 @ 0x140001010", "pd 1 @ 0x140001028", "fr str.wide__esc:__e_0m str.wide", "e asm.cmt.right=true", "pd 1 @ 0x140001010", "e asm.cmt.right=false", "pd 1 @ 0x140001010", ""],
-        "expected": "            0x140001010      488d05015001.  lea rax, [0x140016018]     ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001028      488d05415001.  lea rax, [0x140016070]     ; str.Formfeed_at_start\n            ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]\n            ; str.Formfeed_at_start\n            0x140001028      488d05415001.  lea rax, [0x140016070]\n            0x140001010      488d05015001.  lea rax, [0x140016018]     ; str.wide ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            ; str.wide\n            ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]\n",
-        "broken": false
-    }, {
-        "name": "asm.noisy",
-        "file": "bins/pe/testapp-msvc64.exe",
-        "args": "",
-        "commands": ["e asm.filter=false", "e asm.noisy=true", "e str.escbslash=false", "e asm.cmt.right=true", "pd 1 @ 0x140001010", "e asm.cmt.right=false", "pd 1 @ 0x140001010", ""],
-        "expected": "            0x140001010      488d05015001.  lea rax, [0x140016018]     ; str.wide__esc:__e_0m ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            ; str.wide__esc:__e_0m\n            ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]\n",
-        "broken": false
-    }, {
-        "name": "fcn name cmt alignment",
-        "file": "bins/pe/ConsoleApplication1.exe",
-        "args": "",
-        "commands": ["e asm.filter=false", "af @ main", "pd 1 @ 0x00401157", "", ""],
-        "expected": "|           0x00401157      e8b4feffff     call 0x401010               ; fcn.00401010\n\n",
-        "broken": false
-    }, {
-        "name": "call asm.filter=false flag cmt",
-        "file": "bins/pe/ConsoleApplication1.exe",
-        "args": "",
-        "commands": ["e asm.filter=false", "e asm.cmt.right=true", "pd 1 @ 0x004010c6", "e asm.cmt.right=false", "pd 1 @ 0x004010c6", ""],
-        "expected": "            0x004010c6      ff1508204000   call dword [0x402008]       ; sym.imp.KERNEL32.dll_GetProcAddress ; \" *\"\n            ; sym.imp.KERNEL32.dll_GetProcAddress\n            ; \" *\"\n            0x004010c6      ff1508204000   call dword [0x402008]\n\n",
-        "broken": false
-    }, {
-        "name": "asm.cmt.off",
-        "file": "bins/pe/testapp-msvc64.exe",
-        "args": "",
-        "commands": ["e asm.noisy=false", "e str.escbslash=false", "e asm.filter=true", "e asm.cmt.off=false", "pd 1 @ 0x140001010", "e asm.filter=false", "e asm.cmt.off=true", "pd 1 @ 0x140001010", "e asm.cmt.off=nodup", "pd 1 @ 0x140001010", ""],
-        "expected": "            0x140001010      488d05015001.  lea rax, str.wide__esc:__e_0m ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]     ; 0x140016018 ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]     ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n",
-        "broken": false
-    }, {
-        "name": "asm.leahints cmt",
-        "file": "bins/elf/analysis/ls-linux64",
-        "args": "",
-        "commands": ["e asm.leahints=true", "e asm.cmt.right=true", "pd 1 @ 0x00005c2f", "e asm.cmt.right=false", "pd 1 @ 0x00005c2f", ""],
-        "expected": "            0x00005c2f      4c8d054ae200.  lea r8, [0x00013e80]        ; LEA r8 = [0x13e80] = 0x841f0f2e66c3f3 \"..f....\"\n            ; LEA r8 = [0x13e80] = 0x841f0f2e66c3f3 \"..f....\"\n            0x00005c2f      4c8d054ae200.  lea r8, [0x00013e80]\n",
-        "broken": false
-    }, {
-        "name": "no | highlight with asm.cmt.right=false \u0026 call statement",
-        "file": "bins/pe/ConsoleApplication1.exe",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e scr.color=1", "e asm.cmt.right=false", "s main", "af", "pd 2 @ 0x004010e8", ""],
-        "expected": "\u001b[0m\u001b[36m|\u001b[0m \u001b[36m          \u001b[0m\u001b[32m0x004010e8\u001b[0m      \u001b[35mpush\u001b[36m esi\u001b[0m\u001b[0m\n\u001b[36m|\u001b[0m \u001b[36m          \u001b[0m\u001b[31m; 0x402004\n\u001b[0m\u001b[36m|\u001b[0m \u001b[36m          \u001b[0m\u001b[32m0x004010e9\u001b[0m      \u001b[1;32mcall dword [sym.imp.KERNEL32.dll_GetCurrentProcessorNumber]\u001b[0m\n",
-        "broken": false
-    }, {
-        "name": "varsub for rip variable",
-        "file": "bins/elf/varsub_2",
-        "args": "",
-        "commands": ["aa; s main", "e asm.syntax=att", "e asm.var=0", "e asm.lines.bb=0", "e asm.bytes=0", "e asm.comments=false", "pdf", ""],
-        "expected": "  ;-- main:\n/ (fcn) sym.main 21\n| 0x0000061a      pushq %rbp\n| 0x0000061b      movq %rsp, %rbp\n| 0x0000061e      movl $1, obj.sa\n| 0x00000628      movl $0, %eax\n| 0x0000062d      popq %rbp\n\\ 0x0000062e      retq\n\n",
-        "broken": false
-    }, {
-        "name": "utf16le string with byte order mark",
-        "file": "bins/elf/7786-utf16le",
-        "args": "",
-        "commands": ["e asm.bytes=false", "pd 1 @ 0x004004ee", "", ""],
-        "expected": "            0x004004ee      mov edi, str.S                             ; 0x4005c0 ; u\"\\ufeff--\u003e %S\\ufeff\\n\"\n",
-        "broken": false
-    }, {
-        "name": "show string at src if dst is stack (x86_cs MOV)",
-        "file": "bins/elf/7786-utf16le",
-        "args": "",
-        "commands": ["e asm.bytes=false", "pd 1 @ 0x004004df", "", ""],
-        "expected": "            0x004004df      mov qword [rbp - 8], str.Hello_World       ; 0x4005a0 ; u\"\\ufeffHello World\\ufeff\\n\"\n",
-        "broken": false
-    }, {
-        "name": "pdJ 2",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["wx 9090", "e asm.lines.bb=0", "pdJ 2", "", ""],
-        "expected": "[{\"offset\":0,\"text\":\"  0x00000000      90             nop\"},{\"offset\":1,\"text\":\"  0x00000001      90             nop\"}]\n",
-        "broken": false
-    }, {
-        "name": "pdJ comments",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["wx 90", "e asm.lines.bb=0", "CCu base64:dGVzdAo=", "pdJ 1", "CCu base64:dGVzdCAid2l0aCBxdW90ZXMiCg==", "pdJ 1", "e asm.cmt.right=false", "pdJ 1", ""],
-        "expected": "[{\"offset\":0,\"text\":\"  0x00000000      90             nop                                   ; test\"}]\n[{\"offset\":0,\"text\":\"  0x00000000      90             nop                                   ; test \\\"with quotes\\\"\"}]\n[{\"offset\":0,\"text\":\"  ; test \\\"with quotes\\\"\\n\"},{\"offset\":0,\"text\":\"  0x00000000      90             nop\"}]\n",
-        "broken": false
-    }, {
-        "name": "pdJ string comment",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "aa", "pdJ 1 @ 0x0040050a", "", ""],
-        "expected": "[{\"offset\":4195594,\"text\":\"|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; 0x4005c4 ; \\\"Hello World\\\"\"}]\n",
-        "broken": false
-    }, {
-        "name": "pdJ flags",
-        "file": "bins/elf/analysis/main",
-        "args": "",
-        "commands": ["", "s main", "pdJ 1 @ 0x00400506", "aa", "pdJ 1 @ 0x00400506", "", ""],
-        "expected": "[{\"offset\":4195590,\"text\":\"            ;-- main:\"},{\"offset\":4195590,\"text\":\"            0x00400506      55             push rbp\"}]\n[{\"offset\":4195590,\"text\":\"            ;-- main:\"},{\"offset\":4195590,\"text\":\"/ (fcn) sym.main 16\"},{\"offset\":4195590,\"text\":\"|   sym.main ();\"},{\"offset\":4195590,\"text\":\"|           ; DATA XREF from 0x0040042d (entry0)\"},{\"offset\":4195590,\"text\":\"|           0x00400506      55             push rbp\"}]\n",
-        "broken": false
-    }, {
-        "name": "pdJ midflags reloc",
-        "file": "malloc://8",
-        "args": "",
-        "commands": ["", "f reloc.test @ 0x1", "pdJ 1 @ 0x0", "", ""],
-        "expected": "[{\"offset\":0,\"text\":\"(reloc.test)\"},{\"offset\":0,\"text\":\"            0x00000000      0000           add byte [rax], al\"}]\n\n",
-        "broken": false
-    }, {
-        "name": "pdJ string",
-        "file": "malloc://128",
-        "args": "",
-        "commands": ["", "w Snoo\"ping as\" usual,", "\\I see...", "Cs 30", "pdJ 1", "", ""],
-        "expected": "[{\"offset\":0,\"text\":\"            0x00000000     .string \\\"Snoo\\\\\\\"ping as\\\\\\\" usual,\\\" ; len=30\"}]\n",
-        "broken": false
-    }, {
-        "name": "pdJ str in opcode",
-        "file": "bins/java/Hello.class",
-        "args": "",
-        "commands": ["", "pdJ 1 @ 0x000002ae", "", ""],
-        "expected": "[{\"offset\":686,\"text\":\"            0x000002ae      120b           ldc \\\"World\\\"\"}]\n\n",
-        "broken": false
-    }, {
-        "name": "pdJ asm.cmt.right=0 + html",
-        "file": "bins/elf/crackme0x05",
-        "args": "",
-        "commands": ["aaa", "e asm.cmt.right=0", "e scr.colors=1", "e scr.html=1", "e str.escbslash=1", "pdJ 1 @ 0x08048532"],
-        "expected": "[{\"offset\":134513970,\"text\":\"\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;;\u0026nbsp;[0x8048679:4]=0x73736150\"},{\"offset\":134513970,\"text\":\"\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;;\u0026nbsp;\\\"Password\u0026nbsp;Incorrect!\\\\n\\\"\"},{\"offset\":134513970,\"text\":\"\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;0x08048532\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;c70424798604.\u0026nbsp;\u0026nbsp;mov\u0026nbsp;dword\u0026nbsp;[esp],\u0026nbsp;str.Password_Incorrect\"}]\n",
-        "broken": false
-    }, {
-        "name": "pdJ asm.cmt.right=0 fcn name",
-        "file": "bins/elf/crackme0x05",
-        "args": "",
-        "commands": ["af@sym.imp.__libc_start_main", "e asm.pseudo=1", "e asm.esil=1", "e asm.cmt.right=0", "pdJ 1 @ 0x080483ec", "e asm.cmt.right=1", "pdJ 1 @ 0x080483ec"],
-        "expected": "[{\"offset\":134513644,\"text\":\"             ; sym.imp.__libc_start_main\"},{\"offset\":134513644,\"text\":\"            0x080483ec      e873ffffff     134513508,eip,4,esp,-=,esp,=[],eip,=\"}]\n[{\"offset\":134513644,\"text\":\"            0x080483ec      e873ffffff     134513508,eip,4,esp,-=,esp,=[],eip,= ; sym.imp.__libc_start_main ; int __libc_start_main(func main, int argc, char **ubp_av, func init, func fini, func rtld_fini, void *stack_end)\"}]\n",
-        "broken": false
-    }, {
-        "name": "pdJ asm.emu=1 comment",
-        "file": "bins/elf/crackme0x05",
-        "args": "",
-        "commands": ["e asm.emu=1", "pdJ 1 @ 0x08048566"],
-        "expected": "[{\"offset\":134514022,\"text\":\"            0x08048566      e829feffff     call sym.imp.printf         ; esp=0xfffffffffffffffc ; eip=0x8048394 -\u003e 0xa00c25ff\"},{\"offset\":134514022,\"text\":\"                                                                         ; int printf(const char * format : (*0xffffffff)0x00000000 = ............................................................................................................................................................................................................................................................)\"}]\n",
-        "broken": false
-    }, {
-        "name": "pdJ asm.emu=1 string",
-        "file": "bins/elf/crackme0x00b",
-        "args": "",
-        "commands": ["s 0x080484aa", "e asm.emu=1", "e scr.color=0", "pd 1", "pdJ 1", "e scr.color=1", "pd 1", "pdJ 1", ""],
-        "expected": "            0x080484aa      b8e1850408     mov eax, 0x80485e1          ; eax=0x80485e1 \"%ls\"\n[{\"offset\":134513834,\"text\":\"            0x080484aa      b8e1850408     mov eax, 0x80485e1          ; eax=0x80485e1 \\\"%ls\\\"\"}]\n  \u001b[36m          \u001b[0m\u001b[32m0x080484aa\u001b[0m      \u001b[37mb8\u001b[37me1\u001b[37m85\u001b[37m04\u001b[37m08\u001b[0m     \u001b[37mmov\u001b[36m eax\u001b[0m,\u001b[36m\u001b[36m \u001b[33m0x80485e1\u001b[0m\u001b[0m\u001b[0m\u001b[31m          ; eax=0x80485e1 \u001b[7m\"%ls\"\u001b[27m\u001b[0m\n[{\"offset\":134513834,\"text\":\"  \u001b[36m          \u001b[0m\u001b[32m0x080484aa\u001b[0m      \u001b[37mb8\u001b[37me1\u001b[37m85\u001b[37m04\u001b[37m08\u001b[0m     \u001b[37mmov eax, 0x80485e1\u001b[0m\u001b[0m\u001b[31m          ; eax=0x80485e1 \u001b[7m\\\"%ls\\\"\u001b[27m\u001b[0m\"}]\n",
-        "broken": false
-    }, {
-        "name": "pd0~{} - crash",
-        "file": "-",
-        "args": "",
-        "commands": ["e scr.null =true", "pd0~{}", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "pI - crash",
-        "file": "-",
-        "args": "",
-        "commands": ["e scr.null =true", "pI 0x200", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "pC - crash",
-        "file": "-",
-        "args": "",
-        "commands": ["e scr.null =true", "pC 0x200", ""],
-        "expected": "\n",
-        "broken": false
-    }, {
-        "name": "pd bin.strpurge",
-        "file": "bins/elf/analysis/ls2",
-        "args": "",
-        "commands": ["e asm.bytes=false", "s main", "af", "s 0x00404886", "e bin.strpurge=false", "pd 2", "?e --1--", "e bin.strpurge=true", "pd 2", "?e --2--", "e bin.strpurge=0x4028a0", "pd 2", "?e --3--", "e bin.strpurge=0x412420,0x4028a0", "pd 2", "?e --4--", "e bin.strpurge=true", "pd 1 @ 0x004028e0", "pd 1 @ 0x00402abd", "?e --5--", "e bin.strpurge=true,0x414fbf", "pd 1 @ 0x004028e0", "pd 1 @ 0x00402abd", "", ""],
-        "expected": "            0x00404886      mov rcx, 0x412420                          ; \"AWAVA\\x89\\xffAUATL\\x8d%\\xbe\\x99 \"\n            0x0040488d      mov rdi, main                              ; section..text ; 0x4028a0 ; \"AWAVAUATUS\\x89\\xfbH\\x89\\xf5H\\x81\\xec\\x98\\x03\"\n--1--\n            0x00404886      mov rcx, 0x412420\n            0x0040488d      mov rdi, main                              ; section..text ; 0x4028a0\n--2--\n            0x00404886      mov rcx, 0x412420                          ; \"AWAVA\\x89\\xffAUATL\\x8d%\\xbe\\x99 \"\n            0x0040488d      mov rdi, main                              ; section..text ; 0x4028a0\n--3--\n            0x00404886      mov rcx, 0x412420\n            0x0040488d      mov rdi, main                              ; section..text ; 0x4028a0\n--4--\n|           0x004028e0      mov esi, str.usr_share_locale              ; 0x414fbf ; \"/usr/share/locale\"\n|           0x00402abd      mov edi, str.TABSIZE                       ; 0x414fe7\n--5--\n|           0x004028e0      mov esi, str.usr_share_locale              ; 0x414fbf\n|           0x00402abd      mov edi, str.TABSIZE                       ; 0x414fe7\n",
-        "broken": false
-    }, {
-        "name": "pd, esil, emu.stroff and bin.strpurge",
-        "file": "bins/elf/analysis/hello-android-mips",
-        "args": "",
-        "commands": ["e emu.str=true", "s 0x0008049c", "e bin.strpurge=", "e emu.stroff=false", "pd 2", "?e ----", "e emu.stroff=true", "pd 2", "?e ----", "e bin.strpurge=0x80510", "pd 2", ""],
-        "expected": "            0x0008049c      0800023c       lui v0, 8                   ; section.ehdr\n            0x000804a0      10054424       addiu a0, v0, 0x510         ; \"Hello World\" section..rodata\n----\n            0x0008049c      0800023c       lui v0, 8                   ; section.ehdr\n            0x000804a0      10054424       addiu a0, v0, 0x510         ; 0x80510 \"Hello World\" section..rodata\n----\n            0x0008049c      0800023c       lui v0, 8                   ; section.ehdr\n            0x000804a0      10054424       addiu a0, v0, 0x510         ; section..rodata\n",
-        "broken": false
-    }, {
-        "name": "emu.pre and double pd",
-        "file": "bins/elf/analysis/hello-android-mips",
-        "args": "",
-        "commands": ["e emu.pre=true", "e emu.str=true", "f start @ 0x0008049c", "s 0x000804a0", "pd 1", "pd 1  # should print the same as above", ""],
-        "expected": "            0x000804a0      10054424       addiu a0, v0, 0x510         ; \"Hello World\" section..rodata\n            0x000804a0      10054424       addiu a0, v0, 0x510         ; \"Hello World\" section..rodata\n",
-        "broken": false
-    }, {
-        "name": "pd @B",
-        "file": "-",
-        "args": "",
-        "commands": ["e asm.functions=false", "e asm.lines.bb=false", "e asm.comments=false", "e scr.color=0", "wx 83f803740e", "af", "pd 1 @B:0", "pd 1 @B:1", "pd 1 @B:-1", "pd 1 @B:-2", ""],
-        "expected": "0x00000000      83f803         cmp eax, 3\n0x00000003      740e           je 0x13\n0x00000003      740e           je 0x13\n0x00000000      83f803         cmp eax, 3\n",
-        "broken": false
-    }, {
-        "name": "pd @a overwrites anal hints",
-        "file": "bins/elf/analysis/ls-linux64",
-        "args": "",
-        "commands": ["e asm.comments=false", "e asm.functions=false", "e asm.lines.bb=false", "e asm.flags=false", "ahb 16", "aha arm", "pd 1", "pd 1 @b:32", "ah*", "pd 1 @a:x86", "ah*", "pd 1 @a:x86:64", "ah*", ""],
-        "expected": "0x00005c20      31ed4989       ldc p9, c8, [r1, -0x124]!\n0x00005c20      31ed4989       stmdbhi sb, {r0, r4, r5, r8, sl, fp, sp, lr, pc} ^\naha arm @ 0x5c20\nahb 16 @ 0x5c20\n0000:5c20     31ed           xor bp, bp\naha arm @ 0x5c20\nahb 16 @ 0x5c20\n0x00005c20      31ed           xor ebp, ebp\naha arm @ 0x5c20\nahb 16 @ 0x5c20\n",
-        "broken": false
-    }, {
-        "name": "pd bin.strfilter",
-        "file": "bins/elf/analysis/ls2",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.cmt.off=false", "s 0x004028e0", "e bin.strfilter=", "pd 1", "e bin.strfilter=U", "pd 1", ""],
-        "expected": "            0x004028e0      mov esi, str.usr_share_locale              ; \"/usr/share/locale\"\n            0x004028e0      mov esi, str.usr_share_locale\n",
-        "broken": false
-    }, {
-        "name": "emu.str dup str/flag cmt fix",
-        "file": "bins/elf/analysis/ls2",
-        "args": "",
-        "commands": ["e emu.str=true", "e asm.filter=true", "pd 1 @ 0x00402a5f", "e asm.filter=false", "pd 1 @ 0x00402a5f", ""],
-        "expected": "            0x00402a5f      bfdf4f4100     mov edi, str.COLUMNS        ; 0x414fdf ; \"COLUMNS\"\n            0x00402a5f      bfdf4f4100     mov edi, 0x414fdf           ; str.COLUMNS ; \"COLUMNS\"\n",
-        "broken": false
-    }, {
-        "name": "emu.strinv",
-        "file": "bins/elf/redpill",
-        "args": "",
-        "commands": ["e scr.color=1", "e asm.bytes=false", "e emu.pre=true", "e emu.str=true", "e io.cache=true", "wz abcdefghi @ 0x21f7", "f abcdefghi @ 0x21f7", "axd 0x21f7 @ 0x161d", "e emu.strinv=true", "pd 1 @ 0x161d", "e emu.strinv=false", "pd 1 @ 0x161d"],
-        "expected": "  \u001b[36m          \u001b[0m\u001b[32m0x0000161d\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m[\u001b[36mesi \u001b[0m-\u001b[36m\u001b[36m \u001b[33m0x21f7\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\u001b[31m                    ; \"abcdefghi\"\u001b[0m\u001b[31m ; \u001b[7m\"\\n  Blue Pill\"\u001b[27m str.Blue_Pill\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[32m0x0000161d\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m[\u001b[36mesi \u001b[0m-\u001b[36m\u001b[36m \u001b[33m0x21f7\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\u001b[31m                    ; \u001b[7m\"abcdefghi\"\u001b[27m\u001b[0m\u001b[31m ; \"\\n  Blue Pill\" str.Blue_Pill\u001b[0m\n",
-        "broken": false
-    }, {
-        "name": "emu.strflag",
-        "file": "bins/elf/redpill",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e emu.pre=true", "e emu.str=true", "e emu.strflag=true", "pd 1 @ 0x161d", "e emu.strflag=false", "pd 1 @ 0x161d", "pd 1 @ 0x1447"],
-        "expected": "            0x0000161d      lea eax, [esi - 0x21f7]                    ; \"\\n  Blue Pill\" str.Blue_Pill\n            0x0000161d      lea eax, [esi - 0x21f7]                    ; \"\\n  Blue Pill\"\n            0x00001447      add esi, 0x2bb9                            ; section_end.GNU_RELRO\n",
-        "broken": false
-    }, {
-        "name": "ctrl chars",
-        "file": "bins/elf/strenc-ctrlchars",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.cmt.off=false", "pd 1 @ 0x0040040b", ""],
-        "expected": "            0x0040040b      mov edi, str.Control_chars:                ; \"Control chars: \\b\\v\\f\\n\\r\\t\\a\"\n",
-        "broken": false
-    }, {
-        "name": "data ref with no analop.ptr (#9610)",
-        "file": "bins/firmware/main.bin",
-        "args": "",
-        "commands": ["f str.hello 12 @ 0x276", "axd str.hello @ 0x260", "pd 1 @ 0x260", ""],
-        "expected": "            0x00000260      80e0           ldi r24, 0x00               ; 0x276 ; \"hello world!\"\n",
-        "broken": false
-    }, {
-        "name": "@b and @addr should coexist",
-        "file": "bins/firmware/armthumb.bin",
-        "args": "-aarm -b32",
-        "commands": ["pd 1 @b:32 @0xc"],
-        "expected": "            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\n",
-        "broken": false
-    }, {
-        "name": "ahb should not be deleted with @b (#9751)",
-        "file": "bins/firmware/armthumb.bin",
-        "args": "-aarm -b32",
-        "commands": ["ahb 16 @0xc", "ah*", "pd 1 @b:32 @0xc", "ah*"],
-        "expected": "ahb 16 @ 0xc\n            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\nahb 16 @ 0xc\n",
-        "broken": false
-    }, {
-        "name": "ahb should not override @b",
-        "file": "bins/firmware/armthumb.bin",
-        "args": "-a arm -b 32",
-        "commands": ["ahb 16 @0xc", "pd 5 @b:32", ""],
-        "expected": "            0x00000000      0000a0e1       mov r0, r0\n            0x00000004      010000eb       bl 0x10\n        `-\u003e 0x00000008      feffffea       b 8\n            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\n            0x00000010      00c09fe5       ldr ip, [pc]                ; [0x18:4]=13 ; 24\n",
-        "broken": false
-    }, {
-        "name": "two-operand line highlight; asm.highlight ecHw fix; ec wordhl/linehl",
-        "file": "bins/elf/redpill",
-        "args": "",
-        "commands": ["e scr.color=3", "e emu.str=true", "e emu.pre=true", "e emu.strinv=false", "e emu.strflag=false", "s 0x1457", "e asm.highlight=$$", "pd 3", "e scr.color=1", "pd 1", "e scr.color=3", "ec linehl cyan", "pd 1", "ec linehl #007f00", "pd 1", "ec wordhl rgb:030", "ecHw eax", "e asm.highlight=0x1457", "s 0", "pd 1 @ 0x1457"],
-        "expected": "  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;0;127m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[38;2;0;255;0m0x0000145d\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;0m50\u001b[22;24;25;27;28;39m             \u001b[38;2;255;0;255mpush\u001b[38;2;0;255;255m eax\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[38;2;0;255;0m0x0000145e\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8b\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255mf0\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mmov\u001b[38;2;0;255;255m eax\u001b[0m,\u001b[38;2;0;255;255m dword \u001b[0m[\u001b[38;2;0;255;255mesi \u001b[0m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x10\u001b[0m]\u001b[38;2;0;255;255m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[44m\u001b[32m0x00001457\u001b[22;24;25;27;28;39m      \u001b[37m8d\u001b[37m86\u001b[37m89\u001b[37mdd\u001b[31mff\u001b[31mff\u001b[22;24;25;27;28;39m   \u001b[37mlea\u001b[36m eax\u001b[22;24;25;27;28;39m,\u001b[36m \u001b[22;24;25;27;28;39m[\u001b[36mesi \u001b[22;24;25;27;28;39m-\u001b[36m\u001b[36m \u001b[33m0x2277\u001b[22;24;25;27;28;39m]\u001b[36m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[31m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;255;255m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;127;0m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;127;0m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m \u001b[48;2;0;48;0meax\u001b[48;2;0;127;0m\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n",
-        "broken": false
-    }, {
-        "name": "pdJ with backslashes, quotation marks, str.escbslash and asm.strenc",
-        "file": "-",
-        "args": "",
-        "commands": ["e io.cache=true", "e asm.arch=x86", "e asm.bits=32", "e asm.bytes=false", "s 0x1000", "wz path\"C:\\\\Program\\n", "f ansi_str", "s 0x2000", "\"wa mov eax, 0x1000\"", "e str.escbslash=true", "pd 1", "pdJ 1", "e str.escbslash=false", "pd 1", "pdJ 1", "s 0x3000", "  # ww doesn't support esc seqs", "ww path\"C:\\Program", "f wide_str", "s 0x4000", "\"wa mov ebx, 0x3000\"", "e asm.strenc=guess", "pd 1", "pdJ 1", "e asm.strenc=latin1", "pd 1", "pdJ 1", "e asm.strenc=utf16le", "e str.escbslash=true", "pd 1", "pdJ 1", "e str.escbslash=false", "pd 1", "pdJ 1"],
-        "expected": "            0x00002000      mov eax, 0x1000                            ; ansi_str ; \"path\\\"C:\\\\Program\\n\"\n[{\"offset\":8192,\"text\":\"            0x00002000      mov eax, 0x1000                            ; ansi_str ; \\\"path\\\\\\\"C:\\\\\\\\Program\\\\n\\\"\"}]\n            0x00002000      mov eax, 0x1000                            ; ansi_str ; \"path\\\"C:\\Program\\n\"\n[{\"offset\":8192,\"text\":\"            0x00002000      mov eax, 0x1000                            ; ansi_str ; \\\"path\\\\\\\"C:\\\\Program\\\\n\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\Program\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; \"p\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; \\\"p\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\\\\\Program\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\Program\\\"\"}]\n",
-        "broken": false
-    }, {
-        "name": "arm asm.var.sub, asm.ucase and asm.pseudo (fp)",
-        "file": "bins/elf/analysis/armcall",
-        "args": "",
-        "commands": ["e asm.bytes=false", "e asm.comments=false", "e io.cache=true", "wv4 0xe59b0008 @ 0x00010464", "wv4 0xe59b100c @ 0x00010468", "af @ main", "e asm.pseudo=false", "e asm.var.sub=true", "e asm.ucase=true", "pd 4 @ 0x0001045c", "?e", "e asm.var.sub=false", "e asm.ucase=false", "pd 4 @ 0x0001045c", "?e", "e asm.pseudo=true", "e asm.var.sub=true", "e asm.var.subonly=false", "pd 4 @ 0x0001045c", "?e", "e asm.var.subonly=true", "s main", "afvn local_ch local2", "afvn arg_8h arg1", "pd 4 @ 0x0001045c"],
-        "expected": "|           0x0001045c      STR R0, [local_8h]\n|           0x00010460      STR R1, [local_ch]\n|           0x00010464      LDR R0, [arg_8h]\n|           0x00010468      LDR R1, [arg_ch]\n\n|           0x0001045c      str r0, [fp, -8]\n|           0x00010460      str r1, [fp, -0xc]\n|           0x00010464      ldr r0, [fp, 8]\n|           0x00010468      ldr r1, [fp, 0xc]\n\n|           0x0001045c      [fp - local_8h] = r0\n|           0x00010460      [fp - local_ch] = r1\n|           0x00010464      r0 = [fp + arg_8h]\n|           0x00010468      r1 = [fp + arg_ch]\n\n|           0x0001045c      [local_8h] = r0\n|           0x00010460      [local2] = r1\n|           0x00010464      r0 = [arg1]\n|           0x00010468      r1 = [arg_ch]\n",
-        "broken": false
-    }, {
-        "name": "pdfj with padding",
-        "file": "bins/elf/padding_in_func",
-        "args": "",
-        "commands": ["s main", "af", "pdfj~{} | grep opcode"],
-        "expected": "      \"opcode\": \"push rbp\",\n      \"opcode\": \"push rbx\",\n      \"opcode\": \"push rax\",\n      \"opcode\": \"mov ebx, edi\",\n      \"opcode\": \"cmp ebx, 2\",\n      \"opcode\": \"mov eax, 0x5758554a\",\n      \"opcode\": \"mov ebp, 0x10c2377a\",\n      \"opcode\": \"cmovl ebp, eax\",\n      \"opcode\": \"mov eax, 0xbaad0c8f\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jg 0x40058a\",\n      \"opcode\": \"jmp 0x4005ae\",\n      \"opcode\": \"mov edi, 0x400664\",\n      \"opcode\": \"xor eax, eax\",\n      \"opcode\": \"mov esi, ebx\",\n      \"opcode\": \"call 0x400440\",\n      \"opcode\": \"mov eax, 0xccdab13b\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jle 0x4005ae\",\n      \"opcode\": \"cmp eax, 0x10c2377a\",\n      \"opcode\": \"je 0x400570\",\n      \"opcode\": \"cmp eax, 0x5758554a\",\n      \"opcode\": \"jne 0x4005b9\",\n      \"opcode\": \"mov edi, 0x40066d\",\n      \"opcode\": \"call 0x400430\",\n      \"opcode\": \"mov eax, 0xccdab13b\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jg 0x40058a\",\n      \"opcode\": \"cmp eax, 0xbaad0c8f\",\n      \"opcode\": \"mov eax, ebp\",\n      \"opcode\": \"je 0x400583\",\n      \"opcode\": \"jmp 0x4005d0\",\n      \"opcode\": \"cmp eax, 0xccdab13b\",\n      \"opcode\": \"jne 0x4005d0\",\n      \"opcode\": \"xor eax, eax\",\n      \"opcode\": \"add rsp, 8\",\n      \"opcode\": \"pop rbx\",\n      \"opcode\": \"pop rbp\",\n      \"opcode\": \"ret\",\n      \"opcode\": \"jmp 0x4005d0\",\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "pd multiplemain",
+            "file": "bins/elf/mipsloop",
+            "args": "",
+            "commands": [
+                "pd 1@main~main?",
+                ""
+            ],
+            "expected": "1\n",
+            "broken": false
+        },
+        {
+            "name": "pd v8 and cortex",
+            "file": "malloc://128",
+            "args": "-a arm -b 16",
+            "commands": [
+                "?e",
+                "pad fff7c0ea@e:asm.cpu=v8",
+                "pad fff7c0ea@e:asm.cpu=cortex",
+                "pad fff7c0ea@e:asm.cpu=v8",
+                "pad fff7c0ea@e:asm.cpu=cortex",
+                "pad fff7c0ea@e:asm.cpu=v8",
+                "pad fff7c0ea@e:asm.cpu=",
+                "pad fff7c0ea@e:asm.cpu=tetris",
+                "",
+                ""
+            ],
+            "expected": "\nblx 0xfffff584\ninvalid\nblx 0xfffff584\ninvalid\nblx 0xfffff584\nblx 0xfffff584\nblx 0xfffff584\n\n",
+            "broken": false
+        },
+        {
+            "name": "immstr",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.bits=64",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "wx 6833320000",
+                "e asm.imm.str=1",
+                "pd 1",
+                ""
+            ],
+            "expected": "            0x00000000      6833320000     push 0x3233                 ; '32'\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd pseudo=1 cmtright=0",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "wx 4889e5",
+                "e asm.pseudo =1",
+                "e asm.cmtright =0",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      4889e5         rbp = rsp\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd 0",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "pd 0",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "pd 1-1",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "pd 1-1",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "pd foo-33",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "f foo=33;pd foo-33",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "pd 1",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "wx 90",
+                "e asm.lines.bb=0",
+                "b 1",
+                "pd",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "  0x00000000      90             nop\n  0x00000000      90             nop\n",
+            "broken": false
+        },
+        {
+            "name": "pd double comma",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "e asm.bits=64",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "wx b8ffffffff",
+                "e asm.lines.bb=0",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "  0x00000000      b8ffffffff     mov eax, 0xffffffff                   ; -1\n",
+            "broken": false
+        },
+        {
+            "name": "pd@x:90",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "e asm.lines.bb=0",
+                "pd@x:90",
+                "",
+                ""
+            ],
+            "expected": " 0x00000000      90             nop\n\n",
+            "broken": false
+        },
+        {
+            "name": "asm.filter issue",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.filter=1",
+                "e asm.arch=arm",
+                "e asm.bits=64",
+                "",
+                "wx fa67bba9",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      fa67bba9       stp x26, x25, [sp, -0x50]!\n\n",
+            "broken": false
+        },
+        {
+            "name": "asm.filter issue",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.filter=0",
+                "e asm.arch=arm",
+                "e asm.bits=64",
+                "wx fa67bba9",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      fa67bba9       stp x26, x25, [sp, -0x50]!\n\n",
+            "broken": false
+        },
+        {
+            "name": "asm.filter issue #6752",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x100",
+                "wx e801000000c350c3",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "aaaa",
+                "e asm.pseudo=true",
+                "e asm.offset=false",
+                "e asm.lines.bb=false",
+                "e asm.marks=false",
+                "e asm.nbytes=0",
+                "e asm.comments=false",
+                "e asm.flags=false",
+                "e asm.fcnlines=false",
+                "e asm.calls=false",
+                "e asm.functions=false",
+                "e scr.color=false",
+                "f-rip",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "fcn.00000106 ()\n",
+            "broken": false
+        },
+        {
+            "name": "pd pseudo test for issue #7026",
+            "file": "malloc://8",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 31ed",
+                "e asm.pseudo=true",
+                "e asm.comments=true",
+                "e asm.cmtright=true",
+                "pd 1",
+                "e asm.cmtright=false",
+                "pd 1",
+                ""
+            ],
+            "expected": "            0x00000000      31ed           ebp = 0\n            0x00000000      31ed           ebp = 0\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd pseudo test for issue #7268",
+            "file": "malloc://8",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 4889e5",
+                "e asm.pseudo=true",
+                "e asm.comments=true",
+                "e scr.color=1",
+                "e asm.cmt.right=true",
+                "pd 1",
+                "e asm.cmt.right=false",
+                "pd 1",
+                ""
+            ],
+            "expected": "  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[33m48\u001b[37m89\u001b[37me5\u001b[0m         \u001b[37mrbp =\u001b[36m rsp\u001b[0m\u001b[0m\u001b[0m\n\u001b[0m  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[33m48\u001b[37m89\u001b[37me5\u001b[0m         \u001b[37mrbp =\u001b[36m rsp\u001b[0m\u001b[0m\n",
+            "broken": false
+        },
+        {
+            "name": "pd bits hint",
+            "file": "-",
+            "args": "-a snes",
+            "commands": [
+                "wx a97e00",
+                "ahb 8",
+                "e scr.color=1",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "  \u001b[36m          \u001b[0m\u001b[7m\u001b[32m0x00000000\u001b[0m      \u001b[37ma9\u001b[33m7e\u001b[32m00\u001b[0m         \u001b[35mlda\u001b[36m #\u001b[33m0x007e\u001b[0m\u001b[0m\u001b[0m\n\n",
+            "broken": false
+        },
+        {
+            "name": "ASCII Recognition",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "e scr.columns = 90",
+                "wx ba3d000000",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      ba3d000000     mov edx, 0x3d               ; '='\n\n",
+            "broken": false
+        },
+        {
+            "name": "ASCII Recognition 2",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "e scr.columns = 90",
+                "wx c6852fffffff61",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      c6852fffffff.  mov byte [ebp - 0xd1], 0x61 ; 'a'\n\n",
+            "broken": false
+        },
+        {
+            "name": "String capstone",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch = x86",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "e scr.columns = 90",
+                "aa",
+                "pd 1 @ 0x0040050a",
+                "",
+                ""
+            ],
+            "expected": "|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; 0x4005c4 ; \"Hello World\"\n\n",
+            "broken": false
+        },
+        {
+            "name": "pD -10",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 90909090909090909090 ; s 10 ; pD -10",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      90             nop\n            0x00000001      90             nop\n            0x00000002      90             nop\n            0x00000003      90             nop\n            0x00000004      90             nop\n            0x00000005      90             nop\n            0x00000006      90             nop\n            0x00000007      90             nop\n            0x00000008      90             nop\n            0x00000009      90             nop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd -10",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 90909090909090909090 ; s 10 ; pd -10",
+                "",
+                ""
+            ],
+            "expected": "            0x00000000      90             nop\n            0x00000001      90             nop\n            0x00000002      90             nop\n            0x00000003      90             nop\n            0x00000004      90             nop\n            0x00000005      90             nop\n            0x00000006      90             nop\n            0x00000007      90             nop\n            0x00000008      90             nop\n            0x00000009      90             nop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pD -9 @ 0x0040050f",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "pD -9 @ 0x0040050f",
+                "",
+                ""
+            ],
+            "expected": "            ;-- main:\n            0x00400506      55             push rbp\n            0x00400507      4889e5         mov rbp, rsp\n            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; 0x4005c4 ; \"Hello World\"\n",
+            "broken": false
+        },
+        {
+            "name": "pd -3 @ 0x0040050f",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "pd -3 @ 0x0040050f",
+                "",
+                ""
+            ],
+            "expected": "            ;-- main:\n            0x00400506      55             push rbp\n            0x00400507      4889e5         mov rbp, rsp\n            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; 0x4005c4 ; \"Hello World\"\n",
+            "broken": false
+        },
+        {
+            "name": "pda 10",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 90909090909090909090 ; pda 10",
+                "",
+                ""
+            ],
+            "expected": "0x00000000                   90  nop\n0x00000001                   90  nop\n0x00000002                   90  nop\n0x00000003                   90  nop\n0x00000004                   90  nop\n0x00000005                   90  nop\n0x00000006                   90  nop\n0x00000007                   90  nop\n0x00000008                   90  nop\n0x00000009                   90  nop\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdj -1",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "wx 56687cd3400090",
+                "aaa",
+                "s 6",
+                "pdj -1",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":1,\"ptr\":4248444,\"val\":4248444,\"esil\":\"4248444,4,esp,-=,esp,=[4]\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":1016,\"size\":5,\"opcode\":\"push 0x40d37c\",\"disasm\":\"push 0x40d37c\",\"bytes\":\"687cd34000\",\"family\":\"cpu\",\"type\":\"push\",\"type_num\":13,\"type2_num\":0}]\n\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdj 3 @ main",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "pdj 3 @ main",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":4195590,\"esil\":\"rbp,8,rsp,-=,rsp,=[8]\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":1,\"opcode\":\"push rbp\",\"disasm\":\"push rbp\",\"bytes\":\"55\",\"family\":\"cpu\",\"type\":\"upush\",\"type_num\":12,\"type2_num\":0,\"flags\":[\"main\",\"sym.main\"]},{\"offset\":4195591,\"esil\":\"rsp,rbp,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"mov rbp, rsp\",\"disasm\":\"mov rbp, rsp\",\"bytes\":\"4889e5\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":4195594,\"ptr\":4195780,\"val\":4195780,\"esil\":\"4195780,edi,=,0xffffffff,rdi,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov edi, 0x4005c4\",\"disasm\":\"mov edi, str.Hello_World\",\"bytes\":\"bfc4054000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0}]\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdj -3 @ 0x0040050f",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "pdj -3 @ 0x0040050f",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":4195590,\"esil\":\"rbp,8,rsp,-=,rsp,=[8]\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":1,\"opcode\":\"push rbp\",\"disasm\":\"push rbp\",\"bytes\":\"55\",\"family\":\"cpu\",\"type\":\"upush\",\"type_num\":12,\"type2_num\":0,\"flags\":[\"main\",\"sym.main\"]},{\"offset\":4195591,\"esil\":\"rsp,rbp,=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":3,\"opcode\":\"mov rbp, rsp\",\"disasm\":\"mov rbp, rsp\",\"bytes\":\"4889e5\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0},{\"offset\":4195594,\"ptr\":4195780,\"val\":4195780,\"esil\":\"4195780,edi,=,0xffffffff,rdi,\u0026=\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":5,\"opcode\":\"mov edi, 0x4005c4\",\"disasm\":\"mov edi, str.Hello_World\",\"bytes\":\"bfc4054000\",\"family\":\"cpu\",\"type\":\"mov\",\"type_num\":9,\"type2_num\":0}]\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdj str in opcode",
+            "file": "bins/java/Hello.class",
+            "args": "",
+            "commands": [
+                "",
+                "pdj 1 @ 0x000002ae",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":686,\"ptr\":0,\"val\":0,\"esil\":\"\",\"refptr\":false,\"fcn_addr\":0,\"fcn_last\":0,\"size\":2,\"opcode\":\"ldc \\\"World\\\"\",\"disasm\":\"ldc \\\"World\\\"\",\"bytes\":\"120b\",\"family\":\"cpu\",\"type\":\"push\",\"type_num\":13,\"type2_num\":2138640,\"jump\":0,\"fail\":0}]\n\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdfline",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "e anal.eobjmp=true",
+                "wx ff2572962100",
+                "af",
+                "pdf~jmp[0]",
+                "afi~size[1]",
+                "",
+                ""
+            ],
+            "expected": "\\\n6\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdfline 2",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "e anal.eobjmp=false",
+                "wx ff2572962100",
+                "af",
+                "afi~size[1]",
+                "",
+                ""
+            ],
+            "expected": "6\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdfline defaults",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wa jmp rax",
+                "af",
+                "afi~size[1]",
+                "",
+                ""
+            ],
+            "expected": "2\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd asm.bytes and asm.lbytes",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "wx 488d85c0f9ffff488985b8f9ffff4585f6",
+                "e asm.lines.bb = false",
+                "e asm.lbytes = true",
+                "e asm.nbytes = 6",
+                "pd 3",
+                "e asm.nbytes = 10",
+                "pd 3",
+                "e asm.lbytes = false",
+                "pd 3",
+                "e asm.nbytes = 6",
+                "pd 3",
+                "",
+                ""
+            ],
+            "expected": "  0x00000000      488d85c0f9ff.  lea rax, [rbp - 0x640]\n  0x00000007      488985b8f9ff.  mov qword [rbp - 0x648], rax\n  0x0000000e      4585f6         test r14d, r14d\n  0x00000000      488d85c0f9ffff         lea rax, [rbp - 0x640]\n  0x00000007      488985b8f9ffff         mov qword [rbp - 0x648], rax\n  0x0000000e      4585f6                 test r14d, r14d\n  0x00000000              488d85c0f9ffff  lea rax, [rbp - 0x640]\n  0x00000007              488985b8f9ffff  mov qword [rbp - 0x648], rax\n  0x0000000e                      4585f6  test r14d, r14d\n  0x00000000       488d85c0f9ff.  lea rax, [rbp - 0x640]\n  0x00000007       488985b8f9ff.  mov qword [rbp - 0x648], rax\n  0x0000000e              4585f6  test r14d, r14d\n",
+            "broken": false
+        },
+        {
+            "name": "pd asm.relsub",
+            "file": "malloc://1024",
+            "args": "-m 0x400000",
+            "commands": [
+                "",
+                "e io.va=true",
+                "e asm.relsub=false",
+                "e asm.arch=x86",
+                "e asm.leahints=false",
+                "e asm.bits=64",
+                "wx 488d0502000000",
+                "e asm.lines.bb=false",
+                "e asm.comments=false",
+                "pd 1",
+                "e asm.relsub=true",
+                "pd 1",
+                "",
+                ""
+            ],
+            "expected": "  0x00400000      488d05020000.  lea rax, [rip + 2]\n  0x00400000      488d05020000.  lea rax, [0x00400009]\n",
+            "broken": false
+        },
+        {
+            "name": "pd asm.var.subonly",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "e asm.arch=x86",
+                "e asm.bits=64",
+                "e asm.varsub=true",
+                "e asm.lines.bb=false",
+                "e asm.bytes=false",
+                "e asm.comments=false",
+                "e asm.lines.fcn=false",
+                "e asm.offset=false",
+                "e scr.color=false",
+                "wx 554889e583ec60488b44244089ec5dc3",
+                "af",
+                "afva",
+                "e asm.var.subonly=true",
+                "pd 1 @ 0~local",
+                "pd 1 @ 7",
+                "e asm.var.subonly=false",
+                "pd 1 @ 0~local",
+                "pd 1 @ 7",
+                ""
+            ],
+            "expected": "; var int local_40h @ rsp+0x40\n     mov rax, qword [local_40h]\n; var int local_40h @ rsp+0x40\n     mov rax, qword [rsp + local_40h]\n\n",
+            "broken": false
+        },
+        {
+            "name": "pd wide string",
+            "file": "bins/pe/c.exe",
+            "args": "",
+            "commands": [
+                "e io.cache=true",
+                "s 0x403000",
+                "wx 4d00 5900 5200 4500 5300 0000",
+                "s 0x00401334",
+                "pd 1~MYRES?",
+                "",
+                ""
+            ],
+            "expected": "1\n\n",
+            "broken": false
+        },
+        {
+            "name": "pds change name",
+            "file": "bins/mach0/mac-ls",
+            "args": "",
+            "commands": [
+                "e asm.flags=false",
+                "s sym.func.100004401",
+                "af",
+                "afn newname",
+                "s-",
+                "pds",
+                ""
+            ],
+            "expected": "0x100001085 call newname\n0x100001093 call sym.imp.setlocale\n0x1000010a3 call sym.imp.isatty\n0x1000010b6 str.COLUMNS\n0x1000010bd call sym.imp.getenv\n0x1000010cf call sym.imp.atoi\n0x1000010e6 call sym.imp.ioctl\n0x10000110d str.COLUMNS\n0x100001114 call sym.imp.getenv\n0x100001121 call sym.imp.atoi\n0x10000112c call sym.imp.getuid\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdf fcnline",
+            "file": "bins/pe/a.exe",
+            "args": "",
+            "commands": [
+                "e asm.fcnlines=true",
+                "s 0x004017c0",
+                "af+ 0x004017c0 fcn2.0x004017c0",
+                "afb+ 0x4017c0 0x4017c0 13 0x4017dd 0x4017cd",
+                "pdf",
+                ""
+            ],
+            "expected": "/ (fcn) fcn2.0x004017c0 13\n|   fcn2.0x004017c0 ();\n|           0x004017c0      51             push ecx\n|           0x004017c1      89e1           mov ecx, esp\n|           0x004017c3      83c108         add ecx, 8\n|           0x004017c6      3d00100000     cmp eax, 0x1000\n\\       ,=\u003c 0x004017cb      7210           jb 0x4017dd\n\n",
+            "broken": false
+        },
+        {
+            "name": "r_str_escape anal",
+            "file": "bins/pe/a.exe",
+            "args": "",
+            "commands": [
+                "pd 1 @ 0x00401322",
+                "",
+                ""
+            ],
+            "expected": "            0x00401322      c70424043040.  mov dword [esp], 0x403004   ; [0x403004:4]=0xa7025 ; \"%p\\n\"\n",
+            "broken": false
+        },
+        {
+            "name": "r_str_escape io + no 'u' prefix for single-char strings",
+            "file": "bins/pe/testapp-msvc64.exe",
+            "args": "",
+            "commands": [
+                "pd 1 @ 0x140001034",
+                "pd 1 @ 0x140001070",
+                "",
+                ""
+            ],
+            "expected": "            0x140001034      488d05495001.  lea rax, [0x140016084]     ; \"\\r\"\n            0x140001070      488d053d5001.  lea rax, [0x1400160b4]     ; \"a\"\n",
+            "broken": false
+        },
+        {
+            "name": "r_str_escape anal addr",
+            "file": "bins/pe/cmd_adf_sample0.exe",
+            "args": "",
+            "commands": [
+                "pd 1 @ 0x0040116a",
+                "",
+                ""
+            ],
+            "expected": "            0x0040116a      6828304000     push 0x403028               ; '(0@' ; \"End\\r\\n\"\n",
+            "broken": false
+        },
+        {
+            "name": "no rep flag in cmt with gen str flag (lea)",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x0001145f",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x0001145f",
+                ""
+            ],
+            "expected": "            0x0001145f      488d3d72a100.  lea rdi, str.A_NULL_argv_0__was_passed_through_an_exec_system_call. ; 0x1b5d8 ; \"A NULL argv[0] was passed through an exec system call.\\n\"\n            ; 0x1b5d8\n            ; \"A NULL argv[0] was passed through an exec system call.\\n\"\n            0x0001145f      488d3d72a100.  lea rdi, str.A_NULL_argv_0__was_passed_through_an_exec_system_call.\n",
+            "broken": false
+        },
+        {
+            "name": "flag in cmt with manual flag (lea)",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "f- @ 0x1b5d8",
+                "f NULL_error 56 @ 0x1b5d8",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x0001145f",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x0001145f",
+                ""
+            ],
+            "expected": "            0x0001145f      488d3d72a100.  lea rdi, [0x0001b5d8]       ; NULL_error ; \"A NULL argv[0] was passed through an exec system call.\\n\"\n            ; NULL_error\n            ; \"A NULL argv[0] was passed through an exec system call.\\n\"\n            0x0001145f      488d3d72a100.  lea rdi, [0x0001b5d8]\n",
+            "broken": false
+        },
+        {
+            "name": "no rep flag in cmt with gen str flag (push)",
+            "file": "bins/pe/ConsoleApplication1.exe",
+            "args": "",
+            "commands": [
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x004010f0",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x004010f0",
+                ""
+            ],
+            "expected": "            0x004010f0      68b8214000     push str.Number_of_CPU__d   ; 0x4021b8 ; u\"Number of CPU %d\\n\"\n            ; 0x4021b8\n            ; u\"Number of CPU %d\\n\"\n            0x004010f0      68b8214000     push str.Number_of_CPU__d\n",
+            "broken": false
+        },
+        {
+            "name": "flag in cmt with manual flag (push)",
+            "file": "bins/pe/ConsoleApplication1.exe",
+            "args": "",
+            "commands": [
+                "f- @ 0x4021b8",
+                "f num_cpu 36 @ 0x4021b8",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x004010f0",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x004010f0",
+                ""
+            ],
+            "expected": "            0x004010f0      68b8214000     push 0x4021b8               ; num_cpu ; u\"Number of CPU %d\\n\"\n            ; num_cpu\n            ; u\"Number of CPU %d\\n\"\n            0x004010f0      68b8214000     push 0x4021b8\n",
+            "broken": false
+        },
+        {
+            "name": "no rep flag in cmt with gen sym flag (mov)",
+            "file": "bins/pe/ConsoleApplication1.exe",
+            "args": "",
+            "commands": [
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x004010fa",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x004010fa",
+                ""
+            ],
+            "expected": "            0x004010fa      8b3500204000   mov esi, dword sym.imp.KERNEL32.dll_GetLastError ; [0x402000:4]=0x29f4 reloc.KERNEL32.dll_GetLastError\n            ; [0x402000:4]=0x29f4 reloc.KERNEL32.dll_GetLastError\n            0x004010fa      8b3500204000   mov esi, dword sym.imp.KERNEL32.dll_GetLastError\n",
+            "broken": false
+        },
+        {
+            "name": "flag in cmt with manual flag (mov)",
+            "file": "bins/pe/ConsoleApplication1.exe",
+            "args": "",
+            "commands": [
+                "f- @ 0x402000",
+                "f ptr_GetLastError 0 @ 0x402000",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x004010fa",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x004010fa",
+                ""
+            ],
+            "expected": "            0x004010fa      8b3500204000   mov esi, dword [0x402000]   ; ptr_GetLastError ; [0x402000:4]=0x29f4 reloc.KERNEL32.dll_GetLastError\n            ; ptr_GetLastError\n            ; [0x402000:4]=0x29f4 reloc.KERNEL32.dll_GetLastError\n            0x004010fa      8b3500204000   mov esi, dword [0x402000]\n",
+            "broken": false
+        },
+        {
+            "name": "pd asm.filter color",
+            "file": "bins/elf/analysis/ls-alxchk",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "e asm.comments=false",
+                "e scr.color=1",
+                "e asm.filter=true",
+                "pd 1 @ 0x0001145f",
+                "e asm.filter=false",
+                "pd 1 @ 0x0001145f",
+                "",
+                ""
+            ],
+            "expected": "  \u001b[36m          \u001b[0m\u001b[32m0x0001145f\u001b[0m      \u001b[37mlea\u001b[36m rdi\u001b[0m,\u001b[36m\u001b[36m \u001b[0m\u001b[33mstr.A_NULL_argv_0__was_passed_through_an_exec_system_call.\u001b[0m\u001b[36m\u001b[0m\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[32m0x0001145f\u001b[0m      \u001b[37mlea\u001b[36m rdi\u001b[0m,\u001b[36m\u001b[36m \u001b[0m[\u001b[36m\u001b[33m0x0001b5d8\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\n\n",
+            "broken": false
+        },
+        {
+            "name": "ANSI and wide string flag cmts",
+            "file": "bins/pe/testapp-msvc64.exe",
+            "args": "",
+            "commands": [
+                "e str.escbslash=false",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x140001004",
+                "pd 1 @ 0x140001010",
+                "pd 1 @ 0x14000101c",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x140001004",
+                "pd 1 @ 0x140001010",
+                "pd 1 @ 0x14000101c",
+                ""
+            ],
+            "expected": "            0x140001004      488d05f54f01.  lea rax, str.ANSI__esc:__e_33m ; section..data ; 0x140016000 ; \"\\tANSI\\esc: \\x1b[33m\\r\\n\"\n            0x140001010      488d05015001.  lea rax, str.wide__esc:__e_0m ; 0x140016018 ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x14000101c      488d051d5001.  lea rax, str.wide__in_Arabic: ; 0x140016040 ; u\"\\\"wide\\\" in Arabic: \\u0648\\u0627\\u0633\\u0639\"\n            ; section..data\n            ; 0x140016000\n            ; \"\\tANSI\\esc: \\x1b[33m\\r\\n\"\n            0x140001004      488d05f54f01.  lea rax, str.ANSI__esc:__e_33m\n            ; 0x140016018\n            ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, str.wide__esc:__e_0m\n            ; 0x140016040\n            ; u\"\\\"wide\\\" in Arabic: \\u0648\\u0627\\u0633\\u0639\"\n            0x14000101c      488d051d5001.  lea rax, str.wide__in_Arabic:\n",
+            "broken": false
+        },
+        {
+            "name": "no ffffff test for issue #7755",
+            "file": "bins/pe/testapp-msvc64.exe",
+            "args": "",
+            "commands": [
+                "pd 1 @ 0x140001040",
+                "",
+                ""
+            ],
+            "expected": "            0x140001040      488d05415001.  lea rax, [0x140016088]     ; u\"r2 \\u1308\\u23f4\\u23f4\"\n\n",
+            "broken": false
+        },
+        {
+            "name": "asm.asciidot",
+            "file": "bins/elf/strenc",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "e asm.cmt.off=false",
+                "e str.escbslash=true",
+                "e asm.strenc=latin1",
+                "e scr.strconv=asciiesc",
+                "pd 1 @ 0x0040169d",
+                "e scr.strconv=asciidot",
+                "pd 1 @ 0x0040169d",
+                "e asm.filter=false",
+                "e asm.noisy=false",
+                "pd 1 @ 0x00401693",
+                "e asm.strenc=utf8",
+                "pd 1 @ 0x00401693",
+                "e asm.strenc=utf16le",
+                "pd 1 @ 0x004016ac",
+                "e asm.strenc=utf32le",
+                "pd 1 @ 0x004016ed",
+                "pd 1 @ 0x004016f7",
+                ""
+            ],
+            "expected": "            0x0040169d      mov esi, str.see                           ; \"see \\xdab\\xbee\\xace\\xcaf\\n\"\n            0x0040169d      mov esi, str.see                           ; \"see .b.e.e.f\\n\"\n            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:.[33m ......... .[0m\\n\"\n            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:.[33m ... .[0m.\"\n            0x004016ac      mov edi, 0x40224a                          ; u\"utf16le\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in green:.[32m ... .[0m.\"\n            0x004016ed      mov edi, 0x40258c                          ; U\"utf32le\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in cyan:.[36m ... .[0m.\"\n            0x004016f7      mov edi, 0x40266c                          ; U\"Mountain range with embedded quad zeros: .A.A.A.\"\n",
+            "broken": false
+        },
+        {
+            "name": "asm.strenc utf8",
+            "file": "bins/elf/strenc",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "e asm.filter=false",
+                "e asm.noisy=false",
+                "e str.escbslash=true",
+                "e asm.strenc=utf8",
+                "pd 1 @ 0x00401693",
+                "e asm.strenc=latin1",
+                "pd 1 @ 0x00401693",
+                "e asm.strenc=guess",
+                "pd 1 @ 0x00401693",
+                ""
+            ],
+            "expected": "            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:\\x1b[33m \\u00a2\\u20ac\\U00010348 \\x1b[0m\\n\"\n            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:\\x1b[33m \\xc2\\xa2\\xe2\\x82\\xac\\xf0\\x90\\x8d\\x88 \\x1b[0m\\n\"\n            0x00401693      mov edi, 0x4021ff                          ; \"utf8\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in yellow:\\x1b[33m \\u00a2\\u20ac\\U00010348 \\x1b[0m\\n\"\n",
+            "broken": false
+        },
+        {
+            "name": "asm.strenc latin1",
+            "file": "bins/pe/testapp-msvc64.exe",
+            "args": "",
+            "commands": [
+                "e asm.filter=false",
+                "e asm.noisy=false",
+                "e asm.strenc=latin1",
+                "pd 1 @ 0x140001058",
+                "e asm.strenc=utf8",
+                "pd 1 @ 0x140001058",
+                "",
+                ""
+            ],
+            "expected": "            0x140001058      488d05415001.  lea rax, [0x1400160a0]     ; \"latin1 gate: \\xce\\xbb\\xab\\xce\"\n            0x140001058      488d05415001.  lea rax, [0x1400160a0]     ; \"latin1 gate: \\u03bb\\xab\\xce\"\n",
+            "broken": false
+        },
+        {
+            "name": "asm.strenc utf16le",
+            "file": "bins/elf/strenc",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "e asm.filter=false",
+                "e asm.noisy=false",
+                "e str.escbslash=true",
+                "e asm.strenc=guess",
+                "pd 1 @ 0x004016ac",
+                "e asm.filter=true",
+                "e asm.cmt.off=false",
+                "e asm.strenc=guess",
+                "pd 1 @ 0x004016b6",
+                "e asm.strenc=utf16le",
+                "pd 1 @ 0x004016b6",
+                "e asm.strenc=guess",
+                "pd 1 @ 0x004016c0",
+                "e asm.strenc=utf16le",
+                "pd 1 @ 0x004016c0",
+                "pd 1 @ 0x004016ca",
+                "pd 1 @ 0x004016d4",
+                ""
+            ],
+            "expected": "            0x004016ac      mov edi, 0x40224a                          ; u\"utf16le\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in green:\\x1b[32m \\xa2\\u20ac\\U00010348 \\x1b[0m\\n\"\n            0x004016b6      mov edi, str.e_e_b                         ; \"_%e%e%b% \"\n            0x004016b6      mov edi, str.e_e_b                         ; u\"\\u255f\\u2565\\u2565\\u2562 is a wall with no embedded zeros\\n\"\n            0x004016c0      mov edi, 0x40230c                          ; \" %B%\"\n            0x004016c0      mov edi, 0x40230c                          ; u\"\\u2520\\u2542\\u2500\\u2500\\u2542\\u2528 is a fence with embedded zeros\\n\"\n            0x004016ca      mov edi, 0x40235a                          ; 'Z#@' ; u\"\\u2520\\u2542-\\u2500-\\u2500\\u2542\\u2528 is a fence with embedded double zeros\\n\"\n            0x004016d4      mov edi, str.e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k_e_e_e_e_e_e_e_e_e_k ; u\"\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\"\n",
+            "broken": false
+        },
+        {
+            "name": "asm.strenc utf32le",
+            "file": "bins/elf/strenc",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "e asm.cmt.off=false",
+                "e str.escbslash=true",
+                "e asm.strenc=utf16le",
+                "pd 1 @ 0x004016de",
+                "e asm.strenc=utf32le",
+                "pd 1 @ 0x004016de",
+                "e asm.filter=false",
+                "e asm.noisy=false",
+                "e asm.strenc=guess",
+                "pd 1 @ 0x004016ed",
+                "pd 1 @ 0x004016f7",
+                "pd 1 @ 0x00401701",
+                "e asm.strenc=utf32le",
+                "pd 1 @ 0x00401701",
+                ""
+            ],
+            "expected": "            0x004016de      mov esi, str.Linux_wide__esc:__e_0m        ; u\"\\t\"\n            0x004016de      mov esi, str.Linux_wide__esc:__e_0m        ; U\"\\tLinux_wide\\\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x004016ed      mov edi, 0x40258c                          ; U\"utf32le\u003e \\\\u00a2\\\\u20ac\\\\U00010348 in cyan:\\x1b[36m \\xa2\\u20ac\\U00010348 \\x1b[0m\\n\"\n            0x004016f7      mov edi, 0x40266c                          ; U\"Mountain range with embedded quad zeros: \\U00010300A\\U00010300A\\U00010300A\\n\"\n            0x00401701      mov edi, 0x402730                          ; '0'@' ; \"e%\"\n            0x00401701      mov edi, 0x402730                          ; '0'@' ; U\"\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u256b\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\\u2565\"\n",
+            "broken": false
+        },
+        {
+            "name": "asm.strenc guess utf16le",
+            "file": "bins/pe/testapp-msvc64.exe",
+            "args": "",
+            "commands": [
+                "e asm.filter=false",
+                "e asm.noisy=false",
+                "e asm.strenc=guess",
+                "pd 1 @ 0x14000104c",
+                "e asm.strenc=utf16le",
+                "pd 1 @ 0x14000104c",
+                "",
+                ""
+            ],
+            "expected": "            0x14000104c      488d05455001.  lea rax, [0x140016098]     ; \"@\"\n            0x14000104c      488d05455001.  lea rax, [0x140016098]     ; u\"@\\ufffd\\ud801\"\n\n",
+            "broken": false
+        },
+        {
+            "name": "asm.strenc guess utf32le",
+            "file": "bins/elf/strenc-guess-utf32le",
+            "args": "",
+            "commands": [
+                "e asm.cmt.off=false",
+                "e asm.bytes=false",
+                "e asm.strenc=guess",
+                "pd 1 @ 0x00400463",
+                "e asm.strenc=utf32le",
+                "pd 1 @ 0x00400463",
+                ""
+            ],
+            "expected": "            0x00400463      mov edi, str.ABCDEF                        ; \"A\"\n            0x00400463      mov edi, str.ABCDEF                        ; U\"ABCDEF\\U0010ffff  G\\U00110000  H\\U7ffdfeff\\n\"\n",
+            "broken": false
+        },
+        {
+            "name": "hide flag iff unchanged and string shown",
+            "file": "bins/pe/testapp-msvc64.exe",
+            "args": "",
+            "commands": [
+                "e asm.filter=false",
+                "e asm.noisy=false",
+                "e str.escbslash=false",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x140001010",
+                "pd 1 @ 0x140001028",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x140001010",
+                "pd 1 @ 0x140001028",
+                "fr str.wide__esc:__e_0m str.wide",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x140001010",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x140001010",
+                ""
+            ],
+            "expected": "            0x140001010      488d05015001.  lea rax, [0x140016018]     ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001028      488d05415001.  lea rax, [0x140016070]     ; str.Formfeed_at_start\n            ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]\n            ; str.Formfeed_at_start\n            0x140001028      488d05415001.  lea rax, [0x140016070]\n            0x140001010      488d05015001.  lea rax, [0x140016018]     ; str.wide ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            ; str.wide\n            ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]\n",
+            "broken": false
+        },
+        {
+            "name": "asm.noisy",
+            "file": "bins/pe/testapp-msvc64.exe",
+            "args": "",
+            "commands": [
+                "e asm.filter=false",
+                "e asm.noisy=true",
+                "e str.escbslash=false",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x140001010",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x140001010",
+                ""
+            ],
+            "expected": "            0x140001010      488d05015001.  lea rax, [0x140016018]     ; str.wide__esc:__e_0m ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            ; str.wide__esc:__e_0m\n            ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]\n",
+            "broken": false
+        },
+        {
+            "name": "fcn name cmt alignment",
+            "file": "bins/pe/ConsoleApplication1.exe",
+            "args": "",
+            "commands": [
+                "e asm.filter=false",
+                "af @ main",
+                "pd 1 @ 0x00401157",
+                "",
+                ""
+            ],
+            "expected": "|           0x00401157      e8b4feffff     call 0x401010               ; fcn.00401010\n\n",
+            "broken": false
+        },
+        {
+            "name": "call asm.filter=false flag cmt",
+            "file": "bins/pe/ConsoleApplication1.exe",
+            "args": "",
+            "commands": [
+                "e asm.filter=false",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x004010c6",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x004010c6",
+                ""
+            ],
+            "expected": "            0x004010c6      ff1508204000   call dword [0x402008]       ; sym.imp.KERNEL32.dll_GetProcAddress ; \" *\"\n            ; sym.imp.KERNEL32.dll_GetProcAddress\n            ; \" *\"\n            0x004010c6      ff1508204000   call dword [0x402008]\n\n",
+            "broken": false
+        },
+        {
+            "name": "asm.cmt.off",
+            "file": "bins/pe/testapp-msvc64.exe",
+            "args": "",
+            "commands": [
+                "e asm.noisy=false",
+                "e str.escbslash=false",
+                "e asm.filter=true",
+                "e asm.cmt.off=false",
+                "pd 1 @ 0x140001010",
+                "e asm.filter=false",
+                "e asm.cmt.off=true",
+                "pd 1 @ 0x140001010",
+                "e asm.cmt.off=nodup",
+                "pd 1 @ 0x140001010",
+                ""
+            ],
+            "expected": "            0x140001010      488d05015001.  lea rax, str.wide__esc:__e_0m ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]     ; 0x140016018 ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n            0x140001010      488d05015001.  lea rax, [0x140016018]     ; u\"\\twide\\esc: \\x1b[0m\\xa1\\r\\n\"\n",
+            "broken": false
+        },
+        {
+            "name": "asm.leahints cmt",
+            "file": "bins/elf/analysis/ls-linux64",
+            "args": "",
+            "commands": [
+                "e asm.leahints=true",
+                "e asm.cmt.right=true",
+                "pd 1 @ 0x00005c2f",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x00005c2f",
+                ""
+            ],
+            "expected": "            0x00005c2f      4c8d054ae200.  lea r8, [0x00013e80]        ; LEA r8 = [0x13e80] = 0x841f0f2e66c3f3 \"..f....\"\n            ; LEA r8 = [0x13e80] = 0x841f0f2e66c3f3 \"..f....\"\n            0x00005c2f      4c8d054ae200.  lea r8, [0x00013e80]\n",
+            "broken": false
+        },
+        {
+            "name": "no | highlight with asm.cmt.right=false \u0026 call statement",
+            "file": "bins/pe/ConsoleApplication1.exe",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "e scr.color=1",
+                "e asm.cmt.right=false",
+                "s main",
+                "af",
+                "pd 2 @ 0x004010e8",
+                ""
+            ],
+            "expected": "\u001b[0m\u001b[36m|\u001b[0m \u001b[36m          \u001b[0m\u001b[32m0x004010e8\u001b[0m      \u001b[35mpush\u001b[36m esi\u001b[0m\u001b[0m\n\u001b[36m|\u001b[0m \u001b[36m          \u001b[0m\u001b[31m; 0x402004\n\u001b[0m\u001b[36m|\u001b[0m \u001b[36m          \u001b[0m\u001b[32m0x004010e9\u001b[0m      \u001b[1;32mcall dword [sym.imp.KERNEL32.dll_GetCurrentProcessorNumber]\u001b[0m\n",
+            "broken": false
+        },
+        {
+            "name": "varsub for rip variable",
+            "file": "bins/elf/varsub_2",
+            "args": "",
+            "commands": [
+                "aa; s main",
+                "e asm.syntax=att",
+                "e asm.var=0",
+                "e asm.lines.bb=0",
+                "e asm.bytes=0",
+                "e asm.comments=false",
+                "pdf",
+                ""
+            ],
+            "expected": "| ;-- main:\n/ (fcn) sym.main 21\n| 0x0000061a      pushq %rbp\n| 0x0000061b      movq %rsp, %rbp\n| 0x0000061e      movl $1, obj.sa\n| 0x00000628      movl $0, %eax\n| 0x0000062d      popq %rbp\n\\ 0x0000062e      retq\n",
+            "broken": false
+        },
+        {
+            "name": "utf16le string with byte order mark",
+            "file": "bins/elf/7786-utf16le",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "pd 1 @ 0x004004ee",
+                "",
+                ""
+            ],
+            "expected": "            0x004004ee      mov edi, str.S                             ; 0x4005c0 ; u\"\\ufeff--\u003e %S\\ufeff\\n\"\n",
+            "broken": false
+        },
+        {
+            "name": "show string at src if dst is stack (x86_cs MOV)",
+            "file": "bins/elf/7786-utf16le",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "pd 1 @ 0x004004df",
+                "",
+                ""
+            ],
+            "expected": "            0x004004df      mov qword [rbp - 8], str.Hello_World       ; 0x4005a0 ; u\"\\ufeffHello World\\ufeff\\n\"\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ 2",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "wx 9090",
+                "e asm.lines.bb=0",
+                "pdJ 2",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":0,\"text\":\"  0x00000000      90             nop\"},{\"offset\":1,\"text\":\"  0x00000001      90             nop\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ comments",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "wx 90",
+                "e asm.lines.bb=0",
+                "CCu base64:dGVzdAo=",
+                "pdJ 1",
+                "CCu base64:dGVzdCAid2l0aCBxdW90ZXMiCg==",
+                "pdJ 1",
+                "e asm.cmt.right=false",
+                "pdJ 1",
+                ""
+            ],
+            "expected": "[{\"offset\":0,\"text\":\"  0x00000000      90             nop                                   ; test\"}]\n[{\"offset\":0,\"text\":\"  0x00000000      90             nop                                   ; test \\\"with quotes\\\"\"}]\n[{\"offset\":0,\"text\":\"  ; test \\\"with quotes\\\"\\n\"},{\"offset\":0,\"text\":\"  0x00000000      90             nop\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ string comment",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "aa",
+                "pdJ 1 @ 0x0040050a",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":4195594,\"text\":\"|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; 0x4005c4 ; \\\"Hello World\\\"\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ flags",
+            "file": "bins/elf/analysis/main",
+            "args": "",
+            "commands": [
+                "",
+                "s main",
+                "pdJ 1 @ 0x00400506",
+                "aa",
+                "pdJ 1 @ 0x00400506",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":4195590,\"text\":\"            ;-- main:\"},{\"offset\":4195590,\"text\":\"            0x00400506      55             push rbp\"}]\n[{\"offset\":4195590,\"text\":\"|           ;-- main:\"},{\"offset\":4195590,\"text\":\"/ (fcn) sym.main 16\"},{\"offset\":4195590,\"text\":\"|   sym.main ();\"},{\"offset\":4195590,\"text\":\"|           ; DATA XREF from entry0 (0x40042d)\"},{\"offset\":4195590,\"text\":\"|           0x00400506      55             push rbp\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ midflags reloc",
+            "file": "malloc://8",
+            "args": "",
+            "commands": [
+                "",
+                "f reloc.test @ 0x1",
+                "pdJ 1 @ 0x0",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":0,\"text\":\"(reloc.test)\"},{\"offset\":0,\"text\":\"            0x00000000      0000           add byte [rax], al\"}]\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ string",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "w Snoo\"ping as\" usual,",
+                "\\I see...",
+                "Cs 30",
+                "pdJ 1",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":0,\"text\":\"            0x00000000     .string \\\"Snoo\\\\\\\"ping as\\\\\\\" usual,\\\" ; len=30\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ str in opcode",
+            "file": "bins/java/Hello.class",
+            "args": "",
+            "commands": [
+                "",
+                "pdJ 1 @ 0x000002ae",
+                "",
+                ""
+            ],
+            "expected": "[{\"offset\":686,\"text\":\"            0x000002ae      120b           ldc \\\"World\\\"\"}]\n\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ asm.cmt.right=0 + html",
+            "file": "bins/elf/crackme0x05",
+            "args": "",
+            "commands": [
+                "aaae asm.cmt.right=0",
+                "e scr.colors=1",
+                "e scr.html=1",
+                "e str.escbslash=1",
+                "pdJ 1 @ 0x08048532",
+                ""
+            ],
+            "expected": "[{\"offset\":134513970,\"text\":\"\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;;\u0026nbsp;[0x8048679:4]=0x73736150\"},{\"offset\":134513970,\"text\":\"\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;;\u0026nbsp;\\\"Password\u0026nbsp;Incorrect!\\\\n\\\"\"},{\"offset\":134513970,\"text\":\"\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;0x08048532\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;c70424798604.\u0026nbsp;\u0026nbsp;mov\u0026nbsp;dword\u0026nbsp;[esp],\u0026nbsp;str.Password_Incorrect\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ asm.cmt.right=0 fcn name",
+            "file": "bins/elf/crackme0x05",
+            "args": "",
+            "commands": [
+                "af@sym.imp.__libc_start_maine asm.pseudo=1",
+                "e asm.esil=1",
+                "e asm.cmt.right=0",
+                "pdJ 1 @ 0x080483ec",
+                "e asm.cmt.right=1",
+                "pdJ 1 @ 0x080483ec",
+                ""
+            ],
+            "expected": "[{\"offset\":134513644,\"text\":\"             ; sym.imp.__libc_start_main\"},{\"offset\":134513644,\"text\":\"            0x080483ec      e873ffffff     134513508,eip,4,esp,-=,esp,=[],eip,=\"}]\n[{\"offset\":134513644,\"text\":\"            0x080483ec      e873ffffff     134513508,eip,4,esp,-=,esp,=[],eip,= ; sym.imp.__libc_start_main ; int __libc_start_main(func main, int argc, char **ubp_av, func init, func fini, func rtld_fini, void *stack_end)\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ asm.emu=1 comment",
+            "file": "bins/elf/crackme0x05",
+            "args": "",
+            "commands": [
+                "e asm.emu=1pdJ 1 @ 0x08048566",
+                ""
+            ],
+            "expected": "[{\"offset\":134514022,\"text\":\"            0x08048566      e829feffff     call sym.imp.printf         ; esp=0xfffffffffffffffc ; eip=0x8048394 -\u003e 0xa00c25ff\"},{\"offset\":134514022,\"text\":\"                                                                         ; int printf(const char * format : (*0xffffffff)0x00000000 = ............................................................................................................................................................................................................................................................)\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pdJ asm.emu=1 string",
+            "file": "bins/elf/crackme0x00b",
+            "args": "",
+            "commands": [
+                "s 0x080484aae asm.emu=1",
+                "e scr.color=0",
+                "pd 1",
+                "pdJ 1",
+                "e scr.color=1",
+                "pd 1",
+                "pdJ 1",
+                ""
+            ],
+            "expected": "            0x080484aa      b8e1850408     mov eax, 0x80485e1          ; eax=0x80485e1 \"%ls\"\n[{\"offset\":134513834,\"text\":\"            0x080484aa      b8e1850408     mov eax, 0x80485e1          ; eax=0x80485e1 \\\"%ls\\\"\"}]\n  \u001b[36m          \u001b[0m\u001b[32m0x080484aa\u001b[0m      \u001b[37mb8\u001b[37me1\u001b[37m85\u001b[37m04\u001b[37m08\u001b[0m     \u001b[37mmov\u001b[36m eax\u001b[0m,\u001b[36m\u001b[36m \u001b[33m0x80485e1\u001b[0m\u001b[0m\u001b[0m\u001b[31m          ; eax=0x80485e1 \u001b[7m\"%ls\"\u001b[27m\u001b[0m\n[{\"offset\":134513834,\"text\":\"  \u001b[36m          \u001b[0m\u001b[32m0x080484aa\u001b[0m      \u001b[37mb8\u001b[37me1\u001b[37m85\u001b[37m04\u001b[37m08\u001b[0m     \u001b[37mmov eax, 0x80485e1\u001b[0m\u001b[0m\u001b[31m          ; eax=0x80485e1 \u001b[7m\\\"%ls\\\"\u001b[27m\u001b[0m\"}]\n",
+            "broken": false
+        },
+        {
+            "name": "pd0~{} - crash",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e scr.null =true",
+                "pd0~{}",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "pI - crash",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e scr.null =true",
+                "pI 0x200",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "pC - crash",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e scr.null =true",
+                "pC 0x200",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "pd bin.strpurge",
+            "file": "bins/elf/analysis/ls2",
+            "args": "",
+            "commands": [
+                "e asm.bytes=false",
+                "s main",
+                "af",
+                "s 0x00404886",
+                "e bin.strpurge=false",
+                "pd 2",
+                "?e --1--",
+                "e bin.strpurge=true",
+                "pd 2",
+                "?e --2--",
+                "e bin.strpurge=0x4028a0",
+                "pd 2",
+                "?e --3--",
+                "e bin.strpurge=0x412420,0x4028a0",
+                "pd 2",
+                "?e --4--",
+                "e bin.strpurge=true",
+                "pd 1 @ 0x004028e0",
+                "pd 1 @ 0x00402abd",
+                "?e --5--",
+                "e bin.strpurge=true,0x414fbf",
+                "pd 1 @ 0x004028e0",
+                "pd 1 @ 0x00402abd",
+                "",
+                ""
+            ],
+            "expected": "            0x00404886      mov rcx, 0x412420                          ; ' $A' ; \"AWAVA\\x89\\xffAUATL\\x8d%\\xbe\\x99 \"\n            0x0040488d      mov rdi, main                              ; section..text ; 0x4028a0 ; \"AWAVAUATUS\\x89\\xfbH\\x89\\xf5H\\x81\\xec\\x98\\x03\"\n--1--\n            0x00404886      mov rcx, 0x412420                          ; ' $A'\n            0x0040488d      mov rdi, main                              ; section..text ; 0x4028a0\n--2--\n            0x00404886      mov rcx, 0x412420                          ; ' $A' ; \"AWAVA\\x89\\xffAUATL\\x8d%\\xbe\\x99 \"\n            0x0040488d      mov rdi, main                              ; section..text ; 0x4028a0\n--3--\n            0x00404886      mov rcx, 0x412420                          ; ' $A'\n            0x0040488d      mov rdi, main                              ; section..text ; 0x4028a0\n--4--\n|           0x004028e0      mov esi, str.usr_share_locale              ; 0x414fbf ; \"/usr/share/locale\"\n|           0x00402abd      mov edi, str.TABSIZE                       ; 0x414fe7\n--5--\n|           0x004028e0      mov esi, str.usr_share_locale              ; 0x414fbf\n|           0x00402abd      mov edi, str.TABSIZE                       ; 0x414fe7\n",
+            "broken": false
+        },
+        {
+            "name": "pd, esil, emu.stroff and bin.strpurge",
+            "file": "bins/elf/analysis/hello-android-mips",
+            "args": "",
+            "commands": [
+                "e emu.str=true",
+                "s 0x0008049c",
+                "e bin.strpurge=",
+                "e emu.stroff=false",
+                "pd 2",
+                "?e ----",
+                "e emu.stroff=true",
+                "pd 2",
+                "?e ----",
+                "e bin.strpurge=0x80510",
+                "pd 2",
+                ""
+            ],
+            "expected": "            0x0008049c      0800023c       lui v0, 8                   ; segment.ehdr\n            0x000804a0      10054424       addiu a0, v0, 0x510         ; \"Hello World\" section..rodata\n----\n            0x0008049c      0800023c       lui v0, 8                   ; segment.ehdr\n            0x000804a0      10054424       addiu a0, v0, 0x510         ; 0x80510 \"Hello World\" section..rodata\n----\n            0x0008049c      0800023c       lui v0, 8                   ; segment.ehdr\n            0x000804a0      10054424       addiu a0, v0, 0x510         ; section..rodata\n",
+            "broken": false
+        },
+        {
+            "name": "emu.pre and double pd",
+            "file": "bins/elf/analysis/hello-android-mips",
+            "args": "",
+            "commands": [
+                "e emu.pre=true",
+                "e emu.str=true",
+                "f start @ 0x0008049c",
+                "s 0x000804a0",
+                "pd 1",
+                "pd 1  # should print the same as above",
+                ""
+            ],
+            "expected": "            0x000804a0      10054424       addiu a0, v0, 0x510         ; \"Hello World\" section..rodata\n            0x000804a0      10054424       addiu a0, v0, 0x510         ; \"Hello World\" section..rodata\n",
+            "broken": false
+        },
+        {
+            "name": "pd @B",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "e asm.functions=false",
+                "e asm.lines.bb=false",
+                "e asm.comments=false",
+                "e scr.color=0",
+                "wx 83f803740e",
+                "af",
+                "pd 1 @B:0",
+                "pd 1 @B:1",
+                "pd 1 @B:-1",
+                "pd 1 @B:-2",
+                ""
+            ],
+            "expected": "0x00000000      83f803         cmp eax, 3\n0x00000003      740e           je 0x13\n0x00000003      740e           je 0x13\n0x00000000      83f803         cmp eax, 3\n",
+            "broken": false
+        },
+        {
+            "name": "pd @a overwrites anal hints",
+            "file": "bins/elf/analysis/ls-linux64",
+            "args": "",
+            "commands": [
+                "e asm.comments=false",
+                "e asm.functions=false",
+                "e asm.lines.bb=false",
+                "e asm.flags=false",
+                "ahb 16",
+                "aha arm",
+                "pd 1",
+                "pd 1 @b:32",
+                "ah*",
+                "pd 1 @a:x86",
+                "ah*",
+                "pd 1 @a:x86:64",
+                "ah*",
+                ""
+            ],
+            "expected": "0x00005c20      31ed4989       ldc p9, c8, [r1, -0x124]!\n0x00005c20      31ed4989       stmdbhi sb, {r0, r4, r5, r8, sl, fp, sp, lr, pc} ^\naha arm @ 0x5c20\nahb 16 @ 0x5c20\n0000:5c20     31ed           xor bp, bp\naha arm @ 0x5c20\nahb 16 @ 0x5c20\n0x00005c20      31ed           xor ebp, ebp\naha arm @ 0x5c20\nahb 16 @ 0x5c20\n",
+            "broken": false
+        },
+        {
+            "name": "pd bin.strfilter",
+            "file": "bins/elf/analysis/ls2",
+            "args": "",
+            "commands": [
+                "e asm.bytes=falsee asm.cmt.off=false",
+                "s 0x004028e0",
+                "e bin.strfilter=",
+                "pd 1",
+                "e bin.strfilter=U",
+                "pd 1",
+                ""
+            ],
+            "expected": "            0x004028e0      mov esi, str.usr_share_locale              ; \"/usr/share/locale\"            0x004028e0      mov esi, str.usr_share_locale\n",
+            "broken": false
+        },
+        {
+            "name": "emu.str dup str/flag cmt fix",
+            "file": "bins/elf/analysis/ls2",
+            "args": "",
+            "commands": [
+                "e emu.str=truee asm.filter=true",
+                "pd 1 @ 0x00402a5f",
+                "e asm.filter=false",
+                "pd 1 @ 0x00402a5f",
+                ""
+            ],
+            "expected": "            0x00402a5f      bfdf4f4100     mov edi, str.COLUMNS        ; 0x414fdf ; \"COLUMNS\"            0x00402a5f      bfdf4f4100     mov edi, 0x414fdf           ; str.COLUMNS ; \"COLUMNS\"\n",
+            "broken": false
+        },
+        {
+            "name": "emu.strinv",
+            "file": "bins/elf/redpill",
+            "args": "",
+            "commands": [
+                " scr.color=1",
+                "e asm.bytes=false",
+                "e emu.pre=true",
+                "e emu.str=true",
+                "e io.cache=true",
+                "wz abcdefghi @ 0x21f7",
+                "f abcdefghi @ 0x21f7",
+                "axd 0x21f7 @ 0x161d",
+                "e emu.strinv=true",
+                "pd 1 @ 0x161d",
+                "e emu.strinv=false",
+                "pd 1 @ 0x161d"
+            ],
+            "expected": "  \u001b[36m          \u001b[0m\u001b[32m0x0000161d\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m[\u001b[36mesi \u001b[0m-\u001b[36m\u001b[36m \u001b[33m0x21f7\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\u001b[31m                    ; \"abcdefghi\"\u001b[0m\u001b[31m ; \u001b[7m\"\\n  Blue Pill\"\u001b[27m str.Blue_Pill\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[32m0x0000161d\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m[\u001b[36mesi \u001b[0m-\u001b[36m\u001b[36m \u001b[33m0x21f7\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\u001b[31m                    ; \u001b[7m\"abcdefghi\"\u001b[27m\u001b[0m\u001b[31m ; \"\\n  Blue Pill\" str.Blue_Pill\u001b[0m",
+            "broken": false
+        },
+        {
+            "name": "emu.strflag",
+            "file": "bins/elf/redpill",
+            "args": "",
+            "commands": [
+                " asm.bytes=false",
+                "e emu.pre=true",
+                "e emu.str=true",
+                "e emu.strflag=true",
+                "pd 1 @ 0x161d",
+                "e emu.strflag=false",
+                "pd 1 @ 0x161d",
+                "pd 1 @ 0x1447"
+            ],
+            "expected": "            0x0000161d      lea eax, [esi - 0x21f7]                    ; \"\\n  Blue Pill\" str.Blue_Pill\n            0x0000161d      lea eax, [esi - 0x21f7]                    ; \"\\n  Blue Pill\"\n            0x00001447      add esi, 0x2bb9                            ; segment_end.GNU_RELRO",
+            "broken": false
+        },
+        {
+            "name": "ctrl chars",
+            "file": "bins/elf/strenc-ctrlchars",
+            "args": "",
+            "commands": [
+                "e asm.bytes=falsee asm.cmt.off=false",
+                "pd 1 @ 0x0040040b",
+                ""
+            ],
+            "expected": "            0x0040040b      mov edi, str.Control_chars:                ; \"Control chars: \\b\\v\\f\\n\\r\\t\\a\"",
+            "broken": false
+        },
+        {
+            "name": "data ref with no analop.ptr (#9610)",
+            "file": "bins/firmware/main.bin",
+            "args": "",
+            "commands": [
+                "f str.hello 12 @ 0x276axd str.hello @ 0x260",
+                "pd 1 @ 0x260",
+                ""
+            ],
+            "expected": "            0x00000260      80e0           ldi r24, 0x00               ; 0x276 ; \"hello world!\"",
+            "broken": false
+        },
+        {
+            "name": "@b and @addr should coexist",
+            "file": "bins/firmware/armthumb.bin",
+            "args": "-aarm -b32",
+            "commands": [
+                "pd 1 @b:32 @0xc"
+            ],
+            "expected": "            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!",
+            "broken": false
+        },
+        {
+            "name": "ahb should not be deleted with @b (#9751)",
+            "file": "bins/firmware/armthumb.bin",
+            "args": "-aarm -b32",
+            "commands": [
+                "ahb 16 @0xcah*",
+                "pd 1 @b:32 @0xc",
+                "ah*",
+                ""
+            ],
+            "expected": "ahb 16 @ 0xc            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\nahb 16 @ 0xc\n",
+            "broken": false
+        },
+        {
+            "name": "ahb should not override @b",
+            "file": "bins/firmware/armthumb.bin",
+            "args": "-aarm -b32",
+            "commands": [
+                "ahb 16 @0xcpd 5 @b:32",
+                ""
+            ],
+            "expected": "            0x00000000      0000a0e1       mov r0, r0            0x00000004      010000eb       bl 0x10\n        `-\u003e 0x00000008      feffffea       b 8\n            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\n            0x00000010      00c09fe5       ldr ip, [pc]                ; [0x18:4]=13 ; 24\n",
+            "broken": false
+        },
+        {
+            "name": "two-operand line highlight; asm.highlight ecHw fix; ec wordhl/linehl",
+            "file": "bins/elf/redpill",
+            "args": "",
+            "commands": [
+                " scr.color=3",
+                "e emu.str=true",
+                "e emu.pre=true",
+                "e emu.strinv=false",
+                "e emu.strflag=false",
+                "s 0x1457",
+                "e asm.highlight=$$",
+                "pd 3",
+                "e scr.color=1",
+                "pd 1",
+                "e scr.color=3",
+                "ec linehl cyan",
+                "pd 1",
+                "ec linehl #007f00",
+                "pd 1",
+                "ec wordhl rgb:030",
+                "ecHw eax",
+                "e asm.highlight=0x1457",
+                "s 0",
+                "pd 1 @ 0x1457"
+            ],
+            "expected": "  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;0;127m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[38;2;0;255;0m0x0000145d\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;0m50\u001b[22;24;25;27;28;39m             \u001b[38;2;255;0;255mpush\u001b[38;2;0;255;255m eax\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[38;2;0;255;0m0x0000145e\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8b\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255mf0\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mmov\u001b[38;2;0;255;255m eax\u001b[0m,\u001b[38;2;0;255;255m dword \u001b[0m[\u001b[38;2;0;255;255mesi \u001b[0m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x10\u001b[0m]\u001b[38;2;0;255;255m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[44m\u001b[32m0x00001457\u001b[22;24;25;27;28;39m      \u001b[37m8d\u001b[37m86\u001b[37m89\u001b[37mdd\u001b[31mff\u001b[31mff\u001b[22;24;25;27;28;39m   \u001b[37mlea\u001b[36m eax\u001b[22;24;25;27;28;39m,\u001b[36m \u001b[22;24;25;27;28;39m[\u001b[36mesi \u001b[22;24;25;27;28;39m-\u001b[36m\u001b[36m \u001b[33m0x2277\u001b[22;24;25;27;28;39m]\u001b[36m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[31m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;255;255m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;127;0m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;127;0m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m \u001b[48;2;0;48;0meax\u001b[48;2;0;127;0m\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m",
+            "broken": false
+        },
+        {
+            "name": "pdJ with backslashes, quotation marks, str.escbslash and asm.strenc",
+            "file": "-",
+            "args": "",
+            "commands": [
+                " io.cache=true",
+                "e asm.arch=x86",
+                "e asm.bits=32",
+                "e asm.bytes=false",
+                "s 0x1000",
+                "wz path\"C:\\\\Program\\n",
+                "f ansi_str",
+                "s 0x2000",
+                "\"wa mov eax, 0x1000\"",
+                "e str.escbslash=true",
+                "pd 1",
+                "pdJ 1",
+                "e str.escbslash=false",
+                "pd 1",
+                "pdJ 1",
+                "s 0x3000",
+                "  # ww doesn't support esc seqs",
+                "ww path\"C:\\Program",
+                "f wide_str",
+                "s 0x4000",
+                "\"wa mov ebx, 0x3000\"",
+                "e asm.strenc=guess",
+                "pd 1",
+                "pdJ 1",
+                "e asm.strenc=latin1",
+                "pd 1",
+                "pdJ 1",
+                "e asm.strenc=utf16le",
+                "e str.escbslash=true",
+                "pd 1",
+                "pdJ 1",
+                "e str.escbslash=false",
+                "pd 1",
+                "pdJ 1"
+            ],
+            "expected": "            0x00002000      mov eax, 0x1000                            ; ansi_str ; \"path\\\"C:\\\\Program\\n\"\n[{\"offset\":8192,\"text\":\"            0x00002000      mov eax, 0x1000                            ; ansi_str ; \\\"path\\\\\\\"C:\\\\\\\\Program\\\\n\\\"\"}]\n            0x00002000      mov eax, 0x1000                            ; ansi_str ; \"path\\\"C:\\Program\\n\"\n[{\"offset\":8192,\"text\":\"            0x00002000      mov eax, 0x1000                            ; ansi_str ; \\\"path\\\\\\\"C:\\\\Program\\\\n\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\Program\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; \"p\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; \\\"p\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\\\\\Program\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\Program\\\"\"}]",
+            "broken": false
+        },
+        {
+            "name": "arm asm.var.sub, asm.ucase and asm.pseudo (fp)",
+            "file": "bins/elf/analysis/armcall",
+            "args": "",
+            "commands": [
+                " asm.bytes=false",
+                "e asm.comments=false",
+                "e io.cache=true",
+                "wv4 0xe59b0008 @ 0x00010464",
+                "wv4 0xe59b100c @ 0x00010468",
+                "af @ main",
+                "e asm.pseudo=false",
+                "e asm.var.sub=true",
+                "e asm.ucase=true",
+                "pd 4 @ 0x0001045c",
+                "?e",
+                "e asm.var.sub=false",
+                "e asm.ucase=false",
+                "pd 4 @ 0x0001045c",
+                "?e",
+                "e asm.pseudo=true",
+                "e asm.var.sub=true",
+                "e asm.var.subonly=false",
+                "pd 4 @ 0x0001045c",
+                "?e",
+                "e asm.var.subonly=true",
+                "s main",
+                "afvn local_ch local2",
+                "afvn arg_8h arg1",
+                "pd 4 @ 0x0001045c"
+            ],
+            "expected": "|           0x0001045c      STR R0, [local_8h]\n|           0x00010460      STR R1, [local_ch]\n|           0x00010464      LDR R0, [arg_8h]\n|           0x00010468      LDR R1, [arg_ch]\n\n|           0x0001045c      str r0, [fp, -8]\n|           0x00010460      str r1, [fp, -0xc]\n|           0x00010464      ldr r0, [fp, 8]\n|           0x00010468      ldr r1, [fp, 0xc]\n\n|           0x0001045c      [fp - local_8h] = r0\n|           0x00010460      [fp - local_ch] = r1\n|           0x00010464      r0 = [fp + arg_8h]\n|           0x00010468      r1 = [fp + arg_ch]\n\n|           0x0001045c      [local_8h] = r0\n|           0x00010460      [local2] = r1\n|           0x00010464      r0 = [arg1]\n|           0x00010468      r1 = [arg_ch]",
+            "broken": false
+        },
+        {
+            "name": "pdfj with padding",
+            "file": "bins/elf/padding_in_func",
+            "args": "",
+            "commands": [
+                " main",
+                "af",
+                "pdfj~{} | grep opcode"
+            ],
+            "expected": "      \"opcode\": \"push rbp\",\n      \"opcode\": \"push rbx\",\n      \"opcode\": \"push rax\",\n      \"opcode\": \"mov ebx, edi\",\n      \"opcode\": \"cmp ebx, 2\",\n      \"opcode\": \"mov eax, 0x5758554a\",\n      \"opcode\": \"mov ebp, 0x10c2377a\",\n      \"opcode\": \"cmovl ebp, eax\",\n      \"opcode\": \"mov eax, 0xbaad0c8f\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jg 0x40058a\",\n      \"opcode\": \"jmp 0x4005ae\",\n      \"opcode\": \"mov edi, 0x400664\",\n      \"opcode\": \"xor eax, eax\",\n      \"opcode\": \"mov esi, ebx\",\n      \"opcode\": \"call 0x400440\",\n      \"opcode\": \"mov eax, 0xccdab13b\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jle 0x4005ae\",\n      \"opcode\": \"cmp eax, 0x10c2377a\",\n      \"opcode\": \"je 0x400570\",\n      \"opcode\": \"cmp eax, 0x5758554a\",\n      \"opcode\": \"jne 0x4005b9\",\n      \"opcode\": \"mov edi, 0x40066d\",\n      \"opcode\": \"call 0x400430\",\n      \"opcode\": \"mov eax, 0xccdab13b\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jg 0x40058a\",\n      \"opcode\": \"cmp eax, 0xbaad0c8f\",\n      \"opcode\": \"mov eax, ebp\",\n      \"opcode\": \"je 0x400583\",\n      \"opcode\": \"jmp 0x4005d0\",\n      \"opcode\": \"cmp eax, 0xccdab13b\",\n      \"opcode\": \"jne 0x4005d0\",\n      \"opcode\": \"xor eax, eax\",\n      \"opcode\": \"add rsp, 8\",\n      \"opcode\": \"pop rbx\",\n      \"opcode\": \"pop rbp\",\n      \"opcode\": \"ret\",\n      \"opcode\": \"jmp 0x4005d0\",",
+            "broken": false
+        },
+        {
+            "name": "asm.imm.str, mov and movabs (#10473)",
+            "file": "bins/elf/echo-bin",
+            "args": "",
+            "commands": [
+                " asm.bytes=false",
+                "e asm.imm.str=true",
+                "pd 1 @ 0x9a2",
+                "pd 1 @ 0x9a9",
+                "pd 1 @ 0x9b3"
+            ],
+            "expected": "            0x000009a2      mov dword [rbp - 0x30], 0x3c3c2b3e         ; '\u003e+\u003c\u003c'\n            0x000009a9      mov word [rbp - 0x2c], 0x3e5d              ; ']\u003e'\n            0x000009b3      movabs rax, 0x3c2b3c3c5b3e3e3e             ; '\u003e\u003e\u003e[\u003c\u003c+\u003c'",
+            "broken": false
+        },
+        {
+            "name": "asm.imm.str, asm.cmd.right=false, pd and pdJ",
+            "file": "bins/elf/echo-bin",
+            "args": "",
+            "commands": [
+                " asm.imm.str=true",
+                "e asm.cmt.right=false",
+                "pd 1 @ 0x9b3",
+                "?e",
+                "pdJ 1 @ 0x9b3"
+            ],
+            "expected": "            ; '\u003e\u003e\u003e[\u003c\u003c+\u003c'\n            0x000009b3      48b83e3e3e5b.  movabs rax, 0x3c2b3c3c5b3e3e3e\n\n[{\"offset\":2483,\"text\":\"            ; '\u003e\u003e\u003e[\u003c\u003c+\u003c'\"},{\"offset\":2483,\"text\":\"            0x000009b3      48b83e3e3e5b.  movabs rax, 0x3c2b3c3c5b3e3e3e\"}]",
+            "broken": false
+        },
+        {
+            "name": "asm.imm.str short false positive",
+            "file": "bins/elf/analysis/fast",
+            "args": "",
+            "commands": [
+                " asm.bytes=false",
+                "e asm.imm.str=true",
+                "f- @ 0x08048574",
+                "pd 1 @ 0x08048444"
+            ],
+            "expected": "            0x08048444      push 0x8048574",
+            "broken": false
+        },
+        {
+            "name": "asm.imm.str and flag",
+            "file": "bins/elf/strenc",
+            "args": "",
+            "commands": [
+                " asm.bytes=false",
+                "e asm.imm.str=true",
+                "e asm.strenc=utf16le",
+                "pd 1 @ 0x004016ca",
+                "f str.fence @ 0x40235a",
+                "e asm.cmt.off=false",
+                "pd 1 @ 0x004016ca"
+            ],
+            "expected": "            0x004016ca      mov edi, 0x40235a                          ; 'Z#@' ; u\"\\u2520\\u2542-\\u2500-\\u2500\\u2542\\u2528 is a fence with embedded double zeros\\n\"\n            0x004016ca      mov edi, str.fence                         ; u\"\\u2520\\u2542-\\u2500-\\u2500\\u2542\\u2528 is a fence with embedded double zeros\\n\"",
+            "broken": false
+        }
+    ]
 }

@@ -1,228 +1,336 @@
 {
     "type": "asm",
-    "tests": [{
-        "name": "arc_16: dB \"add r1, r1, 0x14c\" 80210503 0x152",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x152", "pad 80210503"],
-        "expected": "add r1, r1, 0x14c\n",
-        "broken": true
-    }, {
-        "name": "arc_16: d \"add.nz r18, r18, 0xfff\" c022822f0000ff0f",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad c022822f0000ff0f"],
-        "expected": "add.nz r18, r18, 0xfff\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"add2 r14, 0x104, r3\" 1526ce7000000401",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 1526ce7000000401"],
-        "expected": "add2 r14, 0x104, r3\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"add3 r20, r19, 41\" 5623542a",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 5623542a"],
-        "expected": "add3 r20, r19, 41\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"add_s sp, sp, 12\" a3c0",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad a3c0"],
-        "expected": "add_s sp, sp, 12\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"asl r4, 1, r13\" 002e447300000100",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 002e447300000100"],
-        "expected": "asl r4, 1, r13\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"asr_s r14, r14, 2\" da6e",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad da6e"],
-        "expected": "asr_s r14, r14, 2\n",
-        "broken": false
-    }, {
-        "name": "arc_16: dB \"beq 0x0000002a\" 2a000100",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 2a000100"],
-        "expected": "beq 0x0000002a\n",
-        "broken": true
-    }, {
-        "name": "arc_16: d \"bic r13, r13, 7\" 4625cd11",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 4625cd11"],
-        "expected": "bic r13, r13, 7\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"bl 0x00000104\" a60fcfff 0x160",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x160", "pad a60fcfff"],
-        "expected": "bl 0x00000104\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"breq r15, 0,0x00000534\" 450f1010 0x4f2",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x4f2", "pad 450f1010"],
-        "expected": "breq r15, 0,0x00000534\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"brlt r13, 0,0x0000050a\" 2b0d1210 0x4e2",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x4e2", "pad 2b0d1210"],
-        "expected": "brlt r13, 0,0x0000050a\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"cmp r2, 0\" 4c220080 0x100",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x100", "pad 4c220080"],
-        "expected": "cmp r2, 0\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"cmp_s r3, 0\" 80e3 0x100",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x100", "pad 80e3"],
-        "expected": "cmp_s r3, 0\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"extb_s r2, r2\" 4f7a",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 4f7a"],
-        "expected": "extb_s r2, r2\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"flag 1\" 69204000",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 69204000"],
-        "expected": "flag 1\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"ld.as r1, [gp, 0]\" 00120136 0x148",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x148", "pad 00120136"],
-        "expected": "ld.as r1, [gp, 0]\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"lpnz 0x00000144\" e820a201 0x138",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x138", "pad e820a201"],
-        "expected": "lpnz 0x00000144\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"mov gp, 0x3928\" 0a22803f00002839 0x144",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x144", "pad 0a22803f00002839"],
-        "expected": "mov gp, 0x3928\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"mov_s r0, r4\" 8870 0x100",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x100", "pad 8870"],
-        "expected": "mov_s r0, r4\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"neg_s r1, r1\" 3379",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 3379"],
-        "expected": "neg_s r1, r1\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"nop \" 4a260070",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 4a260070"],
-        "expected": "nop \n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"nop_s \" e078",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad e078"],
-        "expected": "nop_s \n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"or r4, r4, 1\" 45244400",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 45244400"],
-        "expected": "or r4, r4, 1\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"pop_s blink\" d1c0",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad d1c0"],
-        "expected": "pop_s blink\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"push_s blink\" f1c0",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad f1c0"],
-        "expected": "push_s blink\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"rsub.hi r1, r1, 0\" ce212d00",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad ce212d00"],
-        "expected": "rsub.hi r1, r1, 0\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"st r1, [r1, -4]\" fc194080",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad fc194080"],
-        "expected": "st r1, [r1, -4]\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"st_s r0, [r1, 8]\" 02a1",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 02a1"],
-        "expected": "st_s r0, [r1, 8]\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"sub r3, 0x3974, r2\" 0226837000007439 0x122",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["s 0x122", "pad 0226837000007439"],
-        "expected": "sub r3, 0x3974, r2\n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"swi \" 6f223f00",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 6f223f00"],
-        "expected": "swi \n",
-        "broken": false
-    }, {
-        "name": "arc_16: d \"tst r4, r3\" 0b24c080",
-        "file": "-",
-        "args": "-a arc -b 16",
-        "commands": ["pad 0b24c080"],
-        "expected": "tst r4, r3\n",
-        "broken": false
-    }]
+    "tests": [
+        {
+            "name": "arc_16: dB \"add r1, r1, 0x14c\" 80210503 0x152",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x152",
+                "pad 80210503"
+            ],
+            "expected": "add r1, r1, 0x14c\n",
+            "broken": true
+        },
+        {
+            "name": "arc_16: d \"add.nz r18, r18, 0xfff\" c022822f0000ff0f",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad c022822f0000ff0f"
+            ],
+            "expected": "add.nz r18, r18, 0xfff\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"add2 r14, 0x104, r3\" 1526ce7000000401",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 1526ce7000000401"
+            ],
+            "expected": "add2 r14, 0x104, r3\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"add3 r20, r19, 41\" 5623542a",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 5623542a"
+            ],
+            "expected": "add3 r20, r19, 41\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"add_s sp, sp, 12\" a3c0",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad a3c0"
+            ],
+            "expected": "add_s sp, sp, 12\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"asl r4, 1, r13\" 002e447300000100",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 002e447300000100"
+            ],
+            "expected": "asl r4, 1, r13\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"asr_s r14, r14, 2\" da6e",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad da6e"
+            ],
+            "expected": "asr_s r14, r14, 2\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: dB \"beq 0x0000002a\" 2a000100",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 2a000100"
+            ],
+            "expected": "beq 0x0000002a\n",
+            "broken": true
+        },
+        {
+            "name": "arc_16: d \"bic r13, r13, 7\" 4625cd11",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 4625cd11"
+            ],
+            "expected": "bic r13, r13, 7\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"bl 0x00000104\" a60fcfff 0x160",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x160",
+                "pad a60fcfff"
+            ],
+            "expected": "bl 0x00000104\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"breq r15, 0,0x00000534\" 450f1010 0x4f2",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x4f2",
+                "pad 450f1010"
+            ],
+            "expected": "breq r15, 0,0x00000534\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"brlt r13, 0,0x0000050a\" 2b0d1210 0x4e2",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x4e2",
+                "pad 2b0d1210"
+            ],
+            "expected": "brlt r13, 0,0x0000050a\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"cmp r2, 0\" 4c220080 0x100",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x100",
+                "pad 4c220080"
+            ],
+            "expected": "cmp r2, 0\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"cmp_s r3, 0\" 80e3 0x100",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x100",
+                "pad 80e3"
+            ],
+            "expected": "cmp_s r3, 0\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"extb_s r2, r2\" 4f7a",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 4f7a"
+            ],
+            "expected": "extb_s r2, r2\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"flag 1\" 69204000",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 69204000"
+            ],
+            "expected": "flag 1\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"ld.as r1, [gp, 0]\" 00120136 0x148",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x148",
+                "pad 00120136"
+            ],
+            "expected": "ld.as r1, [gp, 0]\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"lpnz 0x00000144\" e820a201 0x138",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x138",
+                "pad e820a201"
+            ],
+            "expected": "lpnz 0x00000144\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"mov gp, 0x3928\" 0a22803f00002839 0x144",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x144",
+                "pad 0a22803f00002839"
+            ],
+            "expected": "mov gp, 0x3928\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"mov_s r0, r4\" 8870 0x100",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x100",
+                "pad 8870"
+            ],
+            "expected": "mov_s r0, r4\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"neg_s r1, r1\" 3379",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 3379"
+            ],
+            "expected": "neg_s r1, r1\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"nop \" 4a260070",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 4a260070"
+            ],
+            "expected": "nop \n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"nop_s \" e078",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad e078"
+            ],
+            "expected": "nop_s \n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"or r4, r4, 1\" 45244400",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 45244400"
+            ],
+            "expected": "or r4, r4, 1\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"pop_s blink\" d1c0",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad d1c0"
+            ],
+            "expected": "pop_s blink\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"push_s blink\" f1c0",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad f1c0"
+            ],
+            "expected": "push_s blink\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"rsub.hi r1, r1, 0\" ce212d00",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad ce212d00"
+            ],
+            "expected": "rsub.hi r1, r1, 0\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"st r1, [r1, -4]\" fc194080",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad fc194080"
+            ],
+            "expected": "st r1, [r1, -4]\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"st_s r0, [r1, 8]\" 02a1",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 02a1"
+            ],
+            "expected": "st_s r0, [r1, 8]\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"sub r3, 0x3974, r2\" 0226837000007439 0x122",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "s 0x122",
+                "pad 0226837000007439"
+            ],
+            "expected": "sub r3, 0x3974, r2\n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"swi \" 6f223f00",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 6f223f00"
+            ],
+            "expected": "swi \n",
+            "broken": false
+        },
+        {
+            "name": "arc_16: d \"tst r4, r3\" 0b24c080",
+            "file": "-",
+            "args": "-a arc -b 16",
+            "commands": [
+                "pad 0b24c080"
+            ],
+            "expected": "tst r4, r3\n",
+            "broken": false
+        }
+    ]
 }

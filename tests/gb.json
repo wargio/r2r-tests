@@ -1,1 +1,5005 @@
-{"type":"asm","tests":[{"name":"gb: d \"adc 0x00\" ce00","file":"-","args":"-a gb","commands":["pad ce00"],"expected":"adc 0x00\n","broken":false},{"name":"gb: d \"adc [hl]\" 8e","file":"-","args":"-a gb","commands":["pad 8e"],"expected":"adc [hl]\n","broken":false},{"name":"gb: d \"adc a\" 8f","file":"-","args":"-a gb","commands":["pad 8f"],"expected":"adc a\n","broken":false},{"name":"gb: d \"adc b\" 88","file":"-","args":"-a gb","commands":["pad 88"],"expected":"adc b\n","broken":false},{"name":"gb: d \"adc c\" 89","file":"-","args":"-a gb","commands":["pad 89"],"expected":"adc c\n","broken":false},{"name":"gb: d \"adc d\" 8a","file":"-","args":"-a gb","commands":["pad 8a"],"expected":"adc d\n","broken":false},{"name":"gb: d \"adc e\" 8b","file":"-","args":"-a gb","commands":["pad 8b"],"expected":"adc e\n","broken":false},{"name":"gb: d \"adc h\" 8c","file":"-","args":"-a gb","commands":["pad 8c"],"expected":"adc h\n","broken":false},{"name":"gb: d \"adc l\" 8d","file":"-","args":"-a gb","commands":["pad 8d"],"expected":"adc l\n","broken":false},{"name":"gb: d \"add 0x00\" c600","file":"-","args":"-a gb","commands":["pad c600"],"expected":"add 0x00\n","broken":false},{"name":"gb: d \"add [hl]\" 86","file":"-","args":"-a gb","commands":["pad 86"],"expected":"add [hl]\n","broken":false},{"name":"gb: d \"add a\" 87","file":"-","args":"-a gb","commands":["pad 87"],"expected":"add a\n","broken":false},{"name":"gb: d \"add b\" 80","file":"-","args":"-a gb","commands":["pad 80"],"expected":"add b\n","broken":false},{"name":"gb: d \"add c\" 81","file":"-","args":"-a gb","commands":["pad 81"],"expected":"add c\n","broken":false},{"name":"gb: d \"add d\" 82","file":"-","args":"-a gb","commands":["pad 82"],"expected":"add d\n","broken":false},{"name":"gb: d \"add e\" 83","file":"-","args":"-a gb","commands":["pad 83"],"expected":"add e\n","broken":false},{"name":"gb: d \"add h\" 84","file":"-","args":"-a gb","commands":["pad 84"],"expected":"add h\n","broken":false},{"name":"gb: d \"add hl, bc\" 09","file":"-","args":"-a gb","commands":["pad 09"],"expected":"add hl, bc\n","broken":false},{"name":"gb: d \"add hl, de\" 19","file":"-","args":"-a gb","commands":["pad 19"],"expected":"add hl, de\n","broken":false},{"name":"gb: d \"add hl, hl\" 29","file":"-","args":"-a gb","commands":["pad 29"],"expected":"add hl, hl\n","broken":false},{"name":"gb: d \"add hl, sp\" 39","file":"-","args":"-a gb","commands":["pad 39"],"expected":"add hl, sp\n","broken":false},{"name":"gb: d \"add l\" 85","file":"-","args":"-a gb","commands":["pad 85"],"expected":"add l\n","broken":false},{"name":"gb: d \"add sp, 0x00\" e800","file":"-","args":"-a gb","commands":["pad e800"],"expected":"add sp, 0x00\n","broken":false},{"name":"gb: d \"and 0x00\" e600","file":"-","args":"-a gb","commands":["pad e600"],"expected":"and 0x00\n","broken":false},{"name":"gb: d \"and [hl]\" a6","file":"-","args":"-a gb","commands":["pad a6"],"expected":"and [hl]\n","broken":false},{"name":"gb: d \"and a\" a7","file":"-","args":"-a gb","commands":["pad a7"],"expected":"and a\n","broken":false},{"name":"gb: d \"and b\" a0","file":"-","args":"-a gb","commands":["pad a0"],"expected":"and b\n","broken":false},{"name":"gb: d \"and c\" a1","file":"-","args":"-a gb","commands":["pad a1"],"expected":"and c\n","broken":false},{"name":"gb: d \"and d\" a2","file":"-","args":"-a gb","commands":["pad a2"],"expected":"and d\n","broken":false},{"name":"gb: d \"and e\" a3","file":"-","args":"-a gb","commands":["pad a3"],"expected":"and e\n","broken":false},{"name":"gb: d \"and h\" a4","file":"-","args":"-a gb","commands":["pad a4"],"expected":"and h\n","broken":false},{"name":"gb: d \"and l\" a5","file":"-","args":"-a gb","commands":["pad a5"],"expected":"and l\n","broken":false},{"name":"gb: d \"bit 0, [hl]\" cb46","file":"-","args":"-a gb","commands":["pad cb46"],"expected":"bit 0, [hl]\n","broken":false},{"name":"gb: d \"bit 0, a\" cb47","file":"-","args":"-a gb","commands":["pad cb47"],"expected":"bit 0, a\n","broken":false},{"name":"gb: d \"bit 0, b\" cb40","file":"-","args":"-a gb","commands":["pad cb40"],"expected":"bit 0, b\n","broken":false},{"name":"gb: d \"bit 0, c\" cb41","file":"-","args":"-a gb","commands":["pad cb41"],"expected":"bit 0, c\n","broken":false},{"name":"gb: d \"bit 0, d\" cb42","file":"-","args":"-a gb","commands":["pad cb42"],"expected":"bit 0, d\n","broken":false},{"name":"gb: d \"bit 0, e\" cb43","file":"-","args":"-a gb","commands":["pad cb43"],"expected":"bit 0, e\n","broken":false},{"name":"gb: d \"bit 0, h\" cb44","file":"-","args":"-a gb","commands":["pad cb44"],"expected":"bit 0, h\n","broken":false},{"name":"gb: d \"bit 0, l\" cb45","file":"-","args":"-a gb","commands":["pad cb45"],"expected":"bit 0, l\n","broken":false},{"name":"gb: d \"bit 1, [hl]\" cb4e","file":"-","args":"-a gb","commands":["pad cb4e"],"expected":"bit 1, [hl]\n","broken":false},{"name":"gb: d \"bit 1, a\" cb4f","file":"-","args":"-a gb","commands":["pad cb4f"],"expected":"bit 1, a\n","broken":false},{"name":"gb: d \"bit 1, b\" cb48","file":"-","args":"-a gb","commands":["pad cb48"],"expected":"bit 1, b\n","broken":false},{"name":"gb: d \"bit 1, c\" cb49","file":"-","args":"-a gb","commands":["pad cb49"],"expected":"bit 1, c\n","broken":false},{"name":"gb: d \"bit 1, d\" cb4a","file":"-","args":"-a gb","commands":["pad cb4a"],"expected":"bit 1, d\n","broken":false},{"name":"gb: d \"bit 1, e\" cb4b","file":"-","args":"-a gb","commands":["pad cb4b"],"expected":"bit 1, e\n","broken":false},{"name":"gb: d \"bit 1, h\" cb4c","file":"-","args":"-a gb","commands":["pad cb4c"],"expected":"bit 1, h\n","broken":false},{"name":"gb: d \"bit 1, l\" cb4d","file":"-","args":"-a gb","commands":["pad cb4d"],"expected":"bit 1, l\n","broken":false},{"name":"gb: d \"bit 2, [hl]\" cb56","file":"-","args":"-a gb","commands":["pad cb56"],"expected":"bit 2, [hl]\n","broken":false},{"name":"gb: d \"bit 2, a\" cb57","file":"-","args":"-a gb","commands":["pad cb57"],"expected":"bit 2, a\n","broken":false},{"name":"gb: d \"bit 2, b\" cb50","file":"-","args":"-a gb","commands":["pad cb50"],"expected":"bit 2, b\n","broken":false},{"name":"gb: d \"bit 2, c\" cb51","file":"-","args":"-a gb","commands":["pad cb51"],"expected":"bit 2, c\n","broken":false},{"name":"gb: d \"bit 2, d\" cb52","file":"-","args":"-a gb","commands":["pad cb52"],"expected":"bit 2, d\n","broken":false},{"name":"gb: d \"bit 2, e\" cb53","file":"-","args":"-a gb","commands":["pad cb53"],"expected":"bit 2, e\n","broken":false},{"name":"gb: d \"bit 2, h\" cb54","file":"-","args":"-a gb","commands":["pad cb54"],"expected":"bit 2, h\n","broken":false},{"name":"gb: d \"bit 2, l\" cb55","file":"-","args":"-a gb","commands":["pad cb55"],"expected":"bit 2, l\n","broken":false},{"name":"gb: d \"bit 3, [hl]\" cb5e","file":"-","args":"-a gb","commands":["pad cb5e"],"expected":"bit 3, [hl]\n","broken":false},{"name":"gb: d \"bit 3, a\" cb5f","file":"-","args":"-a gb","commands":["pad cb5f"],"expected":"bit 3, a\n","broken":false},{"name":"gb: d \"bit 3, b\" cb58","file":"-","args":"-a gb","commands":["pad cb58"],"expected":"bit 3, b\n","broken":false},{"name":"gb: d \"bit 3, c\" cb59","file":"-","args":"-a gb","commands":["pad cb59"],"expected":"bit 3, c\n","broken":false},{"name":"gb: d \"bit 3, d\" cb5a","file":"-","args":"-a gb","commands":["pad cb5a"],"expected":"bit 3, d\n","broken":false},{"name":"gb: d \"bit 3, e\" cb5b","file":"-","args":"-a gb","commands":["pad cb5b"],"expected":"bit 3, e\n","broken":false},{"name":"gb: d \"bit 3, h\" cb5c","file":"-","args":"-a gb","commands":["pad cb5c"],"expected":"bit 3, h\n","broken":false},{"name":"gb: d \"bit 3, l\" cb5d","file":"-","args":"-a gb","commands":["pad cb5d"],"expected":"bit 3, l\n","broken":false},{"name":"gb: d \"bit 4, [hl]\" cb66","file":"-","args":"-a gb","commands":["pad cb66"],"expected":"bit 4, [hl]\n","broken":false},{"name":"gb: d \"bit 4, a\" cb67","file":"-","args":"-a gb","commands":["pad cb67"],"expected":"bit 4, a\n","broken":false},{"name":"gb: d \"bit 4, b\" cb60","file":"-","args":"-a gb","commands":["pad cb60"],"expected":"bit 4, b\n","broken":false},{"name":"gb: d \"bit 4, c\" cb61","file":"-","args":"-a gb","commands":["pad cb61"],"expected":"bit 4, c\n","broken":false},{"name":"gb: d \"bit 4, d\" cb62","file":"-","args":"-a gb","commands":["pad cb62"],"expected":"bit 4, d\n","broken":false},{"name":"gb: d \"bit 4, e\" cb63","file":"-","args":"-a gb","commands":["pad cb63"],"expected":"bit 4, e\n","broken":false},{"name":"gb: d \"bit 4, h\" cb64","file":"-","args":"-a gb","commands":["pad cb64"],"expected":"bit 4, h\n","broken":false},{"name":"gb: d \"bit 4, l\" cb65","file":"-","args":"-a gb","commands":["pad cb65"],"expected":"bit 4, l\n","broken":false},{"name":"gb: d \"bit 5, [hl]\" cb6e","file":"-","args":"-a gb","commands":["pad cb6e"],"expected":"bit 5, [hl]\n","broken":false},{"name":"gb: d \"bit 5, a\" cb6f","file":"-","args":"-a gb","commands":["pad cb6f"],"expected":"bit 5, a\n","broken":false},{"name":"gb: d \"bit 5, b\" cb68","file":"-","args":"-a gb","commands":["pad cb68"],"expected":"bit 5, b\n","broken":false},{"name":"gb: d \"bit 5, c\" cb69","file":"-","args":"-a gb","commands":["pad cb69"],"expected":"bit 5, c\n","broken":false},{"name":"gb: d \"bit 5, d\" cb6a","file":"-","args":"-a gb","commands":["pad cb6a"],"expected":"bit 5, d\n","broken":false},{"name":"gb: d \"bit 5, e\" cb6b","file":"-","args":"-a gb","commands":["pad cb6b"],"expected":"bit 5, e\n","broken":false},{"name":"gb: d \"bit 5, h\" cb6c","file":"-","args":"-a gb","commands":["pad cb6c"],"expected":"bit 5, h\n","broken":false},{"name":"gb: d \"bit 5, l\" cb6d","file":"-","args":"-a gb","commands":["pad cb6d"],"expected":"bit 5, l\n","broken":false},{"name":"gb: d \"bit 6, [hl]\" cb76","file":"-","args":"-a gb","commands":["pad cb76"],"expected":"bit 6, [hl]\n","broken":false},{"name":"gb: d \"bit 6, a\" cb77","file":"-","args":"-a gb","commands":["pad cb77"],"expected":"bit 6, a\n","broken":false},{"name":"gb: d \"bit 6, b\" cb70","file":"-","args":"-a gb","commands":["pad cb70"],"expected":"bit 6, b\n","broken":false},{"name":"gb: d \"bit 6, c\" cb71","file":"-","args":"-a gb","commands":["pad cb71"],"expected":"bit 6, c\n","broken":false},{"name":"gb: d \"bit 6, d\" cb72","file":"-","args":"-a gb","commands":["pad cb72"],"expected":"bit 6, d\n","broken":false},{"name":"gb: d \"bit 6, e\" cb73","file":"-","args":"-a gb","commands":["pad cb73"],"expected":"bit 6, e\n","broken":false},{"name":"gb: d \"bit 6, h\" cb74","file":"-","args":"-a gb","commands":["pad cb74"],"expected":"bit 6, h\n","broken":false},{"name":"gb: d \"bit 6, l\" cb75","file":"-","args":"-a gb","commands":["pad cb75"],"expected":"bit 6, l\n","broken":false},{"name":"gb: d \"bit 7, [hl]\" cb7e","file":"-","args":"-a gb","commands":["pad cb7e"],"expected":"bit 7, [hl]\n","broken":false},{"name":"gb: d \"bit 7, a\" cb7f","file":"-","args":"-a gb","commands":["pad cb7f"],"expected":"bit 7, a\n","broken":false},{"name":"gb: d \"bit 7, b\" cb78","file":"-","args":"-a gb","commands":["pad cb78"],"expected":"bit 7, b\n","broken":false},{"name":"gb: d \"bit 7, c\" cb79","file":"-","args":"-a gb","commands":["pad cb79"],"expected":"bit 7, c\n","broken":false},{"name":"gb: d \"bit 7, d\" cb7a","file":"-","args":"-a gb","commands":["pad cb7a"],"expected":"bit 7, d\n","broken":false},{"name":"gb: d \"bit 7, e\" cb7b","file":"-","args":"-a gb","commands":["pad cb7b"],"expected":"bit 7, e\n","broken":false},{"name":"gb: d \"bit 7, h\" cb7c","file":"-","args":"-a gb","commands":["pad cb7c"],"expected":"bit 7, h\n","broken":false},{"name":"gb: d \"bit 7, l\" cb7d","file":"-","args":"-a gb","commands":["pad cb7d"],"expected":"bit 7, l\n","broken":false},{"name":"gb: d \"call 0x0000\" cd0000","file":"-","args":"-a gb","commands":["pad cd0000"],"expected":"call 0x0000\n","broken":false},{"name":"gb: d \"call C, 0x0000\" dc0000","file":"-","args":"-a gb","commands":["pad dc0000"],"expected":"call C, 0x0000\n","broken":false},{"name":"gb: d \"call Z, 0x0000\" cc0000","file":"-","args":"-a gb","commands":["pad cc0000"],"expected":"call Z, 0x0000\n","broken":false},{"name":"gb: d \"call nC, 0x0000\" d40000","file":"-","args":"-a gb","commands":["pad d40000"],"expected":"call nC, 0x0000\n","broken":false},{"name":"gb: d \"call nZ, 0x0000\" c40000","file":"-","args":"-a gb","commands":["pad c40000"],"expected":"call nZ, 0x0000\n","broken":false},{"name":"gb: d \"ccf\" 3f","file":"-","args":"-a gb","commands":["pad 3f"],"expected":"ccf\n","broken":false},{"name":"gb: d \"cp 0x00\" fe00","file":"-","args":"-a gb","commands":["pad fe00"],"expected":"cp 0x00\n","broken":false},{"name":"gb: d \"cp [hl]\" be","file":"-","args":"-a gb","commands":["pad be"],"expected":"cp [hl]\n","broken":false},{"name":"gb: d \"cp a\" bf","file":"-","args":"-a gb","commands":["pad bf"],"expected":"cp a\n","broken":false},{"name":"gb: d \"cp b\" b8","file":"-","args":"-a gb","commands":["pad b8"],"expected":"cp b\n","broken":false},{"name":"gb: d \"cp c\" b9","file":"-","args":"-a gb","commands":["pad b9"],"expected":"cp c\n","broken":false},{"name":"gb: d \"cp d\" ba","file":"-","args":"-a gb","commands":["pad ba"],"expected":"cp d\n","broken":false},{"name":"gb: d \"cp e\" bb","file":"-","args":"-a gb","commands":["pad bb"],"expected":"cp e\n","broken":false},{"name":"gb: d \"cp h\" bc","file":"-","args":"-a gb","commands":["pad bc"],"expected":"cp h\n","broken":false},{"name":"gb: d \"cp l\" bd","file":"-","args":"-a gb","commands":["pad bd"],"expected":"cp l\n","broken":false},{"name":"gb: d \"cpl\" 2f","file":"-","args":"-a gb","commands":["pad 2f"],"expected":"cpl\n","broken":false},{"name":"gb: d \"daa\" 27","file":"-","args":"-a gb","commands":["pad 27"],"expected":"daa\n","broken":false},{"name":"gb: d \"dec [hl]\" 35","file":"-","args":"-a gb","commands":["pad 35"],"expected":"dec [hl]\n","broken":false},{"name":"gb: d \"dec a\" 3d","file":"-","args":"-a gb","commands":["pad 3d"],"expected":"dec a\n","broken":false},{"name":"gb: d \"dec b\" 05","file":"-","args":"-a gb","commands":["pad 05"],"expected":"dec b\n","broken":false},{"name":"gb: d \"dec bc\" 0b","file":"-","args":"-a gb","commands":["pad 0b"],"expected":"dec bc\n","broken":false},{"name":"gb: d \"dec c\" 0d","file":"-","args":"-a gb","commands":["pad 0d"],"expected":"dec c\n","broken":false},{"name":"gb: d \"dec d\" 15","file":"-","args":"-a gb","commands":["pad 15"],"expected":"dec d\n","broken":false},{"name":"gb: d \"dec de\" 1b","file":"-","args":"-a gb","commands":["pad 1b"],"expected":"dec de\n","broken":false},{"name":"gb: d \"dec e\" 1d","file":"-","args":"-a gb","commands":["pad 1d"],"expected":"dec e\n","broken":false},{"name":"gb: d \"dec h\" 25","file":"-","args":"-a gb","commands":["pad 25"],"expected":"dec h\n","broken":false},{"name":"gb: d \"dec hl\" 2b","file":"-","args":"-a gb","commands":["pad 2b"],"expected":"dec hl\n","broken":false},{"name":"gb: d \"dec l\" 2d","file":"-","args":"-a gb","commands":["pad 2d"],"expected":"dec l\n","broken":false},{"name":"gb: d \"dec sp\" 3b","file":"-","args":"-a gb","commands":["pad 3b"],"expected":"dec sp\n","broken":false},{"name":"gb: d \"di\" f3","file":"-","args":"-a gb","commands":["pad f3"],"expected":"di\n","broken":false},{"name":"gb: d \"ei\" fb","file":"-","args":"-a gb","commands":["pad fb"],"expected":"ei\n","broken":false},{"name":"gb: d \"halt\" 76","file":"-","args":"-a gb","commands":["pad 76"],"expected":"halt\n","broken":false},{"name":"gb: d \"inc [hl]\" 34","file":"-","args":"-a gb","commands":["pad 34"],"expected":"inc [hl]\n","broken":false},{"name":"gb: d \"inc a\" 3c","file":"-","args":"-a gb","commands":["pad 3c"],"expected":"inc a\n","broken":false},{"name":"gb: d \"inc b\" 04","file":"-","args":"-a gb","commands":["pad 04"],"expected":"inc b\n","broken":false},{"name":"gb: d \"inc bc\" 03","file":"-","args":"-a gb","commands":["pad 03"],"expected":"inc bc\n","broken":false},{"name":"gb: d \"inc c\" 0c","file":"-","args":"-a gb","commands":["pad 0c"],"expected":"inc c\n","broken":false},{"name":"gb: d \"inc d\" 14","file":"-","args":"-a gb","commands":["pad 14"],"expected":"inc d\n","broken":false},{"name":"gb: d \"inc de\" 13","file":"-","args":"-a gb","commands":["pad 13"],"expected":"inc de\n","broken":false},{"name":"gb: d \"inc e\" 1c","file":"-","args":"-a gb","commands":["pad 1c"],"expected":"inc e\n","broken":false},{"name":"gb: d \"inc h\" 24","file":"-","args":"-a gb","commands":["pad 24"],"expected":"inc h\n","broken":false},{"name":"gb: d \"inc hl\" 23","file":"-","args":"-a gb","commands":["pad 23"],"expected":"inc hl\n","broken":false},{"name":"gb: d \"inc l\" 2c","file":"-","args":"-a gb","commands":["pad 2c"],"expected":"inc l\n","broken":false},{"name":"gb: d \"inc sp\" 33","file":"-","args":"-a gb","commands":["pad 33"],"expected":"inc sp\n","broken":false},{"name":"gb: d \"jp 0x0000\" c30000","file":"-","args":"-a gb","commands":["pad c30000"],"expected":"jp 0x0000\n","broken":false},{"name":"gb: d \"jp C, 0x0000\" da0000","file":"-","args":"-a gb","commands":["pad da0000"],"expected":"jp C, 0x0000\n","broken":false},{"name":"gb: d \"jp Z, 0x0000\" ca0000","file":"-","args":"-a gb","commands":["pad ca0000"],"expected":"jp Z, 0x0000\n","broken":false},{"name":"gb: d \"jp hl\" e9","file":"-","args":"-a gb","commands":["pad e9"],"expected":"jp hl\n","broken":false},{"name":"gb: d \"jp nC, 0x0000\" d20000","file":"-","args":"-a gb","commands":["pad d20000"],"expected":"jp nC, 0x0000\n","broken":false},{"name":"gb: d \"jp nZ, 0x0000\" c20000","file":"-","args":"-a gb","commands":["pad c20000"],"expected":"jp nZ, 0x0000\n","broken":false},{"name":"gb: d \"jr 0x00\" 1800","file":"-","args":"-a gb","commands":["pad 1800"],"expected":"jr 0x00\n","broken":false},{"name":"gb: d \"jr C, 0x00\" 3800","file":"-","args":"-a gb","commands":["pad 3800"],"expected":"jr C, 0x00\n","broken":false},{"name":"gb: d \"jr Z, 0x00\" 2800","file":"-","args":"-a gb","commands":["pad 2800"],"expected":"jr Z, 0x00\n","broken":false},{"name":"gb: d \"jr nC, 0x00\" 3000","file":"-","args":"-a gb","commands":["pad 3000"],"expected":"jr nC, 0x00\n","broken":false},{"name":"gb: d \"jr nZ, 0x00\" 2000","file":"-","args":"-a gb","commands":["pad 2000"],"expected":"jr nZ, 0x00\n","broken":false},{"name":"gb: d \"ld [0x0000], a\" ea0000","file":"-","args":"-a gb","commands":["pad ea0000"],"expected":"ld [0x0000], a\n","broken":false},{"name":"gb: d \"ld [0x0000], sp\" 080000","file":"-","args":"-a gb","commands":["pad 080000"],"expected":"ld [0x0000], sp\n","broken":false},{"name":"gb: d \"ld [0xff00 + c], a\" e2","file":"-","args":"-a gb","commands":["pad e2"],"expected":"ld [0xff00 + c], a\n","broken":false},{"name":"gb: d \"ld [0xff00], a\" e000","file":"-","args":"-a gb","commands":["pad e000"],"expected":"ld [0xff00], a\n","broken":false},{"name":"gb: d \"ld [bc], a\" 02","file":"-","args":"-a gb","commands":["pad 02"],"expected":"ld [bc], a\n","broken":false},{"name":"gb: d \"ld [de], a\" 12","file":"-","args":"-a gb","commands":["pad 12"],"expected":"ld [de], a\n","broken":false},{"name":"gb: d \"ld [hl], 0x00\" 3600","file":"-","args":"-a gb","commands":["pad 3600"],"expected":"ld [hl], 0x00\n","broken":false},{"name":"gb: d \"ld [hl], a\" 77","file":"-","args":"-a gb","commands":["pad 77"],"expected":"ld [hl], a\n","broken":false},{"name":"gb: d \"ld [hl], b\" 70","file":"-","args":"-a gb","commands":["pad 70"],"expected":"ld [hl], b\n","broken":false},{"name":"gb: d \"ld [hl], c\" 71","file":"-","args":"-a gb","commands":["pad 71"],"expected":"ld [hl], c\n","broken":false},{"name":"gb: d \"ld [hl], d\" 72","file":"-","args":"-a gb","commands":["pad 72"],"expected":"ld [hl], d\n","broken":false},{"name":"gb: d \"ld [hl], e\" 73","file":"-","args":"-a gb","commands":["pad 73"],"expected":"ld [hl], e\n","broken":false},{"name":"gb: d \"ld [hl], h\" 74","file":"-","args":"-a gb","commands":["pad 74"],"expected":"ld [hl], h\n","broken":false},{"name":"gb: d \"ld [hl], l\" 75","file":"-","args":"-a gb","commands":["pad 75"],"expected":"ld [hl], l\n","broken":false},{"name":"gb: d \"ld a, 0x00\" 3e00","file":"-","args":"-a gb","commands":["pad 3e00"],"expected":"ld a, 0x00\n","broken":false},{"name":"gb: d \"ld a, [0x0000]\" fa0000","file":"-","args":"-a gb","commands":["pad fa0000"],"expected":"ld a, [0x0000]\n","broken":false},{"name":"gb: d \"ld a, [0xff00 + c]\" f2","file":"-","args":"-a gb","commands":["pad f2"],"expected":"ld a, [0xff00 + c]\n","broken":false},{"name":"gb: d \"ld a, [0xff00]\" f000","file":"-","args":"-a gb","commands":["pad f000"],"expected":"ld a, [0xff00]\n","broken":false},{"name":"gb: d \"ld a, [bc]\" 0a","file":"-","args":"-a gb","commands":["pad 0a"],"expected":"ld a, [bc]\n","broken":false},{"name":"gb: d \"ld a, [de]\" 1a","file":"-","args":"-a gb","commands":["pad 1a"],"expected":"ld a, [de]\n","broken":false},{"name":"gb: d \"ld a, [hl]\" 7e","file":"-","args":"-a gb","commands":["pad 7e"],"expected":"ld a, [hl]\n","broken":false},{"name":"gb: d \"ld a, a\" 7f","file":"-","args":"-a gb","commands":["pad 7f"],"expected":"ld a, a\n","broken":false},{"name":"gb: d \"ld a, b\" 78","file":"-","args":"-a gb","commands":["pad 78"],"expected":"ld a, b\n","broken":false},{"name":"gb: d \"ld a, c\" 79","file":"-","args":"-a gb","commands":["pad 79"],"expected":"ld a, c\n","broken":false},{"name":"gb: d \"ld a, d\" 7a","file":"-","args":"-a gb","commands":["pad 7a"],"expected":"ld a, d\n","broken":false},{"name":"gb: d \"ld a, e\" 7b","file":"-","args":"-a gb","commands":["pad 7b"],"expected":"ld a, e\n","broken":false},{"name":"gb: d \"ld a, h\" 7c","file":"-","args":"-a gb","commands":["pad 7c"],"expected":"ld a, h\n","broken":false},{"name":"gb: d \"ld a, l\" 7d","file":"-","args":"-a gb","commands":["pad 7d"],"expected":"ld a, l\n","broken":false},{"name":"gb: d \"ld b, 0x00\" 0600","file":"-","args":"-a gb","commands":["pad 0600"],"expected":"ld b, 0x00\n","broken":false},{"name":"gb: d \"ld b, [hl]\" 46","file":"-","args":"-a gb","commands":["pad 46"],"expected":"ld b, [hl]\n","broken":false},{"name":"gb: d \"ld b, a\" 47","file":"-","args":"-a gb","commands":["pad 47"],"expected":"ld b, a\n","broken":false},{"name":"gb: d \"ld b, b\" 40","file":"-","args":"-a gb","commands":["pad 40"],"expected":"ld b, b\n","broken":false},{"name":"gb: d \"ld b, c\" 41","file":"-","args":"-a gb","commands":["pad 41"],"expected":"ld b, c\n","broken":false},{"name":"gb: d \"ld b, d\" 42","file":"-","args":"-a gb","commands":["pad 42"],"expected":"ld b, d\n","broken":false},{"name":"gb: d \"ld b, e\" 43","file":"-","args":"-a gb","commands":["pad 43"],"expected":"ld b, e\n","broken":false},{"name":"gb: d \"ld b, h\" 44","file":"-","args":"-a gb","commands":["pad 44"],"expected":"ld b, h\n","broken":false},{"name":"gb: d \"ld b, l\" 45","file":"-","args":"-a gb","commands":["pad 45"],"expected":"ld b, l\n","broken":false},{"name":"gb: d \"ld bc, 0x0000\" 010000","file":"-","args":"-a gb","commands":["pad 010000"],"expected":"ld bc, 0x0000\n","broken":false},{"name":"gb: d \"ld c, 0x00\" 0e00","file":"-","args":"-a gb","commands":["pad 0e00"],"expected":"ld c, 0x00\n","broken":false},{"name":"gb: d \"ld c, [hl]\" 4e","file":"-","args":"-a gb","commands":["pad 4e"],"expected":"ld c, [hl]\n","broken":false},{"name":"gb: d \"ld c, a\" 4f","file":"-","args":"-a gb","commands":["pad 4f"],"expected":"ld c, a\n","broken":false},{"name":"gb: d \"ld c, b\" 48","file":"-","args":"-a gb","commands":["pad 48"],"expected":"ld c, b\n","broken":false},{"name":"gb: d \"ld c, c\" 49","file":"-","args":"-a gb","commands":["pad 49"],"expected":"ld c, c\n","broken":false},{"name":"gb: d \"ld c, d\" 4a","file":"-","args":"-a gb","commands":["pad 4a"],"expected":"ld c, d\n","broken":false},{"name":"gb: d \"ld c, e\" 4b","file":"-","args":"-a gb","commands":["pad 4b"],"expected":"ld c, e\n","broken":false},{"name":"gb: d \"ld c, h\" 4c","file":"-","args":"-a gb","commands":["pad 4c"],"expected":"ld c, h\n","broken":false},{"name":"gb: d \"ld c, l\" 4d","file":"-","args":"-a gb","commands":["pad 4d"],"expected":"ld c, l\n","broken":false},{"name":"gb: d \"ld d, 0x00\" 1600","file":"-","args":"-a gb","commands":["pad 1600"],"expected":"ld d, 0x00\n","broken":false},{"name":"gb: d \"ld d, [hl]\" 56","file":"-","args":"-a gb","commands":["pad 56"],"expected":"ld d, [hl]\n","broken":false},{"name":"gb: d \"ld d, a\" 57","file":"-","args":"-a gb","commands":["pad 57"],"expected":"ld d, a\n","broken":false},{"name":"gb: d \"ld d, b\" 50","file":"-","args":"-a gb","commands":["pad 50"],"expected":"ld d, b\n","broken":false},{"name":"gb: d \"ld d, c\" 51","file":"-","args":"-a gb","commands":["pad 51"],"expected":"ld d, c\n","broken":false},{"name":"gb: d \"ld d, d\" 52","file":"-","args":"-a gb","commands":["pad 52"],"expected":"ld d, d\n","broken":false},{"name":"gb: d \"ld d, e\" 53","file":"-","args":"-a gb","commands":["pad 53"],"expected":"ld d, e\n","broken":false},{"name":"gb: d \"ld d, h\" 54","file":"-","args":"-a gb","commands":["pad 54"],"expected":"ld d, h\n","broken":false},{"name":"gb: d \"ld d, l\" 55","file":"-","args":"-a gb","commands":["pad 55"],"expected":"ld d, l\n","broken":false},{"name":"gb: d \"ld de, 0x0000\" 110000","file":"-","args":"-a gb","commands":["pad 110000"],"expected":"ld de, 0x0000\n","broken":false},{"name":"gb: d \"ld e, 0x00\" 1e00","file":"-","args":"-a gb","commands":["pad 1e00"],"expected":"ld e, 0x00\n","broken":false},{"name":"gb: d \"ld e, [hl]\" 5e","file":"-","args":"-a gb","commands":["pad 5e"],"expected":"ld e, [hl]\n","broken":false},{"name":"gb: d \"ld e, a\" 5f","file":"-","args":"-a gb","commands":["pad 5f"],"expected":"ld e, a\n","broken":false},{"name":"gb: d \"ld e, b\" 58","file":"-","args":"-a gb","commands":["pad 58"],"expected":"ld e, b\n","broken":false},{"name":"gb: d \"ld e, c\" 59","file":"-","args":"-a gb","commands":["pad 59"],"expected":"ld e, c\n","broken":false},{"name":"gb: d \"ld e, d\" 5a","file":"-","args":"-a gb","commands":["pad 5a"],"expected":"ld e, d\n","broken":false},{"name":"gb: d \"ld e, e\" 5b","file":"-","args":"-a gb","commands":["pad 5b"],"expected":"ld e, e\n","broken":false},{"name":"gb: d \"ld e, h\" 5c","file":"-","args":"-a gb","commands":["pad 5c"],"expected":"ld e, h\n","broken":false},{"name":"gb: d \"ld e, l\" 5d","file":"-","args":"-a gb","commands":["pad 5d"],"expected":"ld e, l\n","broken":false},{"name":"gb: d \"ld h, 0x00\" 2600","file":"-","args":"-a gb","commands":["pad 2600"],"expected":"ld h, 0x00\n","broken":false},{"name":"gb: d \"ld h, [hl]\" 66","file":"-","args":"-a gb","commands":["pad 66"],"expected":"ld h, [hl]\n","broken":false},{"name":"gb: d \"ld h, a\" 67","file":"-","args":"-a gb","commands":["pad 67"],"expected":"ld h, a\n","broken":false},{"name":"gb: d \"ld h, b\" 60","file":"-","args":"-a gb","commands":["pad 60"],"expected":"ld h, b\n","broken":false},{"name":"gb: d \"ld h, c\" 61","file":"-","args":"-a gb","commands":["pad 61"],"expected":"ld h, c\n","broken":false},{"name":"gb: d \"ld h, d\" 62","file":"-","args":"-a gb","commands":["pad 62"],"expected":"ld h, d\n","broken":false},{"name":"gb: d \"ld h, e\" 63","file":"-","args":"-a gb","commands":["pad 63"],"expected":"ld h, e\n","broken":false},{"name":"gb: d \"ld h, h\" 64","file":"-","args":"-a gb","commands":["pad 64"],"expected":"ld h, h\n","broken":false},{"name":"gb: d \"ld h, l\" 65","file":"-","args":"-a gb","commands":["pad 65"],"expected":"ld h, l\n","broken":false},{"name":"gb: d \"ld hl, 0x0000\" 210000","file":"-","args":"-a gb","commands":["pad 210000"],"expected":"ld hl, 0x0000\n","broken":false},{"name":"gb: d \"ld hl, sp + 0x00\" f800","file":"-","args":"-a gb","commands":["pad f800"],"expected":"ld hl, sp + 0x00\n","broken":false},{"name":"gb: d \"ld l, 0x00\" 2e00","file":"-","args":"-a gb","commands":["pad 2e00"],"expected":"ld l, 0x00\n","broken":false},{"name":"gb: d \"ld l, [hl]\" 6e","file":"-","args":"-a gb","commands":["pad 6e"],"expected":"ld l, [hl]\n","broken":false},{"name":"gb: d \"ld l, a\" 6f","file":"-","args":"-a gb","commands":["pad 6f"],"expected":"ld l, a\n","broken":false},{"name":"gb: d \"ld l, b\" 68","file":"-","args":"-a gb","commands":["pad 68"],"expected":"ld l, b\n","broken":false},{"name":"gb: d \"ld l, c\" 69","file":"-","args":"-a gb","commands":["pad 69"],"expected":"ld l, c\n","broken":false},{"name":"gb: d \"ld l, d\" 6a","file":"-","args":"-a gb","commands":["pad 6a"],"expected":"ld l, d\n","broken":false},{"name":"gb: d \"ld l, e\" 6b","file":"-","args":"-a gb","commands":["pad 6b"],"expected":"ld l, e\n","broken":false},{"name":"gb: d \"ld l, h\" 6c","file":"-","args":"-a gb","commands":["pad 6c"],"expected":"ld l, h\n","broken":false},{"name":"gb: d \"ld l, l\" 6d","file":"-","args":"-a gb","commands":["pad 6d"],"expected":"ld l, l\n","broken":false},{"name":"gb: d \"ld sp, 0x0000\" 310000","file":"-","args":"-a gb","commands":["pad 310000"],"expected":"ld sp, 0x0000\n","broken":false},{"name":"gb: d \"ld sp, hl\" f9","file":"-","args":"-a gb","commands":["pad f9"],"expected":"ld sp, hl\n","broken":false},{"name":"gb: d \"ldd [hl], a\" 32","file":"-","args":"-a gb","commands":["pad 32"],"expected":"ldd [hl], a\n","broken":false},{"name":"gb: d \"ldd a, [hl]\" 3a","file":"-","args":"-a gb","commands":["pad 3a"],"expected":"ldd a, [hl]\n","broken":false},{"name":"gb: d \"ldi [hl], a\" 22","file":"-","args":"-a gb","commands":["pad 22"],"expected":"ldi [hl], a\n","broken":false},{"name":"gb: d \"ldi a, [hl]\" 2a","file":"-","args":"-a gb","commands":["pad 2a"],"expected":"ldi a, [hl]\n","broken":false},{"name":"gb: d \"nop\" 00","file":"-","args":"-a gb","commands":["pad 00"],"expected":"nop\n","broken":false},{"name":"gb: d \"or 0x00\" f600","file":"-","args":"-a gb","commands":["pad f600"],"expected":"or 0x00\n","broken":false},{"name":"gb: d \"or [hl]\" b6","file":"-","args":"-a gb","commands":["pad b6"],"expected":"or [hl]\n","broken":false},{"name":"gb: d \"or a\" b7","file":"-","args":"-a gb","commands":["pad b7"],"expected":"or a\n","broken":false},{"name":"gb: d \"or b\" b0","file":"-","args":"-a gb","commands":["pad b0"],"expected":"or b\n","broken":false},{"name":"gb: d \"or c\" b1","file":"-","args":"-a gb","commands":["pad b1"],"expected":"or c\n","broken":false},{"name":"gb: d \"or d\" b2","file":"-","args":"-a gb","commands":["pad b2"],"expected":"or d\n","broken":false},{"name":"gb: d \"or e\" b3","file":"-","args":"-a gb","commands":["pad b3"],"expected":"or e\n","broken":false},{"name":"gb: d \"or h\" b4","file":"-","args":"-a gb","commands":["pad b4"],"expected":"or h\n","broken":false},{"name":"gb: d \"or l\" b5","file":"-","args":"-a gb","commands":["pad b5"],"expected":"or l\n","broken":false},{"name":"gb: d \"pop af\" f1","file":"-","args":"-a gb","commands":["pad f1"],"expected":"pop af\n","broken":false},{"name":"gb: d \"pop bc\" c1","file":"-","args":"-a gb","commands":["pad c1"],"expected":"pop bc\n","broken":false},{"name":"gb: d \"pop de\" d1","file":"-","args":"-a gb","commands":["pad d1"],"expected":"pop de\n","broken":false},{"name":"gb: d \"pop hl\" e1","file":"-","args":"-a gb","commands":["pad e1"],"expected":"pop hl\n","broken":false},{"name":"gb: d \"push af\" f5","file":"-","args":"-a gb","commands":["pad f5"],"expected":"push af\n","broken":false},{"name":"gb: d \"push bc\" c5","file":"-","args":"-a gb","commands":["pad c5"],"expected":"push bc\n","broken":false},{"name":"gb: d \"push de\" d5","file":"-","args":"-a gb","commands":["pad d5"],"expected":"push de\n","broken":false},{"name":"gb: d \"push hl\" e5","file":"-","args":"-a gb","commands":["pad e5"],"expected":"push hl\n","broken":false},{"name":"gb: d \"res 0, [hl]\" cb86","file":"-","args":"-a gb","commands":["pad cb86"],"expected":"res 0, [hl]\n","broken":false},{"name":"gb: d \"res 0, a\" cb87","file":"-","args":"-a gb","commands":["pad cb87"],"expected":"res 0, a\n","broken":false},{"name":"gb: d \"res 0, b\" cb80","file":"-","args":"-a gb","commands":["pad cb80"],"expected":"res 0, b\n","broken":false},{"name":"gb: d \"res 0, c\" cb81","file":"-","args":"-a gb","commands":["pad cb81"],"expected":"res 0, c\n","broken":false},{"name":"gb: d \"res 0, d\" cb82","file":"-","args":"-a gb","commands":["pad cb82"],"expected":"res 0, d\n","broken":false},{"name":"gb: d \"res 0, e\" cb83","file":"-","args":"-a gb","commands":["pad cb83"],"expected":"res 0, e\n","broken":false},{"name":"gb: d \"res 0, h\" cb84","file":"-","args":"-a gb","commands":["pad cb84"],"expected":"res 0, h\n","broken":false},{"name":"gb: d \"res 0, l\" cb85","file":"-","args":"-a gb","commands":["pad cb85"],"expected":"res 0, l\n","broken":false},{"name":"gb: d \"res 1, [hl]\" cb8e","file":"-","args":"-a gb","commands":["pad cb8e"],"expected":"res 1, [hl]\n","broken":false},{"name":"gb: d \"res 1, a\" cb8f","file":"-","args":"-a gb","commands":["pad cb8f"],"expected":"res 1, a\n","broken":false},{"name":"gb: d \"res 1, b\" cb88","file":"-","args":"-a gb","commands":["pad cb88"],"expected":"res 1, b\n","broken":false},{"name":"gb: d \"res 1, c\" cb89","file":"-","args":"-a gb","commands":["pad cb89"],"expected":"res 1, c\n","broken":false},{"name":"gb: d \"res 1, d\" cb8a","file":"-","args":"-a gb","commands":["pad cb8a"],"expected":"res 1, d\n","broken":false},{"name":"gb: d \"res 1, e\" cb8b","file":"-","args":"-a gb","commands":["pad cb8b"],"expected":"res 1, e\n","broken":false},{"name":"gb: d \"res 1, h\" cb8c","file":"-","args":"-a gb","commands":["pad cb8c"],"expected":"res 1, h\n","broken":false},{"name":"gb: d \"res 1, l\" cb8d","file":"-","args":"-a gb","commands":["pad cb8d"],"expected":"res 1, l\n","broken":false},{"name":"gb: d \"res 2, [hl]\" cb96","file":"-","args":"-a gb","commands":["pad cb96"],"expected":"res 2, [hl]\n","broken":false},{"name":"gb: d \"res 2, a\" cb97","file":"-","args":"-a gb","commands":["pad cb97"],"expected":"res 2, a\n","broken":false},{"name":"gb: d \"res 2, b\" cb90","file":"-","args":"-a gb","commands":["pad cb90"],"expected":"res 2, b\n","broken":false},{"name":"gb: d \"res 2, c\" cb91","file":"-","args":"-a gb","commands":["pad cb91"],"expected":"res 2, c\n","broken":false},{"name":"gb: d \"res 2, d\" cb92","file":"-","args":"-a gb","commands":["pad cb92"],"expected":"res 2, d\n","broken":false},{"name":"gb: d \"res 2, e\" cb93","file":"-","args":"-a gb","commands":["pad cb93"],"expected":"res 2, e\n","broken":false},{"name":"gb: d \"res 2, h\" cb94","file":"-","args":"-a gb","commands":["pad cb94"],"expected":"res 2, h\n","broken":false},{"name":"gb: d \"res 2, l\" cb95","file":"-","args":"-a gb","commands":["pad cb95"],"expected":"res 2, l\n","broken":false},{"name":"gb: d \"res 3, [hl]\" cb9e","file":"-","args":"-a gb","commands":["pad cb9e"],"expected":"res 3, [hl]\n","broken":false},{"name":"gb: d \"res 3, a\" cb9f","file":"-","args":"-a gb","commands":["pad cb9f"],"expected":"res 3, a\n","broken":false},{"name":"gb: d \"res 3, b\" cb98","file":"-","args":"-a gb","commands":["pad cb98"],"expected":"res 3, b\n","broken":false},{"name":"gb: d \"res 3, c\" cb99","file":"-","args":"-a gb","commands":["pad cb99"],"expected":"res 3, c\n","broken":false},{"name":"gb: d \"res 3, d\" cb9a","file":"-","args":"-a gb","commands":["pad cb9a"],"expected":"res 3, d\n","broken":false},{"name":"gb: d \"res 3, e\" cb9b","file":"-","args":"-a gb","commands":["pad cb9b"],"expected":"res 3, e\n","broken":false},{"name":"gb: d \"res 3, h\" cb9c","file":"-","args":"-a gb","commands":["pad cb9c"],"expected":"res 3, h\n","broken":false},{"name":"gb: d \"res 3, l\" cb9d","file":"-","args":"-a gb","commands":["pad cb9d"],"expected":"res 3, l\n","broken":false},{"name":"gb: d \"res 4, [hl]\" cba6","file":"-","args":"-a gb","commands":["pad cba6"],"expected":"res 4, [hl]\n","broken":false},{"name":"gb: d \"res 4, a\" cba7","file":"-","args":"-a gb","commands":["pad cba7"],"expected":"res 4, a\n","broken":false},{"name":"gb: d \"res 4, b\" cba0","file":"-","args":"-a gb","commands":["pad cba0"],"expected":"res 4, b\n","broken":false},{"name":"gb: d \"res 4, c\" cba1","file":"-","args":"-a gb","commands":["pad cba1"],"expected":"res 4, c\n","broken":false},{"name":"gb: d \"res 4, d\" cba2","file":"-","args":"-a gb","commands":["pad cba2"],"expected":"res 4, d\n","broken":false},{"name":"gb: d \"res 4, e\" cba3","file":"-","args":"-a gb","commands":["pad cba3"],"expected":"res 4, e\n","broken":false},{"name":"gb: d \"res 4, h\" cba4","file":"-","args":"-a gb","commands":["pad cba4"],"expected":"res 4, h\n","broken":false},{"name":"gb: d \"res 4, l\" cba5","file":"-","args":"-a gb","commands":["pad cba5"],"expected":"res 4, l\n","broken":false},{"name":"gb: d \"res 5, [hl]\" cbae","file":"-","args":"-a gb","commands":["pad cbae"],"expected":"res 5, [hl]\n","broken":false},{"name":"gb: d \"res 5, a\" cbaf","file":"-","args":"-a gb","commands":["pad cbaf"],"expected":"res 5, a\n","broken":false},{"name":"gb: d \"res 5, b\" cba8","file":"-","args":"-a gb","commands":["pad cba8"],"expected":"res 5, b\n","broken":false},{"name":"gb: d \"res 5, c\" cba9","file":"-","args":"-a gb","commands":["pad cba9"],"expected":"res 5, c\n","broken":false},{"name":"gb: d \"res 5, d\" cbaa","file":"-","args":"-a gb","commands":["pad cbaa"],"expected":"res 5, d\n","broken":false},{"name":"gb: d \"res 5, e\" cbab","file":"-","args":"-a gb","commands":["pad cbab"],"expected":"res 5, e\n","broken":false},{"name":"gb: d \"res 5, h\" cbac","file":"-","args":"-a gb","commands":["pad cbac"],"expected":"res 5, h\n","broken":false},{"name":"gb: d \"res 5, l\" cbad","file":"-","args":"-a gb","commands":["pad cbad"],"expected":"res 5, l\n","broken":false},{"name":"gb: d \"res 6, [hl]\" cbb6","file":"-","args":"-a gb","commands":["pad cbb6"],"expected":"res 6, [hl]\n","broken":false},{"name":"gb: d \"res 6, a\" cbb7","file":"-","args":"-a gb","commands":["pad cbb7"],"expected":"res 6, a\n","broken":false},{"name":"gb: d \"res 6, b\" cbb0","file":"-","args":"-a gb","commands":["pad cbb0"],"expected":"res 6, b\n","broken":false},{"name":"gb: d \"res 6, c\" cbb1","file":"-","args":"-a gb","commands":["pad cbb1"],"expected":"res 6, c\n","broken":false},{"name":"gb: d \"res 6, d\" cbb2","file":"-","args":"-a gb","commands":["pad cbb2"],"expected":"res 6, d\n","broken":false},{"name":"gb: d \"res 6, e\" cbb3","file":"-","args":"-a gb","commands":["pad cbb3"],"expected":"res 6, e\n","broken":false},{"name":"gb: d \"res 6, h\" cbb4","file":"-","args":"-a gb","commands":["pad cbb4"],"expected":"res 6, h\n","broken":false},{"name":"gb: d \"res 6, l\" cbb5","file":"-","args":"-a gb","commands":["pad cbb5"],"expected":"res 6, l\n","broken":false},{"name":"gb: d \"res 7, [hl]\" cbbe","file":"-","args":"-a gb","commands":["pad cbbe"],"expected":"res 7, [hl]\n","broken":false},{"name":"gb: d \"res 7, a\" cbbf","file":"-","args":"-a gb","commands":["pad cbbf"],"expected":"res 7, a\n","broken":false},{"name":"gb: d \"res 7, b\" cbb8","file":"-","args":"-a gb","commands":["pad cbb8"],"expected":"res 7, b\n","broken":false},{"name":"gb: d \"res 7, c\" cbb9","file":"-","args":"-a gb","commands":["pad cbb9"],"expected":"res 7, c\n","broken":false},{"name":"gb: d \"res 7, d\" cbba","file":"-","args":"-a gb","commands":["pad cbba"],"expected":"res 7, d\n","broken":false},{"name":"gb: d \"res 7, e\" cbbb","file":"-","args":"-a gb","commands":["pad cbbb"],"expected":"res 7, e\n","broken":false},{"name":"gb: d \"res 7, h\" cbbc","file":"-","args":"-a gb","commands":["pad cbbc"],"expected":"res 7, h\n","broken":false},{"name":"gb: d \"res 7, l\" cbbd","file":"-","args":"-a gb","commands":["pad cbbd"],"expected":"res 7, l\n","broken":false},{"name":"gb: d \"ret C\" d8","file":"-","args":"-a gb","commands":["pad d8"],"expected":"ret C\n","broken":false},{"name":"gb: d \"ret Z\" c8","file":"-","args":"-a gb","commands":["pad c8"],"expected":"ret Z\n","broken":false},{"name":"gb: d \"ret nC\" d0","file":"-","args":"-a gb","commands":["pad d0"],"expected":"ret nC\n","broken":false},{"name":"gb: d \"ret nZ\" c0","file":"-","args":"-a gb","commands":["pad c0"],"expected":"ret nZ\n","broken":false},{"name":"gb: d \"ret\" c9","file":"-","args":"-a gb","commands":["pad c9"],"expected":"ret\n","broken":false},{"name":"gb: d \"reti\" d9","file":"-","args":"-a gb","commands":["pad d9"],"expected":"reti\n","broken":false},{"name":"gb: d \"rl [hl]\" cb16","file":"-","args":"-a gb","commands":["pad cb16"],"expected":"rl [hl]\n","broken":false},{"name":"gb: d \"rl a\" cb17","file":"-","args":"-a gb","commands":["pad cb17"],"expected":"rl a\n","broken":false},{"name":"gb: d \"rl b\" cb10","file":"-","args":"-a gb","commands":["pad cb10"],"expected":"rl b\n","broken":false},{"name":"gb: d \"rl c\" cb11","file":"-","args":"-a gb","commands":["pad cb11"],"expected":"rl c\n","broken":false},{"name":"gb: d \"rl d\" cb12","file":"-","args":"-a gb","commands":["pad cb12"],"expected":"rl d\n","broken":false},{"name":"gb: d \"rl e\" cb13","file":"-","args":"-a gb","commands":["pad cb13"],"expected":"rl e\n","broken":false},{"name":"gb: d \"rl h\" cb14","file":"-","args":"-a gb","commands":["pad cb14"],"expected":"rl h\n","broken":false},{"name":"gb: d \"rl l\" cb15","file":"-","args":"-a gb","commands":["pad cb15"],"expected":"rl l\n","broken":false},{"name":"gb: d \"rla\" 17","file":"-","args":"-a gb","commands":["pad 17"],"expected":"rla\n","broken":false},{"name":"gb: d \"rlc [hl]\" cb06","file":"-","args":"-a gb","commands":["pad cb06"],"expected":"rlc [hl]\n","broken":false},{"name":"gb: d \"rlc a\" cb07","file":"-","args":"-a gb","commands":["pad cb07"],"expected":"rlc a\n","broken":false},{"name":"gb: d \"rlc b\" cb00","file":"-","args":"-a gb","commands":["pad cb00"],"expected":"rlc b\n","broken":false},{"name":"gb: d \"rlc c\" cb01","file":"-","args":"-a gb","commands":["pad cb01"],"expected":"rlc c\n","broken":false},{"name":"gb: d \"rlc d\" cb02","file":"-","args":"-a gb","commands":["pad cb02"],"expected":"rlc d\n","broken":false},{"name":"gb: d \"rlc e\" cb03","file":"-","args":"-a gb","commands":["pad cb03"],"expected":"rlc e\n","broken":false},{"name":"gb: d \"rlc h\" cb04","file":"-","args":"-a gb","commands":["pad cb04"],"expected":"rlc h\n","broken":false},{"name":"gb: d \"rlc l\" cb05","file":"-","args":"-a gb","commands":["pad cb05"],"expected":"rlc l\n","broken":false},{"name":"gb: d \"rlca\" 07","file":"-","args":"-a gb","commands":["pad 07"],"expected":"rlca\n","broken":false},{"name":"gb: d \"rr [hl]\" cb1e","file":"-","args":"-a gb","commands":["pad cb1e"],"expected":"rr [hl]\n","broken":false},{"name":"gb: d \"rr a\" cb1f","file":"-","args":"-a gb","commands":["pad cb1f"],"expected":"rr a\n","broken":false},{"name":"gb: d \"rr b\" cb18","file":"-","args":"-a gb","commands":["pad cb18"],"expected":"rr b\n","broken":false},{"name":"gb: d \"rr c\" cb19","file":"-","args":"-a gb","commands":["pad cb19"],"expected":"rr c\n","broken":false},{"name":"gb: d \"rr d\" cb1a","file":"-","args":"-a gb","commands":["pad cb1a"],"expected":"rr d\n","broken":false},{"name":"gb: d \"rr e\" cb1b","file":"-","args":"-a gb","commands":["pad cb1b"],"expected":"rr e\n","broken":false},{"name":"gb: d \"rr h\" cb1c","file":"-","args":"-a gb","commands":["pad cb1c"],"expected":"rr h\n","broken":false},{"name":"gb: d \"rr l\" cb1d","file":"-","args":"-a gb","commands":["pad cb1d"],"expected":"rr l\n","broken":false},{"name":"gb: d \"rra\" 1f","file":"-","args":"-a gb","commands":["pad 1f"],"expected":"rra\n","broken":false},{"name":"gb: d \"rrc [hl]\" cb0e","file":"-","args":"-a gb","commands":["pad cb0e"],"expected":"rrc [hl]\n","broken":false},{"name":"gb: d \"rrc a\" cb0f","file":"-","args":"-a gb","commands":["pad cb0f"],"expected":"rrc a\n","broken":false},{"name":"gb: d \"rrc b\" cb08","file":"-","args":"-a gb","commands":["pad cb08"],"expected":"rrc b\n","broken":false},{"name":"gb: d \"rrc c\" cb09","file":"-","args":"-a gb","commands":["pad cb09"],"expected":"rrc c\n","broken":false},{"name":"gb: d \"rrc d\" cb0a","file":"-","args":"-a gb","commands":["pad cb0a"],"expected":"rrc d\n","broken":false},{"name":"gb: d \"rrc e\" cb0b","file":"-","args":"-a gb","commands":["pad cb0b"],"expected":"rrc e\n","broken":false},{"name":"gb: d \"rrc h\" cb0c","file":"-","args":"-a gb","commands":["pad cb0c"],"expected":"rrc h\n","broken":false},{"name":"gb: d \"rrc l\" cb0d","file":"-","args":"-a gb","commands":["pad cb0d"],"expected":"rrc l\n","broken":false},{"name":"gb: d \"rrca\" 0f","file":"-","args":"-a gb","commands":["pad 0f"],"expected":"rrca\n","broken":false},{"name":"gb: d \"rst 0\" c7","file":"-","args":"-a gb","commands":["pad c7"],"expected":"rst 0\n","broken":false},{"name":"gb: d \"rst 16\" d7","file":"-","args":"-a gb","commands":["pad d7"],"expected":"rst 16\n","broken":false},{"name":"gb: d \"rst 24\" df","file":"-","args":"-a gb","commands":["pad df"],"expected":"rst 24\n","broken":false},{"name":"gb: d \"rst 32\" e7","file":"-","args":"-a gb","commands":["pad e7"],"expected":"rst 32\n","broken":false},{"name":"gb: d \"rst 40\" ef","file":"-","args":"-a gb","commands":["pad ef"],"expected":"rst 40\n","broken":false},{"name":"gb: d \"rst 48\" f7","file":"-","args":"-a gb","commands":["pad f7"],"expected":"rst 48\n","broken":false},{"name":"gb: d \"rst 56\" ff","file":"-","args":"-a gb","commands":["pad ff"],"expected":"rst 56\n","broken":false},{"name":"gb: d \"rst 8\" cf","file":"-","args":"-a gb","commands":["pad cf"],"expected":"rst 8\n","broken":false},{"name":"gb: d \"sbc 0x00\" de00","file":"-","args":"-a gb","commands":["pad de00"],"expected":"sbc 0x00\n","broken":false},{"name":"gb: d \"sbc [hl]\" 9e","file":"-","args":"-a gb","commands":["pad 9e"],"expected":"sbc [hl]\n","broken":false},{"name":"gb: d \"sbc a\" 9f","file":"-","args":"-a gb","commands":["pad 9f"],"expected":"sbc a\n","broken":false},{"name":"gb: d \"sbc b\" 98","file":"-","args":"-a gb","commands":["pad 98"],"expected":"sbc b\n","broken":false},{"name":"gb: d \"sbc c\" 99","file":"-","args":"-a gb","commands":["pad 99"],"expected":"sbc c\n","broken":false},{"name":"gb: d \"sbc d\" 9a","file":"-","args":"-a gb","commands":["pad 9a"],"expected":"sbc d\n","broken":false},{"name":"gb: d \"sbc e\" 9b","file":"-","args":"-a gb","commands":["pad 9b"],"expected":"sbc e\n","broken":false},{"name":"gb: d \"sbc h\" 9c","file":"-","args":"-a gb","commands":["pad 9c"],"expected":"sbc h\n","broken":false},{"name":"gb: d \"sbc l\" 9d","file":"-","args":"-a gb","commands":["pad 9d"],"expected":"sbc l\n","broken":false},{"name":"gb: d \"scf\" 37","file":"-","args":"-a gb","commands":["pad 37"],"expected":"scf\n","broken":false},{"name":"gb: d \"set 0, [hl]\" cbc6","file":"-","args":"-a gb","commands":["pad cbc6"],"expected":"set 0, [hl]\n","broken":false},{"name":"gb: d \"set 0, a\" cbc7","file":"-","args":"-a gb","commands":["pad cbc7"],"expected":"set 0, a\n","broken":false},{"name":"gb: d \"set 0, b\" cbc0","file":"-","args":"-a gb","commands":["pad cbc0"],"expected":"set 0, b\n","broken":false},{"name":"gb: d \"set 0, c\" cbc1","file":"-","args":"-a gb","commands":["pad cbc1"],"expected":"set 0, c\n","broken":false},{"name":"gb: d \"set 0, d\" cbc2","file":"-","args":"-a gb","commands":["pad cbc2"],"expected":"set 0, d\n","broken":false},{"name":"gb: d \"set 0, e\" cbc3","file":"-","args":"-a gb","commands":["pad cbc3"],"expected":"set 0, e\n","broken":false},{"name":"gb: d \"set 0, h\" cbc4","file":"-","args":"-a gb","commands":["pad cbc4"],"expected":"set 0, h\n","broken":false},{"name":"gb: d \"set 0, l\" cbc5","file":"-","args":"-a gb","commands":["pad cbc5"],"expected":"set 0, l\n","broken":false},{"name":"gb: d \"set 1, [hl]\" cbce","file":"-","args":"-a gb","commands":["pad cbce"],"expected":"set 1, [hl]\n","broken":false},{"name":"gb: d \"set 1, a\" cbcf","file":"-","args":"-a gb","commands":["pad cbcf"],"expected":"set 1, a\n","broken":false},{"name":"gb: d \"set 1, b\" cbc8","file":"-","args":"-a gb","commands":["pad cbc8"],"expected":"set 1, b\n","broken":false},{"name":"gb: d \"set 1, c\" cbc9","file":"-","args":"-a gb","commands":["pad cbc9"],"expected":"set 1, c\n","broken":false},{"name":"gb: d \"set 1, d\" cbca","file":"-","args":"-a gb","commands":["pad cbca"],"expected":"set 1, d\n","broken":false},{"name":"gb: d \"set 1, e\" cbcb","file":"-","args":"-a gb","commands":["pad cbcb"],"expected":"set 1, e\n","broken":false},{"name":"gb: d \"set 1, h\" cbcc","file":"-","args":"-a gb","commands":["pad cbcc"],"expected":"set 1, h\n","broken":false},{"name":"gb: d \"set 1, l\" cbcd","file":"-","args":"-a gb","commands":["pad cbcd"],"expected":"set 1, l\n","broken":false},{"name":"gb: d \"set 2, [hl]\" cbd6","file":"-","args":"-a gb","commands":["pad cbd6"],"expected":"set 2, [hl]\n","broken":false},{"name":"gb: d \"set 2, a\" cbd7","file":"-","args":"-a gb","commands":["pad cbd7"],"expected":"set 2, a\n","broken":false},{"name":"gb: d \"set 2, b\" cbd0","file":"-","args":"-a gb","commands":["pad cbd0"],"expected":"set 2, b\n","broken":false},{"name":"gb: d \"set 2, c\" cbd1","file":"-","args":"-a gb","commands":["pad cbd1"],"expected":"set 2, c\n","broken":false},{"name":"gb: d \"set 2, d\" cbd2","file":"-","args":"-a gb","commands":["pad cbd2"],"expected":"set 2, d\n","broken":false},{"name":"gb: d \"set 2, e\" cbd3","file":"-","args":"-a gb","commands":["pad cbd3"],"expected":"set 2, e\n","broken":false},{"name":"gb: d \"set 2, h\" cbd4","file":"-","args":"-a gb","commands":["pad cbd4"],"expected":"set 2, h\n","broken":false},{"name":"gb: d \"set 2, l\" cbd5","file":"-","args":"-a gb","commands":["pad cbd5"],"expected":"set 2, l\n","broken":false},{"name":"gb: d \"set 3, [hl]\" cbde","file":"-","args":"-a gb","commands":["pad cbde"],"expected":"set 3, [hl]\n","broken":false},{"name":"gb: d \"set 3, a\" cbdf","file":"-","args":"-a gb","commands":["pad cbdf"],"expected":"set 3, a\n","broken":false},{"name":"gb: d \"set 3, b\" cbd8","file":"-","args":"-a gb","commands":["pad cbd8"],"expected":"set 3, b\n","broken":false},{"name":"gb: d \"set 3, c\" cbd9","file":"-","args":"-a gb","commands":["pad cbd9"],"expected":"set 3, c\n","broken":false},{"name":"gb: d \"set 3, d\" cbda","file":"-","args":"-a gb","commands":["pad cbda"],"expected":"set 3, d\n","broken":false},{"name":"gb: d \"set 3, e\" cbdb","file":"-","args":"-a gb","commands":["pad cbdb"],"expected":"set 3, e\n","broken":false},{"name":"gb: d \"set 3, h\" cbdc","file":"-","args":"-a gb","commands":["pad cbdc"],"expected":"set 3, h\n","broken":false},{"name":"gb: d \"set 3, l\" cbdd","file":"-","args":"-a gb","commands":["pad cbdd"],"expected":"set 3, l\n","broken":false},{"name":"gb: d \"set 4, [hl]\" cbe6","file":"-","args":"-a gb","commands":["pad cbe6"],"expected":"set 4, [hl]\n","broken":false},{"name":"gb: d \"set 4, a\" cbe7","file":"-","args":"-a gb","commands":["pad cbe7"],"expected":"set 4, a\n","broken":false},{"name":"gb: d \"set 4, b\" cbe0","file":"-","args":"-a gb","commands":["pad cbe0"],"expected":"set 4, b\n","broken":false},{"name":"gb: d \"set 4, c\" cbe1","file":"-","args":"-a gb","commands":["pad cbe1"],"expected":"set 4, c\n","broken":false},{"name":"gb: d \"set 4, d\" cbe2","file":"-","args":"-a gb","commands":["pad cbe2"],"expected":"set 4, d\n","broken":false},{"name":"gb: d \"set 4, e\" cbe3","file":"-","args":"-a gb","commands":["pad cbe3"],"expected":"set 4, e\n","broken":false},{"name":"gb: d \"set 4, h\" cbe4","file":"-","args":"-a gb","commands":["pad cbe4"],"expected":"set 4, h\n","broken":false},{"name":"gb: d \"set 4, l\" cbe5","file":"-","args":"-a gb","commands":["pad cbe5"],"expected":"set 4, l\n","broken":false},{"name":"gb: d \"set 5, [hl]\" cbee","file":"-","args":"-a gb","commands":["pad cbee"],"expected":"set 5, [hl]\n","broken":false},{"name":"gb: d \"set 5, a\" cbef","file":"-","args":"-a gb","commands":["pad cbef"],"expected":"set 5, a\n","broken":false},{"name":"gb: d \"set 5, b\" cbe8","file":"-","args":"-a gb","commands":["pad cbe8"],"expected":"set 5, b\n","broken":false},{"name":"gb: d \"set 5, c\" cbe9","file":"-","args":"-a gb","commands":["pad cbe9"],"expected":"set 5, c\n","broken":false},{"name":"gb: d \"set 5, d\" cbea","file":"-","args":"-a gb","commands":["pad cbea"],"expected":"set 5, d\n","broken":false},{"name":"gb: d \"set 5, e\" cbeb","file":"-","args":"-a gb","commands":["pad cbeb"],"expected":"set 5, e\n","broken":false},{"name":"gb: d \"set 5, h\" cbec","file":"-","args":"-a gb","commands":["pad cbec"],"expected":"set 5, h\n","broken":false},{"name":"gb: d \"set 5, l\" cbed","file":"-","args":"-a gb","commands":["pad cbed"],"expected":"set 5, l\n","broken":false},{"name":"gb: d \"set 6, [hl]\" cbf6","file":"-","args":"-a gb","commands":["pad cbf6"],"expected":"set 6, [hl]\n","broken":false},{"name":"gb: d \"set 6, a\" cbf7","file":"-","args":"-a gb","commands":["pad cbf7"],"expected":"set 6, a\n","broken":false},{"name":"gb: d \"set 6, b\" cbf0","file":"-","args":"-a gb","commands":["pad cbf0"],"expected":"set 6, b\n","broken":false},{"name":"gb: d \"set 6, c\" cbf1","file":"-","args":"-a gb","commands":["pad cbf1"],"expected":"set 6, c\n","broken":false},{"name":"gb: d \"set 6, d\" cbf2","file":"-","args":"-a gb","commands":["pad cbf2"],"expected":"set 6, d\n","broken":false},{"name":"gb: d \"set 6, e\" cbf3","file":"-","args":"-a gb","commands":["pad cbf3"],"expected":"set 6, e\n","broken":false},{"name":"gb: d \"set 6, h\" cbf4","file":"-","args":"-a gb","commands":["pad cbf4"],"expected":"set 6, h\n","broken":false},{"name":"gb: d \"set 6, l\" cbf5","file":"-","args":"-a gb","commands":["pad cbf5"],"expected":"set 6, l\n","broken":false},{"name":"gb: d \"set 7, [hl]\" cbfe","file":"-","args":"-a gb","commands":["pad cbfe"],"expected":"set 7, [hl]\n","broken":false},{"name":"gb: d \"set 7, a\" cbff","file":"-","args":"-a gb","commands":["pad cbff"],"expected":"set 7, a\n","broken":false},{"name":"gb: d \"set 7, b\" cbf8","file":"-","args":"-a gb","commands":["pad cbf8"],"expected":"set 7, b\n","broken":false},{"name":"gb: d \"set 7, c\" cbf9","file":"-","args":"-a gb","commands":["pad cbf9"],"expected":"set 7, c\n","broken":false},{"name":"gb: d \"set 7, d\" cbfa","file":"-","args":"-a gb","commands":["pad cbfa"],"expected":"set 7, d\n","broken":false},{"name":"gb: d \"set 7, e\" cbfb","file":"-","args":"-a gb","commands":["pad cbfb"],"expected":"set 7, e\n","broken":false},{"name":"gb: d \"set 7, h\" cbfc","file":"-","args":"-a gb","commands":["pad cbfc"],"expected":"set 7, h\n","broken":false},{"name":"gb: d \"set 7, l\" cbfd","file":"-","args":"-a gb","commands":["pad cbfd"],"expected":"set 7, l\n","broken":false},{"name":"gb: d \"sla [hl]\" cb26","file":"-","args":"-a gb","commands":["pad cb26"],"expected":"sla [hl]\n","broken":false},{"name":"gb: d \"sla a\" cb27","file":"-","args":"-a gb","commands":["pad cb27"],"expected":"sla a\n","broken":false},{"name":"gb: d \"sla b\" cb20","file":"-","args":"-a gb","commands":["pad cb20"],"expected":"sla b\n","broken":false},{"name":"gb: d \"sla c\" cb21","file":"-","args":"-a gb","commands":["pad cb21"],"expected":"sla c\n","broken":false},{"name":"gb: d \"sla d\" cb22","file":"-","args":"-a gb","commands":["pad cb22"],"expected":"sla d\n","broken":false},{"name":"gb: d \"sla e\" cb23","file":"-","args":"-a gb","commands":["pad cb23"],"expected":"sla e\n","broken":false},{"name":"gb: d \"sla h\" cb24","file":"-","args":"-a gb","commands":["pad cb24"],"expected":"sla h\n","broken":false},{"name":"gb: d \"sla l\" cb25","file":"-","args":"-a gb","commands":["pad cb25"],"expected":"sla l\n","broken":false},{"name":"gb: d \"sra [hl]\" cb2e","file":"-","args":"-a gb","commands":["pad cb2e"],"expected":"sra [hl]\n","broken":false},{"name":"gb: d \"sra a\" cb2f","file":"-","args":"-a gb","commands":["pad cb2f"],"expected":"sra a\n","broken":false},{"name":"gb: d \"sra b\" cb28","file":"-","args":"-a gb","commands":["pad cb28"],"expected":"sra b\n","broken":false},{"name":"gb: d \"sra c\" cb29","file":"-","args":"-a gb","commands":["pad cb29"],"expected":"sra c\n","broken":false},{"name":"gb: d \"sra d\" cb2a","file":"-","args":"-a gb","commands":["pad cb2a"],"expected":"sra d\n","broken":false},{"name":"gb: d \"sra e\" cb2b","file":"-","args":"-a gb","commands":["pad cb2b"],"expected":"sra e\n","broken":false},{"name":"gb: d \"sra h\" cb2c","file":"-","args":"-a gb","commands":["pad cb2c"],"expected":"sra h\n","broken":false},{"name":"gb: d \"sra l\" cb2d","file":"-","args":"-a gb","commands":["pad cb2d"],"expected":"sra l\n","broken":false},{"name":"gb: d \"srl [hl]\" cb3e","file":"-","args":"-a gb","commands":["pad cb3e"],"expected":"srl [hl]\n","broken":false},{"name":"gb: d \"srl a\" cb3f","file":"-","args":"-a gb","commands":["pad cb3f"],"expected":"srl a\n","broken":false},{"name":"gb: d \"srl b\" cb38","file":"-","args":"-a gb","commands":["pad cb38"],"expected":"srl b\n","broken":false},{"name":"gb: d \"srl c\" cb39","file":"-","args":"-a gb","commands":["pad cb39"],"expected":"srl c\n","broken":false},{"name":"gb: d \"srl d\" cb3a","file":"-","args":"-a gb","commands":["pad cb3a"],"expected":"srl d\n","broken":false},{"name":"gb: d \"srl e\" cb3b","file":"-","args":"-a gb","commands":["pad cb3b"],"expected":"srl e\n","broken":false},{"name":"gb: d \"srl h\" cb3c","file":"-","args":"-a gb","commands":["pad cb3c"],"expected":"srl h\n","broken":false},{"name":"gb: d \"srl l\" cb3d","file":"-","args":"-a gb","commands":["pad cb3d"],"expected":"srl l\n","broken":false},{"name":"gb: d \"stop\" 10","file":"-","args":"-a gb","commands":["pad 10"],"expected":"stop\n","broken":false},{"name":"gb: d \"sub 0x00\" d600","file":"-","args":"-a gb","commands":["pad d600"],"expected":"sub 0x00\n","broken":false},{"name":"gb: d \"sub [hl]\" 96","file":"-","args":"-a gb","commands":["pad 96"],"expected":"sub [hl]\n","broken":false},{"name":"gb: d \"sub a\" 97","file":"-","args":"-a gb","commands":["pad 97"],"expected":"sub a\n","broken":false},{"name":"gb: d \"sub b\" 90","file":"-","args":"-a gb","commands":["pad 90"],"expected":"sub b\n","broken":false},{"name":"gb: d \"sub c\" 91","file":"-","args":"-a gb","commands":["pad 91"],"expected":"sub c\n","broken":false},{"name":"gb: d \"sub d\" 92","file":"-","args":"-a gb","commands":["pad 92"],"expected":"sub d\n","broken":false},{"name":"gb: d \"sub e\" 93","file":"-","args":"-a gb","commands":["pad 93"],"expected":"sub e\n","broken":false},{"name":"gb: d \"sub h\" 94","file":"-","args":"-a gb","commands":["pad 94"],"expected":"sub h\n","broken":false},{"name":"gb: d \"sub l\" 95","file":"-","args":"-a gb","commands":["pad 95"],"expected":"sub l\n","broken":false},{"name":"gb: d \"swap [hl]\" cb36","file":"-","args":"-a gb","commands":["pad cb36"],"expected":"swap [hl]\n","broken":false},{"name":"gb: d \"swap a\" cb37","file":"-","args":"-a gb","commands":["pad cb37"],"expected":"swap a\n","broken":false},{"name":"gb: d \"swap b\" cb30","file":"-","args":"-a gb","commands":["pad cb30"],"expected":"swap b\n","broken":false},{"name":"gb: d \"swap c\" cb31","file":"-","args":"-a gb","commands":["pad cb31"],"expected":"swap c\n","broken":false},{"name":"gb: d \"swap d\" cb32","file":"-","args":"-a gb","commands":["pad cb32"],"expected":"swap d\n","broken":false},{"name":"gb: d \"swap e\" cb33","file":"-","args":"-a gb","commands":["pad cb33"],"expected":"swap e\n","broken":false},{"name":"gb: d \"swap h\" cb34","file":"-","args":"-a gb","commands":["pad cb34"],"expected":"swap h\n","broken":false},{"name":"gb: d \"swap l\" cb35","file":"-","args":"-a gb","commands":["pad cb35"],"expected":"swap l\n","broken":false},{"name":"gb: d \"xor 0x00\" ee00","file":"-","args":"-a gb","commands":["pad ee00"],"expected":"xor 0x00\n","broken":false},{"name":"gb: d \"xor [hl]\" ae","file":"-","args":"-a gb","commands":["pad ae"],"expected":"xor [hl]\n","broken":false},{"name":"gb: d \"xor a\" af","file":"-","args":"-a gb","commands":["pad af"],"expected":"xor a\n","broken":false},{"name":"gb: d \"xor b\" a8","file":"-","args":"-a gb","commands":["pad a8"],"expected":"xor b\n","broken":false},{"name":"gb: d \"xor c\" a9","file":"-","args":"-a gb","commands":["pad a9"],"expected":"xor c\n","broken":false},{"name":"gb: d \"xor d\" aa","file":"-","args":"-a gb","commands":["pad aa"],"expected":"xor d\n","broken":false},{"name":"gb: d \"xor e\" ab","file":"-","args":"-a gb","commands":["pad ab"],"expected":"xor e\n","broken":false},{"name":"gb: d \"xor h\" ac","file":"-","args":"-a gb","commands":["pad ac"],"expected":"xor h\n","broken":false},{"name":"gb: d \"xor l\" ad","file":"-","args":"-a gb","commands":["pad ad"],"expected":"xor l\n","broken":false}]}
+{
+    "type": "asm",
+    "tests": [
+        {
+            "name": "gb: d \"adc 0x00\" ce00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ce00"
+            ],
+            "expected": "adc 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"adc [hl]\" 8e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 8e"
+            ],
+            "expected": "adc [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"adc a\" 8f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 8f"
+            ],
+            "expected": "adc a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"adc b\" 88",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 88"
+            ],
+            "expected": "adc b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"adc c\" 89",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 89"
+            ],
+            "expected": "adc c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"adc d\" 8a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 8a"
+            ],
+            "expected": "adc d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"adc e\" 8b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 8b"
+            ],
+            "expected": "adc e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"adc h\" 8c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 8c"
+            ],
+            "expected": "adc h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"adc l\" 8d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 8d"
+            ],
+            "expected": "adc l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add 0x00\" c600",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c600"
+            ],
+            "expected": "add 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add [hl]\" 86",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 86"
+            ],
+            "expected": "add [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add a\" 87",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 87"
+            ],
+            "expected": "add a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add b\" 80",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 80"
+            ],
+            "expected": "add b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add c\" 81",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 81"
+            ],
+            "expected": "add c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add d\" 82",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 82"
+            ],
+            "expected": "add d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add e\" 83",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 83"
+            ],
+            "expected": "add e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add h\" 84",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 84"
+            ],
+            "expected": "add h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add hl, bc\" 09",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 09"
+            ],
+            "expected": "add hl, bc\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add hl, de\" 19",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 19"
+            ],
+            "expected": "add hl, de\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add hl, hl\" 29",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 29"
+            ],
+            "expected": "add hl, hl\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add hl, sp\" 39",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 39"
+            ],
+            "expected": "add hl, sp\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add l\" 85",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 85"
+            ],
+            "expected": "add l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"add sp, 0x00\" e800",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad e800"
+            ],
+            "expected": "add sp, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and 0x00\" e600",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad e600"
+            ],
+            "expected": "and 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and [hl]\" a6",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a6"
+            ],
+            "expected": "and [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and a\" a7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a7"
+            ],
+            "expected": "and a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and b\" a0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a0"
+            ],
+            "expected": "and b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and c\" a1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a1"
+            ],
+            "expected": "and c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and d\" a2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a2"
+            ],
+            "expected": "and d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and e\" a3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a3"
+            ],
+            "expected": "and e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and h\" a4",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a4"
+            ],
+            "expected": "and h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"and l\" a5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a5"
+            ],
+            "expected": "and l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 0, [hl]\" cb46",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb46"
+            ],
+            "expected": "bit 0, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 0, a\" cb47",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb47"
+            ],
+            "expected": "bit 0, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 0, b\" cb40",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb40"
+            ],
+            "expected": "bit 0, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 0, c\" cb41",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb41"
+            ],
+            "expected": "bit 0, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 0, d\" cb42",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb42"
+            ],
+            "expected": "bit 0, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 0, e\" cb43",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb43"
+            ],
+            "expected": "bit 0, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 0, h\" cb44",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb44"
+            ],
+            "expected": "bit 0, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 0, l\" cb45",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb45"
+            ],
+            "expected": "bit 0, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 1, [hl]\" cb4e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb4e"
+            ],
+            "expected": "bit 1, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 1, a\" cb4f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb4f"
+            ],
+            "expected": "bit 1, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 1, b\" cb48",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb48"
+            ],
+            "expected": "bit 1, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 1, c\" cb49",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb49"
+            ],
+            "expected": "bit 1, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 1, d\" cb4a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb4a"
+            ],
+            "expected": "bit 1, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 1, e\" cb4b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb4b"
+            ],
+            "expected": "bit 1, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 1, h\" cb4c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb4c"
+            ],
+            "expected": "bit 1, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 1, l\" cb4d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb4d"
+            ],
+            "expected": "bit 1, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 2, [hl]\" cb56",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb56"
+            ],
+            "expected": "bit 2, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 2, a\" cb57",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb57"
+            ],
+            "expected": "bit 2, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 2, b\" cb50",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb50"
+            ],
+            "expected": "bit 2, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 2, c\" cb51",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb51"
+            ],
+            "expected": "bit 2, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 2, d\" cb52",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb52"
+            ],
+            "expected": "bit 2, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 2, e\" cb53",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb53"
+            ],
+            "expected": "bit 2, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 2, h\" cb54",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb54"
+            ],
+            "expected": "bit 2, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 2, l\" cb55",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb55"
+            ],
+            "expected": "bit 2, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 3, [hl]\" cb5e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb5e"
+            ],
+            "expected": "bit 3, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 3, a\" cb5f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb5f"
+            ],
+            "expected": "bit 3, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 3, b\" cb58",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb58"
+            ],
+            "expected": "bit 3, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 3, c\" cb59",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb59"
+            ],
+            "expected": "bit 3, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 3, d\" cb5a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb5a"
+            ],
+            "expected": "bit 3, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 3, e\" cb5b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb5b"
+            ],
+            "expected": "bit 3, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 3, h\" cb5c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb5c"
+            ],
+            "expected": "bit 3, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 3, l\" cb5d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb5d"
+            ],
+            "expected": "bit 3, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 4, [hl]\" cb66",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb66"
+            ],
+            "expected": "bit 4, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 4, a\" cb67",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb67"
+            ],
+            "expected": "bit 4, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 4, b\" cb60",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb60"
+            ],
+            "expected": "bit 4, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 4, c\" cb61",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb61"
+            ],
+            "expected": "bit 4, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 4, d\" cb62",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb62"
+            ],
+            "expected": "bit 4, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 4, e\" cb63",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb63"
+            ],
+            "expected": "bit 4, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 4, h\" cb64",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb64"
+            ],
+            "expected": "bit 4, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 4, l\" cb65",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb65"
+            ],
+            "expected": "bit 4, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 5, [hl]\" cb6e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb6e"
+            ],
+            "expected": "bit 5, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 5, a\" cb6f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb6f"
+            ],
+            "expected": "bit 5, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 5, b\" cb68",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb68"
+            ],
+            "expected": "bit 5, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 5, c\" cb69",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb69"
+            ],
+            "expected": "bit 5, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 5, d\" cb6a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb6a"
+            ],
+            "expected": "bit 5, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 5, e\" cb6b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb6b"
+            ],
+            "expected": "bit 5, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 5, h\" cb6c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb6c"
+            ],
+            "expected": "bit 5, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 5, l\" cb6d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb6d"
+            ],
+            "expected": "bit 5, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 6, [hl]\" cb76",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb76"
+            ],
+            "expected": "bit 6, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 6, a\" cb77",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb77"
+            ],
+            "expected": "bit 6, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 6, b\" cb70",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb70"
+            ],
+            "expected": "bit 6, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 6, c\" cb71",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb71"
+            ],
+            "expected": "bit 6, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 6, d\" cb72",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb72"
+            ],
+            "expected": "bit 6, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 6, e\" cb73",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb73"
+            ],
+            "expected": "bit 6, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 6, h\" cb74",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb74"
+            ],
+            "expected": "bit 6, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 6, l\" cb75",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb75"
+            ],
+            "expected": "bit 6, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 7, [hl]\" cb7e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb7e"
+            ],
+            "expected": "bit 7, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 7, a\" cb7f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb7f"
+            ],
+            "expected": "bit 7, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 7, b\" cb78",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb78"
+            ],
+            "expected": "bit 7, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 7, c\" cb79",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb79"
+            ],
+            "expected": "bit 7, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 7, d\" cb7a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb7a"
+            ],
+            "expected": "bit 7, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 7, e\" cb7b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb7b"
+            ],
+            "expected": "bit 7, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 7, h\" cb7c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb7c"
+            ],
+            "expected": "bit 7, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"bit 7, l\" cb7d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb7d"
+            ],
+            "expected": "bit 7, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"call 0x0000\" cd0000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cd0000"
+            ],
+            "expected": "call 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"call C, 0x0000\" dc0000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad dc0000"
+            ],
+            "expected": "call C, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"call Z, 0x0000\" cc0000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cc0000"
+            ],
+            "expected": "call Z, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"call nC, 0x0000\" d40000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d40000"
+            ],
+            "expected": "call nC, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"call nZ, 0x0000\" c40000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c40000"
+            ],
+            "expected": "call nZ, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ccf\" 3f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3f"
+            ],
+            "expected": "ccf\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp 0x00\" fe00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad fe00"
+            ],
+            "expected": "cp 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp [hl]\" be",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad be"
+            ],
+            "expected": "cp [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp a\" bf",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad bf"
+            ],
+            "expected": "cp a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp b\" b8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b8"
+            ],
+            "expected": "cp b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp c\" b9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b9"
+            ],
+            "expected": "cp c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp d\" ba",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ba"
+            ],
+            "expected": "cp d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp e\" bb",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad bb"
+            ],
+            "expected": "cp e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp h\" bc",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad bc"
+            ],
+            "expected": "cp h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cp l\" bd",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad bd"
+            ],
+            "expected": "cp l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"cpl\" 2f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2f"
+            ],
+            "expected": "cpl\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"daa\" 27",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 27"
+            ],
+            "expected": "daa\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec [hl]\" 35",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 35"
+            ],
+            "expected": "dec [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec a\" 3d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3d"
+            ],
+            "expected": "dec a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec b\" 05",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 05"
+            ],
+            "expected": "dec b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec bc\" 0b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 0b"
+            ],
+            "expected": "dec bc\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec c\" 0d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 0d"
+            ],
+            "expected": "dec c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec d\" 15",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 15"
+            ],
+            "expected": "dec d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec de\" 1b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 1b"
+            ],
+            "expected": "dec de\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec e\" 1d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 1d"
+            ],
+            "expected": "dec e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec h\" 25",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 25"
+            ],
+            "expected": "dec h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec hl\" 2b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2b"
+            ],
+            "expected": "dec hl\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec l\" 2d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2d"
+            ],
+            "expected": "dec l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"dec sp\" 3b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3b"
+            ],
+            "expected": "dec sp\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"di\" f3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f3"
+            ],
+            "expected": "di\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ei\" fb",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad fb"
+            ],
+            "expected": "ei\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"halt\" 76",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 76"
+            ],
+            "expected": "halt\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc [hl]\" 34",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 34"
+            ],
+            "expected": "inc [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc a\" 3c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3c"
+            ],
+            "expected": "inc a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc b\" 04",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 04"
+            ],
+            "expected": "inc b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc bc\" 03",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 03"
+            ],
+            "expected": "inc bc\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc c\" 0c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 0c"
+            ],
+            "expected": "inc c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc d\" 14",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 14"
+            ],
+            "expected": "inc d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc de\" 13",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 13"
+            ],
+            "expected": "inc de\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc e\" 1c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 1c"
+            ],
+            "expected": "inc e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc h\" 24",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 24"
+            ],
+            "expected": "inc h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc hl\" 23",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 23"
+            ],
+            "expected": "inc hl\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc l\" 2c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2c"
+            ],
+            "expected": "inc l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"inc sp\" 33",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 33"
+            ],
+            "expected": "inc sp\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jp 0x0000\" c30000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c30000"
+            ],
+            "expected": "jp 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jp C, 0x0000\" da0000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad da0000"
+            ],
+            "expected": "jp C, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jp Z, 0x0000\" ca0000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ca0000"
+            ],
+            "expected": "jp Z, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jp hl\" e9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad e9"
+            ],
+            "expected": "jp hl\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jp nC, 0x0000\" d20000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d20000"
+            ],
+            "expected": "jp nC, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jp nZ, 0x0000\" c20000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c20000"
+            ],
+            "expected": "jp nZ, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jr 0x00\" 1800",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 1800"
+            ],
+            "expected": "jr 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jr C, 0x00\" 3800",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3800"
+            ],
+            "expected": "jr C, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jr Z, 0x00\" 2800",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2800"
+            ],
+            "expected": "jr Z, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jr nC, 0x00\" 3000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3000"
+            ],
+            "expected": "jr nC, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"jr nZ, 0x00\" 2000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2000"
+            ],
+            "expected": "jr nZ, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [0x0000], a\" ea0000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ea0000"
+            ],
+            "expected": "ld [0x0000], a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [0x0000], sp\" 080000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 080000"
+            ],
+            "expected": "ld [0x0000], sp\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [0xff00 + c], a\" e2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad e2"
+            ],
+            "expected": "ld [0xff00 + c], a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [0xff00], a\" e000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad e000"
+            ],
+            "expected": "ld [0xff00], a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [bc], a\" 02",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 02"
+            ],
+            "expected": "ld [bc], a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [de], a\" 12",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 12"
+            ],
+            "expected": "ld [de], a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [hl], 0x00\" 3600",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3600"
+            ],
+            "expected": "ld [hl], 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [hl], a\" 77",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 77"
+            ],
+            "expected": "ld [hl], a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [hl], b\" 70",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 70"
+            ],
+            "expected": "ld [hl], b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [hl], c\" 71",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 71"
+            ],
+            "expected": "ld [hl], c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [hl], d\" 72",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 72"
+            ],
+            "expected": "ld [hl], d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [hl], e\" 73",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 73"
+            ],
+            "expected": "ld [hl], e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [hl], h\" 74",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 74"
+            ],
+            "expected": "ld [hl], h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld [hl], l\" 75",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 75"
+            ],
+            "expected": "ld [hl], l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, 0x00\" 3e00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3e00"
+            ],
+            "expected": "ld a, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, [0x0000]\" fa0000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad fa0000"
+            ],
+            "expected": "ld a, [0x0000]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, [0xff00 + c]\" f2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f2"
+            ],
+            "expected": "ld a, [0xff00 + c]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, [0xff00]\" f000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f000"
+            ],
+            "expected": "ld a, [0xff00]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, [bc]\" 0a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 0a"
+            ],
+            "expected": "ld a, [bc]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, [de]\" 1a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 1a"
+            ],
+            "expected": "ld a, [de]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, [hl]\" 7e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 7e"
+            ],
+            "expected": "ld a, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, a\" 7f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 7f"
+            ],
+            "expected": "ld a, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, b\" 78",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 78"
+            ],
+            "expected": "ld a, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, c\" 79",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 79"
+            ],
+            "expected": "ld a, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, d\" 7a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 7a"
+            ],
+            "expected": "ld a, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, e\" 7b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 7b"
+            ],
+            "expected": "ld a, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, h\" 7c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 7c"
+            ],
+            "expected": "ld a, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld a, l\" 7d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 7d"
+            ],
+            "expected": "ld a, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, 0x00\" 0600",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 0600"
+            ],
+            "expected": "ld b, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, [hl]\" 46",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 46"
+            ],
+            "expected": "ld b, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, a\" 47",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 47"
+            ],
+            "expected": "ld b, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, b\" 40",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 40"
+            ],
+            "expected": "ld b, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, c\" 41",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 41"
+            ],
+            "expected": "ld b, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, d\" 42",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 42"
+            ],
+            "expected": "ld b, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, e\" 43",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 43"
+            ],
+            "expected": "ld b, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, h\" 44",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 44"
+            ],
+            "expected": "ld b, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld b, l\" 45",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 45"
+            ],
+            "expected": "ld b, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld bc, 0x0000\" 010000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 010000"
+            ],
+            "expected": "ld bc, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, 0x00\" 0e00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 0e00"
+            ],
+            "expected": "ld c, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, [hl]\" 4e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 4e"
+            ],
+            "expected": "ld c, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, a\" 4f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 4f"
+            ],
+            "expected": "ld c, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, b\" 48",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 48"
+            ],
+            "expected": "ld c, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, c\" 49",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 49"
+            ],
+            "expected": "ld c, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, d\" 4a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 4a"
+            ],
+            "expected": "ld c, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, e\" 4b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 4b"
+            ],
+            "expected": "ld c, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, h\" 4c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 4c"
+            ],
+            "expected": "ld c, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld c, l\" 4d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 4d"
+            ],
+            "expected": "ld c, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, 0x00\" 1600",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 1600"
+            ],
+            "expected": "ld d, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, [hl]\" 56",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 56"
+            ],
+            "expected": "ld d, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, a\" 57",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 57"
+            ],
+            "expected": "ld d, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, b\" 50",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 50"
+            ],
+            "expected": "ld d, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, c\" 51",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 51"
+            ],
+            "expected": "ld d, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, d\" 52",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 52"
+            ],
+            "expected": "ld d, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, e\" 53",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 53"
+            ],
+            "expected": "ld d, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, h\" 54",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 54"
+            ],
+            "expected": "ld d, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld d, l\" 55",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 55"
+            ],
+            "expected": "ld d, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld de, 0x0000\" 110000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 110000"
+            ],
+            "expected": "ld de, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, 0x00\" 1e00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 1e00"
+            ],
+            "expected": "ld e, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, [hl]\" 5e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 5e"
+            ],
+            "expected": "ld e, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, a\" 5f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 5f"
+            ],
+            "expected": "ld e, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, b\" 58",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 58"
+            ],
+            "expected": "ld e, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, c\" 59",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 59"
+            ],
+            "expected": "ld e, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, d\" 5a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 5a"
+            ],
+            "expected": "ld e, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, e\" 5b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 5b"
+            ],
+            "expected": "ld e, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, h\" 5c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 5c"
+            ],
+            "expected": "ld e, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld e, l\" 5d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 5d"
+            ],
+            "expected": "ld e, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, 0x00\" 2600",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2600"
+            ],
+            "expected": "ld h, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, [hl]\" 66",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 66"
+            ],
+            "expected": "ld h, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, a\" 67",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 67"
+            ],
+            "expected": "ld h, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, b\" 60",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 60"
+            ],
+            "expected": "ld h, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, c\" 61",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 61"
+            ],
+            "expected": "ld h, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, d\" 62",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 62"
+            ],
+            "expected": "ld h, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, e\" 63",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 63"
+            ],
+            "expected": "ld h, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, h\" 64",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 64"
+            ],
+            "expected": "ld h, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld h, l\" 65",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 65"
+            ],
+            "expected": "ld h, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld hl, 0x0000\" 210000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 210000"
+            ],
+            "expected": "ld hl, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld hl, sp + 0x00\" f800",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f800"
+            ],
+            "expected": "ld hl, sp + 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, 0x00\" 2e00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2e00"
+            ],
+            "expected": "ld l, 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, [hl]\" 6e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 6e"
+            ],
+            "expected": "ld l, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, a\" 6f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 6f"
+            ],
+            "expected": "ld l, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, b\" 68",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 68"
+            ],
+            "expected": "ld l, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, c\" 69",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 69"
+            ],
+            "expected": "ld l, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, d\" 6a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 6a"
+            ],
+            "expected": "ld l, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, e\" 6b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 6b"
+            ],
+            "expected": "ld l, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, h\" 6c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 6c"
+            ],
+            "expected": "ld l, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld l, l\" 6d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 6d"
+            ],
+            "expected": "ld l, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld sp, 0x0000\" 310000",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 310000"
+            ],
+            "expected": "ld sp, 0x0000\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ld sp, hl\" f9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f9"
+            ],
+            "expected": "ld sp, hl\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ldd [hl], a\" 32",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 32"
+            ],
+            "expected": "ldd [hl], a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ldd a, [hl]\" 3a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 3a"
+            ],
+            "expected": "ldd a, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ldi [hl], a\" 22",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 22"
+            ],
+            "expected": "ldi [hl], a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ldi a, [hl]\" 2a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 2a"
+            ],
+            "expected": "ldi a, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"nop\" 00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 00"
+            ],
+            "expected": "nop\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or 0x00\" f600",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f600"
+            ],
+            "expected": "or 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or [hl]\" b6",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b6"
+            ],
+            "expected": "or [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or a\" b7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b7"
+            ],
+            "expected": "or a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or b\" b0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b0"
+            ],
+            "expected": "or b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or c\" b1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b1"
+            ],
+            "expected": "or c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or d\" b2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b2"
+            ],
+            "expected": "or d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or e\" b3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b3"
+            ],
+            "expected": "or e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or h\" b4",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b4"
+            ],
+            "expected": "or h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"or l\" b5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad b5"
+            ],
+            "expected": "or l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"pop af\" f1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f1"
+            ],
+            "expected": "pop af\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"pop bc\" c1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c1"
+            ],
+            "expected": "pop bc\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"pop de\" d1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d1"
+            ],
+            "expected": "pop de\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"pop hl\" e1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad e1"
+            ],
+            "expected": "pop hl\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"push af\" f5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f5"
+            ],
+            "expected": "push af\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"push bc\" c5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c5"
+            ],
+            "expected": "push bc\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"push de\" d5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d5"
+            ],
+            "expected": "push de\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"push hl\" e5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad e5"
+            ],
+            "expected": "push hl\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 0, [hl]\" cb86",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb86"
+            ],
+            "expected": "res 0, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 0, a\" cb87",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb87"
+            ],
+            "expected": "res 0, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 0, b\" cb80",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb80"
+            ],
+            "expected": "res 0, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 0, c\" cb81",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb81"
+            ],
+            "expected": "res 0, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 0, d\" cb82",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb82"
+            ],
+            "expected": "res 0, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 0, e\" cb83",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb83"
+            ],
+            "expected": "res 0, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 0, h\" cb84",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb84"
+            ],
+            "expected": "res 0, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 0, l\" cb85",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb85"
+            ],
+            "expected": "res 0, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 1, [hl]\" cb8e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb8e"
+            ],
+            "expected": "res 1, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 1, a\" cb8f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb8f"
+            ],
+            "expected": "res 1, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 1, b\" cb88",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb88"
+            ],
+            "expected": "res 1, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 1, c\" cb89",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb89"
+            ],
+            "expected": "res 1, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 1, d\" cb8a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb8a"
+            ],
+            "expected": "res 1, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 1, e\" cb8b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb8b"
+            ],
+            "expected": "res 1, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 1, h\" cb8c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb8c"
+            ],
+            "expected": "res 1, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 1, l\" cb8d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb8d"
+            ],
+            "expected": "res 1, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 2, [hl]\" cb96",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb96"
+            ],
+            "expected": "res 2, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 2, a\" cb97",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb97"
+            ],
+            "expected": "res 2, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 2, b\" cb90",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb90"
+            ],
+            "expected": "res 2, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 2, c\" cb91",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb91"
+            ],
+            "expected": "res 2, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 2, d\" cb92",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb92"
+            ],
+            "expected": "res 2, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 2, e\" cb93",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb93"
+            ],
+            "expected": "res 2, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 2, h\" cb94",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb94"
+            ],
+            "expected": "res 2, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 2, l\" cb95",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb95"
+            ],
+            "expected": "res 2, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 3, [hl]\" cb9e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb9e"
+            ],
+            "expected": "res 3, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 3, a\" cb9f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb9f"
+            ],
+            "expected": "res 3, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 3, b\" cb98",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb98"
+            ],
+            "expected": "res 3, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 3, c\" cb99",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb99"
+            ],
+            "expected": "res 3, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 3, d\" cb9a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb9a"
+            ],
+            "expected": "res 3, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 3, e\" cb9b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb9b"
+            ],
+            "expected": "res 3, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 3, h\" cb9c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb9c"
+            ],
+            "expected": "res 3, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 3, l\" cb9d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb9d"
+            ],
+            "expected": "res 3, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 4, [hl]\" cba6",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba6"
+            ],
+            "expected": "res 4, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 4, a\" cba7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba7"
+            ],
+            "expected": "res 4, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 4, b\" cba0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba0"
+            ],
+            "expected": "res 4, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 4, c\" cba1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba1"
+            ],
+            "expected": "res 4, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 4, d\" cba2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba2"
+            ],
+            "expected": "res 4, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 4, e\" cba3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba3"
+            ],
+            "expected": "res 4, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 4, h\" cba4",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba4"
+            ],
+            "expected": "res 4, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 4, l\" cba5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba5"
+            ],
+            "expected": "res 4, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 5, [hl]\" cbae",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbae"
+            ],
+            "expected": "res 5, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 5, a\" cbaf",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbaf"
+            ],
+            "expected": "res 5, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 5, b\" cba8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba8"
+            ],
+            "expected": "res 5, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 5, c\" cba9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cba9"
+            ],
+            "expected": "res 5, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 5, d\" cbaa",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbaa"
+            ],
+            "expected": "res 5, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 5, e\" cbab",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbab"
+            ],
+            "expected": "res 5, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 5, h\" cbac",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbac"
+            ],
+            "expected": "res 5, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 5, l\" cbad",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbad"
+            ],
+            "expected": "res 5, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 6, [hl]\" cbb6",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb6"
+            ],
+            "expected": "res 6, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 6, a\" cbb7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb7"
+            ],
+            "expected": "res 6, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 6, b\" cbb0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb0"
+            ],
+            "expected": "res 6, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 6, c\" cbb1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb1"
+            ],
+            "expected": "res 6, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 6, d\" cbb2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb2"
+            ],
+            "expected": "res 6, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 6, e\" cbb3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb3"
+            ],
+            "expected": "res 6, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 6, h\" cbb4",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb4"
+            ],
+            "expected": "res 6, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 6, l\" cbb5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb5"
+            ],
+            "expected": "res 6, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 7, [hl]\" cbbe",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbbe"
+            ],
+            "expected": "res 7, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 7, a\" cbbf",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbbf"
+            ],
+            "expected": "res 7, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 7, b\" cbb8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb8"
+            ],
+            "expected": "res 7, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 7, c\" cbb9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbb9"
+            ],
+            "expected": "res 7, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 7, d\" cbba",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbba"
+            ],
+            "expected": "res 7, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 7, e\" cbbb",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbbb"
+            ],
+            "expected": "res 7, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 7, h\" cbbc",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbbc"
+            ],
+            "expected": "res 7, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"res 7, l\" cbbd",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbbd"
+            ],
+            "expected": "res 7, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ret C\" d8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d8"
+            ],
+            "expected": "ret C\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ret Z\" c8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c8"
+            ],
+            "expected": "ret Z\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ret nC\" d0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d0"
+            ],
+            "expected": "ret nC\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ret nZ\" c0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c0"
+            ],
+            "expected": "ret nZ\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"ret\" c9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c9"
+            ],
+            "expected": "ret\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"reti\" d9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d9"
+            ],
+            "expected": "reti\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rl [hl]\" cb16",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb16"
+            ],
+            "expected": "rl [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rl a\" cb17",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb17"
+            ],
+            "expected": "rl a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rl b\" cb10",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb10"
+            ],
+            "expected": "rl b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rl c\" cb11",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb11"
+            ],
+            "expected": "rl c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rl d\" cb12",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb12"
+            ],
+            "expected": "rl d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rl e\" cb13",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb13"
+            ],
+            "expected": "rl e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rl h\" cb14",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb14"
+            ],
+            "expected": "rl h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rl l\" cb15",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb15"
+            ],
+            "expected": "rl l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rla\" 17",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 17"
+            ],
+            "expected": "rla\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlc [hl]\" cb06",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb06"
+            ],
+            "expected": "rlc [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlc a\" cb07",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb07"
+            ],
+            "expected": "rlc a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlc b\" cb00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb00"
+            ],
+            "expected": "rlc b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlc c\" cb01",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb01"
+            ],
+            "expected": "rlc c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlc d\" cb02",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb02"
+            ],
+            "expected": "rlc d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlc e\" cb03",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb03"
+            ],
+            "expected": "rlc e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlc h\" cb04",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb04"
+            ],
+            "expected": "rlc h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlc l\" cb05",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb05"
+            ],
+            "expected": "rlc l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rlca\" 07",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 07"
+            ],
+            "expected": "rlca\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rr [hl]\" cb1e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb1e"
+            ],
+            "expected": "rr [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rr a\" cb1f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb1f"
+            ],
+            "expected": "rr a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rr b\" cb18",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb18"
+            ],
+            "expected": "rr b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rr c\" cb19",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb19"
+            ],
+            "expected": "rr c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rr d\" cb1a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb1a"
+            ],
+            "expected": "rr d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rr e\" cb1b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb1b"
+            ],
+            "expected": "rr e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rr h\" cb1c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb1c"
+            ],
+            "expected": "rr h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rr l\" cb1d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb1d"
+            ],
+            "expected": "rr l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rra\" 1f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 1f"
+            ],
+            "expected": "rra\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrc [hl]\" cb0e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb0e"
+            ],
+            "expected": "rrc [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrc a\" cb0f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb0f"
+            ],
+            "expected": "rrc a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrc b\" cb08",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb08"
+            ],
+            "expected": "rrc b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrc c\" cb09",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb09"
+            ],
+            "expected": "rrc c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrc d\" cb0a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb0a"
+            ],
+            "expected": "rrc d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrc e\" cb0b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb0b"
+            ],
+            "expected": "rrc e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrc h\" cb0c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb0c"
+            ],
+            "expected": "rrc h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrc l\" cb0d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb0d"
+            ],
+            "expected": "rrc l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rrca\" 0f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 0f"
+            ],
+            "expected": "rrca\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rst 0\" c7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad c7"
+            ],
+            "expected": "rst 0\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rst 16\" d7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d7"
+            ],
+            "expected": "rst 16\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rst 24\" df",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad df"
+            ],
+            "expected": "rst 24\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rst 32\" e7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad e7"
+            ],
+            "expected": "rst 32\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rst 40\" ef",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ef"
+            ],
+            "expected": "rst 40\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rst 48\" f7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad f7"
+            ],
+            "expected": "rst 48\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rst 56\" ff",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ff"
+            ],
+            "expected": "rst 56\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"rst 8\" cf",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cf"
+            ],
+            "expected": "rst 8\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc 0x00\" de00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad de00"
+            ],
+            "expected": "sbc 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc [hl]\" 9e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 9e"
+            ],
+            "expected": "sbc [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc a\" 9f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 9f"
+            ],
+            "expected": "sbc a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc b\" 98",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 98"
+            ],
+            "expected": "sbc b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc c\" 99",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 99"
+            ],
+            "expected": "sbc c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc d\" 9a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 9a"
+            ],
+            "expected": "sbc d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc e\" 9b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 9b"
+            ],
+            "expected": "sbc e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc h\" 9c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 9c"
+            ],
+            "expected": "sbc h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sbc l\" 9d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 9d"
+            ],
+            "expected": "sbc l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"scf\" 37",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 37"
+            ],
+            "expected": "scf\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 0, [hl]\" cbc6",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc6"
+            ],
+            "expected": "set 0, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 0, a\" cbc7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc7"
+            ],
+            "expected": "set 0, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 0, b\" cbc0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc0"
+            ],
+            "expected": "set 0, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 0, c\" cbc1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc1"
+            ],
+            "expected": "set 0, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 0, d\" cbc2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc2"
+            ],
+            "expected": "set 0, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 0, e\" cbc3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc3"
+            ],
+            "expected": "set 0, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 0, h\" cbc4",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc4"
+            ],
+            "expected": "set 0, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 0, l\" cbc5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc5"
+            ],
+            "expected": "set 0, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 1, [hl]\" cbce",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbce"
+            ],
+            "expected": "set 1, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 1, a\" cbcf",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbcf"
+            ],
+            "expected": "set 1, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 1, b\" cbc8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc8"
+            ],
+            "expected": "set 1, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 1, c\" cbc9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbc9"
+            ],
+            "expected": "set 1, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 1, d\" cbca",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbca"
+            ],
+            "expected": "set 1, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 1, e\" cbcb",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbcb"
+            ],
+            "expected": "set 1, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 1, h\" cbcc",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbcc"
+            ],
+            "expected": "set 1, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 1, l\" cbcd",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbcd"
+            ],
+            "expected": "set 1, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 2, [hl]\" cbd6",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd6"
+            ],
+            "expected": "set 2, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 2, a\" cbd7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd7"
+            ],
+            "expected": "set 2, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 2, b\" cbd0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd0"
+            ],
+            "expected": "set 2, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 2, c\" cbd1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd1"
+            ],
+            "expected": "set 2, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 2, d\" cbd2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd2"
+            ],
+            "expected": "set 2, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 2, e\" cbd3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd3"
+            ],
+            "expected": "set 2, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 2, h\" cbd4",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd4"
+            ],
+            "expected": "set 2, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 2, l\" cbd5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd5"
+            ],
+            "expected": "set 2, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 3, [hl]\" cbde",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbde"
+            ],
+            "expected": "set 3, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 3, a\" cbdf",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbdf"
+            ],
+            "expected": "set 3, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 3, b\" cbd8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd8"
+            ],
+            "expected": "set 3, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 3, c\" cbd9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbd9"
+            ],
+            "expected": "set 3, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 3, d\" cbda",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbda"
+            ],
+            "expected": "set 3, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 3, e\" cbdb",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbdb"
+            ],
+            "expected": "set 3, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 3, h\" cbdc",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbdc"
+            ],
+            "expected": "set 3, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 3, l\" cbdd",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbdd"
+            ],
+            "expected": "set 3, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 4, [hl]\" cbe6",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe6"
+            ],
+            "expected": "set 4, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 4, a\" cbe7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe7"
+            ],
+            "expected": "set 4, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 4, b\" cbe0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe0"
+            ],
+            "expected": "set 4, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 4, c\" cbe1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe1"
+            ],
+            "expected": "set 4, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 4, d\" cbe2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe2"
+            ],
+            "expected": "set 4, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 4, e\" cbe3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe3"
+            ],
+            "expected": "set 4, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 4, h\" cbe4",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe4"
+            ],
+            "expected": "set 4, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 4, l\" cbe5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe5"
+            ],
+            "expected": "set 4, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 5, [hl]\" cbee",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbee"
+            ],
+            "expected": "set 5, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 5, a\" cbef",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbef"
+            ],
+            "expected": "set 5, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 5, b\" cbe8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe8"
+            ],
+            "expected": "set 5, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 5, c\" cbe9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbe9"
+            ],
+            "expected": "set 5, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 5, d\" cbea",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbea"
+            ],
+            "expected": "set 5, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 5, e\" cbeb",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbeb"
+            ],
+            "expected": "set 5, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 5, h\" cbec",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbec"
+            ],
+            "expected": "set 5, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 5, l\" cbed",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbed"
+            ],
+            "expected": "set 5, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 6, [hl]\" cbf6",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf6"
+            ],
+            "expected": "set 6, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 6, a\" cbf7",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf7"
+            ],
+            "expected": "set 6, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 6, b\" cbf0",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf0"
+            ],
+            "expected": "set 6, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 6, c\" cbf1",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf1"
+            ],
+            "expected": "set 6, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 6, d\" cbf2",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf2"
+            ],
+            "expected": "set 6, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 6, e\" cbf3",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf3"
+            ],
+            "expected": "set 6, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 6, h\" cbf4",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf4"
+            ],
+            "expected": "set 6, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 6, l\" cbf5",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf5"
+            ],
+            "expected": "set 6, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 7, [hl]\" cbfe",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbfe"
+            ],
+            "expected": "set 7, [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 7, a\" cbff",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbff"
+            ],
+            "expected": "set 7, a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 7, b\" cbf8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf8"
+            ],
+            "expected": "set 7, b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 7, c\" cbf9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbf9"
+            ],
+            "expected": "set 7, c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 7, d\" cbfa",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbfa"
+            ],
+            "expected": "set 7, d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 7, e\" cbfb",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbfb"
+            ],
+            "expected": "set 7, e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 7, h\" cbfc",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbfc"
+            ],
+            "expected": "set 7, h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"set 7, l\" cbfd",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cbfd"
+            ],
+            "expected": "set 7, l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sla [hl]\" cb26",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb26"
+            ],
+            "expected": "sla [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sla a\" cb27",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb27"
+            ],
+            "expected": "sla a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sla b\" cb20",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb20"
+            ],
+            "expected": "sla b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sla c\" cb21",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb21"
+            ],
+            "expected": "sla c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sla d\" cb22",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb22"
+            ],
+            "expected": "sla d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sla e\" cb23",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb23"
+            ],
+            "expected": "sla e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sla h\" cb24",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb24"
+            ],
+            "expected": "sla h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sla l\" cb25",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb25"
+            ],
+            "expected": "sla l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sra [hl]\" cb2e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb2e"
+            ],
+            "expected": "sra [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sra a\" cb2f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb2f"
+            ],
+            "expected": "sra a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sra b\" cb28",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb28"
+            ],
+            "expected": "sra b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sra c\" cb29",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb29"
+            ],
+            "expected": "sra c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sra d\" cb2a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb2a"
+            ],
+            "expected": "sra d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sra e\" cb2b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb2b"
+            ],
+            "expected": "sra e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sra h\" cb2c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb2c"
+            ],
+            "expected": "sra h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sra l\" cb2d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb2d"
+            ],
+            "expected": "sra l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"srl [hl]\" cb3e",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb3e"
+            ],
+            "expected": "srl [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"srl a\" cb3f",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb3f"
+            ],
+            "expected": "srl a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"srl b\" cb38",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb38"
+            ],
+            "expected": "srl b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"srl c\" cb39",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb39"
+            ],
+            "expected": "srl c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"srl d\" cb3a",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb3a"
+            ],
+            "expected": "srl d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"srl e\" cb3b",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb3b"
+            ],
+            "expected": "srl e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"srl h\" cb3c",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb3c"
+            ],
+            "expected": "srl h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"srl l\" cb3d",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb3d"
+            ],
+            "expected": "srl l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"stop\" 10",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 10"
+            ],
+            "expected": "stop\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub 0x00\" d600",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad d600"
+            ],
+            "expected": "sub 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub [hl]\" 96",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 96"
+            ],
+            "expected": "sub [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub a\" 97",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 97"
+            ],
+            "expected": "sub a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub b\" 90",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 90"
+            ],
+            "expected": "sub b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub c\" 91",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 91"
+            ],
+            "expected": "sub c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub d\" 92",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 92"
+            ],
+            "expected": "sub d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub e\" 93",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 93"
+            ],
+            "expected": "sub e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub h\" 94",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 94"
+            ],
+            "expected": "sub h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"sub l\" 95",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad 95"
+            ],
+            "expected": "sub l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"swap [hl]\" cb36",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb36"
+            ],
+            "expected": "swap [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"swap a\" cb37",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb37"
+            ],
+            "expected": "swap a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"swap b\" cb30",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb30"
+            ],
+            "expected": "swap b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"swap c\" cb31",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb31"
+            ],
+            "expected": "swap c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"swap d\" cb32",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb32"
+            ],
+            "expected": "swap d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"swap e\" cb33",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb33"
+            ],
+            "expected": "swap e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"swap h\" cb34",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb34"
+            ],
+            "expected": "swap h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"swap l\" cb35",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad cb35"
+            ],
+            "expected": "swap l\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor 0x00\" ee00",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ee00"
+            ],
+            "expected": "xor 0x00\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor [hl]\" ae",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ae"
+            ],
+            "expected": "xor [hl]\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor a\" af",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad af"
+            ],
+            "expected": "xor a\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor b\" a8",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a8"
+            ],
+            "expected": "xor b\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor c\" a9",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad a9"
+            ],
+            "expected": "xor c\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor d\" aa",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad aa"
+            ],
+            "expected": "xor d\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor e\" ab",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ab"
+            ],
+            "expected": "xor e\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor h\" ac",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ac"
+            ],
+            "expected": "xor h\n",
+            "broken": false
+        },
+        {
+            "name": "gb: d \"xor l\" ad",
+            "file": "-",
+            "args": "-a gb",
+            "commands": [
+                "pad ad"
+            ],
+            "expected": "xor l\n",
+            "broken": false
+        }
+    ]
+}

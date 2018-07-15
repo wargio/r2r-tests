@@ -1,0 +1,49 @@
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "WASM: Wasm - open",
+            "file": "bins/wasm/basic.wasm",
+            "args": "",
+            "commands": [
+                "q!",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "WASM: Wasm - detection",
+            "file": "bins/wasm/basic.wasm",
+            "args": "",
+            "commands": [
+                "iI~os",
+                ""
+            ],
+            "expected": "os       Wasm\n\n",
+            "broken": false
+        },
+        {
+            "name": "WASM: Wasm - entrypoint",
+            "file": "bins/wasm/start.wasm",
+            "args": "",
+            "commands": [
+                "ie~vaddr",
+                ""
+            ],
+            "expected": "vaddr=0x0000002d paddr=0x0000002d baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program\n\n",
+            "broken": false
+        },
+        {
+            "name": "WASM: Wasm - sections",
+            "file": "bins/wasm/binary.wasm",
+            "args": "",
+            "commands": [
+                "iS",
+                ""
+            ],
+            "expected": "[Sections]\n00 0x0000000a    16 0x0000000a    16 ---- type\n01 0x0000001d    44 0x0000001d    44 ---- function\n02 0x0000004d   476 0x0000004d   476 ---- export\n03 0x0000022d   502 0x0000022d   502 ---- code\n\n",
+            "broken": false
+        }
+    ]
+}

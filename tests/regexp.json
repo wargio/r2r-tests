@@ -1,1 +1,41 @@
-{"type":"cmd","tests":[{"name":"/e /test/i","file":"malloc://1024","args":"","commands":["","w test","w Test@444","?e","e search.in=block","b 777","/e /test/i","",""],"expected":"\n0x00000000 hit0_0 \"test\"\n0x000001bc hit0_1 \"Test\"\n\n","broken":false},{"name":"/e m (invalid) #742","file":"malloc://1024","args":"","commands":["","w test","w Test@444","/e m","/e m","/e m","/e m","",""],"expected":"\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "/e /test/i",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "w test",
+                "w Test@444",
+                "?e",
+                "e search.in=block",
+                "b 777",
+                "/e /test/i",
+                "",
+                ""
+            ],
+            "expected": "\n0x00000000 hit0_0 \"test\"\n0x000001bc hit0_1 \"Test\"\n\n",
+            "broken": false
+        },
+        {
+            "name": "/e m (invalid) #742",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "w test",
+                "w Test@444",
+                "/e m",
+                "/e m",
+                "/e m",
+                "/e m",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        }
+    ]
+}

@@ -1,1 +1,92 @@
-{"type":"cmd","tests":[{"name":"yank-segfault","file":"-","args":"","commands":["y -2","",""],"expected":"\n","broken":false},{"name":"yank-and-paste","file":"-","args":"","commands":["b 64","w hello world","y 5","yy@6","psz","",""],"expected":"hello hello\n\n","broken":false},{"name":"yank-segfault2","file":"-","args":"","commands":["y 0","y 10","y 10","y 20","y;","y 0","y 0","?e ok","",""],"expected":"0x00000000 20 0000000000000000000000000000000000000000\nok\n\n","broken":false},{"name":"yank-segfault3","file":"-","args":"","commands":["y #","?e ok","",""],"expected":"ok\n\n","broken":false},{"name":"yank-segfault4","file":"-","args":"","commands":["y 1000000000","?e ok","",""],"expected":"ok\n\n","broken":false},{"name":"yank-doublefree","file":"-","args":"","commands":["y -5","y -5","?e ok","",""],"expected":"ok\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "yank-segfault",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "y -2",
+                "",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "yank-and-paste",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "b 64",
+                "w hello world",
+                "y 5",
+                "yy@6",
+                "psz",
+                "",
+                ""
+            ],
+            "expected": "hello hello\n\n",
+            "broken": false
+        },
+        {
+            "name": "yank-segfault2",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "y 0",
+                "y 10",
+                "y 10",
+                "y 20",
+                "y;",
+                "y 0",
+                "y 0",
+                "?e ok",
+                "",
+                ""
+            ],
+            "expected": "0x00000000 20 0000000000000000000000000000000000000000\nok\n\n",
+            "broken": false
+        },
+        {
+            "name": "yank-segfault3",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "y #",
+                "?e ok",
+                "",
+                ""
+            ],
+            "expected": "ok\n\n",
+            "broken": false
+        },
+        {
+            "name": "yank-segfault4",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "y 1000000000",
+                "?e ok",
+                "",
+                ""
+            ],
+            "expected": "ok\n\n",
+            "broken": false
+        },
+        {
+            "name": "yank-doublefree",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "y -5",
+                "y -5",
+                "?e ok",
+                "",
+                ""
+            ],
+            "expected": "ok\n\n",
+            "broken": false
+        }
+    ]
+}

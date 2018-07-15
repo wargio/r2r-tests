@@ -1,1 +1,64 @@
-{"type":"cmd","tests":[{"name":"t/md5sha1","file":"-","args":"","commands":["","b 100","ph md5 64","ph md5 99","w hello world","ph md5 11","ph md5 @!11","ph sha1 11","ph pcprint","",""],"expected":"3b5d3c7d207e37dceeedd301e35e2e58\nfa8715078d45101200a6e2bf7321aa04\n5eb63bbbe01eeed093cb22bb8f5acdc3\n5eb63bbbe01eeed093cb22bb8f5acdc3\n2aae6c35c94fcfb415dbe95f408b9ce91ee846ed\n11\n\n","broken":false},{"name":"ph crc32","file":"-","args":"","commands":["b 12","w hello world","!rahash2 -qa crc16 -s 'hello world'","ph crc16 11","!rahash2 -qa crc32 -s 'hello world'","ph crc32 11","",""],"expected":"39c1\n39c1\n0d4a1185\n0d4a1185\n\n","broken":false},{"name":"crca 'hello world'","file":"-","args":"","commands":["b 12","w hello world","!rahash2 -qa rahash2 -a crc8smbus,crc15can,crc16hdlc,crc16usb,crc16citt,crc24,crc32c,crc32ecma267 -s 'hello world'","ph crc8smbus 11","ph crc15can 11","ph crc16hdlc 11","ph crc16usb 11","ph crc16citt 11","ph crc24 11","ph crc32c 11","ph crc32ecma267 11","",""],"expected":"a8\n727a\nae06\n2238\nefeb\nb03cb7\nc99465aa\nac86f845\na8\n727a\nae06\n2238\nefeb\nb03cb7\nc99465aa\nac86f845\n\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "t/md5sha1",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "",
+                "b 100",
+                "ph md5 64",
+                "ph md5 99",
+                "w hello world",
+                "ph md5 11",
+                "ph md5 @!11",
+                "ph sha1 11",
+                "ph pcprint",
+                "",
+                ""
+            ],
+            "expected": "3b5d3c7d207e37dceeedd301e35e2e58\nfa8715078d45101200a6e2bf7321aa04\n5eb63bbbe01eeed093cb22bb8f5acdc3\n5eb63bbbe01eeed093cb22bb8f5acdc3\n2aae6c35c94fcfb415dbe95f408b9ce91ee846ed\n11\n\n",
+            "broken": false
+        },
+        {
+            "name": "ph crc32",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "b 12",
+                "w hello world",
+                "!rahash2 -qa crc16 -s 'hello world'",
+                "ph crc16 11",
+                "!rahash2 -qa crc32 -s 'hello world'",
+                "ph crc32 11",
+                "",
+                ""
+            ],
+            "expected": "39c1\n39c1\n0d4a1185\n0d4a1185\n\n",
+            "broken": false
+        },
+        {
+            "name": "crca 'hello world'",
+            "file": "-",
+            "args": "",
+            "commands": [
+                "b 12",
+                "w hello world",
+                "!rahash2 -qa rahash2 -a crc8smbus,crc15can,crc16hdlc,crc16usb,crc16citt,crc24,crc32c,crc32ecma267 -s 'hello world'",
+                "ph crc8smbus 11",
+                "ph crc15can 11",
+                "ph crc16hdlc 11",
+                "ph crc16usb 11",
+                "ph crc16citt 11",
+                "ph crc24 11",
+                "ph crc32c 11",
+                "ph crc32ecma267 11",
+                "",
+                ""
+            ],
+            "expected": "a8\n727a\nae06\n2238\nefeb\nb03cb7\nc99465aa\nac86f845\na8\n727a\nae06\n2238\nefeb\nb03cb7\nc99465aa\nac86f845\n\n",
+            "broken": false
+        }
+    ]
+}

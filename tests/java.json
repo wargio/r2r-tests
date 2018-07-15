@@ -1,1 +1,265 @@
-{"type":"asm","tests":[{"name":"java: ad \"bipush 33\" 1021","file":"-","args":"-a java","commands":["pa bipush 33","pad 1021"],"expected":"1021\nbipush 33\n","broken":false},{"name":"java: ad \"nop\" 00","file":"-","args":"-a java","commands":["pa nop","pad 00"],"expected":"00\nnop\n","broken":false},{"name":"java: d \"iconst_0\" 03","file":"-","args":"-a java","commands":["pad 03"],"expected":"iconst_0\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"iload_1\" 1b","file":"-","args":"-a java","commands":["pad 1b"],"expected":"iload_1\n","broken":false},{"name":"java: d \"iconst_1\" 04","file":"-","args":"-a java","commands":["pad 04"],"expected":"iconst_1\n","broken":false},{"name":"java: d \"ixor\" 82","file":"-","args":"-a java","commands":["pad 82"],"expected":"ixor\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"iload_1\" 1b","file":"-","args":"-a java","commands":["pad 1b"],"expected":"iload_1\n","broken":false},{"name":"java: d \"ireturn\" ac","file":"-","args":"-a java","commands":["pad ac"],"expected":"ireturn\n","broken":false},{"name":"java: d \"iconst_0\" 03","file":"-","args":"-a java","commands":["pad 03"],"expected":"iconst_0\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"iload_0\" 1a","file":"-","args":"-a java","commands":["pad 1a"],"expected":"iload_0\n","broken":false},{"name":"java: d \"iconst_1\" 04","file":"-","args":"-a java","commands":["pad 04"],"expected":"iconst_1\n","broken":false},{"name":"java: d \"if_icmpne 0x000c\" a00008 0x00000004","file":"-","args":"-a java","commands":["s 0x00000004","pad a00008"],"expected":"if_icmpne 0x000c\n","broken":false},{"name":"java: d \"iconst_0\" 03","file":"-","args":"-a java","commands":["pad 03"],"expected":"iconst_0\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"goto 0x0010\" a70007 0x00000009","file":"-","args":"-a java","commands":["s 0x00000009","pad a70007"],"expected":"goto 0x0010\n","broken":false},{"name":"java: d \"iload_1\" 1b","file":"-","args":"-a java","commands":["pad 1b"],"expected":"iload_1\n","broken":false},{"name":"java: d \"iconst_1\" 04","file":"-","args":"-a java","commands":["pad 04"],"expected":"iconst_1\n","broken":false},{"name":"java: d \"ixor\" 82","file":"-","args":"-a java","commands":["pad 82"],"expected":"ixor\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"iload_1\" 1b","file":"-","args":"-a java","commands":["pad 1b"],"expected":"iload_1\n","broken":false},{"name":"java: d \"ireturn\" ac","file":"-","args":"-a java","commands":["pad ac"],"expected":"ireturn\n","broken":false},{"name":"java: d \"iconst_0\" 03","file":"-","args":"-a java","commands":["pad 03"],"expected":"iconst_0\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"iload_0\" 1a","file":"-","args":"-a java","commands":["pad 1a"],"expected":"iload_0\n","broken":false},{"name":"java: d \"iconst_1\" 04","file":"-","args":"-a java","commands":["pad 04"],"expected":"iconst_1\n","broken":false},{"name":"java: d \"if_icmpeq 0x000c\" 9f0008 0x00000004","file":"-","args":"-a java","commands":["s 0x00000004","pad 9f0008"],"expected":"if_icmpeq 0x000c\n","broken":false},{"name":"java: d \"iconst_0\" 03","file":"-","args":"-a java","commands":["pad 03"],"expected":"iconst_0\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"goto 0x0010\" a70007 0x00000009","file":"-","args":"-a java","commands":["s 0x00000009","pad a70007"],"expected":"goto 0x0010\n","broken":false},{"name":"java: d \"iload_1\" 1b","file":"-","args":"-a java","commands":["pad 1b"],"expected":"iload_1\n","broken":false},{"name":"java: d \"iconst_1\" 04","file":"-","args":"-a java","commands":["pad 04"],"expected":"iconst_1\n","broken":false},{"name":"java: d \"ixor\" 82","file":"-","args":"-a java","commands":["pad 82"],"expected":"ixor\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"iload_1\" 1b","file":"-","args":"-a java","commands":["pad 1b"],"expected":"iload_1\n","broken":false},{"name":"java: d \"ireturn\" ac","file":"-","args":"-a java","commands":["pad ac"],"expected":"ireturn\n","broken":false},{"name":"java: d \"iconst_0\" 03","file":"-","args":"-a java","commands":["pad 03"],"expected":"iconst_0\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"iload_0\" 1a","file":"-","args":"-a java","commands":["pad 1a"],"expected":"iload_0\n","broken":false},{"name":"java: d \"iconst_1\" 04","file":"-","args":"-a java","commands":["pad 04"],"expected":"iconst_1\n","broken":false},{"name":"java: d \"if_icmplt 0x000c\" a10008 0x00000004","file":"-","args":"-a java","commands":["s 0x00000004","pad a10008"],"expected":"if_icmplt 0x000c\n","broken":false},{"name":"java: d \"iconst_0\" 03","file":"-","args":"-a java","commands":["pad 03"],"expected":"iconst_0\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"goto 0x0010\" a70007 0x00000009","file":"-","args":"-a java","commands":["s 0x00000009","pad a70007"],"expected":"goto 0x0010\n","broken":false},{"name":"java: d \"iload_1\" 1b","file":"-","args":"-a java","commands":["pad 1b"],"expected":"iload_1\n","broken":false},{"name":"java: d \"iconst_1\" 04","file":"-","args":"-a java","commands":["pad 04"],"expected":"iconst_1\n","broken":false},{"name":"java: d \"ixor\" 82","file":"-","args":"-a java","commands":["pad 82"],"expected":"ixor\n","broken":false},{"name":"java: d \"istore_1\" 3c","file":"-","args":"-a java","commands":["pad 3c"],"expected":"istore_1\n","broken":false},{"name":"java: d \"iload_1\" 1b","file":"-","args":"-a java","commands":["pad 1b"],"expected":"iload_1\n","broken":false},{"name":"java: d \"ireturn\" ac 0x00000011","file":"-","args":"-a java","commands":["s 0x00000011","pad ac"],"expected":"ireturn\n","broken":false},{"name":"java: d \"if_icmple 0x000c\" a40008 0x00000004","file":"-","args":"-a java","commands":["s 0x00000004","pad a40008"],"expected":"if_icmple 0x000c\n","broken":false},{"name":"java: d \"goto 0x0010\" a70007 0x00000009","file":"-","args":"-a java","commands":["s 0x00000009","pad a70007"],"expected":"goto 0x0010\n","broken":false},{"name":"java: d \"if_icmpgt 0x000c\" a30008 0x00000004","file":"-","args":"-a java","commands":["s 0x00000004","pad a30008"],"expected":"if_icmpgt 0x000c\n","broken":false},{"name":"java: d \"goto 0x0010\"  a70007 0x00000009","file":"-","args":"-a java","commands":["s 0x00000009","pad a70007"],"expected":"goto 0x0010\n","broken":false},{"name":"java: d \"if_icmpge 0x000c\" a20008 0x00000004","file":"-","args":"-a java","commands":["s 0x00000004","pad a20008"],"expected":"if_icmpge 0x000c\n","broken":false},{"name":"java: d \"goto 0x0010\" a70007 0x00000009","file":"-","args":"-a java","commands":["s 0x00000009","pad a70007"],"expected":"goto 0x0010\n","broken":false},{"name":"java: d \"aload_0\" 2a","file":"-","args":"-a java","commands":["pad 2a"],"expected":"aload_0\n","broken":false},{"name":"java: d \"return\" b1","file":"-","args":"-a java","commands":["pad b1"],"expected":"return\n","broken":false},{"name":"java: d \"bipush 100\" 1064 0x00000006","file":"-","args":"-a java","commands":["s 0x00000006","pad 1064"],"expected":"bipush 100\n","broken":false},{"name":"java: d \"istore_2\" 3d","file":"-","args":"-a java","commands":["pad 3d"],"expected":"istore_2\n","broken":false},{"name":"java: d \"goto 0x0019\" a70010 0x00000009","file":"-","args":"-a java","commands":["s 0x00000009","pad a70010"],"expected":"goto 0x0019\n","broken":false},{"name":"java: d \"iload_2\" 1c","file":"-","args":"-a java","commands":["pad 1c"],"expected":"iload_2\n","broken":false},{"name":"java: d \"sipush 255\" 1100ff","file":"-","args":"-a java","commands":["pad 1100ff"],"expected":"sipush 255\n","broken":false},{"name":"java: d \"irem\" 70","file":"-","args":"-a java","commands":["pad 70"],"expected":"irem\n","broken":false},{"name":"java: d \"iinc 0 1\" 840001","file":"-","args":"-a java","commands":["pad 840001"],"expected":"iinc 0 1\n","broken":false},{"name":"java: d \"if_icmplt 0x000c\" a1fff1 0x0000001b","file":"-","args":"-a java","commands":["s 0x0000001b","pad a1fff1"],"expected":"if_icmplt 0x000c\n","broken":false},{"name":"java: d \"iload_2\" 1c","file":"-","args":"-a java","commands":["pad 1c"],"expected":"iload_2\n","broken":false},{"name":"java: d \"i2b\" 91","file":"-","args":"-a java","commands":["pad 91"],"expected":"i2b\n","broken":false},{"name":"java: d \"if_icmpne 0x001a\" a00006 0x00000014","file":"-","args":"-a java","commands":["s 0x00000014","pad a00006"],"expected":"if_icmpne 0x001a\n","broken":false},{"name":"java: d \"if_icmplt 0x000c\" a1ffe7 0x00000025","file":"-","args":"-a java","commands":["s 0x00000025","pad a1ffe7"],"expected":"if_icmplt 0x000c\n","broken":false},{"name":"java: d \"goto 0x003b\" a70037 0x00000004","file":"-","args":"-a java","commands":["s 0x00000004","pad a70037"],"expected":"goto 0x003b\n","broken":false},{"name":"java: d \"bipush 32\" 1020","file":"-","args":"-a java","commands":["pad 1020"],"expected":"bipush 32\n","broken":false},{"name":"java: d \"nop\" 00","file":"-","args":"-a java","commands":["pad 00"],"expected":"nop\n","broken":false},{"name":"java: d \"iadd\" 60","file":"-","args":"-a java","commands":["pad 60"],"expected":"iadd\n","broken":false}]}
+{
+    "type": "cmd",
+    "tests": [
+        {
+            "name": "java prototypes in json",
+            "file": "bins/java/jdwpexeccmd.class",
+            "args": "",
+            "commands": [
+                "java prototypes j",
+                ""
+            ],
+            "expected": "{\"access_flags\":33,\"is_public\":1,\"is_final\":0,\"is_super\":1,\"is_interface\":0,\"is_abstract\":0,\"is_synthetic\":0,\"is_annotation\":0,\"is_enum\":0,\"name\":\"JDWPExecCmd\",\"super\":\"java/lang/Object\",\"interfaces\":[],\"methods\":[],\"fields\":[],\"imports\":[]}\n",
+            "broken": false
+        },
+        {
+            "name": "java prototypes in ascii",
+            "file": "bins/java/jdwpexeccmd.class",
+            "args": "",
+            "commands": [
+                "java prototypes a",
+                ""
+            ],
+            "expected": "import java.lang.StringBuilder;\nimport java.io.BufferedReader;\nimport java.io.InputStreamReader;\nimport java.lang.Exception;\nimport JDWPExecCmd;\nimport java.lang.Object;\nimport java.lang.String;\nimport java.lang.Process;\nimport java.io.BufferedReader;\nimport java.lang.Exception;\nimport java.lang.Runtime;\nimport java.lang.Process;\nimport java.lang.String;\n\nclass JDWPExecCmd { // @0x0000\n\n  // Methods defined in the class\n  public void \u003cinit\u003e (); // @0x0323\n  public static java.lang.String run (java.lang.String); // @0x034e\n}\n",
+            "broken": false
+        },
+        {
+            "name": "java huge switch case crash",
+            "file": "bins/java/sjybq.class",
+            "args": "",
+            "commands": [
+                "e asm.arch=java e scr.null=true pd 200",
+                ""
+            ],
+            "expected": "\n",
+            "broken": false
+        },
+        {
+            "name": "use java prototypes command to print methods and fields",
+            "file": "malloc://4096",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.comments=false ; e asm.cmt.flgrefs=false ; e scr.color=false ; e asm.lines.bb=false ; e asm.xrefs=false ; wx cafebabe0000002f004008002208003a08003c0700310700360700370700380700390900040019090004001c090004001d0a000400170a000400180a0006001e0a0006001f0a000600200a000700160a0007001a0a0007001b0a000700210a000800160c002e00250c0031002b0c0031002c0c003100300c003200260c0032002a0c003300300c003400300c003500270c003b00230c003d00280c003e002401000001000328294901001428294c6a6176612f6c616e672f537472696e673b01000328295601001b2843294c6a6176612f6c616e672f537472696e674275666665723b01000428492943010016284949294c6a6176612f6c616e672f537472696e673b010026284c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b01002c284c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e674275666665723b010038284c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b01004a284c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b0100083c636c696e69743e0100063c696e69743e010004436f64650100124c6a6176612f6c616e672f537472696e673b01000161010006617070656e6401000162010001630100066368617241740100136a6176612f6c616e672f457863657074696f6e0100106a6176612f6c616e672f537472696e670100166a6176612f6c616e672f537472696e674275666665720100106a6176612f7574696c2f566563746f720100086b77696373356a650100066c656e6774680100086f736d666e73656e010009737562737472696e67010008746f537472696e67010008537461636b4d617000310004000800000003000a003100300000000a003300300000000a00340030000000050001002e00250001002f0000001100010001000000052ab70015b1000000000009003100290001002f0000002300030001000000172ab20009b2000ab8000db3000b2ab2000bb8000c594bb000000000000a0031002c0001002f000000dc00040005000000572ab6000f3b12014e04360415049900442db6000f1aa20036bb000759b700112db600132bb600132cb60013b600144cbb000759b700112db600132b031008b60010b60013b600144ea7ffc8033604a7ffbda70004572db00001000b0051005400050001003f0000006b0006000b0005010700060700060700060100000010000501070006070006070006010000004b000501070006070006070006010000005100050107000607000607000601000000540005010700060700060700060100010700050055000501070006070006070006010000000a0031002b0001002f000000bc000400040000003dbb000759b700114d043e1d990029033e1d2ab6000fa2001a2c2a1db6000e2b1db6000e8292b6001257840301a7ffe4033ea7ffd9a70004572cb60014b00001000a0034003700050001003f000000650006000a000407000607000607000701000000100004070006070006070007010000002f00040700060700060700070100000034000407000607000607000701000000370004070006070006070007010001070005003800040700060700060700070100000008002d00250001002f0000001c00010000000000101202b300091203b3000a1201b3000bb1000000000000 ; ib ; af ; java prototypes m ; java prototypes f",
+                "",
+                ""
+            ],
+            "expected": "public void \u003cinit\u003e (); // @0x02eb\npublic static java.lang.String a (java.lang.String); // @0x030a\nprivate static java.lang.String a (java.lang.String, java.lang.String, java.lang.String); // @0x033b\nprivate static java.lang.String a (java.lang.String, java.lang.String); // @0x0425\nstatic void \u003cclinit\u003e (); // @0x04ef\nprivate static java.lang.String a; // @0x02d1\nprivate static java.lang.String b; // @0x02d9\nprivate static java.lang.String c; // @0x02e1\n\n",
+            "broken": false
+        },
+        {
+            "name": "use java calc_flags command to calculate java flags",
+            "file": "malloc://4096",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.comments=false",
+                "e asm.cmt.flgrefs=false",
+                "e scr.color=false",
+                "e asm.lines.bb=false",
+                "e asm.xrefs=false",
+                "wx cafebabe0000002f004008002208003a08003c0700310700360700370700380700390900040019090004001c090004001d0a000400170a000400180a0006001e0a0006001f0a000600200a000700160a0007001a0a0007001b0a000700210a000800160c002e00250c0031002b0c0031002c0c003100300c003200260c0032002a0c003300300c003400300c003500270c003b00230c003d00280c003e002401000001000328294901001428294c6a6176612f6c616e672f537472696e673b01000328295601001b2843294c6a6176612f6c616e672f537472696e674275666665723b01000428492943010016284949294c6a6176612f6c616e672f537472696e673b010026284c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b01002c284c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e674275666665723b010038284c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b01004a284c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b0100083c636c696e69743e0100063c696e69743e010004436f64650100124c6a6176612f6c616e672f537472696e673b01000161010006617070656e6401000162010001630100066368617241740100136a6176612f6c616e672f457863657074696f6e0100106a6176612f6c616e672f537472696e670100166a6176612f6c616e672f537472696e674275666665720100106a6176612f7574696c2f566563746f720100086b77696373356a650100066c656e6774680100086f736d666e73656e010009737562737472696e67010008746f537472696e67010008537461636b4d617000310004000800000003000a003100300000000a003300300000000a00340030000000050001002e00250001002f0000001100010001000000052ab70015b1000000000009003100290001002f0000002300030001000000172ab20009b2000ab8000db3000b2ab2000bb8000c594bb000000000000a0031002c0001002f000000dc00040005000000572ab6000f3b12014e04360415049900442db6000f1aa20036bb000759b700112db600132bb600132cb60013b600144cbb000759b700112db600132b031008b60010b60013b600144ea7ffc8033604a7ffbda70004572db00001000b0051005400050001003f0000006b0006000b0005010700060700060700060100000010000501070006070006070006010000004b000501070006070006070006010000005100050107000607000607000601000000540005010700060700060700060100010700050055000501070006070006070006010000000a0031002b0001002f000000bc000400040000003dbb000759b700114d043e1d990029033e1d2ab6000fa2001a2c2a1db6000e2b1db6000e8292b6001257840301a7ffe4033ea7ffd9a70004572cb60014b00001000a0034003700050001003f000000650006000a000407000607000607000701000000100004070006070006070007010000002f00040700060700060700070100000034000407000607000607000701000000370004070006070006070007010001070005003800040700060700060700070100000008002d00250001002f0000001c00010000000000101202b300091203b3000a1201b3000bb1000000000000",
+                "ib",
+                "af;",
+                "java calc_flags l;",
+                "java calc_flags m static private;",
+                "java calc_flags m static public;",
+                "java calc_flags c super static public abstract;",
+                "",
+                ""
+            ],
+            "expected": "[=] Class Access Flags List\npublic = 0x0001\nundefined.0x0002 = 0x0002\nundefined.0x0004 = 0x0004\nundefined.0x0008 = 0x0008\nfinal = 0x0010\nsuper = 0x0020\nundefined.0x0040 = 0x0040\nundefined.0x0080 = 0x0080\nundefined.0x0100 = 0x0100\ninterface = 0x0200\nabstract = 0x0400\nundefined.0x0800 = 0x0800\nsynthetic = 0x1000\nannotation = 0x2000\nenum = 0x4000\nundefined.0x8000 = 0x8000\n[=] Methods Access Flags List\npublic = 0x0001\nprivate = 0x0002\nprotected = 0x0004\nstatic = 0x0008\nfinal = 0x0010\nsynchronized = 0x0020\nbridge = 0x0040\nvarargs = 0x0080\nnative = 0x0100\ninterface = 0x0200\nabstract = 0x0400\nstrict = 0x0800\nsynthetic = 0x1000\nannotation = 0x2000\nenum = 0x4000\nundefined.0x8000 = 0x8000\n[=] Fields Access Flags List\npublic = 0x0001\nprivate = 0x0002\nprotected = 0x0004\nstatic = 0x0008\nfinal = 0x0010\nundefined.0x0020 = 0x0020\nvolatile = 0x0040\ntransient = 0x0080\nundefined.0x0100 = 0x0100\nundefined.0x0200 = 0x0200\nundefined.0x0400 = 0x0400\nundefined.0x0800 = 0x0800\nsynthetic = 0x1000\nundefined.0x2000 = 0x2000\nenum = 0x4000\nundefined.0x8000 = 0x8000\nAccess Value for static private = 0x000a\nAccess Value for static public = 0x0009\nAccess Value for super static public abstract = 0x0421\n\n",
+            "broken": false
+        },
+        {
+            "name": "use java set_flags and flags_str_at to reset the access flag on class file entities",
+            "file": "malloc://4096",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.comments=false",
+                "e asm.cmt.flgrefs=false",
+                "e scr.color=false",
+                "e asm.lines.bb=false",
+                "e asm.xrefs=false",
+                "wx cafebabe0000002f004008002208003a08003c0700310700360700370700380700390900040019090004001c090004001d0a000400170a000400180a0006001e0a0006001f0a000600200a000700160a0007001a0a0007001b0a000700210a000800160c002e00250c0031002b0c0031002c0c003100300c003200260c0032002a0c003300300c003400300c003500270c003b00230c003d00280c003e002401000001000328294901001428294c6a6176612f6c616e672f537472696e673b01000328295601001b2843294c6a6176612f6c616e672f537472696e674275666665723b01000428492943010016284949294c6a6176612f6c616e672f537472696e673b010026284c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b01002c284c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e674275666665723b010038284c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b01004a284c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b0100083c636c696e69743e0100063c696e69743e010004436f64650100124c6a6176612f6c616e672f537472696e673b01000161010006617070656e6401000162010001630100066368617241740100136a6176612f6c616e672f457863657074696f6e0100106a6176612f6c616e672f537472696e670100166a6176612f6c616e672f537472696e674275666665720100106a6176612f7574696c2f566563746f720100086b77696373356a650100066c656e6774680100086f736d666e73656e010009737562737472696e67010008746f537472696e67010008537461636b4d617000310004000800000003000a003100300000000a003300300000000a00340030000000050001002e00250001002f0000001100010001000000052ab70015b1000000000009003100290001002f0000002300030001000000172ab20009b2000ab8000db3000b2ab2000bb8000c594bb000000000000a0031002c0001002f000000dc00040005000000572ab6000f3b12014e04360415049900442db6000f1aa20036bb000759b700112db600132bb600132cb60013b600144cbb000759b700112db600132b031008b60010b60013b600144ea7ffc8033604a7ffbda70004572db00001000b0051005400050001003f0000006b0006000b0005010700060700060700060100000010000501070006070006070006010000004b000501070006070006070006010000005100050107000607000607000601000000540005010700060700060700060100010700050055000501070006070006070006010000000a0031002b0001002f000000bc000400040000003dbb000759b700114d043e1d990029033e1d2ab6000fa2001a2c2a1db6000e2b1db6000e8292b6001257840301a7ffe4033ea7ffd9a70004572cb60014b00001000a0034003700050001003f000000650006000a000407000607000607000701000000100004070006070006070007010000002f00040700060700060700070100000034000407000607000607000701000000370004070006070006070007010001070005003800040700060700060700070100000008002d00250001002f0000001c00010000000000101202b300091203b3000a1201b3000bb1000000000000",
+                "ib;af;",
+                "s 0x425; p8 2;",
+                "java flags_str_at m 0x425",
+                "java set_flags 0x425 0x009",
+                "p8 2;",
+                "java flags_str_at m 0x425",
+                "",
+                ""
+            ],
+            "expected": "000a\nMethod Access Flags String: private static\n0009\nMethod Access Flags String: public static\n\n",
+            "broken": false
+        },
+        {
+            "name": "use java to get constant pool objects",
+            "file": "malloc://4096",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.comments=false",
+                "e asm.cmt.flgrefs=false",
+                "e scr.color=false",
+                "e asm.lines.bb=false",
+                "e asm.xrefs=false",
+                "wx cafebabe0000002f004008002208003a08003c0700310700360700370700380700390900040019090004001c090004001d0a000400170a000400180a0006001e0a0006001f0a000600200a000700160a0007001a0a0007001b0a000700210a000800160c002e00250c0031002b0c0031002c0c003100300c003200260c0032002a0c003300300c003400300c003500270c003b00230c003d00280c003e002401000001000328294901001428294c6a6176612f6c616e672f537472696e673b01000328295601001b2843294c6a6176612f6c616e672f537472696e674275666665723b01000428492943010016284949294c6a6176612f6c616e672f537472696e673b010026284c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b01002c284c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e674275666665723b010038284c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b01004a284c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b4c6a6176612f6c616e672f537472696e673b294c6a6176612f6c616e672f537472696e673b0100083c636c696e69743e0100063c696e69743e010004436f64650100124c6a6176612f6c616e672f537472696e673b01000161010006617070656e6401000162010001630100066368617241740100136a6176612f6c616e672f457863657074696f6e0100106a6176612f6c616e672f537472696e670100166a6176612f6c616e672f537472696e674275666665720100106a6176612f7574696c2f566563746f720100086b77696373356a650100066c656e6774680100086f736d666e73656e010009737562737472696e67010008746f537472696e67010008537461636b4d617000310004000800000003000a003100300000000a003300300000000a00340030000000050001002e00250001002f0000001100010001000000052ab70015b1000000000009003100290001002f0000002300030001000000172ab20009b2000ab8000db3000b2ab2000bb8000c594bb000000000000a0031002c0001002f000000dc00040005000000572ab6000f3b12014e04360415049900442db6000f1aa20036bb000759b700112db600132bb600132cb60013b600144cbb000759b700112db600132b031008b60010b60013b600144ea7ffc8033604a7ffbda70004572db00001000b0051005400050001003f0000006b0006000b0005010700060700060700060100000010000501070006070006070006010000004b000501070006070006070006010000005100050107000607000607000601000000540005010700060700060700060100010700050055000501070006070006070006010000000a0031002b0001002f000000bc000400040000003dbb000759b700114d043e1d990029033e1d2ab6000fa2001a2c2a1db6000e2b1db6000e8292b6001257840301a7ffe4033ea7ffd9a70004572cb60014b00001000a0034003700050001003f000000650006000a000407000607000607000701000000100004070006070006070007010000002f00040700060700060700070100000034000407000607000607000701000000370004070006070006070007010001070005003800040700060700060700070100000008002d00250001002f0000001c00010000000000101202b300091203b3000a1201b3000bb1000000000000",
+                "ib;af;",
+                "java resolve_cp k 5",
+                "java resolve_cp e 5",
+                "java resolve_cp c 5",
+                "java resolve_cp e 58",
+                "java resolve_cp a 58",
+                "java resolve_cp k 58",
+                "java resolve_cp c 58",
+                "",
+                ""
+            ],
+            "expected": "5.0x0016.Class.54\namF2YS9sYW5nL0V4Y2VwdGlvbg==\njava/lang/Exception\na3dpY3M1amU=\n0x286\n58.0x0286.Utf8.8.6b77696373356a65\n\"kwics5je\"\n\n",
+            "broken": false
+        },
+        {
+            "name": "af java multiple classes loaded via malloc and ib",
+            "file": "malloc://1024",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.calls=false",
+                "e asm.comments=false",
+                "e asm.cmt.flgrefs=false",
+                "e scr.color=false",
+                "e asm.lines.bb=false",
+                "e asm.xrefs=false",
+                "e asm.flags.middle=0",
+                "wx cafebabe00000033001707000201001b7261646172655f746573745f63617365732f6368616c6c656e67650700040100106a6176612f6c616e672f4f626a6563740100063c696e69743e010003282956010004436f64650a000300090c0005000601000f4c696e654e756d6265725461626c650100124c6f63616c5661726961626c655461626c650100047468697301001d4c7261646172655f746573745f63617365732f6368616c6c656e67653b01001573696d706c655f636173655f73746d745f3476616c01000328294901000169010001490100016a0100016b01000d537461636b4d61705461626c6501000a536f7572636546696c6501000e6368616c6c656e67652e6a617661002100010003000000000002000100050006000100070000002f00010001000000052ab70008b100000002000a00000006000100000003000b0000000c000100000005000c000d00000008000e000f00010007000000c10002000300000048033b033ca7003c1a08703d1caa0000000000003200000000000000030000002000000026000000320000002c840202a70011840203a7000b840209a70005033c1a100aa1ffc41bac00000003000a0000002a000a000000050004000600070007000b0008002c00090032000a0038000b003e000c004000060046000f000b0000002000030002004600100011000000040044001200110001000b00350013001100020014000000110006fd00070101fc002401050505fa000100010015000000020016",
+                "ib;if;",
+                "pd 3 @ sym.java_lang_Object._init_",
+                "# pd 20 @ s sym.radare_test_cases_challenge.simple_case_stmt_4val",
+                "o malloc://1024 0xa00~a",
+                "s 0xa00",
+                "wx cafebabe0000003300180700020100177261646172655f746573745f63617365732f6c6f6f70730700040100106a6176612f6c616e672f4f626a6563740100063c696e69743e010003282956010004436f64650a000300090c0005000601000f4c696e654e756d6265725461626c650100124c6f63616c5661726961626c655461626c65010004746869730100194c7261646172655f746573745f63617365732f6c6f6f70733b01000f73696d706c655f666f725f6c6f6f7001000328294201000169010001490100016a0100016b01000d537461636b4d61705461626c6501001c73696d706c655f666f725f6c6f6f705f6d756c74695f72657475726e01000a536f7572636546696c6501000a6c6f6f70732e6a617661002100010003000000000003000100050006000100070000002f00010001000000052ab70008b100000002000a00000006000100000003000b0000000c000100000005000c000d00000008000e000f000100070000006c0002000300000017033d033b043d10643ca700068400011a1ba1fffb1c91ac00000003000a0000000e000300000006000200080014000b000b000000200003000400130010001100000009000e001200110001000200150013001100020014000000090002fe000c0101010200080015000f0001000700000095000200030000002b033d033b043d10643ca7001a1c1a823d1c1100ffa000061c91ac1c1100ff703d8400011a1ba1ffe71c91ac00000003000a0000002200080000000e00020010000c00110010001300170014001a00150020001000280018000b00000020000300040027001000110000000900220012001100010002002900130011000200140000000a0003fe000c0101010d0800010016000000020017",
+                "oba 0xa00",
+                "pdf",
+                "ib",
+                "af",
+                "pdf",
+                "# s sym.radare_test_cases_challenge.simple_case_stmt_4val; pdf",
+                "# pd 3 @ entry1",
+                "# pd 3 @ entry2",
+                "",
+                ""
+            ],
+            "expected": "blksz    0x0\nblock    0x100\nfd       42\nfile     malloc://1024\nformat   java\niorw     true\nmode     -rwx\nsize     0x400\nhumansz  1K\ntype     JAVA CLASS\narch     java\nbinsz    1024\nbintype  class\nbits     32\ncanary   false\nclass    0x3300 0x0000\ncrypto   false\nendian   little\nhavecode true\nlang     java\nlinenum  true\nlsyms    true\nmachine  jvm\nnx       false\nos       any\npic      false\nrelocs   false\nstatic   false\nstripped false\nsubsys   any\nva       false\n  ;-- entry0:\n  ;-- sym.java_lang_Object._init_:\n  ;-- method.radare_test_cases_challenge._init_:\n 0x0000012d      2a             aload_0\n 0x0000012e      b70008         invokespecial java/lang/Object/\u003cinit\u003e()V\n 0x00000131      b1             return\n  ;-- entry1:\n  ;-- sym.radare_test_cases_challenge.simple_case_stmt_4val:\n  ;-- method.radare_test_cases_challenge.simple_case_stmt_4val:\n 0x0000016a      03             iconst_0\n 0x0000016b      3b             istore_0\n 0x0000016c      03             iconst_0\n 0x0000016d      3c             istore_1\n 0x0000016e      a7003c         goto 0x01aa\n 0x00000171      1a             iload_0\n 0x00000172      08             iconst_5\n 0x00000173      70             irem\n 0x00000174      3d             istore_2\n 0x00000175      1c             iload_2\n 0x00000176      aa0000000000.  tableswitch default: 0x01a8\n 0x00000186      00000020       case 0: goto 0x0196\n 0x0000018a      00000026       case 1: goto 0x019c\n 0x0000018e      00000032       case 2: goto 0x01a8\n 0x00000192      0000002c       case 3: goto 0x01a2\n 0x00000196      840202         iinc 2 2\n 0x00000199      a70011         goto 0x01aa\n 0x0000019c      840203         iinc 2 3\n 0x0000019f      a7000b         goto 0x01aa\n 0x000001a2      840209         iinc 2 9\n 0x000001a5      a70005         goto 0x01aa\n 0x000001a8      03             iconst_0\n 0x000001a9      3c             istore_1\n 0x000001aa      1a             iload_0\n 0x000001ab      100a           bipush 10\n 0x000001ad      a1ffc4         if_icmplt 0x0171\n 0x000001b0      1b             iload_1\n 0x000001b1      ac             ireturn\n  ;-- entry2:\n  ;-- method.radare_test_cases_loops.simple_for_loop_multi_return:\n/ (fcn) sym.radare_test_cases_loops.simple_for_loop_multi_return 43\n| 0x000001f1      46             fstore_3\n| 0x000001f2      00             nop\n| 0x000001f3      1000           bipush 0\n| 0x000001f5      110000         sipush 0\n| 0x000001f8      00             nop\n| 0x000001f9      04             iconst_1\n| 0x000001fa      00             nop\n| 0x000001fb      44             fstore_1\n| 0x000001fc      00             nop\n| 0x000001fd      1200           ldc (null)\n| 0x000001ff      110001         sipush 1\n| 0x00000202      00             nop\n| 0x00000203      0b             fconst_0\n| 0x00000204      00             nop\n| 0x00000205      35             saload\n| 0x00000206      00             nop\n| 0x00000207      130011         ldc_w \"I\"\n| 0x0000020a      00             nop\n| 0x0000020b      02             iconst_m1\n| 0x0000020c      00             nop\n| 0x0000020d      140000         ldc2_w (null)\n| 0x00000210      00             nop\n| 0x00000211      110006         sipush 6\n| 0x00000214      fd             UNDEFINED\n| 0x00000215      00             nop\n| 0x00000216      07             iconst_4\n| 0x00000217      01             aconst_null\n| 0x00000218      01             aconst_null\n| 0x00000219      fc             UNDEFINED\n| 0x0000021a      00             nop\n\\ 0x0000021b      24             fload_2\n  ;-- method.radare_test_cases_challenge.simple_case_stmt_4val:\n/ (fcn) sym.radare_test_cases_challenge.simple_case_stmt_4val 72\n| 0x0000016a      03             iconst_0\n| 0x0000016b      3b             istore_0\n| 0x0000016c      03             iconst_0\n| 0x0000016d      3c             istore_1\n| 0x0000016e      a7003c         goto 0x01aa\n| ;-- section_end.attrs._init_:\n| 0x00000171      1a             iload_0\n| 0x00000172      08             iconst_5\n| 0x00000173      70             irem\n| 0x00000174      3d             istore_2\n| 0x00000175      1c             iload_2\n| 0x00000176      aa0000000000.  tableswitch default: 0x01a8\n| 0x00000186      00000020       case 0: goto 0x0196\n| 0x0000018a      00000026       case 1: goto 0x019c\n| 0x0000018e      00000032       case 2: goto 0x01a8\n| 0x00000192      0000002c       case 3: goto 0x01a2\n| 0x00000196      840202         iinc 2 2\n| 0x00000199      a70011         goto 0x01aa\n| 0x0000019c      840203         iinc 2 3\n| 0x0000019f      a7000b         goto 0x01aa\n| 0x000001a2      840209         iinc 2 9\n| 0x000001a5      a70005         goto 0x01aa\n| 0x000001a8      03             iconst_0\n| 0x000001a9      3c             istore_1\n| 0x000001aa      1a             iload_0\n| 0x000001ab      100a           bipush 10\n| 0x000001ad      a1ffc4         if_icmplt section_end.attrs._init_\n| 0x000001b0      1b             iload_1\n\\ 0x000001b1      ac             ireturn\n\n",
+            "broken": false
+        },
+        {
+            "name": "java summary",
+            "file": "zip://../bins/java/example.zip::0",
+            "args": "",
+            "commands": [
+                "java summary",
+                ""
+            ],
+            "expected": "Summary for zip://../bins/java/example.zip::0:\n  Size 0x0:\n  Constants  size: 0x275 count: 69:\n  Methods    size: 0x24e count: 4:\n  Fields     size: 0x12 count: 2:\n  Attributes size: 0xa count: 1:\n  Interfaces size: 0x2 count: 0:\n\n",
+            "broken": false
+        },
+        {
+            "name": "java prototypes a",
+            "file": "zip://../bins/java/example.zip::0",
+            "args": "",
+            "commands": [
+                "java prototypes a",
+                ""
+            ],
+            "expected": "import java.lang.Object;\nimport java.lang.String;\nimport c;\nimport sun.misc.BASE64Decoder;\nimport sun.misc.BASE64Encoder;\nimport a;\nimport java.lang.NumberFormatException;\nimport [C;\n\nclass c { // @0x0000\n\n  // Fields defined in the class\n  public static boole; // @0x0287\n  private static final java.lang.String z; // @0x028f\n\n  // Methods defined in the class\n  public void \u003cinit\u003e (); // @0x0299\n  public static java.lang.String a (java.lang.String); // @0x02c4\n  public static java.lang.String b (java.lang.String); // @0x02fc\n  static void \u003cclinit\u003e (); // @0x0395\n}\n\n",
+            "broken": false
+        },
+        {
+            "name": "java m_info s",
+            "file": "zip://../bins/java/example.zip::0",
+            "args": "",
+            "commands": [
+                "",
+                "s 0x312",
+                "java m_info s",
+                ""
+            ],
+            "expected": "Method Summary Information:\n  File Offset: 0x00000299\n  Name Index: 24 (\u003cinit\u003e)\n  Descriptor Index: 19 (()V)\n  Access Flags: 0x01 (public)\n  Method Attributes Count: 1\n  Method Attributes:\nCode Attribute Information:\n  Attribute Offset: 0x000002a1\n  Attribute Name Index: 26 (Code)\n  Attribute Length: 29, Attribute Count: 1\n    Max Stack: 1\n    Max Locals: 1\n    Code Length: 5\n    Code At Offset: 0x000002af\nCode Attribute Exception Table Information:\n  Exception Table Length: 0\n  Implicit Method Stack Frame:\nStack Map Frame Information\n  Tag Value = 0x00 Name: ImplicitStackFrame\n  Offset: 0x00000000\n  Local Variable Count = 0x0000\n  Stack Items Count = 0x0000\n  Local Variables:\n  Stack Items:\nCode Attribute Attributes Information:\n  Code Attribute Attributes Count: 1\nLine Number Table Attribute Information:\n  Attribute Offset: 0x000002b8\n  Attribute Name Index: 27 (LineNumberTable)\n  Attribute Length: 6\n  Line Number Attribute Offset: 0x000002c0\n  Line Number Attribute StartPC: 0\n  Line Number Attribute LineNumber: 7\n\n",
+            "broken": false
+        },
+        {
+            "name": "java f_info s",
+            "file": "zip://../bins/java/example.zip::0",
+            "args": "",
+            "commands": [
+                "java f_info s",
+                ""
+            ],
+            "expected": "Field Summary Information:\n  File Offset: 0x00000287\n  Name Index: 40 (a)\n  Descriptor Index: 41 (Z)\n  Access Flags: 0x09 (public static)\n  Field Attributes Count: 0\n  Field Attributes:\n\n",
+            "broken": false
+        },
+        {
+            "name": "java simple switch statement 4 values no breaks",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=java",
+                "wx 033b043ca700371a08703d1caa00000000000029000000000000000300000020000000230000002900000026840202840203840209033c1b1c823c1a100aa1ffc91bac",
+                "pi 29 @ 0",
+                "",
+                ""
+            ],
+            "expected": "iconst_0\nistore_0\niconst_1\nistore_1\ngoto 0x003b\niload_0\niconst_5\nirem\nistore_2\niload_2\ntableswitch default: 0x0035\ncase 0: goto 0x002c\ncase 1: goto 0x002f\ncase 2: goto 0x0035\ncase 3: goto 0x0032\niinc 2 2\niinc 2 3\niinc 2 9\niconst_0\nistore_1\niload_1\niload_2\nixor\nistore_1\niload_0\nbipush 10\nif_icmplt 0x0007\niload_1\nireturn\n\n",
+            "broken": false
+        },
+        {
+            "name": "java simple switch statement 3 values no breaks",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=java",
+                "wx 033b043ca7002c1a08703d1caa0000000000001e0000000000000001000000180000001b8402fe8402ff033c1b1c823c1a100aa1ffd41bac00000003000a0000",
+                "pi 26 @ 0",
+                "",
+                ""
+            ],
+            "expected": "iconst_0\nistore_0\niconst_1\nistore_1\ngoto 0x0030\niload_0\niconst_5\nirem\nistore_2\niload_2\ntableswitch default: 0x002a\ncase 0: goto 0x0024\ncase 1: goto 0x0027\niinc 2 254\niinc 2 255\niconst_0\nistore_1\niload_1\niload_2\nixor\nistore_1\niload_0\nbipush 10\nif_icmplt 0x0007\niload_1\nireturn\n\n",
+            "broken": false
+        },
+        {
+            "name": "java simple switch statement 4 values",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=java",
+                "wx 033b033ca7003c1a08703d1caa0000000000003200000000000000030000002000000026000000320000002c840202a70011840203a7000b840209a70005033c1a100aa1ffc41bac00000003000a0000",
+                "pi 28 @ 0",
+                "",
+                ""
+            ],
+            "expected": "iconst_0\nistore_0\niconst_0\nistore_1\ngoto 0x0040\niload_0\niconst_5\nirem\nistore_2\niload_2\ntableswitch default: 0x003e\ncase 0: goto 0x002c\ncase 1: goto 0x0032\ncase 2: goto 0x003e\ncase 3: goto 0x0038\niinc 2 2\ngoto 0x0040\niinc 2 3\ngoto 0x0040\niinc 2 9\ngoto 0x0040\niconst_0\nistore_1\niload_0\nbipush 10\nif_icmplt 0x0007\niload_1\nireturn\n\n",
+            "broken": false
+        },
+        {
+            "name": "java simple switch statement 3 values",
+            "file": "malloc://128",
+            "args": "",
+            "commands": [
+                "",
+                "e asm.arch=java",
+                "wx 033b033ca7003c1a08703d1caa0000000000003200000000000000030000002000000026000000320000002c840202a70011840203a7000b840209a70005033c1a100aa1ffc41bac00000003000a0000",
+                "pi 28 @ 0",
+                "",
+                ""
+            ],
+            "expected": "iconst_0\nistore_0\niconst_0\nistore_1\ngoto 0x0040\niload_0\niconst_5\nirem\nistore_2\niload_2\ntableswitch default: 0x003e\ncase 0: goto 0x002c\ncase 1: goto 0x0032\ncase 2: goto 0x003e\ncase 3: goto 0x0038\niinc 2 2\ngoto 0x0040\niinc 2 3\ngoto 0x0040\niinc 2 9\ngoto 0x0040\niconst_0\nistore_1\niload_0\nbipush 10\nif_icmplt 0x0007\niload_1\nireturn\n\n",
+            "broken": false
+        }
+    ]
+}
