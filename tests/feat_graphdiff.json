@@ -6,9 +6,7 @@
             "file": "-",
             "args": "",
             "commands": [
-                "cg / 2\u003e/dev/null",
-                "",
-                ""
+                "cg / 2\u003e/dev/null"
             ],
             "expected": "\n",
             "broken": false

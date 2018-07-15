@@ -135,11 +135,9 @@
             "args": "",
             "commands": [
                 "e asm.lines.bb=0",
-                "pd@x:90",
-                "",
-                ""
+                "pd@x:90"
             ],
-            "expected": " 0x00000000      90             nop\n\n",
+            "expected": "  0x00000000      90             nop\n\n",
             "broken": false
         },
         {
@@ -1226,7 +1224,8 @@
             "file": "bins/elf/crackme0x05",
             "args": "",
             "commands": [
-                "aaae asm.cmt.right=0",
+                "aaa",
+                "e asm.cmt.right=0",
                 "e scr.colors=1",
                 "e scr.html=1",
                 "e str.escbslash=1",
@@ -1241,7 +1240,8 @@
             "file": "bins/elf/crackme0x05",
             "args": "",
             "commands": [
-                "af@sym.imp.__libc_start_maine asm.pseudo=1",
+                "af@sym.imp.__libc_start_main",
+                "e asm.pseudo=1",
                 "e asm.esil=1",
                 "e asm.cmt.right=0",
                 "pdJ 1 @ 0x080483ec",
@@ -1257,7 +1257,8 @@
             "file": "bins/elf/crackme0x05",
             "args": "",
             "commands": [
-                "e asm.emu=1pdJ 1 @ 0x08048566",
+                "e asm.emu=1",
+                "pdJ 1 @ 0x08048566",
                 ""
             ],
             "expected": "[{\"offset\":134514022,\"text\":\"            0x08048566      e829feffff     call sym.imp.printf         ; esp=0xfffffffffffffffc ; eip=0x8048394 -\u003e 0xa00c25ff\"},{\"offset\":134514022,\"text\":\"                                                                         ; int printf(const char * format : (*0xffffffff)0x00000000 = ............................................................................................................................................................................................................................................................)\"}]\n",
@@ -1268,7 +1269,8 @@
             "file": "bins/elf/crackme0x00b",
             "args": "",
             "commands": [
-                "s 0x080484aae asm.emu=1",
+                "s 0x080484aa",
+                "e asm.emu=1",
                 "e scr.color=0",
                 "pd 1",
                 "pdJ 1",
@@ -1435,7 +1437,8 @@
             "file": "bins/elf/analysis/ls2",
             "args": "",
             "commands": [
-                "e asm.bytes=falsee asm.cmt.off=false",
+                "e asm.bytes=false",
+                "e asm.cmt.off=false",
                 "s 0x004028e0",
                 "e bin.strfilter=",
                 "pd 1",
@@ -1443,7 +1446,7 @@
                 "pd 1",
                 ""
             ],
-            "expected": "            0x004028e0      mov esi, str.usr_share_locale              ; \"/usr/share/locale\"            0x004028e0      mov esi, str.usr_share_locale\n",
+            "expected": "            0x004028e0      mov esi, str.usr_share_locale              ; \"/usr/share/locale\"\n            0x004028e0      mov esi, str.usr_share_locale\n",
             "broken": false
         },
         {
@@ -1451,13 +1454,14 @@
             "file": "bins/elf/analysis/ls2",
             "args": "",
             "commands": [
-                "e emu.str=truee asm.filter=true",
+                "e emu.str=true",
+                "e asm.filter=true",
                 "pd 1 @ 0x00402a5f",
                 "e asm.filter=false",
                 "pd 1 @ 0x00402a5f",
                 ""
             ],
-            "expected": "            0x00402a5f      bfdf4f4100     mov edi, str.COLUMNS        ; 0x414fdf ; \"COLUMNS\"            0x00402a5f      bfdf4f4100     mov edi, 0x414fdf           ; str.COLUMNS ; \"COLUMNS\"\n",
+            "expected": "            0x00402a5f      bfdf4f4100     mov edi, str.COLUMNS        ; 0x414fdf ; \"COLUMNS\"\n            0x00402a5f      bfdf4f4100     mov edi, 0x414fdf           ; str.COLUMNS ; \"COLUMNS\"\n",
             "broken": false
         },
         {
@@ -1465,7 +1469,7 @@
             "file": "bins/elf/redpill",
             "args": "",
             "commands": [
-                " scr.color=1",
+                "e scr.color=1",
                 "e asm.bytes=false",
                 "e emu.pre=true",
                 "e emu.str=true",
@@ -1478,7 +1482,7 @@
                 "e emu.strinv=false",
                 "pd 1 @ 0x161d"
             ],
-            "expected": "  \u001b[36m          \u001b[0m\u001b[32m0x0000161d\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m[\u001b[36mesi \u001b[0m-\u001b[36m\u001b[36m \u001b[33m0x21f7\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\u001b[31m                    ; \"abcdefghi\"\u001b[0m\u001b[31m ; \u001b[7m\"\\n  Blue Pill\"\u001b[27m str.Blue_Pill\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[32m0x0000161d\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m[\u001b[36mesi \u001b[0m-\u001b[36m\u001b[36m \u001b[33m0x21f7\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\u001b[31m                    ; \u001b[7m\"abcdefghi\"\u001b[27m\u001b[0m\u001b[31m ; \"\\n  Blue Pill\" str.Blue_Pill\u001b[0m",
+            "expected": "  \u001b[36m          \u001b[0m\u001b[32m0x0000161d\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m[\u001b[36mesi \u001b[0m-\u001b[36m\u001b[36m \u001b[33m0x21f7\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\u001b[31m                    ; \"abcdefghi\"\u001b[0m\u001b[31m ; \u001b[7m\"\\n  Blue Pill\"\u001b[27m str.Blue_Pill\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[32m0x0000161d\u001b[0m      \u001b[37mlea\u001b[36m eax\u001b[0m,\u001b[36m \u001b[0m[\u001b[36mesi \u001b[0m-\u001b[36m\u001b[36m \u001b[33m0x21f7\u001b[0m]\u001b[36m\u001b[0m\u001b[0m\u001b[31m                    ; \u001b[7m\"abcdefghi\"\u001b[27m\u001b[0m\u001b[31m ; \"\\n  Blue Pill\" str.Blue_Pill\u001b[0m\n",
             "broken": false
         },
         {
@@ -1486,7 +1490,7 @@
             "file": "bins/elf/redpill",
             "args": "",
             "commands": [
-                " asm.bytes=false",
+                "e asm.bytes=false",
                 "e emu.pre=true",
                 "e emu.str=true",
                 "e emu.strflag=true",
@@ -1495,7 +1499,7 @@
                 "pd 1 @ 0x161d",
                 "pd 1 @ 0x1447"
             ],
-            "expected": "            0x0000161d      lea eax, [esi - 0x21f7]                    ; \"\\n  Blue Pill\" str.Blue_Pill\n            0x0000161d      lea eax, [esi - 0x21f7]                    ; \"\\n  Blue Pill\"\n            0x00001447      add esi, 0x2bb9                            ; segment_end.GNU_RELRO",
+            "expected": "            0x0000161d      lea eax, [esi - 0x21f7]                    ; \"\\n  Blue Pill\" str.Blue_Pill\n            0x0000161d      lea eax, [esi - 0x21f7]                    ; \"\\n  Blue Pill\"\n            0x00001447      add esi, 0x2bb9                            ; segment_end.GNU_RELRO\n",
             "broken": false
         },
         {
@@ -1503,11 +1507,12 @@
             "file": "bins/elf/strenc-ctrlchars",
             "args": "",
             "commands": [
-                "e asm.bytes=falsee asm.cmt.off=false",
+                "e asm.bytes=false",
+                "e asm.cmt.off=false",
                 "pd 1 @ 0x0040040b",
                 ""
             ],
-            "expected": "            0x0040040b      mov edi, str.Control_chars:                ; \"Control chars: \\b\\v\\f\\n\\r\\t\\a\"",
+            "expected": "            0x0040040b      mov edi, str.Control_chars:                ; \"Control chars: \\b\\v\\f\\n\\r\\t\\a\"\n",
             "broken": false
         },
         {
@@ -1515,11 +1520,12 @@
             "file": "bins/firmware/main.bin",
             "args": "",
             "commands": [
-                "f str.hello 12 @ 0x276axd str.hello @ 0x260",
+                "f str.hello 12 @ 0x276",
+                "axd str.hello @ 0x260",
                 "pd 1 @ 0x260",
                 ""
             ],
-            "expected": "            0x00000260      80e0           ldi r24, 0x00               ; 0x276 ; \"hello world!\"",
+            "expected": "            0x00000260      80e0           ldi r24, 0x00               ; 0x276 ; \"hello world!\"\n",
             "broken": false
         },
         {
@@ -1529,7 +1535,7 @@
             "commands": [
                 "pd 1 @b:32 @0xc"
             ],
-            "expected": "            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!",
+            "expected": "            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\n",
             "broken": false
         },
         {
@@ -1537,12 +1543,13 @@
             "file": "bins/firmware/armthumb.bin",
             "args": "-aarm -b32",
             "commands": [
-                "ahb 16 @0xcah*",
+                "ahb 16 @0xc",
+                "ah*",
                 "pd 1 @b:32 @0xc",
                 "ah*",
                 ""
             ],
-            "expected": "ahb 16 @ 0xc            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\nahb 16 @ 0xc\n",
+            "expected": "ahb 16 @ 0xc\n            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\nahb 16 @ 0xc\n",
             "broken": false
         },
         {
@@ -1550,10 +1557,11 @@
             "file": "bins/firmware/armthumb.bin",
             "args": "-aarm -b32",
             "commands": [
-                "ahb 16 @0xcpd 5 @b:32",
+                "ahb 16 @0xc",
+                "pd 5 @b:32",
                 ""
             ],
-            "expected": "            0x00000000      0000a0e1       mov r0, r0            0x00000004      010000eb       bl 0x10\n        `-\u003e 0x00000008      feffffea       b 8\n            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\n            0x00000010      00c09fe5       ldr ip, [pc]                ; [0x18:4]=13 ; 24\n",
+            "expected": "            0x00000000      0000a0e1       mov r0, r0\n            0x00000004      010000eb       bl 0x10\n        `-\u003e 0x00000008      feffffea       b 8\n            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!\n            0x00000010      00c09fe5       ldr ip, [pc]                ; [0x18:4]=13 ; 24\n",
             "broken": false
         },
         {
@@ -1561,7 +1569,7 @@
             "file": "bins/elf/redpill",
             "args": "",
             "commands": [
-                " scr.color=3",
+                "e scr.color=3",
                 "e emu.str=true",
                 "e emu.pre=true",
                 "e emu.strinv=false",
@@ -1582,7 +1590,7 @@
                 "s 0",
                 "pd 1 @ 0x1457"
             ],
-            "expected": "  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;0;127m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[38;2;0;255;0m0x0000145d\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;0m50\u001b[22;24;25;27;28;39m             \u001b[38;2;255;0;255mpush\u001b[38;2;0;255;255m eax\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[38;2;0;255;0m0x0000145e\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8b\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255mf0\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mmov\u001b[38;2;0;255;255m eax\u001b[0m,\u001b[38;2;0;255;255m dword \u001b[0m[\u001b[38;2;0;255;255mesi \u001b[0m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x10\u001b[0m]\u001b[38;2;0;255;255m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[44m\u001b[32m0x00001457\u001b[22;24;25;27;28;39m      \u001b[37m8d\u001b[37m86\u001b[37m89\u001b[37mdd\u001b[31mff\u001b[31mff\u001b[22;24;25;27;28;39m   \u001b[37mlea\u001b[36m eax\u001b[22;24;25;27;28;39m,\u001b[36m \u001b[22;24;25;27;28;39m[\u001b[36mesi \u001b[22;24;25;27;28;39m-\u001b[36m\u001b[36m \u001b[33m0x2277\u001b[22;24;25;27;28;39m]\u001b[36m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[31m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;255;255m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;127;0m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;127;0m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m \u001b[48;2;0;48;0meax\u001b[48;2;0;127;0m\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m",
+            "expected": "  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;0;127m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[38;2;0;255;0m0x0000145d\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;0m50\u001b[22;24;25;27;28;39m             \u001b[38;2;255;0;255mpush\u001b[38;2;0;255;255m eax\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[38;2;0;255;0m0x0000145e\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8b\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255mf0\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mmov\u001b[38;2;0;255;255m eax\u001b[0m,\u001b[38;2;0;255;255m dword \u001b[0m[\u001b[38;2;0;255;255mesi \u001b[0m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x10\u001b[0m]\u001b[38;2;0;255;255m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m\u001b[0m\n  \u001b[36m          \u001b[0m\u001b[44m\u001b[32m0x00001457\u001b[22;24;25;27;28;39m      \u001b[37m8d\u001b[37m86\u001b[37m89\u001b[37mdd\u001b[31mff\u001b[31mff\u001b[22;24;25;27;28;39m   \u001b[37mlea\u001b[36m eax\u001b[22;24;25;27;28;39m,\u001b[36m \u001b[22;24;25;27;28;39m[\u001b[36mesi \u001b[22;24;25;27;28;39m-\u001b[36m\u001b[36m \u001b[33m0x2277\u001b[22;24;25;27;28;39m]\u001b[36m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[31m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;255;255m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;127;0m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m eax\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n  \u001b[38;2;0;255;255m          \u001b[0m\u001b[48;2;0;127;0m\u001b[38;2;0;255;0m0x00001457\u001b[22;24;25;27;28;39m      \u001b[38;2;255;255;255m8d\u001b[38;2;255;255;255m86\u001b[38;2;255;255;255m89\u001b[38;2;255;255;255mdd\u001b[38;2;255;0;0mff\u001b[38;2;255;0;0mff\u001b[22;24;25;27;28;39m   \u001b[38;2;255;255;255mlea\u001b[38;2;0;255;255m \u001b[48;2;0;48;0meax\u001b[48;2;0;127;0m\u001b[22;24;25;27;28;39m,\u001b[38;2;0;255;255m \u001b[22;24;25;27;28;39m[\u001b[38;2;0;255;255mesi \u001b[22;24;25;27;28;39m-\u001b[38;2;0;255;255m\u001b[38;2;0;255;255m \u001b[38;2;255;255;0m0x2277\u001b[22;24;25;27;28;39m]\u001b[38;2;0;255;255m\u001b[22;24;25;27;28;39m\u001b[0m\u001b[0m\u001b[0m\u001b[38;2;255;0;0m     ; \" Take the Red Pill!! \\n\"\u001b[0m\n",
             "broken": false
         },
         {
@@ -1590,7 +1598,7 @@
             "file": "-",
             "args": "",
             "commands": [
-                " io.cache=true",
+                "e io.cache=true",
                 "e asm.arch=x86",
                 "e asm.bits=32",
                 "e asm.bytes=false",
@@ -1625,7 +1633,7 @@
                 "pd 1",
                 "pdJ 1"
             ],
-            "expected": "            0x00002000      mov eax, 0x1000                            ; ansi_str ; \"path\\\"C:\\\\Program\\n\"\n[{\"offset\":8192,\"text\":\"            0x00002000      mov eax, 0x1000                            ; ansi_str ; \\\"path\\\\\\\"C:\\\\\\\\Program\\\\n\\\"\"}]\n            0x00002000      mov eax, 0x1000                            ; ansi_str ; \"path\\\"C:\\Program\\n\"\n[{\"offset\":8192,\"text\":\"            0x00002000      mov eax, 0x1000                            ; ansi_str ; \\\"path\\\\\\\"C:\\\\Program\\\\n\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\Program\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; \"p\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; \\\"p\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\\\\\Program\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\Program\\\"\"}]",
+            "expected": "            0x00002000      mov eax, 0x1000                            ; ansi_str ; \"path\\\"C:\\\\Program\\n\"\n[{\"offset\":8192,\"text\":\"            0x00002000      mov eax, 0x1000                            ; ansi_str ; \\\"path\\\\\\\"C:\\\\\\\\Program\\\\n\\\"\"}]\n            0x00002000      mov eax, 0x1000                            ; ansi_str ; \"path\\\"C:\\Program\\n\"\n[{\"offset\":8192,\"text\":\"            0x00002000      mov eax, 0x1000                            ; ansi_str ; \\\"path\\\\\\\"C:\\\\Program\\\\n\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\Program\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; \"p\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; \\\"p\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\\\\\Program\\\"\"}]\n            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\"path\\\"C:\\Program\"\n[{\"offset\":16384,\"text\":\"            0x00004000      mov ebx, 0x3000                            ; wide_str ; u\\\"path\\\\\\\"C:\\\\Program\\\"\"}]\n",
             "broken": false
         },
         {
@@ -1633,7 +1641,7 @@
             "file": "bins/elf/analysis/armcall",
             "args": "",
             "commands": [
-                " asm.bytes=false",
+                "e asm.bytes=false",
                 "e asm.comments=false",
                 "e io.cache=true",
                 "wv4 0xe59b0008 @ 0x00010464",
@@ -1659,7 +1667,7 @@
                 "afvn arg_8h arg1",
                 "pd 4 @ 0x0001045c"
             ],
-            "expected": "|           0x0001045c      STR R0, [local_8h]\n|           0x00010460      STR R1, [local_ch]\n|           0x00010464      LDR R0, [arg_8h]\n|           0x00010468      LDR R1, [arg_ch]\n\n|           0x0001045c      str r0, [fp, -8]\n|           0x00010460      str r1, [fp, -0xc]\n|           0x00010464      ldr r0, [fp, 8]\n|           0x00010468      ldr r1, [fp, 0xc]\n\n|           0x0001045c      [fp - local_8h] = r0\n|           0x00010460      [fp - local_ch] = r1\n|           0x00010464      r0 = [fp + arg_8h]\n|           0x00010468      r1 = [fp + arg_ch]\n\n|           0x0001045c      [local_8h] = r0\n|           0x00010460      [local2] = r1\n|           0x00010464      r0 = [arg1]\n|           0x00010468      r1 = [arg_ch]",
+            "expected": "|           0x0001045c      STR R0, [local_8h]\n|           0x00010460      STR R1, [local_ch]\n|           0x00010464      LDR R0, [arg_8h]\n|           0x00010468      LDR R1, [arg_ch]\n\n|           0x0001045c      str r0, [fp, -8]\n|           0x00010460      str r1, [fp, -0xc]\n|           0x00010464      ldr r0, [fp, 8]\n|           0x00010468      ldr r1, [fp, 0xc]\n\n|           0x0001045c      [fp - local_8h] = r0\n|           0x00010460      [fp - local_ch] = r1\n|           0x00010464      r0 = [fp + arg_8h]\n|           0x00010468      r1 = [fp + arg_ch]\n\n|           0x0001045c      [local_8h] = r0\n|           0x00010460      [local2] = r1\n|           0x00010464      r0 = [arg1]\n|           0x00010468      r1 = [arg_ch]\n",
             "broken": false
         },
         {
@@ -1667,11 +1675,11 @@
             "file": "bins/elf/padding_in_func",
             "args": "",
             "commands": [
-                " main",
+                "s main",
                 "af",
                 "pdfj~{} | grep opcode"
             ],
-            "expected": "      \"opcode\": \"push rbp\",\n      \"opcode\": \"push rbx\",\n      \"opcode\": \"push rax\",\n      \"opcode\": \"mov ebx, edi\",\n      \"opcode\": \"cmp ebx, 2\",\n      \"opcode\": \"mov eax, 0x5758554a\",\n      \"opcode\": \"mov ebp, 0x10c2377a\",\n      \"opcode\": \"cmovl ebp, eax\",\n      \"opcode\": \"mov eax, 0xbaad0c8f\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jg 0x40058a\",\n      \"opcode\": \"jmp 0x4005ae\",\n      \"opcode\": \"mov edi, 0x400664\",\n      \"opcode\": \"xor eax, eax\",\n      \"opcode\": \"mov esi, ebx\",\n      \"opcode\": \"call 0x400440\",\n      \"opcode\": \"mov eax, 0xccdab13b\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jle 0x4005ae\",\n      \"opcode\": \"cmp eax, 0x10c2377a\",\n      \"opcode\": \"je 0x400570\",\n      \"opcode\": \"cmp eax, 0x5758554a\",\n      \"opcode\": \"jne 0x4005b9\",\n      \"opcode\": \"mov edi, 0x40066d\",\n      \"opcode\": \"call 0x400430\",\n      \"opcode\": \"mov eax, 0xccdab13b\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jg 0x40058a\",\n      \"opcode\": \"cmp eax, 0xbaad0c8f\",\n      \"opcode\": \"mov eax, ebp\",\n      \"opcode\": \"je 0x400583\",\n      \"opcode\": \"jmp 0x4005d0\",\n      \"opcode\": \"cmp eax, 0xccdab13b\",\n      \"opcode\": \"jne 0x4005d0\",\n      \"opcode\": \"xor eax, eax\",\n      \"opcode\": \"add rsp, 8\",\n      \"opcode\": \"pop rbx\",\n      \"opcode\": \"pop rbp\",\n      \"opcode\": \"ret\",\n      \"opcode\": \"jmp 0x4005d0\",",
+            "expected": "      \"opcode\": \"push rbp\",\n      \"opcode\": \"push rbx\",\n      \"opcode\": \"push rax\",\n      \"opcode\": \"mov ebx, edi\",\n      \"opcode\": \"cmp ebx, 2\",\n      \"opcode\": \"mov eax, 0x5758554a\",\n      \"opcode\": \"mov ebp, 0x10c2377a\",\n      \"opcode\": \"cmovl ebp, eax\",\n      \"opcode\": \"mov eax, 0xbaad0c8f\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jg 0x40058a\",\n      \"opcode\": \"jmp 0x4005ae\",\n      \"opcode\": \"mov edi, 0x400664\",\n      \"opcode\": \"xor eax, eax\",\n      \"opcode\": \"mov esi, ebx\",\n      \"opcode\": \"call 0x400440\",\n      \"opcode\": \"mov eax, 0xccdab13b\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jle 0x4005ae\",\n      \"opcode\": \"cmp eax, 0x10c2377a\",\n      \"opcode\": \"je 0x400570\",\n      \"opcode\": \"cmp eax, 0x5758554a\",\n      \"opcode\": \"jne 0x4005b9\",\n      \"opcode\": \"mov edi, 0x40066d\",\n      \"opcode\": \"call 0x400430\",\n      \"opcode\": \"mov eax, 0xccdab13b\",\n      \"opcode\": \"cmp eax, 0xccdab13a\",\n      \"opcode\": \"jg 0x40058a\",\n      \"opcode\": \"cmp eax, 0xbaad0c8f\",\n      \"opcode\": \"mov eax, ebp\",\n      \"opcode\": \"je 0x400583\",\n      \"opcode\": \"jmp 0x4005d0\",\n      \"opcode\": \"cmp eax, 0xccdab13b\",\n      \"opcode\": \"jne 0x4005d0\",\n      \"opcode\": \"xor eax, eax\",\n      \"opcode\": \"add rsp, 8\",\n      \"opcode\": \"pop rbx\",\n      \"opcode\": \"pop rbp\",\n      \"opcode\": \"ret\",\n      \"opcode\": \"jmp 0x4005d0\",\n",
             "broken": false
         },
         {
@@ -1679,13 +1687,13 @@
             "file": "bins/elf/echo-bin",
             "args": "",
             "commands": [
-                " asm.bytes=false",
+                "e asm.bytes=false",
                 "e asm.imm.str=true",
                 "pd 1 @ 0x9a2",
                 "pd 1 @ 0x9a9",
                 "pd 1 @ 0x9b3"
             ],
-            "expected": "            0x000009a2      mov dword [rbp - 0x30], 0x3c3c2b3e         ; '\u003e+\u003c\u003c'\n            0x000009a9      mov word [rbp - 0x2c], 0x3e5d              ; ']\u003e'\n            0x000009b3      movabs rax, 0x3c2b3c3c5b3e3e3e             ; '\u003e\u003e\u003e[\u003c\u003c+\u003c'",
+            "expected": "            0x000009a2      mov dword [rbp - 0x30], 0x3c3c2b3e         ; '\u003e+\u003c\u003c'\n            0x000009a9      mov word [rbp - 0x2c], 0x3e5d              ; ']\u003e'\n            0x000009b3      movabs rax, 0x3c2b3c3c5b3e3e3e             ; '\u003e\u003e\u003e[\u003c\u003c+\u003c'\n",
             "broken": false
         },
         {
@@ -1693,7 +1701,7 @@
             "file": "bins/elf/echo-bin",
             "args": "",
             "commands": [
-                " asm.imm.str=true",
+                "e asm.imm.str=true",
                 "e asm.cmt.right=false",
                 "pd 1 @ 0x9b3",
                 "?e",
@@ -1707,12 +1715,12 @@
             "file": "bins/elf/analysis/fast",
             "args": "",
             "commands": [
-                " asm.bytes=false",
+                "e asm.bytes=false",
                 "e asm.imm.str=true",
                 "f- @ 0x08048574",
                 "pd 1 @ 0x08048444"
             ],
-            "expected": "            0x08048444      push 0x8048574",
+            "expected": "            0x08048444      push 0x8048574\n",
             "broken": false
         },
         {
@@ -1720,7 +1728,7 @@
             "file": "bins/elf/strenc",
             "args": "",
             "commands": [
-                " asm.bytes=false",
+                "e asm.bytes=false",
                 "e asm.imm.str=true",
                 "e asm.strenc=utf16le",
                 "pd 1 @ 0x004016ca",
@@ -1728,7 +1736,7 @@
                 "e asm.cmt.off=false",
                 "pd 1 @ 0x004016ca"
             ],
-            "expected": "            0x004016ca      mov edi, 0x40235a                          ; 'Z#@' ; u\"\\u2520\\u2542-\\u2500-\\u2500\\u2542\\u2528 is a fence with embedded double zeros\\n\"\n            0x004016ca      mov edi, str.fence                         ; u\"\\u2520\\u2542-\\u2500-\\u2500\\u2542\\u2528 is a fence with embedded double zeros\\n\"",
+            "expected": "            0x004016ca      mov edi, 0x40235a                          ; 'Z#@' ; u\"\\u2520\\u2542-\\u2500-\\u2500\\u2542\\u2528 is a fence with embedded double zeros\\n\"\n            0x004016ca      mov edi, str.fence                         ; u\"\\u2520\\u2542-\\u2500-\\u2500\\u2542\\u2528 is a fence with embedded double zeros\\n\"\n",
             "broken": false
         }
     ]

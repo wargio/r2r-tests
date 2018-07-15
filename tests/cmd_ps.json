@@ -6,7 +6,7 @@
             "file": "bins/elf/stdstring32-libc++.LOAD1",
             "args": "-n -m 0x08049ee8",
             "commands": [
-                "on ../bins/elf/stdstring32-libc++.heap 0x09eb8000 \u003e /dev/null",
+                "on bins/elf/stdstring32-libc++.heap 0x09eb8000 \u003e /dev/null",
                 "f obj.empty_str 12 0x0804a064",
                 "f obj.long_str1 12 0x0804a04c",
                 "f obj.short_str1 12 0x0804a034",
@@ -29,7 +29,7 @@
             "file": "bins/elf/stdstring64-libc++.LOAD1",
             "args": "-n -m 0x00600dc8",
             "commands": [
-                "on ../bins/elf/stdstring64-libc++.heap 0x0128b000 \u003e /dev/null",
+                "on bins/elf/stdstring64-libc++.heap 0x0128b000 \u003e /dev/null",
                 "f obj.empty_str 24 0x006010b8",
                 "f obj.long_str1 24 0x00601088",
                 "f obj.short_str1 24 0x00601058",
@@ -65,10 +65,10 @@
             "file": "-",
             "args": "",
             "commands": [
-                "z abc\\n123\\n",
+                "wz abc\\n123\\n",
                 "psx 9"
             ],
-            "expected": "abc\\x0a123\\x0a\\x00",
+            "expected": "abc\\x0a123\\x0a\\x00\n",
             "broken": false
         },
         {
@@ -76,13 +76,13 @@
             "file": "-",
             "args": "",
             "commands": [
-                "s 1",
+                "ps 1",
                 "ps 2",
                 "ps 3",
                 "ps 4",
                 "ps 8"
             ],
-            "expected": "\\x00\n\\x00\\x00\n\\x00\\x00\\x00\n\\x00\\x00\\x00\\x00\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00",
+            "expected": "\\x00\n\\x00\\x00\n\\x00\\x00\\x00\n\\x00\\x00\\x00\\x00\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\n",
             "broken": false
         }
     ]

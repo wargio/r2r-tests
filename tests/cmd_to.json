@@ -6,7 +6,7 @@
             "file": "-",
             "args": "",
             "commands": [
-                "to ../bins/headers/s1.h;t S1",
+                "to bins/headers/s1.h;t S1",
                 ""
             ],
             "expected": "pf ddd x y z\n\n",
@@ -17,7 +17,7 @@
             "file": "-",
             "args": "",
             "commands": [
-                "to ../bins/headers/s2.h; t S1",
+                "to bins/headers/s2.h; t S1",
                 ""
             ],
             "expected": "pf ddd x test z\n\n",
@@ -28,9 +28,9 @@
             "file": "-",
             "args": "",
             "commands": [
-                "to ../bins/headers/s1.h; to ../bins/headers/s2.h; t S1",
-                "",
-                ""
+                "to bins/headers/s1.h",
+                "to bins/headers/s2.h",
+                "t S1"
             ],
             "expected": "pf ddd x test z\n\n",
             "broken": false
@@ -40,18 +40,15 @@
             "file": "-",
             "args": "",
             "commands": [
-                "",
-                "to ../bins/headers/s3.h",
+                "to bins/headers/s3.h",
                 "t S1",
                 "tk S1",
                 "tk struct.S1",
                 "tk struct.S1.x",
                 "tk struct.S1.y",
-                "tk struct.S1.z",
-                "",
-                ""
+                "tk struct.S1.z"
             ],
-            "expected": "",
+            "expected": "pf [3]d[4]dd x y z\nstruct\nx,y,z\nint32_t,0,3\nint32_t,12,4\nint32_t,28,0\n\n",
             "broken": false
         }
     ]

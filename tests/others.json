@@ -627,11 +627,9 @@
                 "s entry0",
                 "ai",
                 "s sym.__mh_execute_header",
-                "ai",
-                "",
-                ""
+                "ai"
             ],
-            "expected": "exec\nread\nflag\nflag\n\n",
+            "expected": "exec\nread\nflag\nreg\nflag\n\n",
             "broken": false
         },
         {
