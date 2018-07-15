@@ -3,7 +3,7 @@
     "tests": [
         {
             "name": "io-zip",
-            "file": "zip://../bins/java/example.zip",
+            "file": "zip://bins/java/example.zip",
             "args": "",
             "commands": [
                 "q",
@@ -14,7 +14,7 @@
         },
         {
             "name": "io-zip entrypoints for c.class",
-            "file": "zip://../bins/java/example.zip//research_data/experiment/decompiler/dumped_jar_dec/c.class",
+            "file": "zip://bins/java/example.zip//research_data/experiment/decompiler/dumped_jar_dec/c.class",
             "args": "",
             "commands": [
                 "ieq",
@@ -25,7 +25,7 @@
         },
         {
             "name": "io-zip entrypoints for c.class",
-            "file": "zip://../bins/java/example.zip::0",
+            "file": "zip://bins/java/example.zip::0",
             "args": "",
             "commands": [
                 "ieq",
@@ -36,7 +36,7 @@
         },
         {
             "name": "io-zip hello.apk",
-            "file": "apk://../bins/dex/Hello.apk",
+            "file": "apk://bins/dex/Hello.apk",
             "args": "",
             "commands": [
                 "ieq",
@@ -47,7 +47,7 @@
         },
         {
             "name": "io-zip hello.apk",
-            "file": "zip://../bins/dex/Hello.apk",
+            "file": "zip://bins/dex/Hello.apk",
             "args": "",
             "commands": [
                 "ieq",

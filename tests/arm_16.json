@@ -2,16 +2,6 @@
     "type": "asm",
     "tests": [
         {
-            "name": "arm_16: #!/usr/bin/env node bin/r2r.js",
-            "file": "-",
-            "args": "-a arm -b 16",
-            "commands": [
-                "s node"
-            ],
-            "expected": "",
-            "broken": false
-        },
-        {
             "name": "arm_16: #a \"ldr r0, [r1]\" 0868",
             "file": "-",
             "args": "-a arm -b 16",
@@ -172,7 +162,7 @@
                 "pa add r7, 0xaa"
             ],
             "expected": "07f1aa07\n",
-            "broken": false
+            "broken": true
         },
         {
             "name": "arm_16: a \"sub sp, 0x30\" 8cb0",
@@ -202,7 +192,7 @@
                 "pa sub r4, 0x69"
             ],
             "expected": "a4f16904\n",
-            "broken": false
+            "broken": true
         },
         {
             "name": "arm_16: a \"sub r8, 0xf9\" a8f1f908",
@@ -725,7 +715,7 @@
                 "pa lsr r0, r3, 4"
             ],
             "expected": "4fea1310\n",
-            "broken": false
+            "broken": true
         },
         {
             "name": "arm_16: a \"lsr r5, r12, 20\" 4fea1c55",
@@ -745,7 +735,7 @@
                 "pa lsr r2, r5, 2"
             ],
             "expected": "4fea9502\n",
-            "broken": false
+            "broken": true
         },
         {
             "name": "arm_16: a \"mov.w r0, 240\" 4ff0f000",
@@ -1812,7 +1802,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0xac",
+                "s -0xac",
                 "pad a8d5"
             ],
             "expected": "bpl 0xffffff54\n",
@@ -1823,7 +1813,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0xac",
+                "s -0xac",
                 "pa bpl -0xac"
             ],
             "expected": "a8d5\n",
@@ -1845,7 +1835,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0x332",
+                "s -0x332",
                 "pad 65e6"
             ],
             "expected": "b 0xfffffcce\n",
@@ -1856,7 +1846,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0x336",
+                "s -0x336",
                 "pa b -0x336"
             ],
             "expected": "63e6\n",
@@ -1887,7 +1877,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0x5aa2",
+                "s -0x5aa2",
                 "pad faf4afaa"
             ],
             "expected": "blo.w 0xffffa562\n",
@@ -1939,7 +1929,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0x11ae",
+                "s -0x11ae",
                 "pad fef729bf"
             ],
             "expected": "b.w 0xffffee56\n",
@@ -1950,7 +1940,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0x11ae",
+                "s -0x11ae",
                 "pa b -0x11ae"
             ],
             "expected": "fef727bf\n",
@@ -1983,7 +1973,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0xe58fe2",
+                "s -0xe58fe2",
                 "pa bl 0xff1a7022",
                 "pad a7f50fd0"
             ],
@@ -2006,7 +1996,7 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0xa3885c",
+                "s -0xa3885c",
                 "pa blx 0xff5c77a8",
                 "pad c7f5d2cb"
             ],
@@ -2408,7 +2398,6 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0xabababab",
                 "pad b8f1ab3f"
             ],
             "expected": "cmp.w r8, -0x54545455\n",
@@ -2419,7 +2408,6 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0xabababab",
                 "pa cmp r8, -0x54545455"
             ],
             "expected": "b8f1ab3f\n",
@@ -2580,7 +2568,6 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s NB",
                 "pad aff3c087"
             ],
             "expected": "cpsid ai, 0\n",
@@ -5142,7 +5129,6 @@
             "file": "-",
             "args": "-a arm -b 16",
             "commands": [
-                "s 0xabababab",
                 "pad 6af0ab36"
             ],
             "expected": "orn r6, sl, -0x54545455\n",

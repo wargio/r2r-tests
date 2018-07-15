@@ -152,13 +152,53 @@
             "broken": false
         },
         {
-            "name": "wasm: d \"get_local 0\" 2000 \"get_local 1\" 2001 \"get_local 2\" 2002 \"i64.extend_u/i32\" ad \"i64.const 32\" 4220",
+            "name": "wasm: d \"get_local 0\" 2000",
+            "file": "-",
+            "args": "-a wasm",
+            "commands": [
+                "pad 2000"
+            ],
+            "expected": "get_local 0\n",
+            "broken": false
+        },
+        {
+            "name": "wasm: d \"get_local 1\" 2001",
+            "file": "-",
+            "args": "-a wasm",
+            "commands": [
+                "pad 2001"
+            ],
+            "expected": "get_local 1\n",
+            "broken": false
+        },
+        {
+            "name": "wasm: d \"get_local 2\" 2002",
+            "file": "-",
+            "args": "-a wasm",
+            "commands": [
+                "pad 2002"
+            ],
+            "expected": "get_local 2\n",
+            "broken": false
+        },
+        {
+            "name": "wasm: d \"i64.extend_u/i32\" ad",
+            "file": "-",
+            "args": "-a wasm",
+            "commands": [
+                "pad ad"
+            ],
+            "expected": "i64.extend_u/i32\n",
+            "broken": false
+        },
+        {
+            "name": "wasm: d \"i64.const 32\" 4220",
             "file": "-",
             "args": "-a wasm",
             "commands": [
                 "pad 4220"
             ],
-            "expected": "get_local 0\" 2000 \"get_local 1\" 2001 \"get_local 2\" 2002 \"i64.extend_u/i32\" ad \"i64.const 32\n",
+            "expected": "i64.const 32\n",
             "broken": false
         }
     ]
