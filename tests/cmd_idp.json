@@ -6,13 +6,11 @@
             "file": "bins/pdb/SimplePDB.exe",
             "args": "",
             "commands": [
-                "idp ../bins/pdb/SimplePDB.pdb",
+                "idp bins/pdb/SimplePDB.pdb",
                 "fi 1 @ 0x00401000",
-                "fi 1 @ 0x00401010",
-                "",
-                ""
+                "fi 1 @ 0x00401010"
             ],
-            "expected": "\n0x00401000 2560 section..text\n0x00401000 0 pdb.void___cdecl_SomeCoolFunction_void\n0x00401010 0 pdb._main\n",
+            "expected": "0x00401000 2560 section..text\n0x00401000 0 pdb.void___cdecl_SomeCoolFunction_void\n0x00401010 0 pdb._main\n",
             "broken": false
         },
         {
@@ -21,10 +19,8 @@
             "args": "",
             "commands": [
                 "e asm.bits",
-                "idpi ../bins/pdb/SimplePDB.pdb~SomeCoolFunction",
-                "e asm.bits",
-                "",
-                ""
+                "idpi bins/pdb/SimplePDB.pdb~SomeCoolFunction",
+                "e asm.bits"
             ],
             "expected": "32\n0x00401000  2  .text  void __cdecl SomeCoolFunction(void)\n32\n",
             "broken": false

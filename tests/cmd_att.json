@@ -14,7 +14,7 @@
                 "",
                 ""
             ],
-            "expected": "  ;-- main:\n  ;-- entry0:\n  ;-- func.100001058:\n  0x100001058      pushq %rbp\n  0x100001059      movq %rsp, %rbp\n  0x10000105c      pushq %r15\n  0x10000105e      pushq %r14\n  0x100001060      pushq %r13\n  0x100001062      pushq %r12\n  0x100001064      pushq %rbx\n  0x100001065      subq $0x648, %rsp\n  0x10000106c      movq %rsi, %rbx\n  0x10000106f      movl %edi, %r14d\n  0x100001072      leaq -0x640(%rbp), %rax\n  0x100001079      movq %rax, -0x648(%rbp)\n  0x100001080      testl %r14d, %r14d\n  0x100001083      jg 0x10000108a\n  0x100001085      callq sym.func.100004401\n  0x10000108a      leaq 0x100004b10, %rsi\n  0x100001091      xorl %edi, %edi\n  0x100001093      callq sym.imp.setlocale\n  0x100001098      movl $1, %r13d\n  0x10000109e      movl $1, %edi\n",
+            "expected": "  ;-- main:\n  ;-- entry0:\n  ;-- func.100001058:\n  ;-- rip:\n  0x100001058      pushq %rbp\n  0x100001059      movq %rsp, %rbp\n  0x10000105c      pushq %r15\n  0x10000105e      pushq %r14\n  0x100001060      pushq %r13\n  0x100001062      pushq %r12\n  0x100001064      pushq %rbx\n  0x100001065      subq $0x648, %rsp\n  0x10000106c      movq %rsi, %rbx\n  0x10000106f      movl %edi, %r14d\n  0x100001072      leaq -0x640(%rbp), %rax\n  0x100001079      movq %rax, -0x648(%rbp)\n  0x100001080      testl %r14d, %r14d\n  0x100001083      jg 0x10000108a\n  0x100001085      callq sym.func.100004401\n  0x10000108a      leaq 0x100004b10, %rsi\n  0x100001091      xorl %edi, %edi\n  0x100001093      callq sym.imp.setlocale\n  0x100001098      movl $1, %r13d\n  0x10000109e      movl $1, %edi\n",
             "broken": false
         },
         {
@@ -31,7 +31,7 @@
                 "pd 20",
                 ""
             ],
-            "expected": "| ;-- entry0:\n| ;-- func.100001058:\n/ (fcn) main 2259\n| 0x100001058      pushq %rbp\n| 0x100001059      movq %rsp, %rbp\n| 0x10000105c      pushq %r15\n| 0x10000105e      pushq %r14\n| 0x100001060      pushq %r13\n| 0x100001062      pushq %r12\n| 0x100001064      pushq %rbx\n| 0x100001065      subq $0x648, %rsp\n| 0x10000106c      movq %rsi, %rbx\n| 0x10000106f      movl %edi, %r14d\n| 0x100001072      leaq local_640h, %rax\n| 0x100001079      movq %rax, local_648h\n| 0x100001080      testl %r14d, %r14d\n| 0x100001083      jg 0x10000108a\n| 0x100001085      callq sym.func.100004401\n| 0x10000108a      leaq 0x100004b10, %rsi\n| 0x100001091      xorl %edi, %edi\n| 0x100001093      callq sym.imp.setlocale\n| 0x100001098      movl $1, %r13d\n| 0x10000109e      movl $1, %edi\n",
+            "expected": "| ;-- entry0:\n| ;-- func.100001058:\n| ;-- rip:\n/ (fcn) main 2259\n| 0x100001058      pushq %rbp\n| 0x100001059      movq %rsp, %rbp\n| 0x10000105c      pushq %r15\n| 0x10000105e      pushq %r14\n| 0x100001060      pushq %r13\n| 0x100001062      pushq %r12\n| 0x100001064      pushq %rbx\n| 0x100001065      subq $0x648, %rsp\n| 0x10000106c      movq %rsi, %rbx\n| 0x10000106f      movl %edi, %r14d\n| 0x100001072      leaq local_640h, %rax\n| 0x100001079      movq %rax, local_648h\n| 0x100001080      testl %r14d, %r14d\n| 0x100001083      jg 0x10000108a\n| 0x100001085      callq sym.func.100004401\n| 0x10000108a      leaq 0x100004b10, %rsi\n| 0x100001091      xorl %edi, %edi\n| 0x100001093      callq sym.imp.setlocale\n| 0x100001098      movl $1, %r13d\n| 0x10000109e      movl $1, %edi\n",
             "broken": false
         },
         {

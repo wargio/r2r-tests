@@ -59,12 +59,9 @@
             "file": "bins/elf/analysis/fast",
             "args": "",
             "commands": [
-                "",
-                "aa ; s sym.fastcaslled ; afc fastcall ; afva ; ?e ; pdf~arg,local",
-                "",
-                ""
+                "aa ; s sym.fastcaslled ; afc fastcall ; afva ; ?e ; pdf~arg,local"
             ],
-            "expected": "\n|   sym.fastcaslled (int arg2, int arg1, int arg_8h, int arg_ch);\n|           ; var int local_20h @ ebp-0x20\n|           ; var int local_1ch @ ebp-0x1c\n|           ; var int local_10h @ ebp-0x10\n|           ; var int local_ch @ ebp-0xc\n|           ; arg int arg_8h @ ebp+0x8\n|           ; arg int arg_ch @ ebp+0xc\n|           ; arg int arg2 @ edx\n|           ; arg int arg1 @ ecx\n|           0x08048421      894de4         mov dword [local_1ch], ecx  ; arg1\n|           0x08048424      8955e0         mov dword [local_20h], edx  ; arg2\n|           0x08048427      8b55e4         mov edx, dword [local_1ch]\n|           0x0804842a      8b45e0         mov eax, dword [local_20h]\n|           0x0804842f      8945f4         mov dword [local_ch], eax\n|           0x08048432      8b45e0         mov eax, dword [local_20h]\n|           0x08048435      2b450c         sub eax, dword [arg_ch]\n|           0x08048438      8945f0         mov dword [local_10h], eax\n|           0x0804843b      ff7508         push dword [arg_8h]\n|           0x0804843e      ff75f0         push dword [local_10h]\n|           0x08048441      ff75f4         push dword [local_ch]\n\n",
+            "expected": "|   sym.fastcaslled (int arg2, int arg1, int arg_8h, int arg_ch);\n|           ; var int local_20h @ ebp-0x20\n|           ; var int local_1ch @ ebp-0x1c\n|           ; var int local_10h @ ebp-0x10\n|           ; var int local_ch @ ebp-0xc\n|           ; arg int arg_8h @ ebp+0x8\n|           ; arg int arg_ch @ ebp+0xc\n|           ; arg int arg2 @ edx\n|           ; arg int arg1 @ ecx\n|           0x08048421      894de4         mov dword [local_1ch], ecx  ; arg1\n|           0x08048424      8955e0         mov dword [local_20h], edx  ; arg2\n|           0x08048427      8b55e4         mov edx, dword [local_1ch]\n|           0x0804842a      8b45e0         mov eax, dword [local_20h]\n|           0x0804842f      8945f4         mov dword [local_ch], eax\n|           0x08048432      8b45e0         mov eax, dword [local_20h]\n|           0x08048435      2b450c         sub eax, dword [arg_ch]\n|           0x08048438      8945f0         mov dword [local_10h], eax\n|           0x0804843b      ff7508         push dword [arg_8h]\n|           0x0804843e      ff75f0         push dword [local_10h]\n|           0x08048441      ff75f4         push dword [local_ch]\n\n",
             "broken": false
         },
         {
@@ -1101,12 +1098,9 @@
             "args": "",
             "commands": [
                 "aaa",
-                "afi @ sub.msvcrt.dll_printf_b2d~name",
-                "",
-                "",
-                ""
+                "afi @ sub.msvcrt.dll_printf_b2d~name"
             ],
-            "expected": "name: sub.msvcrt.dll_printf_b2d\n\n",
+            "expected": "name: sub.msvcrt.dll_printf_b2d\n",
             "broken": false
         },
         {
@@ -1143,11 +1137,9 @@
             "args": "",
             "commands": [
                 "aaa",
-                "afb @ sym.imp.kernel32.dll_ExitProcess",
-                "",
-                ""
+                "afb @ sym.imp.kernel32.dll_ExitProcess"
             ],
-            "expected": "\n\n",
+            "expected": "\n",
             "broken": false
         }
     ]

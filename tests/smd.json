@@ -9,7 +9,7 @@
                 "i~!fd",
                 ""
             ],
-            "expected": "blksz    0x0\nblock    0x100\nfile     ../bins/smd/LiquidSpaceDodgerV3.bin\nformat   smd\niorw     false\nmode     r-x\nsize     0x272f8\nhumansz  156.7K\ntype     ROM\narch     m68k\nbinsz    160504\nbits     16\ncanary   false\nclass    SEGA MEGASIS    (C)2015 James L.\ncrypto   false\nendian   little\nhavecode true\nlinenum  false\nlsyms    false\nmachine  Sega Megadrive\nnx       false\nos       smd\npic      false\nrelocs   false\nstatic   true\nstripped false\nva       true\n\n",
+            "expected": "blksz    0x0\nblock    0x100\nfile     bins/smd/LiquidSpaceDodgerV3.bin\nformat   smd\niorw     false\nmode     r-x\nsize     0x272f8\nhumansz  156.7K\ntype     ROM\narch     m68k\nbinsz    160504\nbits     16\ncanary   false\nclass    SEGA MEGASIS    (C)2015 James L.\ncrypto   false\nendian   little\nhavecode true\nlinenum  false\nlsyms    false\nmachine  Sega Megadrive\nnx       false\nos       smd\npic      false\nrelocs   false\nstatic   true\nstripped false\nva       true\n\n",
             "broken": false
         },
         {

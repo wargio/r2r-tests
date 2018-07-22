@@ -30,7 +30,8 @@
             "file": "bins/mach0/mac-ls",
             "args": "",
             "commands": [
-                ""
+                "e search.in =io.sections",
+                "?v $$ @@c:/ca fs:[ra"
             ],
             "expected": "0x100004cd7\n0x100004d95\n0x100004e1d\n0x100005078\n0x100005078\n0x100005078\n\n",
             "broken": false
