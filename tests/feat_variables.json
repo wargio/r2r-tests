@@ -62,7 +62,7 @@
             "file": "-",
             "args": "",
             "commands": [
-                "v $$ @ 0x300",
+                "?v $$ @ 0x300",
                 "?v $$$ @ 0x300",
                 "s 0x123",
                 "?v $$ @ 0x300",
@@ -78,7 +78,7 @@
                 ".(test2) @ 0x300",
                 "s"
             ],
-            "expected": "0x300\n0x0\n0x300\n0x123\n\n0x123\n0x123\n0x123\n0x123\n0x123\n0x123\n0x123",
+            "expected": "0x300\n0x0\n0x300\n0x123\n\n0x123\n0x123\n0x123\n0x123\n0x123\n0x123\n0x123\n",
             "broken": false
         },
         {
@@ -86,12 +86,12 @@
             "file": "-",
             "args": "",
             "commands": [
-                "nested_seek, ?v $$)",
+                "(nested_seek, ?v $$)",
                 ".(nested_seek) @ 0x500",
                 "(nested_seek2, ?v $$, .(nested_seek) @ 0x600, ?v $$)",
                 ".(nested_seek2) @ 0x700"
             ],
-            "expected": "0x500\n0x700\n0x600\n0x700",
+            "expected": "0x500\n0x700\n0x600\n0x700\n",
             "broken": false
         },
         {
@@ -99,14 +99,14 @@
             "file": "bins/elf/redpill",
             "args": "",
             "commands": [
-                " asm.bytes=false",
+                "e asm.bytes=false",
                 "af @ 0x1a71",
                 "s entry0",
                 "s",
                 "pdf @ 0x1a71 \u003e /dev/null",
                 "s  # should be the same as before"
             ],
-            "expected": "0xf40\n0xf40",
+            "expected": "0xf40\n0xf40\n",
             "broken": false
         },
         {
