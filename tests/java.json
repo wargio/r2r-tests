@@ -157,18 +157,18 @@
         },
         {
             "name": "java summary",
-            "file": "zip://../bins/java/example.zip::0",
+            "file": "zip://bins/java/example.zip::0",
             "args": "",
             "commands": [
                 "java summary",
                 ""
             ],
-            "expected": "Summary for zip://../bins/java/example.zip::0:\n  Size 0x0:\n  Constants  size: 0x275 count: 69:\n  Methods    size: 0x24e count: 4:\n  Fields     size: 0x12 count: 2:\n  Attributes size: 0xa count: 1:\n  Interfaces size: 0x2 count: 0:\n\n",
+            "expected": "Summary for zip://bins/java/example.zip::0:\n  Size 0x0:\n  Constants  size: 0x275 count: 69:\n  Methods    size: 0x24e count: 4:\n  Fields     size: 0x12 count: 2:\n  Attributes size: 0xa count: 1:\n  Interfaces size: 0x2 count: 0:\n\n",
             "broken": false
         },
         {
             "name": "java prototypes a",
-            "file": "zip://../bins/java/example.zip::0",
+            "file": "zip://bins/java/example.zip::0",
             "args": "",
             "commands": [
                 "java prototypes a",
@@ -179,7 +179,7 @@
         },
         {
             "name": "java m_info s",
-            "file": "zip://../bins/java/example.zip::0",
+            "file": "zip://bins/java/example.zip::0",
             "args": "",
             "commands": [
                 "",
@@ -192,7 +192,7 @@
         },
         {
             "name": "java f_info s",
-            "file": "zip://../bins/java/example.zip::0",
+            "file": "zip://bins/java/example.zip::0",
             "args": "",
             "commands": [
                 "java f_info s",

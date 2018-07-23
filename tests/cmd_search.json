@@ -334,10 +334,10 @@
             "file": "bins/pe/standard.exe",
             "args": "",
             "commands": [
-                "e asm.arch = x86\r",
-                "e anal.arch = x86\r",
-                "e asm.bits=32\r",
-                "\"/c/ ror (bh|...), (cl|.)\"\r",
+                "e asm.arch = x86",
+                "e anal.arch = x86",
+                "e asm.bits=32",
+                "\"/c/ ror (bh|...), (cl|.)\"",
                 "q"
             ],
             "expected": "0x004019d2   # 2: ror esp, cl\n0x004019d5   # 2: ror bh, 1\n0x004019da   # 3: ror ebp, 0xe5\n",
@@ -512,7 +512,7 @@
                 "/v4j 0x78563412",
                 ""
             ],
-            "expected": "[{\"offset\":0,\"type\":\"hexpair\",\"data\":\"12345678\"},{\"offset\":10,\"type\":\"hexpair\",\"data\":\"12345678\"}]",
+            "expected": "[{\"offset\":0,\"type\":\"hexpair\",\"data\":\"12345678\"},{\"offset\":10,\"type\":\"hexpair\",\"data\":\"12345678\"}]\n",
             "broken": false
         },
         {
@@ -804,7 +804,7 @@
             "args": "",
             "commands": [
                 "wx 90 @ 0x10",
-                "/F ../bins/other/radiff2/radiff2_c_2",
+                "/F bins/other/radiff2/radiff2_c_2",
                 ""
             ],
             "expected": "0x00000010 hit0_0 90\n\n",
@@ -816,7 +816,7 @@
             "args": "",
             "commands": [
                 "wx 210a @ 0x10",
-                "/F ../bins/elf/analysis/hello.raw 48",
+                "/F bins/elf/analysis/hello.raw 48",
                 ""
             ],
             "expected": "0x00000010 hit0_0 210a\n\n",
@@ -828,7 +828,7 @@
             "args": "",
             "commands": [
                 "wx 0e @ 0x10",
-                "/F ../bins/elf/analysis/hello.raw 1 1",
+                "/F bins/elf/analysis/hello.raw 1 1",
                 ""
             ],
             "expected": "0x00000010 hit0_0 0e\n\n",
@@ -840,7 +840,7 @@
             "args": "",
             "commands": [
                 "wx 8048 @ 0x10",
-                "/F ../bins/elf/analysis/hello.raw 0x1c 0x2",
+                "/F bins/elf/analysis/hello.raw 0x1c 0x2",
                 ""
             ],
             "expected": "0x00000010 hit0_0 8048\n\n",
