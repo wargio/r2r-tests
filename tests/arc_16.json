@@ -10,7 +10,7 @@
                 "pad 80210503"
             ],
             "expected": "add r1, r1, 0x14c\n",
-            "broken": true
+            "broken": false
         },
         {
             "name": "arc_16: d \"add.nz r18, r18, 0xfff\" c022822f0000ff0f",

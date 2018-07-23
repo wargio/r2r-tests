@@ -139,10 +139,9 @@
                 "e asm.lines.bb=false",
                 "e asm.comments=false",
                 "pD@x:8d15d0830408",
-                "",
                 ""
             ],
-            "expected": " 0x00000000      8d15d0830408   lea edx, [0x80483d0]\n\n",
+            "expected": "  0x00000000      8d15d0830408   lea edx, [0x80483d0]\n\n",
             "broken": false
         },
         {
@@ -156,10 +155,9 @@
                 "e asm.lines.bb=false",
                 "e asm.comments=false",
                 "pD@x:8d15d0830408",
-                "",
                 ""
             ],
-            "expected": " 0x00000000      8d15d0830408   lea edx, [0x80483d0]\n\n",
+            "expected": "  0x00000000      8d15d0830408   lea edx, [0x80483d0]\n\n",
             "broken": false
         },
         {
@@ -213,10 +211,9 @@
             "commands": [
                 "pd 2",
                 "pi 2",
-                "",
                 ""
             ],
-            "expected": "            ;-- entry0:\n            ;-- section..text:\n            ;-- _start:\n            0x004005c0      31ed           xor ebp, ebp                ; [14] -r-x section size 584 named .text\n            0x004005c2      4989d1         mov r9, rdx\nxor ebp, ebp\nmov r9, rdx\n",
+            "expected": "            ;-- entry0:\n            ;-- section..text:\n            ;-- _start:\n            ;-- rip:\n            0x004005c0      31ed           xor ebp, ebp                ; [14] -r-x section size 584 named .text\n            0x004005c2      4989d1         mov r9, rdx\nxor ebp, ebp\nmov r9, rdx\n",
             "broken": false
         },
         {
@@ -254,9 +251,9 @@
             "file": "bins/elf/crackme0x05",
             "args": "",
             "commands": [
-                "e asm.flags.offset=1s sym.check",
-                "pd 1",
-                ""
+                "e asm.flags.offset=1",
+                "s sym.check",
+                "pd 1"
             ],
             "expected": "            0x080484c8  check:\n            0x080484c8      55             push ebp\n",
             "broken": false
