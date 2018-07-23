@@ -8,12 +8,9 @@
             "commands": [
                 "",
                 "# The test suite is not allowed to interpret the output!",
-                "?e ",
-                "",
-                "",
-                ""
+                "?e "
             ],
-            "expected": "\n\n\n",
+            "expected": "\n\n",
             "broken": false
         },
         {
@@ -204,7 +201,6 @@
             "file": "-",
             "args": "",
             "commands": [
-                " do not convert test to base64",
                 "?e aaa",
                 "\"?e bbb  \"",
                 "?e ccc",
@@ -212,7 +208,7 @@
                 "?e eee",
                 "\"?e fff        \""
             ],
-            "expected": "aaa\nbbb  \nccc\nddd     \neee\nfff        ",
+            "expected": "aaa\nbbb  \nccc\nddd     \neee\nfff        \n",
             "broken": false
         }
     ]
