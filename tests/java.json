@@ -182,13 +182,11 @@
             "file": "zip://bins/java/example.zip::0",
             "args": "",
             "commands": [
-                "",
                 "s 0x312",
-                "java m_info s",
-                ""
+                "java m_info s"
             ],
             "expected": "Method Summary Information:\n  File Offset: 0x00000299\n  Name Index: 24 (\u003cinit\u003e)\n  Descriptor Index: 19 (()V)\n  Access Flags: 0x01 (public)\n  Method Attributes Count: 1\n  Method Attributes:\nCode Attribute Information:\n  Attribute Offset: 0x000002a1\n  Attribute Name Index: 26 (Code)\n  Attribute Length: 29, Attribute Count: 1\n    Max Stack: 1\n    Max Locals: 1\n    Code Length: 5\n    Code At Offset: 0x000002af\nCode Attribute Exception Table Information:\n  Exception Table Length: 0\n  Implicit Method Stack Frame:\nStack Map Frame Information\n  Tag Value = 0x00 Name: ImplicitStackFrame\n  Offset: 0x00000000\n  Local Variable Count = 0x0000\n  Stack Items Count = 0x0000\n  Local Variables:\n  Stack Items:\nCode Attribute Attributes Information:\n  Code Attribute Attributes Count: 1\nLine Number Table Attribute Information:\n  Attribute Offset: 0x000002b8\n  Attribute Name Index: 27 (LineNumberTable)\n  Attribute Length: 6\n  Line Number Attribute Offset: 0x000002c0\n  Line Number Attribute StartPC: 0\n  Line Number Attribute LineNumber: 7\n\n",
-            "broken": false
+            "broken": true
         },
         {
             "name": "java f_info s",
@@ -199,7 +197,7 @@
                 ""
             ],
             "expected": "Field Summary Information:\n  File Offset: 0x00000287\n  Name Index: 40 (a)\n  Descriptor Index: 41 (Z)\n  Access Flags: 0x09 (public static)\n  Field Attributes Count: 0\n  Field Attributes:\n\n",
-            "broken": false
+            "broken": true
         },
         {
             "name": "java simple switch statement 4 values no breaks",
